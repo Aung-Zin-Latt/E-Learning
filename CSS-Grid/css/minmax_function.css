@@ -1,0 +1,12 @@
+/***********************
+Grid Container
+***********************/
+
+.grid {
+    max-width: 800px;
+    display: grid;
+    /* grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr); */
+    grid-template-columns: repeat(3, minmax(200px, 1fr));
+    grid-template-rows: repeat(2, 200px);
+    grid-gap: 15px;
+}

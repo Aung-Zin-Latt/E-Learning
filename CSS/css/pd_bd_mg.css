@@ -1,0 +1,95 @@
+body {
+    margin: 0;
+    color: #878787;
+    font-size: 1em;
+    /* This is a relative unit and 16px/16 = 1em */
+}
+
+h1 {
+    font-size: 5.625rem;
+    /*This is relative unit and 90px/16 = 5.625em */
+    color: white;
+}
+
+.title {
+    font-size: 1.625rem;
+    /* This is relative unit and 26px/16 = 1.625em */
+    color: white;
+}
+
+h2 {
+    font-size: 3.3125em;
+    /* 53px/16 */
+    font-weight: normal;
+    line-height: 1.1;
+    margin-bottom: .53em;
+}
+
+h3 {
+    font-size: 1.25em;
+    /* 20px/16 */
+    color: #48525c;
+    line-height: 1.2;
+    margin-bottom: 1.7em;
+}
+
+
+/****************** 
+Class Selectors 
+******************/
+
+.main-header {
+    background-color: orange;
+    /* width: 50%; */
+    font-size: 2em;
+}
+
+.primary-content {
+    text-align: center;
+}
+
+.secondary-content {
+    border-top: 3px solid lightgray;
+}
+
+.primary-content,
+.secondary-content {
+    width: 60%;
+    margin: auto;
+}
+
+.wildlife {
+    color: white;
+    background-color: #434a52;
+    /* padding-top: 18%;
+    padding-right: 18%;
+    padding-bottom: 24%;
+    padding-left: 24%; */
+    padding: 18% 24%;
+    /* Shorthand padding property for above padding property */
+    /* border-width: 10px;
+    border-style: dashed;
+    border-color: #ffa949; */
+    border: 10px dashed #ffa949;
+    /* shortand border property for above border property */
+    border-bottom-style: solid;
+    border-bottom-width: 10px;
+    border-bottom-color: red;
+    /* margin-top: 105px;
+    margin-right: 0;
+    margin-bottom: 60px;
+    margin-left: 0; */
+    margin: 105px 0 60px 0;
+    /* shortand margin property for above margin property */
+}
+
+
+/****************** 
+ID Selectors 
+******************/
+
+#main-footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid 10px orange;
+}

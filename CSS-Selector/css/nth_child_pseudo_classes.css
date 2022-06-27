@@ -1,0 +1,10 @@
+ /* :nth-child Pseudo-classes ------------- */
+ 
+ li:nth-child(even) {
+     background: #52bab3;
+     color: white;
+ }
+ 
+ li:nth-child(2n+1) {
+     background: purple;
+ }

@@ -1,0 +1,58 @@
+/**********************
+Page Layout
+**********************/
+
+body {
+    color: white;
+}
+
+header {
+    background: rgb(79, 81, 199);
+}
+
+main {
+    background: lightblue;
+}
+
+aside {
+    background: rgb(108, 185, 108);
+}
+
+footer {
+    background: rgb(55, 90, 124);
+}
+
+
+/**********************
+Grid Layout
+**********************/
+
+.container {
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 100px minmax(200px, 1fr) 100px;
+    grid-gap: 10px;
+    grid-template-areas: "header header" "main aside" "footer aside"
+    /* "header ..."
+        "main aside"
+        "footer ." */
+    /* dot (.) assign for empty grid cell */
+    ;
+}
+
+header {
+    grid-area: header;
+}
+
+main {
+    grid-area: main;
+}
+
+aside {
+    grid-area: aside;
+}
+
+footer {
+    grid-area: footer;
+}

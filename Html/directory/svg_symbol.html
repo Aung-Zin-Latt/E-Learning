@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grouping and referencing SVG</title>
+    <style>
+        .heart-red {
+            fill: #c44;
+            color: rgb(243, 35, 163);
+        }
+        
+        .heart-green {
+            fill: #41af5d;
+            color: brown;
+        }
+        
+        .heart-blue {
+            fill: #2e97af;
+            color: grey;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- HEART GRAPHIC-->
+    <svg version="1.0" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="heart" viewBox="0 0 113.8 96.2">
+            <path d="M96 0L67.5 5.2 56.9 23.3v72.8l56.9-55.6z"/>
+            <path fill="currentColor" d="M46.4 5.3L17.9.1 0 40.6l56.9 55.6.1-72.8z"/>
+        </symbol>
+    </svg>
+
+    <div class="main">
+        <!--RED-->
+        <svg width="150" height="150">
+            <use xlink:href="#heart" class="heart-red" />
+        </svg>
+
+        <!--GREEN-->
+        <svg width="130" height="130">
+            <use xlink:href="#heart" class="heart-green" />
+        </svg>
+
+        <!--BLUE-->
+        <svg width="110" height="110">
+            <use xlink:href="#heart" class="heart-blue" />
+        </svg>
+    </div>
+</body>
+
+</html>

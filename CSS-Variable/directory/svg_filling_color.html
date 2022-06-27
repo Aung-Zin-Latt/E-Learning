@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Creating SVG with CSS Variables</title>
+    <link rel="stylesheet" href="../css/svg_filling_color.css">
+</head>
+
+<body>
+    <!-- HEART GRAPHIC -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+    <symbol id="heart" viewBox="0 0 113.8 96.2">
+        <path fill="var(--secondary-fill)" d="M96 0L67.5 5.2 56.9 23.3v72.8l56.9-55.6z"/>
+        <path fill="var(--primary-fill)" d="M46.4 5.3L17.9.1 0 40.6l56.9 55.6.1-72.8z"/>
+    </symbol>
+</svg>
+
+    <div class="main">
+        <!-- Red -->
+        <svg width="180" height="180" class="heart-red">
+        <use xlink:href="#heart"/>
+    </svg>
+
+        <!-- Green -->
+        <svg width="160" height="160" class="heart-green">
+        <use xlink:href="#heart"/>
+    </svg>
+
+        <!-- Blue -->
+        <svg width="140" height="140" class="heart-blue">
+        <use xlink:href="#heart"/>
+    </svg>
+    </div>
+</body>
+
+</html>

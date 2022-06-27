@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS New Features</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>Filters in CSS New Features</h2>
+    <p>ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့က CSS ရဲ့ latest features တွေဖြစ်တဲ့ filter effects, new Calc function, flex block နဲ့ multi-column layout တွေအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ဒီတော့ အရင်ဆုံး CSS filter effects အကြောင်းကိုသွားရအောင်။ Filter effects တွေကတော့
+        photoshop effects တွေလိုမျိုး HTML content တွေကို simple CSS syntax နဲ့ apply လုပ်ပေးပါတယ်။ အခု filter property တစ်ခုနဲ့ ကျွန်တော်တို့က blurs နဲ့ drop shadows တွေလိုမျိုး hardware accelerated effects တွေကို create လုပ်နိုင်ရုံသာမက အခြား effects
+        တွေဖြစ်တဲ့ gray scale နဲ့ contrast adjustments တွေကို CSS line တစ်ခုတည်းနဲ့ပါ create လုပ်နိုင်ပါတယ်။ Filter functions တွေရဲ့ documentation ကိုလေ့လာချင်တယ်ဆိုရင်တော့ <a href="https://www.w3.org/TR/filter-effects-1/#filter-functions">w3.org</a>        မှာလေ့လာနိုင်ပါတယ်။ အခုဆိုရင် filters တွေဟာ images, texts, video နဲ့ canvas elements တွေလိုမျိုး ဘယ် DOM element ပေါ်ကိုမဆို apply လုပ်နိုင်ပါတယ်။ Filters တွေက ဘာလုပ်လဲဆိုရင် ကျွန်တော်တို့ render လုပ်ထားတဲ့ page က load မဖြစ်ခင် ကျွန်တော်တို့သုံးတဲ့
+        filter က bit map တစ်ခုအဖြစ် page ရဲ့ snapshot တစ်ခုကိုယူလိုက်တာဖြစ်ပါတယ်။ ထို့နောက် ကျွန်တော်တို့ pass လုပ်လိုက်တဲ့ parameters တွေအပေါ်မူတည်ပြီး browser ထဲမှာ little pixel magic တစ်ခုဖြစ်သွားပါတယ်။ ပြီးတော့ သူက သူ့ရဲ့ composite နဲ့ render မပြီးခင်
+        original page image ပေါ်မှာ effect ကို apply လုပ်လိုက်ပါတယ်။ Filter ရဲ့အကောင်းဆုံးနည်းကတော့ camera lense ပေါ်မှာ အလုပ်လုပ်နေသလို လုပ်ဆောင်ပေးတာဖြစ်ပါတယ်။ လက်ရှိမှာ အဲ့ဒီ filters တွေကို Chrome နဲ့ Safari ကဲ့သို့သော browser ကို အခြေခံထားတဲ့ webkit
+        ထဲမှာပဲ implement လုပ်နိုင်သေးပါတယ်။ ဒါကြောင့် အခုကျွန်တော်တို့က webkit vendor prefix ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ ဒါကြောင့် ပထမဆုံး Sepia filter ကိုကြည့်ရအောင်။ Sepia filter ဆိုတာကတော့ antique photograph or old western movie လိုမျိုး image တွေကိုတွေ့ရမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့ CSS file ထဲမှာ webkit vendor prefix နဲ့ သူ့နောက်က filter ဆိုတဲ့ property လိုက်ပြီး sepia() လို့ရေးပေးရမှာဖြစ်ပါတယ်။ Eg. -webkit-filter: sepia(); ။ sepia ထဲမှာ percentage နဲ့ argument တစ်ခုကို accept လုပ်ပေးပါတယ်။ ဒီလိုလုပ်လိုက်မယ်ဆိုရင်တော့
+        ကျွန်တော်တို့ image က old-time လိုမျိုး အရောင်မှိန်မှိန် ဖြစ်သွားမှာပါ။ တစ်ကယ်လို့ ကျွန်တော်တို့ image ကို black & white ပြုလုပ်ချင်တယ်ဆိုရင် grayscale ဆိုတဲ့ filter ကိုသုံးပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒီ grayscale value ဟာ 0% ဆိုရင် ဘာမှာပြောင်းလဲမှာ
+        မဟုတ်ဘဲ 100% ဆိုမှသာ ကျွန်တော်တို့ image gallery ကို gray scale အဖြစ်ပြောင်းသွားမှာ ဖြစ်ပါတယ်။ opacity ဆိုတဲ့ filter နဲ့ ကျွန်တော်တို့ image ကို semi-transparent ပြုလုပ်နိုင်ပါတယ်။ Blur လိုမျိုး အခြား effects တွေဟာလည်း ကျွန်တော်တို့ image ကို
+        Gaussian blur effect တွေ apply ဖြစ်စေပါတယ်။ Blur ကတော့ သူ့ရဲ့ argument တစ်ခုကို pixels တွေနဲ့ accept လုပ်ပါတယ်။ နောက်ထပ် cool feature တစ်ခုကတော့ Hue Rotate ပဲဖြစ်ပါတယ်။ Hue Rotate ဟာ color wheel ထဲက hue angles နဲ့ input image ရဲ့ original colors
+        တွေပါ်မှာ အခြေခံပြီး hues တွေကို adjust လုပ်ပေးပါတယ်။ hue-rotate ကတော့ parameter ကို degree နဲ့ accept လုပ်ပေးပါတယ်။ Favorite filter effect တစ်ခုကတော့ Drop Shadow ပဲဖြစ်ပါတယ်။ drop-shadow ကတော့ box-shadow နဲ့တူတူပါပဲ။ box-shadow လိုမျိုးပဲ X offset
+        နဲ့ Y offset ကို provide လုပ်ပြီး နောက်မှာ blur radius value လိုက်ပြီး နောက်ဆုံးမှာတော့ drop-shadow ရဲ့ color value လိုက်ပါတယ်။ Drop-shadow ဆိုတဲ့ filter ဟာ CSS box-shadow ထက်ပိုပြီး powerful ဖြစ်ပါတယ်။ Box shadow ဟာ image ရဲ့ edges တွေမှာ shadow
+        တစ်ခုဖြစ်စေပြီးတော့ drop-shadow filter ကတော့ image ရဲ့ transparent areas တွေပေါ်မူတည်ပြီး shadow effects တွေပြုလုပ်ပေးပါတယ်။
+    </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;CSS Filter Effects&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/filter.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;img src="../images/mike.png" alt="Frog Image"&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            body {
+                background: #262626;
+                text-align: center;
+                padding-top: 20px;
+            }
+            
+            img {
+                width: 60%;
+                /* border: 5px solid #FFF; */
+                /* -webkit-filter: sepia(100%); */
+                /* -webkit-filter: drop-shadow(20px 20px 10px #000); */
+                /* -webkit-filter: blur(5px); */
+                /* -webkit-filter: grayscale(100%); */
+                /* -webkit-filter: hue-rotate(100deg); */
+                /* -webkit-filter: opacity(50%); */
+                -webkit-filter: drop-shadow(20px 20px 10px #000);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/filter.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Calc() Function</h2>
+    <p>နောက်ထပ် method တစ်ခုကတော့ Calc function ပဲဖြစ်ပါတယ်။ အဲ့ဒီ new Clac CSS method ကတော့ ကျွန်တော်တို့ကို length units တွေရဲ့ values တွေကို mathematical expressions တွေနဲ့ calculate လုပ်ဖို့ ခွင့်ပြုပေးပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့က Calc function ကို
+        ဘယ်နေရာမှာဖြစ်ဖြစ် အသုံးပြုနိုင်ပါတယ်။ Length unit တစ်ခုမှာ pixel and/or percentage တစ်ခုလိုအပ်ပြီး အဲ့ဒီ expressions တွေနဲ့ပဲ sizing units တွေရဲ့ mixture တစ်ခုကိုသုံးပြီး HTML elements တွေအတွက် size ကို သတ်မှတ်ပေးနိုင်ပါတယ်။ ဒါဆို Calc functions
+        တွေ ဘယ်လိုအလုပ်လုပ်လဲကြည့်ရအောင်။ Calc property ကို Style sheet ထဲမှာရှိတဲ့ CSS length or number ရှိတဲ့ ဘယ်နေရာမဆို သုံးနိုင်ပါတယ်။ ကျွန်တော်တို့က Clac တွေကိုသုံးတဲ့အခါ browser က math နဲ့ outputs တွေကို correct sizes တွေအတိုင်း အလုပ်လုပ်ပေးပါတယ်။
+        ဥပမာအနေနဲ့ ကျွန်တော်တို့မှာ class name "wrapper" ဆိုတဲ့ div တစ်ခုနဲ့ markup တစ်ခုရှိပါမယ်။ အဲ့ဒီ wrapper div ရဲ့ background ကို blue color ပေးထားပါတယ်။ ပြီးတော့ width: ဆိုတဲ့ property နဲ့ -webkit vendor prefix နဲ့ calc() expression ကိုရေးလိုက်ပါမယ်။
+        ကျွန်တော်တို့ရဲ့ expression ထဲမှာ ဥပမာအနေနဲ့ astricks ကို multiply အတွက်သုံးနိုင်ပါတယ်။ ဒါတင်မကဘဲ substract အတွက် minus(-) တို့နဲ့ percentage values တွေထဲက pixel values တွေကို နှုတ်ပေးနိုင်ပါတယ်။ Calc function ဟာ valuable CSS feature တစ်ခုပဲ ဖြစ်ပါလိမ့်မယ်။
+        သူ့ရဲ့ great thing ကတော့ ကျွန်တော်တို့ကို absolute values တွေနဲ့ percentages values တွေကို mix လုပ်ဖို့ ခွင့်ပြုပေးနိုင်ရုံသာမက layout ကိုပိုပြီး flexible ဖြစ်ဖို့အတွက် sizing units တွေကိုပါ mixing လုပ်ဖို့ ခွင့်ပြုပေးပါတယ်။ ဒါကြောင့် သူဟာ LES
+        or SAS တွေလုပ်သလို pre-processors ထဲက math functions တွေနဲ့ တစ်ကယ်ကိုဆင်တူပါတယ်။ Calc အတွက် browser support ကလည်း တစ်ကယ်ကိုကောင်းပါတယ်။ Firefox, Chrome, Safari နဲ့ IOS Safari စတဲ့ browser တွေအများစုမှာ support ပေးနိုင်ပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့က
+        webkit vendor prefixes တွေတော့ လိုအပ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;CSS Calc() Function&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/calc_function.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="wrapper"&gt;
+            
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            html {
+                height: 100%;
+            }
+            
+            body {
+                margin: 0;
+                height: 100%;
+                color: #fff;
+            }
+            
+            .wrapper {
+                background: #1E90FF;
+                height: -webkit-calc(80% - 100px);
+                /*width: -webkit-calc(50% - 120px);*/
+                width: -webkit-calc(100%/3 + 2em);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/calc_function.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Flexbox Property</h2>
+    <p>ကျွန်တော်တို့ ဒီတစ်ခါပြောပြသွားမှာကတော့ Flexible layout or Flexbox feature ပဲဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ပြောခဲ့သလို CSS ဟာ layout တွေကို handle လုပ်ဖို့အတွက် great language ဆိုပြီး တိတိကျကျမရှိပါဘူး။ ဥပမာပြောရမယ်ဆိုရင် floats တွေမှာ common
+        layout method တစ်ခုရှိပေမယ့်လည်း အဲ့ဒါတွေက complicated ဖြစ်တဲ့ box model တွေပဲဖြစ်ပါတယ်။ ဘာဖြစ်လို့လဲဆိုရင် သူက elements တွေကို normal document flow ရဲ့အပြင်ဘက်ကနေ ယူလိုက်လို့ဖြစ်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့မှာ clear fixes (သို့) vertical alignment
+        issues တွေကိုလည်း စိုးရိမ်ရပါသေးတယ်။ ဒါကြောင့် new flex box feature ဟာဆိုရင် layout အတွက် တစ်ကယ်ကိုအသုံးဝင်ပြီး powerful ဖြစ်တဲ့ အခြေခံတစ်ခုဖြစ်ပါတယ်။ ပြီးတော့ layout အများစုမှာဖြစ်တဲ့ issues တွေကိုလည်း ဖြေရှင်းပေးပါတယ်။ အခုလက်ရှိမှာဆိုရင် new
+        CSS Flex box feature ကို Safari, Firefox နဲ့ IE-- တွေမှာ support ပေးပါတယ်။ ကျွန်တော်တို့ရဲ့ latest specification နဲ့ syntax တွေကို support ပေးနိုင်တဲ့ browsers တွေကတော့ Chrome နဲ့ Opera တို့ပဲဖြစ်ပြီး မကြာခင် modern browser အားလုံးမှာ support
+        ပေးနိုင်ဖို့ ရှိပါတယ်။ အခု Flex box တွေဘယ်လိုအလုပ်လုပ်လဲဆိုတာ ကြည့်ရအောင်။ Flex Box ဟာ 1-dimensional CSS layout ကို ကောင်းစွာ handle လုပ်နိုင်ပါတယ်။ ဘာဖြစ်လိုလဲဆိုရင် ကျွန်တော်တို့ဟာ elements တွေကို up, down, left, or right ဆိုပြီး ဘယ် direction
+        မဆို layout ချနိုင်လို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ box တွေကို grow, shrink နဲ့ autofill space တွေကိုလည်း ပြုလုပ်နိုင်ပါတယ်။ ဒါကြောင့် line တစ်ခုထဲက boxes တွေပါတဲ့ အရာအားလုံးကို flex box တွေက ကောင်းစွာအလုပ်လုပ်ပေးနိုင်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့
+        example ထဲက unordered list ထဲမှာ list item လေးခုရှိပြီး အဲ့ဒီ list itemလေးခုရဲ့ parent element ဖြစ်တဲ့ ul ကိုယူပြီး CSS file ထဲမှာ display: -webkit-flex; လို့ရေးပေးရပါမယ်။ အခုဆိုရင် Flex value ဟာ ကျွန်တော်တို့ရဲ့ unordered list ကို Flex Container
+        Box တစ်ခုဖြစ်စေပြီး ul ရဲ့ content or children တွေကလည်း flex items အဖြစ်ပြောင်းလဲသွားပါတယ်။ အခုဆိုရင် browser မှာ ကျွန်တော်တို့ list items တွေက row တစ်ခုအတွင်း flex items တွေအဖြစ် ရှိနေမှာပါ။ ဒါပေမယ့် ကျွန်တော်တို့က 1 column အဖြစ် အဲ့ဒီ flex items
+        တွေကို လိုချင်တယ်ဆိုရင် flex-flow ဆိုတဲ့ property ကိုအသုံးပြုရမှာဖြစ်ပြီး သူ့ရဲ့ value ကတော့ column ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ column တွေကို ပြောင်းပြန်လုပ်ချင်ရင်တော့ column-reverse ကိုသုံးပေးရမှာဖြစ်ပါတယ်။ နောက် property တစ်ခုကတော့ Flex grow
+        ဖြစ်ပြီး သူဟာ container ထဲမှာရှိတဲ့ ကျန်နေတဲ့ flex items တွေနဲ့ relative ဖြစ်စွာ grow ဖြစ်မယ့် flex item ဘယ်လောက်များလဲဆိုတာကို ဆုံးဖြတ်ပေးပါတယ်။ အခု ကျွန်တော်တို့ flex items တွေရဲ့ order ကို ပြောင်းလဲချင်တယ်ဆိုရင်တော့ order property ကိုအသုံးပြုရမှာဖြစ်ပြီး
+        သူ့ရဲ့ value ကို -1 ပေးလိုက်မယ်ဆိုရင် ကျွန်တော်တို့ select လုပ်ထားတဲ့ item က list ရဲ့ရှေ့ဆုံးကိုရောက်သွားမှာဖြစ်ပါတယ်။ Flex box နဲ့ boxes တွေကို vertically align လုပ်ရတာပိုလွယ်ကူပါတယ်။ ပုံမှန်အားဖြင့်ဆိုရင် ကျွန်တော်တို့က margins, padding, line-height,
+        or display တွေကိုသုံးပြီး လိုချင်တဲ့ vertical alignment တွေရဖို့ ပြုလုပ်နေရပါတယ်။ ဒါပေမယ့် flex box ကတော့ align-self ဆိုတဲ့ property ကိုသုံးပြီး vertical alignment ကို ဖန်တီးလို့ရပါတယ်။ align-self property မှာ value အနေနဲ့ center, flex-end, flex-start
+        စသဖြင့်ရှိပါတယ်။ သူတို့အားလုံးဟာ flex container ထဲမှာတော့ wrap ဖြစ်နေမှာမဟုတ်ပါဘူး။ ပြောချင်တာက list items တွေက flex container ကိုကျော်ပြီး overflowing ဖြစ်နေပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ရဲ့ ul ထဲမှာ flex-wrap ဆိုတဲ့ property ကို value ဖြစ်တဲ့
+        wrap ဆိုပြီးထည့်ပေးဖို့လိုပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Flexbox&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/flexbox_style.css"&gt;
+                &lt;link rel="stylesheet" href="../css/flexbox.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Item 1&lt;/li&gt;
+                    &lt;li&gt;Item 2&lt;/li&gt;
+                    &lt;li&gt;Item 3&lt;/li&gt;
+                    &lt;li&gt;Item 4&lt;/li&gt;
+                    &lt;li&gt;Item 5&lt;/li&gt;
+                    &lt;li&gt;Item 6&lt;/li&gt;
+                    &lt;li&gt;Item 7&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of Layout CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                background: rgb(80, 82, 99);
+            }
+            
+            li {
+                color: white;
+                border-radius: 5px;
+                padding: 3px 15px 0;
+                background: rgb(160, 184, 182);
+                list-style: none;
+                margin-top: 3px;
+                margin-right: 5px;
+            }
+            
+            ul {
+                width: 75%;
+                margin: auto;
+                border-radius: 5px;
+                background: rgb(155, 164, 167);
+            }
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            ul {
+                display: -webkit-flex;
+                -webkit-flex-flow: row;
+                -webkit-flex-wrap: wrap;
+                /*column, column-reverse */
+                /* -webkit-justify-content: space-between; */
+            }
+            
+            li {
+                -webkit-flex-grow: 1;
+                height: 300px;
+            }
+            
+            li:nth-child(3) {
+                -webkit-flex-grow: 5;
+                -webkit-order: -1;
+                height: 75px;
+                -webkit-align-self: center;
+                /*flex-start, flex-end */
+            } 
+        </code>
+    </pre>
+    <p>
+        <a href="directory/flexbox.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Multi Column Layout</h2>
+    <p>နောက်ထပ် layout feature အသစ်တစ်ခုကတော့ multi-column layout ပဲဖြစ်ပါတယ်။ Multi-column layout ဟာ layout flexibility တွေပေးနိုင်တဲ့ Flex Box တွေနဲ့ဆင်တူပါတယ်။ ဒါပေမယ့် သူတို့နှစ်ခုရဲ့ ခြားနားချက်ကတော့ သူ့ကို multiple text columns တွေ create လုပ်ဖို့
+        text layout အတွက် design ပြုလုပ်ထားတာဖြစ်ပြီး သူ့ဟာ document အတွင်းမှာတော့ new box တစ်ခုလုံးနဲ့ new section တစ်ခုကိုတော့ create မလုပ်ပေးပါဘူး။ သူဟာ same box အတွင်းမှာပဲ box ရဲ့ content ကို multiple columns တွေအဖြစ် flowing လုပ်ခြင်းဖြင့် block
+        layout mode ကို extend လုပ်ပေးရုံပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ columns ရဲ့ widths, gaps, rules နဲ့ နောက်ထပ် simple CSS properties အများကြီးကို determine လုပ်ပေးနိုင်ပါတယ်။ Multi-column layout ဟာ content က multiple column boxes တွေထဲကို flow ဖြစ်နေတဲ့
+        column box container ရဲ့ new type တစ်ခုနဲ့ မိတ်ဆက်ပေးလိုက်ပါတယ်။ အောက်က example မှာဆက်ကြည့်ရအောင်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Multi-column Layout&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/multi_column_layout.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div&gt;
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in
+                    reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+                    &lt;h2&gt;Lorem ipsum dolor sit amet&lt;/h2&gt;
+                    Mauris ac leo id risus commodo auctor at at eros. Proin ultricies ante vel eros egstas vel venenatis arcu consequat. Nam auctor eros vitae nisl viverra sit amet malesuada turpis facilisis. Nullam diam dolor, aliquet vitae pellentesque blandit, varius
+                    at arcu. Proin convallis varius sollicitudin. Sed accumsan posuere eros quis placerat. Vestibulum sit amet malesuada elit. Quisque commodo egestas adipiscing. Nunc et neque non nisi consequat porta.
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            body {
+                font: 100%/1.5em sans-serif;
+                padding: 8% 5%;
+            }
+            
+            div {
+                -webkit-column-count: 4;
+                -webkit-column-gap: 3em;
+                -webkit-column-rule: 1px dotted;
+                -webkit-column-width: 250px;
+            }
+            
+            h2 {
+                -webkit-column-span: all;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/multi_column_layout.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Pseudo Class and Some Media Features</h2>
+    <p>အခု ကျွန်တော်တို့က level 4 selectors တွေအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒီမှာဆိုရင် location pseudo-classes လို့ခေါ်တဲ့ pseudo-classes တွေရဲ့ class တစ်ခုရှိပါတယ်။ ပြီးတော့ နောက်ထပ်ပြောချင်တာတစ်ခုကတော့ local-link ဆိုတဲ့ pseudo-class ပဲဖြစ်ပါတယ်။
+        local-link ဟာ တစ်ကယ်ကို useful ဖြစ်တဲ့ selector တစ်ခုဖြစ်ပြီး သူ့ကိုသုံးပြီး ကျွန်တော်တို့ current page က navigation link ကို styling လုပ်နိုင်ပါတယ်။ ပုံမှန်အားဖြင့်ဆိုရင် ကျွန်တော်တို့က current or active ကဲ့သို့သော သီးသန့် CSS class တစ်ခုကိုသုံးပါတယ်။
+        ပြီးတော့ သူ့ကို markup နဲ့ manually အရ add လုပ်ပြီး (သို့) PHP ကို through လုပ်ပြီး nav ထဲက current page item ဆီကို apply လုပ်လိုက်ပါတယ်။ အခု local-link pseudo-class နဲ့ဆိုရင် လက်ရှိ current page ကို link ဖြစ်နေနဲ့ page ပေါ်က links အားလုံးကို
+        target လုပ်နိုင်မှာ ဖြစ်ပါတယ်။ ဥပမာအနေနဲ့ nav ထဲက current page link ကနေ underline text migration ကို remove လုပ်ချင်တယ်ဆိုရင် ကျွန်တော်တို့ရဲ့ nav ကိုပဲ select လုပ်ပြီးတော့ local-link ဆိုတဲ့ pseudo-class နဲ့ text-decoration ကို none ပေးလိုက်ရုံပဲဖြစ်ပါတယ်။
+        Eg. nav :local-link { text-decoration: none; } ။ နောက်ထပ်သေသပ်တဲ့ တစ်ခုကတော့ selector တစ်ခုရဲ့ subject ကိုဆုံးဖြတ်ပေးနိုင်တဲ့ selector တစ်ခုပဲဖြစ်ပါတယ်။ အခု အဲ့ဒီ selector ကို parent selector တစ်ခုအဖြစ် refer လုပ်ကြပါတယ်။ ဘာလို့လဲဆိုရင် သူဟာ ကျွန်တော်တို့ကို
+        particular child တစ်ခုရဲ့ parent element ကို target လုပ်ဖို့အတွက် ခွင့်ပြုပေးလို့ပဲဖြစ်ပါတယ်။ နောက်ထပ်တစ်ခုကတော့ selector တစ်ခုရဲ့ရှေ့မှာ exclamation တစ်ခုကို pre-pended လုပ်ထားမယ်ဆိုရင် သူဟာ only-child အဖြစ် list item တစ်ခုရှိတဲ့အချိန် ဘယ် ordered
+        list ကိုမဆို select လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ exclamation mark အစား dollar sign ($) ကိုအသုံးပြုလို့ရပေမယ့် exclamation mark က နောက်ဆုံးအသစ်တစ်ခုပဲ ဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ new media queries proposals တွေဖြစ်ပြီး သူတို့ဟာ ပိုပြီးတိကျတဲ့
+        targeting တွေပေးနိုင်တယ် ၊ input types တွေကို responsive design ဖြစ်အောင် ပြုလုပ်နိုင်တယ် ၊ ပြီးတော့ JavaScript လိုမျိုး certain scripts တွေ enable မဖြစ်တဲ့ users တွေအတွက် ကျွန်တော်တို့ရဲ့ content ကို ပိုပြီး accessible ဖြစ်စေပါတယ်။ ဒါကြောင့်
+        ကျွန်တော်တို့ new media features အချို့ကို လေ့လာကြည့်ရအောင်။ Script media feature ဟာ တစ်ကယ်လို့ JavaScript ကို support လုပ်ပေးမယ်ဆိုရင် (သို့) သူဟာ browser မှာ enable ဖြစ်မယ်ဆိုရင် query လုပ်ပေးပါလိမ့်မယ်။ ဒါကြောင့် ကျွန်တော်တို့ browser ထဲမှာ
+        JavaScript က disable ဖြစ်နေတဲ့အချိန် ပိုပြီးလွယ်ကူတဲ့ fallback CSS ကို တည်ဆောက်နိုင်မှာဖြစ်ပါတယ်။ နောက် feature တစ်ခုကတော့ Pointer media feature ပဲဖြစ်ပြီး သူဟာ pointing device တစ်ခုရဲ့ presence နဲ့ accuracy ကို query လုပ်ပေးပါတယ်။ သူ့မှာရှိတဲ့
+        properties တွေကို <a href="https://drafts.csswg.org/mediaqueries-4/#m" target="_blank">Media Features</a> မှာလေ့လာနိုင်ပါတယ်။ အခု hover feature ဆိုတာကတော့ တစ်ကယ်လို့ primary pointing system ဟာ browser မှာရှိတဲ့ mouse (for example) လိုမျိုး hover
+        state တစ်ခုကို create လုပ်နိုင်မယ်ဆိုရင် (သို့) ကျွန်တော်တို့ touched input နဲ့ hover မလုပ်နိုင်တဲ့ touch screen တစ်ခုဖြစ်မယ်ဆိုရင် သူဟာ detect လုပ်ပေးမှာ ဖြစ်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>CSS Blend Modes</h2>
+    <p>နောက်ထပ် feature တစ်ခုကတော့ ကျွန်တော်တို့ရဲ့ graphics editor ထဲက tool တစ်ခုနဲ့ ဆင်တူဖြစ်တဲ့ blend modes ပဲဖြစ်ပါတယ်။ CSS blend ဆိုတာ two or more layers တွေကို အတူတကွ blended လုပ်ထားပြီး သူတို့ဟာ exciting ဖြစ်တဲ့ visual effects တွေကို create လုပ်ဖို့
+        ခွင့်ပြုပေးပါတယ်။ အဲ့ဒီ blending effects တွေကို graphic design or digital image editing တွေမှာ အသုံးပြုနိုင်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ဟာ browser ထဲမှာရှိတဲ့ အဲ့ဒီ same blending effects တွေကို CSS blend modes တွေကိုသုံးပြီး recreate လုပ်နိုင်ပါတယ်။
+        Blend modes တွေဟာ compositing နဲ့ blending CSS specification တွေရဲ့ အစိတ်အပိုင်းတစ်ခုပဲဖြစ်ပါတယ်။ ဒါဆို compositing and blending ဆိုတာ ဘာလဲကြည့်ရအောင်။ Compositing ဆိုတာ element တစ်ခုကို သူ့ရဲ့ backdrop နဲ့ ဘာကို combine လုပ်မလဲလို့ ဆိုလိုတာဖြစ်ပြီး
+        back drop ဆိုတာကတော့ element ရဲ့နောက်မှာရှိတဲ့ content ပဲဖြစ်ပါတယ်။ Blending ဆိုတာကတော့ element တစ်ခုကဘယ်နေရာမှာပဲဖြစ်ဖြစ်၊ backdrop တစ်ခုက ဘယ်နေရာမှာပဲ overlap ဖြစ်ဖြစ် အဲ့ဒီဖြစ်တဲ့နေရာက colors တွေရဲ့ mixing ကို calculate လုပ်ပေးတဲ့ compositing
+        form တစ်ခုပဲဖြစ်ပါတယ်။ အခု CSS နဲ့ပဲ HTML element တစ်ခုရဲ့ background layer တစ်ခုကို အခြား layer တစ်ခုနဲ့ blend လုပ်နိုင်ပါတယ်။ Background layer ကတော့ image, gradient or background color တစ်ခုဖြစ်နိုင်ပါတယ်။ အခုကျွန်တော်တို့ရဲ့ ကိုယ်ပိုင် blending
+        effects တွေကို CSS နဲ့ဘယ်လို create လုပ်မလဲဆိုတာ ကြည့်ရအောင်။ CSS ဟာ elements တွေကို အတူတကွ blend လုပ်နိုင်တဲ့ blend modes 16 ခုထဲက property နှစ်ခုရှိပါတယ်။ အဲ့ဒီ property နှစ်ခုကတော့ background-blend-mode နဲ့ mix-blend-mode တို့ပဲ ဖြစ်ပါတယ်။
+        အဲ့ဒီမှာ background-blend-mode property ကို two or more background layers တွေကို blend လုပ်ချင်တဲ့အခါ အသုံးပြုနိုင်ပါတယ်။ mix-blend-mode property ကတော့ ဘယ် HTML ရဲ့ content (သို) ဘယ် SVG element နဲ့မဆို blend လုပ်ဖို့ ခွင့်ပြုပေးပါလိမ့်မယ်။ background-blend-mode
+        property ရဲ့ default value ကတော့ normal ဖြစ်ပြီး no blending ဖြစ်တယ်လို့သတ်မှတ်တာဖြစ်ပါတယ်။ blend-mode value ဖြစ်တဲ့ multiply ကတော့ body ထဲမှာရှိတဲ့ element ရဲ့ background image ရဲ့ colors ကို ကျွန်တော်တို့ body ထဲမှာ define လုပ်ထားတဲ့ lightgreen
+        background color နဲ့ multiply လုပ်လိုက်ပြီးတော့ darken ဖြစ်စေတာဖြစ်ပါတယ်။ တစ်ကယ်လို့ အမျိုးမျိုးသော 16 blend mode values တွေကို လေ့လာချင်တယ်ဆိုရင်တော့ <a href="https://www.w3.org/TR/compositing-1/#blending" target="_blank">W3C</a> မှာ လေ့လာနိုင်ပါတယ်။
+    </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;CSS Blend Modes&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/blend_mode.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div&gt;
+                    &lt;h1&gt;&lt;span&gt;C&lt;/span&gt;&lt;span&gt;S&lt;/span&gt;&lt;span&gt;S&lt;/span&gt;&lt;/h1&gt;
+                    &lt;p&gt;CSS blend modes let us blend an element's background layer with another layer. They allow blending between background images, gradients and background colors.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;  
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            html,
+            body {
+                height: 100%;
+            }
+            
+            div {
+                max-width: 449px;
+                position: absolute;
+                right: 20px;
+                top: 25%;
+            }
+            
+            
+            /* BLEND MODES */
+            
+            body {
+                font: 1em/1.4 'Helvetica', sans-serif;
+                color: #eee;
+                background: url('../images/falls.jpg') no-repeat, linear-gradient(#6de590, #e67478);
+                background-blend-mode: multiply;
+                /* color, color-burn, color-dodge, darken, difference, multiply, exclusion, hard-light, hue, lighten, luminosity, overlay, normal, saturation, screen, soft-light */
+                background-size: cover;
+            }
+            
+            h1 {
+                font-size: 12em;
+                margin: 0;
+                line-height: 1;
+                letter-spacing: -2rem;
+                color: #6b845e;
+            }
+            
+            span:nth-child(2) {
+                color: #801b3a;
+            }
+            
+            span:nth-child(3) {
+                color: #164d67;
+            }
+            
+            h1 span {
+                mix-blend-mode: screen;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/blend_mode.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Tooltips</h2>
+    <p>ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့က HTML နဲ့ CSS ထက်ပိုပြီး ဘာမှမသုံးဘဲ helper tooltips တွေကို ဘယ်လို create လုပ်မလဲဆိုတာ လေ့လာသွားမှာဖြစ်ပါတယ်။ Tooltips တွေဟာ users တွေဆီကို additional information တွေ provide လုပ်ဖို့အတွက် ကောင်းမွန်တဲ့နည်းလမ်းတစ်ခုဖြစ်ပါတယ်။
+        သူတို့ဟာ အသုံးများတဲ့ design pattern တစ်ခုဖြစ်ပြီး Bootstrap (သို့) Foundation လိုမျိုး popular front-end frameworks တွေမှာ အများဆုံးတွေ့ရပါတယ်။ အဲ့ဒီ framework နှစ်ခုလုံးဟာ frameworks တွေကို handle လုပ်ဖို့ JavaScript ကိုသုံးပါတယ်။ ဒါပေမယ့် သူဟာ
+        CSS တစ်ခုတည်းသုံးပြီး အဲ့ဒီ effect တွေကို create လုပ်ဖို့ အလွန်လွယ်ကူပါတယ်။ ကျွန်တော်တို့လေ့လာမယ့် technique ကတော့ psudo-elements နဲ့ custom data attributes တွေပဲဖြစ်ပါတယ်။ Data attribute ဟာ ကျွန်တော်တို့ရဲ့ tooltip message ကို HTML ထဲမှာ store
+        လုပ်ပြီး ၊ သူ့ရဲ့ value ကိုတော့ tooltip content အဖြစ် display လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ cursor ကို attribute ရဲ့ value ကို help လို့ပေးလိုက်မယ်ဆိုရင် အဲ့ဒီ help ဆိုတဲ့ value ဟာ question mark (?) တစ်ခုနဲ့ pointer တစ်ခုကို add လုပ်ပေးမှာဖြစ်သလို
+        (သို့) question mark (?) တစ်ခုတည်းကိုပဲ add လုပ်သွားမှာဖြစ်ပါတယ်။ Tooltips တွေအလုပ်လုပ်ပုံကို အောက်က example မှာ အသေးစိတ်ကြည့်နိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Tooltips&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/tooltips.css"&gt;
+                &lt;style&gt;
+                    h1 {
+                        font-weight: bold;
+                        font-size: 50px;
+                        color: green;
+                        font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+                        text-align: center;
+                    }
+                    
+                    p {
+                        margin-top: 200px;
+                    }
+                    
+                    span {
+                        color: green;
+                    }
+                &lt;/style&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="wrap"&gt;
+                    &lt;h1&gt;Pure CSS Tooltips&lt;/h1&gt;
+                    &lt;p&gt;To create a tooltip just add the &lt;span class="tool" data-tip="Tooltips are the coolest thing since sliced bread" tabindex="1"&gt;tool&lt;/span&gt; class and the &lt;span class="tool" data-tip="Seriously, How awesome are these tooltips" tabindex="2"&gt;data-tip&lt;/span&gt;            attribute with your tooltip message.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .tool {
+                cursor: help;
+                position: relative;
+            }
+            
+            .tool::before,
+            .tool::after {
+                position: absolute;
+                left: 50%;
+                opacity: 0;
+                z-index: -100;
+            }
+            
+            .tool:hover::before,
+            .tool:focus::before,
+            .tool:hover::after,
+            .tool:focus::after {
+                opacity: 1;
+                z-index: 100;
+                transform: scale(1) translateY(0);
+            }
+            
+            .tool::before {
+                border-style: solid;
+                border-width: 1em .75em 0 .75em;
+                border-color: #3E474F transparent transparent transparent;
+                bottom: 100%;
+                margin-left: -.5em;
+                content: "";
+                transform: scale(.6) translateY(-90%);
+                transition: all .65s cubic-bezier(.85, -0.18, .31, 1.26), opacity .65s .5s;
+            }
+            
+            .tool:hover::before,
+            .tool:focus::before {
+                transition-delay: .2s;
+            }
+            
+            .tool::after {
+                background: #3E474F;
+                border-radius: .25em;
+                bottom: 180%;
+                color: #EDEFF0;
+                width: 17.5em;
+                padding: 1em;
+                margin-left: -8.75em;
+                content: attr(data-tip);
+                transform: scale(.6) translateY(50%);
+                transition: all .65s cubic-bezier(.84, -.18, .31, 1.26) .2s;
+            }
+            
+            .tool:hover::after,
+            .tool:focus::after {
+                transition-delay: 0s;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/tooltips.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2></h2>
+    <p></p>
+
+
+
+
+</body>
+
+</html>

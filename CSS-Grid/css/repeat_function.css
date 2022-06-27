@@ -1,0 +1,14 @@
+/**********************
+Grid Container
+**********************/
+
+.grid {
+    max-width: 800px;
+    display: grid;
+    /* grid-template-columns: 1fr 1fr 1fr; */
+    /* grid-template-columns: repeat(3, 1fr); */
+    /* grid-template-columns: 2fr 1fr 1fr 1fr; */
+    grid-template-columns: 2fr repeat(3, 1fr);
+    grid-template-rows: 100px 200px;
+    grid-gap: 15px;
+}

@@ -1,0 +1,14 @@
+.heart-red {
+    --primary-fill: #c44;
+    --secondary-fill: #d35f5f;
+}
+
+.heart-green {
+    --primary-fill: #418f5d;
+    --secondary-fill: #5ece7f;
+}
+
+.heart-blue {
+    --primary-fill: #2e97af;
+    --secondary-fill: #38acd0;
+}

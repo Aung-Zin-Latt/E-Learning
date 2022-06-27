@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Variables</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>Introduction to CSS Variables</h2>
+    <p>CSS ဟာ တစ်ကယ်ကို ကြီးမားတဲ့ repetitive တွေဖြစ်နိုင်ပြီးတော့ maintaining လုပ်တဲ့အခါမှာလည်း တစ်ကယ်ကို ရှုပ်ထွေးနိုင်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့က Sass လိုမျိုး CSS pre-processor or Less or PostCSS တွေကိုသုံးမယ်ဆိုရင် ကျွန်တော်တို့အနေနဲ့ style sheets
+        ထဲမှာရှိတဲ့ values တွေကို track လုပ်ဖို့နဲ့ store လုပ်ဖို့အတွက် variables တွေကို declare လုပ်ပေးနေရနိုင်ပါတယ်။ ဒါပေမယ့် ဘယ် special processing tools တွေမှမလိုအပ်ဘဲ CSS ထဲမှာ variables တွေကို တိုက်ရိုက်အသုံးပြုနိုင်ပါတယ်။ အခုသင်ခန်းစာမှာ ကျွန်တော်တို့က
+        ကျွန်တော်တို့ရဲ့ style sheets ကို less repetitive, modular နဲ့ easier to maintain ဖြစ်ဖို့ရန်အတွက် CSS variables တွေကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ Variables တွေဟာ programming မှာ တစ်ကယ်ကို အရေးအကြီးဆုံး concepts တွေထဲက တစ်ခုဖြစ်ပါတယ်။ သူတို့ဟာ
+        information တွေကို track လုပ်ဖို့နဲ့ store လုပ်ဖို့နည်းလမ်းတွေကို provide လုပ်ပေးပါတယ်။ ဘယ် programming language မှာရှိတဲ့ variables တွေမဆိုကဲ့သို့ CSS variables တွေဟာ ကျွန်တော်တို့ရဲ့ style sheet တစ်လျှောက်လုံး reusable (ပြန်သုံး) ဖြစ်နိုင်တဲ့
+        values တွေကိုပြန်ပြီး ကိုးကားထားတာဖြစ်ပါတယ်။ CSS variables တွေကို formerly အရ Custom Properties တွေလို့ သိကြပါတယ်။ ဘာကြောင့်လဲဆိုရင် သူတို့ဟာ regular CSS properties တွေနဲ့ဆင်တူပြီး custom property notation လို့ခေါ်တဲ့ special syntax တစ်ခုကိုသုံးပြီး
+        set လုပ်လို့ပဲဖြစ်ပါတယ်။ CSS variables တွေရဲ့ အမှတ်အသားဖြစ်တဲ့ property name ရဲ့ရှေ့မှာရှိတဲ့ two dashes (--) နှစ်ခုဟာဆိုရင် browser ကို သူဟာ custom property တစ်ခုဖြစ်တယ်လို့ ညွှန်ပြလိုက်တာဖြစ်ပါတယ်။ Two dashes နှစ်ခုနဲ့စပြီး သူ့နောက်က property
+        name ကို ကြိုက်တာပေးလို့ရပါတယ်။ ကျွန်တော်တို့က property ကို value တစ်ခုသတ်မှတ်ပေးပြီး CSS var function ကိုသုံး၍ သူ့ရဲ့ valueကိုရယူဖို့ရန် ကျွန်တော်တို့ code ထဲက property name ကို refer လုပ်ပေးလို့ရပါတယ်။ သူတို့ကို technically အရ Custom Properties
+        တွေလို့ခေါ်ပေမယ့် developers အများစုကတော့ CSS Variables တွေလို့ပဲခေါ်ကြပါတယ်။ ပြီးတော့ CSS Variables တွေကိုသုံးခြင်းရဲ့ အကောင်းဆုံးအပိုင်းကတော့ သူတို့ဟာ repetitive ဖြစ်တဲ့ nature of CSS တွေကို manage လုပ်ဖို့ပိုလွယ်ကူပြီး ကျွန်တော်တို့ style sheet
+        ထဲမှာ လိုက်ရှာပြီးတော့ replace လုပ်စရာမလိုဘဲ တစ်နေရာတည်းမှာတင် property values တွေကို change လုပ်နိုင်ပါတယ်။ ဥပမာပြောရရင် style sheet ထဲမှာ values တွေကို reuse လုပ်ပြီး တော်တော်များများသုံးထားပြီးနောက် design change တာပဲဖြစ်ဖြစ် (သို့) client
+        request ကြောင့် ပြောင်းလဲရပြီဆိုရင် အဲ့ဒီ value တွေကို ပြန်လိုက် change လုပ်ဖို့ အတော်ကိုအချိန်ပေးနေရမှာဖြစ်ပါတယ်။ အဲ့ဒီမှာ CSS က values တွေကို variables တွေထဲမှာ assign လုပ်ဖို့ခွင့်ပြုပေးပြီး ကျွန်တော်တို့ value အဖြစ်သုံးမယ့် ဘယ်နေရာမဆို အဲ့ဒီ
+        variables တွေနဲ့ reference လုပ်လို့ရပါတယ်။ CSS variables တွေဟာ CSS မှာ game changer တစ်ခုဖြစ်ပြီး preprocessor variables တွေထက် ပိုပြီးလုပ်အလုပ်လုပ်နိုင်ပါတယ်။ Internet Explorer ကလွဲပြီး CSS variables တွေကို major browsers အားလုံးက support လုပ်ပေးပါတယ်။
+    </p>
+    <hr>
+
+
+    <h2>Declaring and Using CSS Variables</h2>
+    <p>CSS variables တွေကို ကျွန်တော်တို့ style sheet ထဲမှာသုံးဖို့အတွက် step process နှစ်ခုရှိပါတယ်။ ပထမတစ်ခုက ကျွန်တော်တို့ဟာ custom property notation ကိုသုံးပြီး selector တစ်ခုအတွင်းမှာ variable ကို declare လုပ်ရမှာဖြစ်ပါတယ်။ ထို့နောက် ကျွန်တော်တို့က
+        အဲ့ဒီ variable or custom property name ကို var( ) function ကိုသုံးပြီး reference လုပ်ပေးရမှာဖြစ်ပါတယ်။ CSS variables တွေဟာ regular CSS properties တွေလိုပဲ cascade ရဲ့ rules တွေအတိုင်း လိုက်နာတဲ့အတွက် သူတို့ကို rule set ကိုအတွင်းက element တစ်ခုပေါ်မှာ
+        ပထမဆုံး declare လုပ်ရပါမယ်။ တစ်ကယ်လို့ rule တစ်ခုရဲ့ အပြင်ဘက်မှာ declare လုပ်ခဲ့မယ်ဆိုရင် ကျွန်တော်တို့ style sheet အတွင်းမှာ variable ကို အသုံးပြုလို့ရမှာမဟုတ်သလို အလုပ်လုပ်မှာလည်း မဟုတ်ပါဘူး။ ပြီးတော့ ကျွန်တော်တို့ဟာ main brand color, base font-size
+        လိုမျိုး elements အများကြီးကိုရည်ညွှန်းတဲ့ variables ကို မကြာခဏဆိုသလို :root pseudo class ကိုသုံးပြီး root element ပေါ်မှာ declare လုပ်ရပါမယ်။ :root pseudo class ဟာ page ပေါ်မှာ (သို့) highest level parent ပေါ်မှာရှိတဲ့ root element ကို target
+        လုပ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့ HTML file ထဲမှာဆိုရင်
+        <html> ဟာ document ထဲမှာ top most element ဖြစ်တဲ့အတွက် သူဟာ :root element ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ :root ဆိုတဲ့ CSS rule ထဲမှာ ကျွန်တော်တို့ပေးချင်တဲ့ name နဲ့ color variable နှစ်ခုကိုရေးလိုက်မယ်။ Eg, :root { --color-primary: #278da4; --color-secondary:
+        #b13c69; } ။ ဒါကြောင့် root rule အတွင်းမှာ custom property names တွေရေးခြင်းဟာ properties တွေကို CSS cascade မှာ highest level ဖြစ်စေပါတယ်။ အခု values တွေကို document ထဲမှာ element အားလုံးကနေ inherited လုပ်ထားနိုင်ပြီး သူတို့ကို style sheet ထဲက
+        ဘယ်နေရာကနေမဆို reference လုပ်နိုင်ပါတယ်။ ဒါဟာ SaaS or JavaScript မှာလို global variables တွေကို declare လုပ်တာနဲ့ဆင်တူပါတယ်။ ဘာလို့လဲဆိုရင် values တွေကို နေရာတိုင်းမှာရနိုင်လို့ဖြစ်ပါတယ်။ အခု browser ဟာ ပထမဆုံး custom property တစ်ခုနဲ့တော့ ဘာမှအလုပ်မလုပ်ပါဘူး။
+        Custom property တစ်ခုရဲ့ value ကအမှန်တစ်ကယ် အလုပ်လုပ်ဖို့ဆိုရင် var( ) function ကိုအသုံးပြုပေးရပါမယ်။ ဘယ် property ရဲ့ value မှာမဆို var( ) function တစ်ခုမက ပါဝင်နိုင်ပါတယ်။ CSS variables တွေကို font stacks, layout styles နဲ့ duplication တွေကို
+        avoid လုပ်ဖို့လည်းအသုံးပြုနိုင်ပါတယ်။</p>
+    <p>Example of variables.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* VARIABLES ------------------------------ */
+
+            :root {
+                --color-primary: #278da4;
+                --color-secondary: #b13c69;
+
+                --color-bg: #3acec2;
+                --color-bg-light: #009fe1;
+
+                --gradient: var(--color-bg-light),
+                            var(--color-bg);
+                
+                --font-stack-primary: 'Raleway', sans-sefif;
+                --font-stack-secondary: 'Bree Serif', serif;
+
+                --max-width: 1000px;
+                --gutter: 12px;
+            }
+
+            /* BASE STYLES ---------------------------- */
+
+            body {
+                font-family: var(--font-stack-primary;
+            }
+
+            h1,
+            h2 {
+                font-family: var(--font-stack-secondary);
+            }
+
+            a,
+            h2 {
+                color: var(--color-primary);
+            }
+
+            header {
+                background: linear-gradient(var(--gradient)), url('../img/bg.jpg') no-repeat;
+                background-blend-mode: multiply;
+                background-size: cover;
+            }
+
+            /* CONPONENT STYLES ------------------------------ */
+
+            .main-nav li {
+                margin: 0 var(--gutter);
+            }
+
+            .btn-callout {
+                background-color: var(--color-secondary;
+            }
+
+            .btn-info {
+                background-color: var(--color-primary);
+            }
+
+            /* MEDIA QUERIES -------------------------------- */
+
+            @media (min-width: 768px) {
+                .main-content {
+                    max-width: var(--max-width);
+                }
+            }
+        </code>
+    </pre>
+
+
+    <p>CSS variables တွေဟာ preprocessor variables တွေနဲ့မလုပ်နိုင်တဲ့ အရာတော်တော်များများကို အလုပ်လုပ်ပေးနိုင်ပါတယ်။ သူတို့တစ်ခုချင်းစီမှာ အမျိုးမျိုးသော circumstances တွေအောက်မှာ ရှိပါတယ်။ Preprocessors တွေက browser ထဲမှာ run မပေးနိုင်ဘူးဆိုတာ တွေ့ရမှာပါ။
+        ကျွန်တော်တို့ declare လုပ်တဲ့ variables တွေဟာ ကျွန်တော်တို့စက်ထဲက source file တစ်ခုအတွင်းမှာရှိပါတယ်။ Preprocessors တွေက သူတို့ CSS နဲ့ compile လုပ်တဲ့အချိန် variables တွေကို static values တွေနဲ့ replace လုပ်ပါတယ်။ Browser က variables တွေအကြောင်းကို
+        လုံးဝမသိဘဲ အဲ့ဒီ variables တွေကိုယ်တိုင်ကလည်း ကျွန်တော်တို့ markup ကို သိမှာမဟုတ်ပါဘူး။ CSS variables တွေဟာ compiled လုပ်ထားတဲ့ code တွေထက် ပိုပြီးတော့ flexible ဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင် သူတို့က browser အတွင်းမှာရှိနေလို့ဖြစ်ပါတယ်။ CSS variable
+        ရဲ့ value ကို update လုပ်တဲ့အခါ browser ကသူ့ရဲ့ runtime မှာ အဲ့ဒီ value ကို ဘယ်နေရာမှာပဲ reference လုပ်နေပါစေ update လုပ်ပေးမှာဖြစ်ပါတယ်။ ဒါကြောင့် CSS variable တွေကို dynamically အရ update or alter လုပ်လို့ရတာဖြစ်ပါတယ်။</p>
+
+
+
+    <p>ကျွန်တော်တို့အနေနဲ့ CSS variable တစ်ခုသတ်မှတ်ဖို့အတွက် သူ့ရဲ့ scope ကို define လုပ်ရတာကို လေ့လာခဲ့ပါတယ်။ ပြီးတော့ variable တစ်ခုကို :root အတွင်းမှာ scope လုပ်ခြင်းဟာ အဲ့ဒီ variable က elements အားလုံးမှာ available ဖြစ်တယ်လို့ပြောချင်တာဖြစ်ပါတယ်။ ဒါကြောင့်
+        root ကိုသုံးခြင်းဟာ global variables တွေ set လုပ်ဖို့ကောင်းတဲ့ နည်းလမ်းဖြစ်ပြီး ကျွန်တော်တို့ရဲ့ variables အားလုံးကို တစ်နေရာတည်းကနေ maintain လုပ်နိုင်မှာဖြစ်ပါတယ်။ :root ရဲ့အတွင်းမှာ variables တွေကို အမြဲတမ်းကြီးလည်း define လုပ်ဖို့မလိုအပ်ပါဘူး။
+    </p>
+
+
+    <p>Var function ဟာ fallback value တစ်ခုအဖြစ်လုပ်ဆောင်မယ့် optional second argument တစ်ခုကိုလည်း accept လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ CSS ထဲမှာ CSS variables တွေကို ဘယ်နေရာမှ မကြေငြာရသေးဘူး (သို့) referenced variable က invalid ဖြစ်နေမယ်ဆိုရင် second argument
+        က var ကို variable အတွက် substitution value တစ်ခုအဖြစ် အစားထိုးပြီး pass လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ ဒါကြောင့် second argument (သို့) fallback တစ်ခုကို comma ခြားပြီး 0.85em လို့ရေးလိုက်ပါမယ်။ Fallback values တွေပေးထားခြင်းဟာ ကျွန်တော်တို့ကို elements
+        တွေအတွက် defensive styles တွေရေးဖို့ ခွင့်ပြုပေးပြီး ၊ ကျွန်တော်တို့ရဲ့ style sheet ကိုလည်း sharable နဲ့ extensible လုပ်နိုင်ပါတယ်။ For example- ကျွန်တော်တို့က initial design ကို var function နဲ့ fallback value ကိုတွဲသုံးပီးတော့ create လုပ်နိုင်ပါတယ်။
+        ကျွန်တော်တို့က CSS variable ကိုသုံးပြီးတော့ calculation ကိုအသုံးပြုလို့ရပါတယ်။ Length value ကို determine လုပ်ဖို CSS calc function ကိုအသုံးပြုနိုင်ပါတယ်။ calc function နဲ့ var function combine လုပ်တာကို အောက်က example မှာကြည့်နိုင်ပါတယ်။ </p>
+    <p>Example of variable.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* VARIABLES  --------------------------- */
+
+            :root {
+                --color-primary: #278da4;
+                --color-bg: #3acec2;
+                --color-bg-light: #009fe1;
+
+                --gradinet: var(--color-bg-light),
+                            var(--color-bg);
+                
+                --font-stack-primary: 'Raleway', sans-serif;
+                --font-stack-secondary: 'Bree Serif', serif;
+
+                --max-width: 1000px;
+                --spacing: 2;
+            }
+
+            /* BASE STYLES  --------------------------- */
+
+            body {
+                font-family: var(--font-stack-primary);
+            }
+
+            h1,
+            h2 {
+                font-family: var(--font-stack-secondary);
+            }
+
+            a,
+            h2 {
+                color: var(--color-primary);
+            }
+
+            header {
+                background: linear-gradient(var(--gradient)), url ('img/bg.jpg') no-repeat;
+                background-blend-mode: multiply;
+                background-size: cover;
+                margin-bottom: calc(var(--spacing) * 1em);  /* 2em */
+            }
+
+            /* COMPONENT STYLES  --------------------------- */
+
+            .main-nav li {
+                margin: 0 calc(var(--spacing) * 10px);   /* 20px */
+            }
+
+            .btn {
+                font-size: var(--btn-font-size, 0.85em);  /* 0.85em is a fallback */
+                color: var(--btn-color, #fff);    /* #fff is a fallback */
+                background-color: var(--btn-bg, #60a4b3);   /* #60a4b3 */
+            }
+
+            /* MEDIA QUERIES  --------------------------- */
+
+            @media (min-width: 768px) {
+                .main-content {
+                    max-width: var(--max-width);
+                }
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>SVG Image with Variables</h2>
+    <p>CSS variables တွေဟာ element တစ်ခုရဲ့ style attribute အတွင်းက inline ထဲမှာ update (သို့) alter လုပ်နိုင်တယ်ဆိုတာကို ကျွန်တော်တို့လေ့လာခဲ့ပြီးပါပြီ။ တူညီစွာပဲ ကျွန်တော်တို့ဟာ inline svgs တွေအတွင်းမှာရှိတဲ့ style နဲ့ presentational attributes တွေကို
+        modify လုပ်ဖို့အတွက် CSS variables တွေကို အသုံးပြုနိုင်ပါတယ်။ ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့က CSS variables တွေနဲ့ SVG icons တွေကို customizable ဖြစ်အောင် ဘယ်လို create လုပ်ရမလဲဆိုတာကို လေ့လာသွားပါမယ်။ အခု ကျွန်တော်တို့က index.html file တစ်ခုဆောက်ပြီး
+        သူ့ထဲမှာ heart icon တစ်ခုရဲ့ reusable template တစ်ခုကို define လုပ်ထားတဲ့ symbol element တစ်ခုရေးပါမယ်။ အဲ့ဒီ symbol ရဲ့အောက်မှာတော့
+        <use> element ကို copy or instantiate symbol သုံးကြိမ်လုပ်ဖို့သုံးခါရေးထားပါမယ်။ ဒါဆိုရင်တော့ browser မှာ heart symbol သုံးခုအစဉ်လိုက်ပေါ်လာမှာဖြစ်ပါတယ်။ ဒါကိုကျွန်တော်တို့က file ထဲကိုသွားပြီး path ထဲမှာ fill attribute နဲ့ var() function ကိုသုံးပြီး
+            heart icon တွေကို color တွေဖြည့်သွားမှာဖြစ်ပါတယ်။ အောက်က example ကို တစ်ချက်ကြည့်ရအောင်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Creating SVG with CSS Variables&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/svg_filling_color.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;!-- HEART GRAPHIC --&gt;
+                &lt;svg xmlns="http://www.w3.org/2000/svg" style="display: none;"&gt;
+                &lt;symbol id="heart" viewBox="0 0 113.8 96.2"&gt;
+                    &lt;path fill="var(--secondary-fill)" d="M96 0L67.5 5.2 56.9 23.3v72.8l56.9-55.6z"/&gt;
+                    &lt;path fill="var(--primary-fill)" d="M46.4 5.3L17.9.1 0 40.6l56.9 55.6.1-72.8z"/&gt;
+                &lt;/symbol&gt;
+            &lt;/svg&gt;
+            
+                &lt;div class="main"&gt;
+                    &lt;!-- Red --&gt;
+                    &lt;svg width="180" height="180" class="heart-red"&gt;
+                    &lt;use xlink:href="#heart"/&gt;
+                &lt;/svg&gt;
+            
+                    &lt;!-- Green --&gt;
+                    &lt;svg width="160" height="160" class="heart-green"&gt;
+                    &lt;use xlink:href="#heart"/&gt;
+                &lt;/svg&gt;
+            
+                    &lt;!-- Blue --&gt;
+                    &lt;svg width="140" height="140" class="heart-blue"&gt;
+                    &lt;use xlink:href="#heart"/&gt;
+                &lt;/svg&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .heart-red {
+                --primary-fill: #c44;
+                --secondary-fill: #d35f5f;
+            }
+            
+            .heart-green {
+                --primary-fill: #418f5d;
+                --secondary-fill: #5ece7f;
+            }
+            
+            .heart-blue {
+                --primary-fill: #2e97af;
+                --secondary-fill: #38acd0;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/svg_filling_color.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>CSS Variables with JavaScript</h2>
+    <p>CSS variables တွေဟာ Cascade နဲ့ inheritance တွေကိုသုံးပြီး update လုပ်နိုင်ရုံသာမက ကျွန်တော်တို့အနေနဲ့ JavaScript ကနေ CSS variable values တွေကို read & write (သို့) get & set လုပ်လို့ရပါသေးတယ်။ CSS variables တွေနဲ့ JavaScript ကို runtime မှာ interact
+        လုပ်ဖို့အတွက် ကျွန်တော်တို့က custom property တစ်ခုရဲ့ value ကို get လုပ်ဖို့အတွက် getPropertyValue( ) ဆိုတဲ့ method ကိုအသုံးပြုပေးရမှာဖြစ်ပြီး custom property ရဲ့ value ကို set လုပ်ဖို့ဆိုရင်တော့ setProperty( ) ဆိုတဲ့ method ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။
+        ထပ်ပြီးလေ့လာချင်တယ်ဆိုရင်တော့ <a href="https://googlechrome.github.io/samples/css-custom-properties/index.html" target="_blank">CSS Custom Properties (CSS Variables) Sample</a> မှာလေ့လာနိုင်ပါတယ်။ အဲ့ထဲမှာဆိုရင် ကျွန်တော်တို့ဟာ CSS snippet တွေနဲ့
+        JavaScript snippet တွေကိုတွေ့ရမှာဖြစ်ပြီး သူတို့ဟာ CSS variables တွေနဲ့ ဘယ်လိုအလုပ်လုပ်သလဲဆိုတာကို ဖော်ပြပေးထားပါတယ်။ အောက်မှာပြထားတဲ့ example ကတော့ CSS variables တွေကို JavaScript တွေနဲ့တွဲပြီးအသုံးပြုထားတဲ့ page ကိုဖော်ပြထားတာပဲဖြစ်ပါတယ်။ var(
+        ) function အလုပ်လုပ်တဲ့အခါမှာ custom properties တွေကဘယ်နေရာမှာအလုပ်လုပ်တယ် ၊ ဘယ်နေရာမှာအလုပ်မလုပ်ဘူးဆိုတာကိုသိသင့်နေပြီဖြစ်ပါတယ်။ Selector ထဲမှာအသုံးပြုတဲ့အခါမှာတော့ var( ) function တွေက invalid ဖြစ်ပါတယ်။ var တွေကိုကျွန်တော်တို့ CSS values တွေထဲမှာပဲအသုံးပြုနိုင်မှာဖြစ်ပါတယ်။
+        နောက်ထပ်ကျွန်တော်တို့ Media query expression ထဲမှာလည်း var တွေကိုအသုံးပြုနိုင်မှာမဟုတ်ပါဘူး။ နောက်ဆုံးကျွန်တော်တို့ length value တွေကိုတည်ဆောက်ဖို့အတွက်တောင်မှကျွန်တော်တို့ var function တွေကိုအသုံးမပြုနိုင်ပါဘူး။ Variable names တွေက case sensitive
+        ဖြစ်နိုင်ပါတယ်။ CSS Variables တွေကအသုံးဝင်ပြီးတော့ ကောင်းမွန်တဲ့ feature တစ်ခုပဲဖြစ်ပါတယ်။ </p>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .ball {
+                background-color: var(--ball-bg, tomato);
+                transform: translate( calc(var(--pos-x) * 1px), calc(var(--pos-y) * 1px));
+                transition: 0.85s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            }
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            const body = document.querySelector('body');
+            const ball = document.querySelector('.ball');
+
+            body.addEventListener('click', e => {
+                ball.style.setProperty('--pos-x', e.clientX);
+                ball.style.setProperty('--pos-y', e.clientY);
+                ball.style.setProperty('--ball-bg', randomHex());
+            });
+
+            // set a random hex value
+            function randomHex() {
+                let max = 1 << 24;
+                let hex = (max + Math.floor(Math.random() * max)).toString(16).slice(-6);
+                return `#${hex}`;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;CSS Variables with JavaScript&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/get&set_property.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h2&gt;Update CSS Variables with &lt;span class='hl'&gt;JS&lt;/span&gt;&lt;/h2&gt;
+                &lt;div class="controls"&gt;
+                    &lt;label for="spacing"&gt;Spacing:&lt;/label&gt;
+                    &lt;input type="range" id="spacing" min="10" max="200" value="10"&gt;
+            
+                    &lt;label for="blur"&gt;Blur:&lt;/label&gt;
+                    &lt;input type="range" id="blur" min="0" max="25" value="10"&gt;
+            
+                    &lt;label for="base"&gt;Base Color&lt;/label&gt;
+                    &lt;input type="color" id="base" value="#ffc600"&gt;
+                &lt;/div&gt;
+            
+                &lt;img src="../images/dev1.jpg"&gt;
+            
+                &lt;p class="love"&gt;Made by &lt;a href="https://twitter.com/wesbos"&gt;@wesbos&lt;/a&gt; 😘&lt;/p&gt;
+            
+                &lt;p class="love"&gt;Chrome 49+, Firefox 31+&lt;/p&gt;
+            
+                &lt;script src="../js/get&set_property.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            :root {
+                --base: #ffc600;
+                --spacing: 10px;
+                --blur: 2px;
+            }
+            
+            body {
+                text-align: center;
+            }
+            
+            img {
+                padding: var(--spacing);
+                background: var(--base);
+                -webkit-filter: blur(var(--blur));
+                /* 👴 */
+                filter: blur(var(--blur));
+            }
+            
+            .hl {
+                color: var(--base);
+            }
+            
+            
+            /* misc styles, nothing to do with CSS variables  */
+            
+            body {
+                background: #193549;
+                color: white;
+                font-family: 'helvetica neue', sans-serif;
+                font-weight: 100;
+                font-size: 30px;
+            }
+            
+            .controls {
+                margin-bottom: 50px;
+            }
+            
+            a {
+                color: var(--base);
+                text-decoration: none;
+            }
+            
+            input {
+                width: 100px;
+            }            
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            // get the inputs
+            const inputs = [].slice.call(document.querySelectorAll('.controls input'));
+            
+            // listen for changes
+            inputs.forEach(input => input.addEventListener('change', handleUpdate));
+            inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+            
+            function handleUpdate(e) {
+                // append 'px' to the end of spacing and blur variables
+                const suffix = (this.id === 'base' ? '' : 'px');
+                document.documentElement.style.setProperty(`--${this.id}`, this.value + suffix);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/get&set_property.html" target="_blank" class="output">CSS Custom Properties (CSS Variables) Sample</a>
+    </p>
+    <hr>
+
+
+    <h2>Review var() Function</h2>
+    <p>အခုဆိုရင် ကျွန်တော်တို့က var() function ထဲက custom properties တွေဟာ ဘယ်နေရာမှာ ဘယ်လိုအလုပ်လုပ်သလဲဆိုတာ တွေ့မြင်ခဲ့ပြီးဖြစ်ပါတယ်။ ပထမဆုံးပြောချင်တာက var ကို selector တစ်ခုအတွင်းသုံးမယ်ဆိုရင် invalid ဖြစ်သွားပါမယ်။ ဒါဆိုရင်တော့ အလုပ်မလုပ်ပေးတော့ပါဘူး။
+        var ဟာ property name တစ်ခုဖြစ်မယ်ဆိုရင်လည်း valid မဖြစ်ပါဘူး။ ကျွန်တော်တို့အနေနဲ့ var ကို CSS values တွေအဖြစ်သာလျှင် သုံးနိုင်ပါတယ်။ နောက်ပြီးတော့ var ကို @media (min-width: var(--breakpoint-med)) { -- } ကဲ့သို့သော media query expression တစ်ခုအတွင်းမှာ
+        သုံးလို့မရပါဘူး။ နောက်ဆုံးတစ်ခုကတော့ var() function ကို length value တစ်ခုအဖြစ် create လုပ်လို့မရပါဘူး။ အဲ့ဒါဟာ invalid value တစ်ခုဖြစ်နေမှာ ဖြစ်ပါတယ်။ တစ်ကယ်လို့ length values တွေနဲ့တည်ဆောက်မယ်ဆိုရင်တော့ အပေါ်မှာလေ့လာခဲ့သလို့ calc() function
+        ကို အသုံးပြုပေးရမှာဖြစ်ပါတယ်။Eg.(.box { margin: calc(var(--gutter) * 1em); })။ နောက်ပြီးတော့ variables names တွေဟာလည်း case sensitive ဖြစ်ကြပါတယ်။ ဥပမာ --main-brand ၊ --Main-Brand နဲ့ --Main-brand ဆိုတဲ့ variables သုံးခုဟာ မတူညီတဲ့ variables တွေပဲဖြစ်ကြပါတယ်။
+        ဒါကြောင့် CSS variables တွေဟာ useful & fun ဖြစ်ပါတယ်။ </p>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bootstrap</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>Introduction to Bootstrap</h2>
+    <p>ကျွန်တော်တို့ဟာ website or app တစ်ခု စပြီး တည်ဆောက်ပြီဆိုရင် ဘယ် front-end tools တွေကို သုံးသင့်လည်းဆိုတာကို မကြာခဏစဉ်းစားရပါတယ်။ Layout ကိုဘယ်လိုချမလဲ၊ floats, grid system or flexbox မှာရှိတဲ့ venture စတာတွေကို သုံးသင့်ရဲ့လား။ Typography နဲ့ media
+        queries တွေအတွက် pixels (သို့) ems တွေကို သုံးရမလား။ Browser compatibility ကရော ဘယ်လိုလဲ?။ စသဖြင့် အမျိုးမျိုး စဉ်းစားရပါတယ်။ Website တစ်ခု (သို့) app တစ်ခုရဲ့ အဓိကအကျဆုံးအပိုင်းကလည်း အဲ့ဒီ website ကို ဘယ်လိုစပြီး design ချရမလဲဆိုတာပါပဲ။ ဒါကြောင့်
+        ဒီသင်ခန်းစာမှာတော့ ကျွန်တော်တို့က functional design နဲ့ layout ကိုတည်ဆောက်ရာမှာ အထောက်အကူဖြစ်ပြီး popular အဖြစ်ဆုံး open source front-end frameworks တွေထဲက တစ်ခုဖြစ်တဲ့ Bootstrap အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Bootstrap ကိုအသုံးပြုရတဲ့အထဲက
+        အကြီးမားဆုံး advantage ကတော့ development speed ပဲဖြစ်ပါတယ်။ Bootstrap ဟာ latest အဖြစ်ဆုံးနဲ့ အသုံးအများဆုံး advanced front-end tools တွေကိုသုံးထားတဲ့အတွက် ကျွန်တော်တို့ရဲ့ web development ကို faster & easier ဖြစ်စေပါတယ်။ ကျွန်တော်တို့ app ရဲ့
+        design နဲ့ coding ပိုင်းကို custom scratch ကနေယူပြီး ရေးနေစရာမလိုဘဲ Bootstrap ရဲ့ ready-made components တွေကို သုံးပြီး လွယ်ကူစွာ ရေးနိုင်မှာဖြစ်ပါတယ်။ Bootstrap framework ဟာ buttons, forms, navigation, grids ကဲ့သို့သော common elements တွေအတွက်
+        HTML နဲ့ CSS ကို reusable အနေနဲ့လာပါတယ်။ ပြီးတော့ ကျွန်တော်တို့အနေနဲ့ JavaScript code တွေကို တစ်ကြောင်းချင်းစီရေးနေစရာမလိုဘဲ Bootstrap မှာပါတဲ့ custom JavaScript plugins တွေကိုသုံးပြီး components တွေအများကြီးနဲ့ interact လုပ်နိုင်မှာဖြစ်ပါတယ်။
+        Bootstrap ရဲ့ အကောင်းဆုံးအပိုင်းကတော့ cross-browser compatibility ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ website က IE, Safari, Firefox နဲ့ Chrome တွေမှာ responsive ဖြစ်ဖို့အတွက် အချိန်အများကြီးပေးနေစရာမလိုဘဲ Bootstrap က အဲ့ဒီ responsive အပိုင်းတွေကို တစ်ခါတည်း
+        ထည့်ပေးထားပါတယ်။ ဒီအတွက်ကြောင့် ကျွန်တော်တို့ရေးလိုက်တဲ့ code တွေက phones, tablets နဲ့ desktop devices တွေအားလုံးမှာ အလုပ်လုပ်နိုင်မှာဖြစ်ပါတယ်။ တစ်ခုရှိတာကတော့ bootstrap ကိုလေ့လာမယ်ဆိုရင် HTML နဲ့ CSS ရဲ့ အခြေခံသဘောတရားအားလုံးကို နားလည်ထားဖို့လိုပါတယ်။
+    </p>
+    <hr>
+
+
+    <h2>Using Bootstrap</h2>
+    <p>Bootstrap ကို Twitter မှာရှိတဲ့ developers တွေက 2011 မှာ create လုပ်ခဲ့ကြတာဖြစ်ပါတယ်။ Bootstrap ဟာ web ပေါ်က building, responsive နဲ့ mobile first projects တွေအတွက် popular အဖြစ်ဆုံး HTML, CSS နဲ့ JavaScript frameworks တွေထဲက တစ်ခုဖြစ်ပါတယ်။ Web ပေါ်မှာ
+        cross ဖြစ်နေတဲ့ 7 million လောက်ရှိတဲ့ apps တွေနဲ့ sites တွေဟာ Bootstrap ကိုသုံးပြီး built လုပ်ထားတာဖြစ်ပါတယ်။ Web designers, front-end developers နဲ့ programmers အများစုကလည်း projects တွေတည်ဆောက်တဲ့အခါမှာ မြန်ဆန်လွယ်ကူစေဖို့အတွက် Bootstrap ကိုပဲ
+        အသုံးပြုကြတာဖြစ်ပါတယ်။ NASA, FIFA, Spotify နဲ့ Lyft လိုမျိုး popular companies နဲ့ agencies တွေတောင်မှာ သူတို့ရဲ့ websites တွေကို Bootstrap နဲ့ အသုံးပြုထားတာဖြစ်ပါတယ်။ Bootstrap ဟာ front-end framework တစ်ခုဖြစ်ပြီး ဘာကိုဆိုလိုသလဲဆိုရင် Framework
+        တစ်ခုဟာ ကျွန်တော်တို့ကို higher level projects တွေကို lower level နဲ့ repetitive details တွေကို စိုးရိမ်စရာမလိုဘဲ တည်ဆောက်တဲ့အခါမှာ ကူညီပေးတဲ့ reusable platform တစ်ခုဖြစ်ပါတယ်။ ဥပမာပြောရရင် ကျွန်တော်တို့ website or app တစ်ခုတည်ဆောက်တဲ့အခါ ကျွန်တော်တို့
+        website ကို devices အများစုနဲ့ screen sizes အမျိုးမျိုးမှာ ဖော်ပြလိုက်တဲ့အခါ အဲ့ဒီ layout ထဲက nav bars, buttons, headers, forms, modals လိုမျိုး UI components တွေဟာ lost ဖြစ်သွားနိုင်ပါတယ်။ ဒါဆိုရင် ကျွန်တော်တို့က screen sizes တွေတိုင်းအတွက် custom
+        solution တွေနဲ့ website ကို create လုပ်နေရပါလိမ့်မယ်။ အဲ့ဒီလိုလုပ်မယ့်အစား Bootstrap ဆိုတဲ့ framework ကိုအသုံးပြုခြင်းဖြစ်ပါတယ်။ Front-end framework တစ်ခုဟာ typography နဲ့ browser compatibility problems တွေကို အစတည်းက ဖြေရှင်းနေရပါတယ်။ ဒါကြောင့်
+        Bootstrap ကိုသုံးခြင်းအားဖြင့် ကျွန်တော်တို့ရဲ့ content (သို့) design ကို ပိုပြီး focus လုပ်နိုင်မှာဖြစ်ပါတယ်။ Bootstrap ရဲ့ latest documentation ကို <a href="" target="_blank">getbootstrap.com</a> မှာ လေ့လာနိုင်ပါတယ်။ အစောကပြောခဲ့သလိုပဲ Bootstrap
+        ဟာ website အများစုနဲ့ app projects တွေမှာသုံးတဲ့ user interface tasks တွေအတွက် common content layout styles တွေရဲ့ code တွေသာမက JavaScript code components တွေကိုပါ provide လုပ်ပေးထားပါတယ်။ Developer အချို့ဟာ Bootstrap ကို predefined design styles
+        နဲ့ grid တွေအတွက် အသုံးပြုပါတယ်။ ဒါကြောင့် သူတို့အနေနဲ့ rock solid responsive layout တစ်ခုနဲ့ well-presented site တစ်ခုကို မြန်ဆန်စွာ build လုပ်နိုင်မှာဖြစ်ပါတယ်။ အချို့တွေကတော့ သူ့တို့ရဲ့ page ကို grid တွေနဲ့ layout ချရုံလောက်သုံးပြီး CSS ကိုတော့
+        custom CSS နဲ့ design လုပ်တာဖြစ်ပြီး အချို့ကတော့ JavaScript components တွေအတွက်ပဲ သုံးကြပါတယ်။ ဒီသင်ခန်းစာမှာတော့ Bootstrap ရဲ့ popular ဖြစ်တဲ့ Nav bar, Jumbotron buttons, forms တွေနဲ့ full fledged website design အချို့ကို built လုပ်သွားမှာဖြစ်ပါတယ်။
+        Bootstrap ကိုသုံးပြီးရေးထားတဲ့ websites တွေကိုလေ့လာချင်တယ်ဆိုရင်တော့ <a href="https://getbootstrap.com/" target="_blank">expo.getbootstrap.com</a> မှာ လေ့လာနိုင်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Creating SignUp Form</h2>
+    <p>Bootstrap ကို အလွယ်ကူဆုံးသုံးလို့ရမယ့် နည်းလမ်းအချို့ရှိပါတယ်။ Bootstrap file ကို download လုပ်မယ်ဆိုရင်တော့ <a href="https://getbootstrap.com/" target="_blank">getbootstrap.com</a> မှာ download ရယူနိုင်ပါတယ်။ Download မလုပ်ချင်ရင်တော့ အမြန်ဆုံးနည်းဖြစ်တဲ့
+        Bootstrap CDN(Content Delivery Network) ဆိုတဲ့ link ကို ရယူနိုင်ပါတယ်။ ဒီလို CDN links ကို HTML file ထဲမှာ ထည့်ခြင်းဖြင့် CDN servers ကနေ CSS နဲ့ JavaScript တွေကို တစ်ခါတည်း load လုပ်နိုင်မှာဖြစ်ပါတယ်။ ဒါကြောင့် အခုကျွန်တော်တို့ သင်ခန်းစာမှာ Bootstrap
+        CDN link ကိုသုံးပြီး တည်ဆောက်သွားမှာဖြစ်ပါတယ်။ Bootstrap ဟာ global styles တွေအများကြီးနဲ့လာပြီးတော့ ကျွန်တော်တို့ content တွေကိုလည်း settings တွေလုပ်နိုင်ပါသေးတယ်။ ဥပမာပြောရရင် သူဟာ browsers အမျိုးမျိုးနဲ့ operating systems တွေကို တူညီစွာ across
+        လုပ်ပြီး HTML tags တွေကို render လုပ်ပေးတဲ့ base styles တွေအများကြီးပါတဲ့ Normalized CSS reset ကိုအသုံးပြုပါတယ်။ ပြီးတော့ သူက Reboot လို့ခေါ်တဲ့ custom set of styles တစ်ခုနဲ့ base CSS rules တွေပေါ်မှာ build လုပ်လို့ရပါသေးတယ်။ Normalize နဲ့ Reboot
+        ကတော့ ကျွန်တော်တို့ project ကို Chrome, Firefox, Safari နဲ့ IE လိုမျိုး browsers တွေမှာ အတူတူဖြစ်အောင် run ပေးပါတယ်။ Bootstrap နဲ့ကျွန်တော်တို့က heading, body text, lists နဲ့ အခြားအရာတွေကို customize လုပ်နိုင်ပါတယ်။ Container တွေကတော့ Bootstrap
+        ထဲမှာ basic layout element ဖြစ်ပါတယ်။ Bootstrap container ကတော့ fixed or fluid ဖြစ်နိုင်ပါတယ်။ ဒါကြောင့် class container-fluid ကတော့ full width container တစ်ခုကို create လုပ်ပေးပါတယ်။ Bootstrap ကတော့ element တွေကို custom styles တွေနဲ့ provide
+        လုပ်ပေးနိုင်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!doctype html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;Full Stack Conf&lt;/title&gt;
+                &lt;!-- Required meta tags --&gt;
+                &lt;meta charset="utf-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+            
+                &lt;!-- Bootstrap CSS --&gt;
+                &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container text-center"&gt;
+                    &lt;h1 class="display-1"&gt;Full Stack Conf&lt;/h1&gt;
+                    &lt;p class="lead"&gt;Coming Soon, a One-day Conference About All Things JavaScript!&lt;/p&gt;
+                
+                    &lt;div class="col-lg-6 mx-auto"&gt;
+                        &lt;div class="input-group"&gt;
+                            &lt;input type="text" class="form-control" placeholder="Enter your email for info.." aria-label="Enter your email for info.."&gt;
+                            &lt;span class="input-group-btn"&gt;
+                                &lt;button class="btn btn-secondary" type="button"&gt;Sign up&lt;/button&gt;
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                
+                &lt;/div&gt;
+            
+                &lt;!-- Optional JavaScript --&gt;
+                &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+                &lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        <a href="directory/singup_form.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Styling Form with Bootstrap</h2>
+    <p>Bootstrap ရဲ့ class တစ်ခုနဲ့ ကျွန်တော်တို့ website ထဲက background color ကို change လုပ်နိုင်ပါတယ်။ ဒီလိုလုပ်ဖို့အတွက် Utilities ထဲက colors ကိုသွားပြီး bg-primary ကို copy လုပ်ပြီးတော့ ကျွန်တော်တို့ body ထဲမှာထည့်လိုက်ရုံနဲ့ ကျွန်တော်တို့ website ရဲ့
+        background color က primary color အဖြစ်ပြောင်းလဲသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ body ထဲမှာရှိတဲ့ text တွေကို အရောင်ပြောင်းချင်တယ်ဆိုရင်တော့ text-white ဆိုတဲ့ class နဲ့ ပြောင်းပေးရပါမယ်။ နောက်ပြီးတော့ getbootstrap.com ထဲက Utilities ထဲက spacing ထဲမှာ
+        ကျွန်တော်တို့ page ရဲ့ margin နဲ့ padding တွေအတွက် shorthand responsive margin & padding တွေရှိပါတယ်။ အဲ့ဒီမှာရှိတဲ့ class name တွေနဲ့ ကျွန်တော်တို့ရဲ့ content တွေကို vertical, horizontal, padding နဲ့ margin တွေသတ်မှတ်ပေးနိုင်ပါတယ်။ <a href="https://getbootstrap.com/docs/4.5/utilities/spacing/"
+            target="_blank">Spacing</a> မှာ t, b, l, f, x, y ဆိုပြီး top, bottom, left, right, both left & right နဲ့ both top & bottom ဆိုပြီး shorthand တွေကို ဖော်ပြပေးထားပါတယ်။ Bootstrap ဟာ margins နဲ့ padding တွေအတွက် CSS rem unit ကိုလည်း အသုံးပြုပါတယ်။
+        Rem ဆိုတာကတော့ root အတွက် page ရဲ့ root element&lt;html&gt; ရဲ့ font size နဲ့ အမြဲတမ်း relative ဖြစ်နေတဲ့ flexible CSS unit တစ်ခုဖြစ်ပါတယ်။ Bootstrap ရဲ့ global default value ကတော့ 1rem ပဲဖြစ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့က margin or padding ကို 1rem
+        ကနေ 0.25rem ၊ 2rem ဆိုရင် 0.5rem နဲ့ 4rem ကနေ 1.5rem ၊ 5rem ဆိုရင် 3rem ဖြစ်သွားမှာဖြစ်ပါတယ်။ ml-1 ဆိုတာကတော့ margin-left 1 ဖြစ်ပါတယ်။ ဆိုလိုတာကတော့ margin-left 1 ကိုပြောတာဖြစ်ပါတယ်။ ဒါကြောင့် margin value က 0.25rem ရှိနေမှာဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!doctype html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;Full Stack Conf&lt;/title&gt;
+                &lt;!-- Required meta tags --&gt;
+                &lt;meta charset="utf-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+            
+                &lt;!-- Bootstrap CSS --&gt;
+                &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body class="bg-info text-white"&gt;
+                &lt;div class="container text-center"&gt;
+                    &lt;h1 class="display-1 mt-5"&gt;Full Stack Conf&lt;/h1&gt;
+                    &lt;p class="lead mb-5"&gt;Coming Soon, a One-day Conference About All Things JavaScript!&lt;/p&gt;
+                
+                    &lt;div class="col-lg-6 mx-auto"&gt;
+                        &lt;div class="input-group"&gt;
+                            &lt;input type="text" class="form-control" placeholder="Enter your email for info.." aria-label="Enter your email for info.."&gt;
+                            &lt;span class="input-group-btn"&gt;
+                                &lt;button class="btn btn-primary" type="button"&gt;Sign up&lt;/button&gt;
+                            &lt;/span&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                
+                &lt;/div&gt;
+            
+                &lt;!-- Optional JavaScript --&gt;
+                &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+                &lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        <a href="directory/styling_form.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Responsive and Media Queries in Bootstrap</h2>
+    <p>Bootstrap ဟာ ကျွန်တော်တို့ project ထဲမှာ laying out ဖြစ်နေဖို့အတွက် several components တွေနဲ့ options တွေအများကြီးနဲ့လာပါတယ်။ Responsive container, grid system, media object နဲ့ utilities တွေအများကြီးလည်းရှိပါတယ်။ ပြီးခဲ့တဲ့ သင်ခန်းစာမှာတုန်းက ကျွန်တော်တို့
+        page ကို wrap လုပ်ဖို့အတွက် container တစ်ခုကို အသုံးပြုခဲ့ပါတယ်။ Containers တွေဟာ Bootstrap မှာဆိုရင် အခြေခံအကျဆုံး layout component တွေဖြစ်ပါတယ်။ သူတို့ဟာ page layout ချတဲ့နေရာမှာ အဓိကကျတဲ့ foundation တစ်ခုဖြစ်ပြီး grid system မှာလည်း အသုံးပြုဖို့
+        မရှိမဖြစ်လိုအပ်ပါတယ်။ နောက်သင်ခန်းစာတွေမှာ ကျွန်တော်တို့အနေနဲ့ Bootstrap ကိုသုံးပြီး responsive fixed width container (သို့) fluid container တွေကို ဘယ်လိုတည်ဆောက်ရမလဲဆိုတာ လေ့လာသွားပါမယ်။ နောက်ပြီးတော့ Bootstrap ဟာ mobile first အဖြစ် develop လုပ်ထားခြင်းဖြစ်ပါတယ်။
+        Bootstrap code အနည်းငယ်နဲ့ small mobile device အတွက် အရင်ဆုံး style လုပ်ထားခြင်းဖြစ်ပါတယ်။ ထို့နောက် media queries တွေနဲ့ wider screens & devices တွေအတွက် layout ကို adjust ဖြစ်နေဖို့ breakpoints တွေကို create လုပ်ပါတယ်။ ဒါကြောင့် သူ့ရဲ့ mobile
+        first approach မှာ Bootstrap က responsive breakpoints 5ခုကို အသုံးပြုပါတယ်။ Portrait phones (သို့) extra small devices တွေအတွက် breakpoints ကတော့ default range ပဲဖြစ်ပါတယ်။ အဲ့ဒီနောက်မှာတော့ landscape phones, tablets, desktops နဲ့ large desktops
+        ဆိုပြီး media query နဲ့ တစ်ဆင့်ချင်းသွားပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ layout တည်ဆောက်တဲ့အခါ တစ်ကယ်ကို flexibility ဖြစ်ပါတယ်။ ပြီးတော့ Bootstrap ဟာ သူ့ရဲ့ media queries တွေထဲမှာ pixel unit တွေကို အသုံးပြုပါတယ်။ Extra small range ရှိတဲ့ view ports
+        (သို့) devices တွေအတွက်ကတော့ 576 pixels ရဲ့အောက်မှာရှိပါတယ်။ Small range ကတော့ 576 pixels နဲ့အထက်ရှိပြီး ၊ medium range ကတော့ 768 pixels နဲ့အထက်ရှိပါတယ်။ နောက်ပြီး large range devices တွေမှာဆိုရင် 992 pixels နဲ့အထက်ရှိပါတယ်။ နောက်ဆုံး extra large
+        devices တွေအတွက် range ကတော့ 1200 pixels နဲ့ သူ့ရဲ့အထက်မှာပဲ ရှိပါတယ်။ အောက်က example မှာ မတူညီတဲ့ screen sizes တွေအတွက် div တစ်ခုကို column သတ်မှတ်ပြီး ပြထားပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!doctype html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;title&gt;Full Stack Conf&lt;/title&gt;
+                &lt;!-- Required meta tags --&gt;
+                &lt;meta charset="utf-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+            
+                &lt;!-- Bootstrap CSS --&gt;
+                &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"&gt;
+            
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="header bg-primary col-xl-4 col-lg-6 col-md-8 col-sm-10 col-xs-12"&gt;
+                    &lt;h1 class="text-white"&gt;Header Title&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;!-- Optional JavaScript --&gt;
+                &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+                &lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        <a href="directory/responsive_bootstrap.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Creating About Section with Container Class</h2>
+    <p>ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့က Bootstrap ရဲ့ mobile-first flexbox grid နဲ့ 12 column system ကိုသုံးပြီး layout တွေကို တည်ဆောက်မှာဖြစ်ပါတယ်။ Bootstrap ရဲ့ grid system မှာဆိုရင် အဓိကကျတဲ့ component သုံးခုရှိပါတယ်။ အဲ့ဒါတွေကတော့ containers, rows နဲ့ columns
+        တွေပဲဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ website ရဲ့ about section ကို simple grid layout တစ်ခုနဲ့တည်ဆောက်သွားမှာ ဖြစ်ပါတယ်။ ကျွန်တော်တို့ div ထဲက container ကို container-fluid လို့ပေးလိုက်ရဲ့ အဲ့ဒီ container ဟာ width ကို 100% အပြည့်ယူသွားမှာဖြစ်ပါတယ်။
+        အဲ့ဒီလိုမဟုတ်ဘဲ class ကို container လို့ပဲပေးလိုက်ရင်တော့ သူ့ထဲက content တွေဟာ break point တစ်ခုချင်းစီမှာ max-width တစ်ခုကို neatly center ဖြစ်အောင် ပြုလုပ်ပေးသွားမှာ ဖြစ်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ Bootstrap grid system ကိုသုံးမယ်ဆိုရင် container
+        တွေအမြဲတမ်းလိုအပ်ပါလိမ့်မယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!doctype html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;title&gt;Full Stack Conf&lt;/title&gt;
+                &lt;!-- Required meta tags --&gt;
+                &lt;meta charset="utf-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+            
+                &lt;!-- Bootstrap CSS --&gt;
+                &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;!-- about --&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="col"&gt;
+                            &lt;h3&gt;About Full Stack Conf&lt;/h3&gt;
+                            &lt;p&gt;Explore the future of Javascript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col"&gt;
+                            &lt;h3&gt;Expert Speaker&lt;/h3&gt;
+                            &lt;p&gt;Our expert speaker lineup was just announced, so don't wait too long before grabing your tickets!&lt;/p&gt;
+                            &lt;p&gt;Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what expect for the future of JavaScript.&lt;/p&gt;
+                            &lt;p&gt;Full Stack Conf is committed to being inclusive and welcoming for everyone. We look forward to another intensive day of learning and sharing.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col"&gt;
+                            &lt;h3&gt;What You'll Learn&lt;/h3&gt;
+                            &lt;ul&gt;
+                                &lt;li&gt;&lt;strong&gt;MongoDB&lt;/strong&gt;: NoSQL database&lt;/li&gt;
+                                &lt;li&gt;&lt;strong&gt;Express&lt;/strong&gt;: Framework for Node&lt;/li&gt;
+                                &lt;li&gt;&lt;strong&gt;React&lt;/strong&gt;: JavaScript library&lt;/li&gt;
+                                &lt;li&gt;&lt;strong&gt;Node.js&lt;/strong&gt;: JavaScript environment&lt;/li&gt;
+                                &lt;li&gt;&lt;strong&gt;ES2015&lt;/strong&gt;: Latest version of JavaScript&lt;/li&gt;
+                                &lt;li&gt;&lt;strong&gt;JavaScript compiler&lt;/strong&gt;: NoSQL database&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- /about --&gt;
+                &lt;/div&gt;
+                &lt;!-- /.container --&gt;
+            
+                &lt;!-- Optional JavaScript --&gt;
+                &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+                &lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        <a href="directory/container_class.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Mobile Responsive</h2>
+    <p>Mobile first grid ကတော့ 12 column layout ပေါ်ကို အခြေခံထားတာဖြစ်ပါတယ်။ Bootstrap မှာ grid tiers ငါးခုရှိပါတယ်။ .col-xs ကတော့ extra small display အတွက်ဖြစ်ပါတယ်။ .col-sm-ကတော့ landscape view နဲ့ phone အတွက်ဖြစ်ပါတယ်။ .col-md- ကတော့ medium display အတွက်
+        tablet လိုမျိုးဖြစ်ပြီးတော့ .col-lg- ကတော့ desktop displayအတွက်ဖြစ်ပါတယ်။ .col-xl- ကတော့ extra large desktop display အတွက်ဖြစ်ပါတယ်။ ကျွန်တော်တို့က column တွေအတွက် order class တွေသုံးနိုင်ပါတယ်။ order-lg-1 ဆိုတာကတော့ column ကို row ရဲ့ပထမဆုံးကိုထားပေးမှာဖြစ်ပါတယ်။
+        ဘာလို့လဲဆိုတော့ ကျွန်တော်တို့က flexbox order က အလုပ်လုပ်ပေးလို့ဖြစ်ပါတယ်။ order-lg-2 ဆိုရင် second position မှာဖြစ်ပြီးတော့ order-lg-3 ဆိုရင်တော့ ကျွန်တော်တို့က third position မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့က image ကို extra display အတွက် image ကို
+        hide ပေးထားချင်ရင်တော့ d-none ပေးရမှာဖြစ်ပါတယ်။ တကယ်လို့ extra large အတွက် image ကိုပြန်ပေါ်ချင်ရင်တော့ ကျွန်တော်တို့က d-sm-block ပေးခဲ့ရမှာဖြစ်ပါတယ်။ col-xl-5 ကတော့ extra lage လို့ဆိုလိုပြီး column တွေခွဲပေးတာဖြစ်ပါတယ်။ ml auto ဆိုတာကတော့ပိုနေတဲ့
+        left ဘက်က margin ကိုနေရာယူပေးသွားတာဖြစ်ပါတယ်။ Bootstrap ကတော့ complex or time consuming task တွေလိုမျိုး navigation systems, form controls, drop down menu နဲ့တခြားအရာတွေလိုမျိုးကို simplifies ဖြစ်စေပါတယ်။ Interactive components တွေဖြစ်တဲ့ drop
+        down, alert နဲ့ modal window တွေကတော့ JavaScript နဲ့အလုပ်လုပ်ပါတယ်။ Bootstrap ဟာ interactive component တွေကို class, id or data attribute နဲ့ create လုပ်နိုင်ပါတယ်။ Bootstrap တော့ JavaScript ရေးဖိုမလိုပဲ provide လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ အခု
+        navbar တစ်ခုကို create လုပ်ကြည့်ပါမယ်။ <a href="https://getbootstrap.com/docs/4.3/components/navs/">nav bar</a> မှာ ဝင်ကြည့်လို့ရပါတယ်။ နောက်တစ်ခုကတော့ navbar ဆိုတာ navigation, branding နဲ့တခြား elements တွေကို navigation header တစ်ခုမှာ positioning
+        လုပ်တဲ့ wrapper တစ်ခုဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!doctype html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;title&gt;Full Stack Conf&lt;/title&gt;
+                &lt;!-- Required meta tags --&gt;
+                &lt;meta charset="utf-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"&gt;
+            
+                &lt;!-- Bootstrap CSS --&gt;
+                &lt;link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"&gt;
+            
+                &lt;!-- Custom CSS Link --&gt;
+                &lt;link rel="stylesheet" href="../css/custom.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body id="home" data-spy="scroll" data-target=".navbar" data-offset="100"&gt;
+            
+                &lt;!-- navbar --&gt;
+                &lt;nav class="navbar navbar-expand-lg navbar-dark bg-primary fixed-top"&gt;
+                    &lt;div class="container"&gt;
+                        &lt;a class="navbar-brand font-weight-bold order-1 mr-0" href="http://aungzinlatt.itvisionlab.com/" target="_blank"&gt;Presented by Aung Zin Latt&lt;/a&gt;
+                        &lt;button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"&gt;
+                            &lt;span class="navbar-toggler-icon"&gt;&lt;/span&gt;
+                        &lt;/button&gt;
+                        &lt;div class="collapse navbar-collapse" id="navbarNav"&gt;
+                            &lt;ul class="navbar-nav"&gt;
+                                &lt;li class="nav-item"&gt;
+                                    &lt;a class="nav-link" href="#home"&gt;Home &lt;span class="sr-only"&gt;(current)&lt;/span&gt;&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="nav-item"&gt;
+                                    &lt;a class="nav-link" href="#about"&gt;About&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="nav-item"&gt;
+                                    &lt;a class="nav-link" href="#speakers"&gt;Speakers&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="nav-item"&gt;
+                                    &lt;a class="nav-link" href="#schedule"&gt;Schedule&lt;/a&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/nav&gt;
+                &lt;!-- /navbar --&gt;
+            
+                &lt;!-- jumbotron --&gt;
+                &lt;div class="jumbotron jumbotron-fluid bg-info text-white"&gt;
+                    &lt;div class="container text-sm-center pt-5"&gt;
+                        &lt;h1 class="display-2"&gt;Full Stack Conf&lt;/h1&gt;
+                        &lt;p class="lead"&gt;A One-day conference about All Things JavaScript!&lt;/p&gt;
+                        &lt;div class="btn-group mt-4" role="group" aria-label="callout buttons"&gt;
+                            &lt;button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#register"&gt;Register Now&lt;/button&gt;
+                            &lt;a class="btn btn-light btn-lg" href="#speakers"&gt;See Speakers&lt;/a&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;!-- /jumbtron --&gt;
+            
+                &lt;div class="container pt-4"&gt;
+                    &lt;!-- about --&gt;
+                    &lt;div id="about" class="row"&gt;
+                        &lt;div class="col-sm-12 col-md-6 col-lg-4 order-lg-2"&gt;
+                            &lt;h3 class="mb-4"&gt;About Full Stack Conf&lt;/h3&gt;
+                            &lt;img class="mb-4 img-fluid rounded d-none d-sm-block" src="../images/portland.jpg" alt="Portland Image"&gt;
+                            &lt;p&gt;Explore the future of Javascript with a lineup of industry professionals. Discover new techniques to advance your career as a web developer.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-sm-12 col-md-6 col-lg-4 order-lg-1"&gt;
+                            &lt;h3 class="mb-4"&gt;Expert Speaker&lt;/h3&gt;
+                            &lt;p&gt;Our expert speaker lineup was just announced, so don't wait too long before grabing your tickets!&lt;/p&gt;
+                            &lt;p&gt;Want to meet the international JavaScript community and share skills with some of the world's top experts, hackers, and makers? Be the first to know what expect for the future of JavaScript.&lt;/p&gt;
+                            &lt;p&gt;Full Stack Conf is committed to being inclusive and welcoming for everyone. We look forward to another intensive day of learning and sharing.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-sm-12 col-md-6 col-lg-4 order-lg-3"&gt;
+                            &lt;h3 class="mb-4"&gt;What You'll Learn&lt;/h3&gt;
+                            &lt;ul class="list-group"&gt;
+                                &lt;li class="list-group-item"&gt;Cras justo odio&lt;/li&gt;
+                                &lt;li class="list-group-item"&gt;Dapibus ac facilisis in&lt;/li&gt;
+                                &lt;li class="list-group-item"&gt;Morbi leo risus&lt;/li&gt;
+                                &lt;li class="list-group-item"&gt;Porta ac consectetur ac&lt;/li&gt;
+                                &lt;li class="list-group-item"&gt;Vestibulum at eros&lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- /about --&gt;
+            
+                    &lt;!-- Speakers --&gt;
+                    &lt;h1 id="speakers" class="display-4 text-center my-5 text-muted"&gt;&lt;strong&gt;Speakers&lt;/strong&gt;&lt;/h1&gt;
+                    &lt;div class="row"&gt;
+                        &lt;div class="col-md-6 col-lg-4"&gt;
+                            &lt;div class="card mb-3"&gt;
+                                &lt;img src="../images/vivianne.png" class="card-img-top" alt="Vivianne"&gt;
+                                &lt;div class="card-body"&gt;
+                                    &lt;h5 class="card-title"&gt;Vivianne McVue&lt;/h5&gt;
+                                    &lt;p class="card-text"&gt;Vivianne is a girl football player who is passionate about scoring goals, especially ones that kicking angle with her left foot.&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6 col-lg-4"&gt;
+                            &lt;div class="card mb-3"&gt;
+                                &lt;img src="../images/nodestradamus.png" class="card-img-top" alt="NodeStradamus"&gt;
+                                &lt;div class="card-body"&gt;
+                                    &lt;h5 class="card-title"&gt;NodeStradamus&lt;/h5&gt;
+                                    &lt;p class="card-text"&gt;"NodeStradamus" is a software engineer and philosopher trying to leave the world better than he found. He codes for non-profits, eCommerce, and large-scale web apps.&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6 col-lg-4"&gt;
+                            &lt;div class="card mb-3"&gt;
+                                &lt;img src="../images/nodestradamus.png" class="card-img-top" alt="Robbie"&gt;
+                                &lt;div class="card-body"&gt;
+                                    &lt;h5 class="card-title"&gt;Robbie Redux&lt;/h5&gt;
+                                    &lt;p class="card-text"&gt;Robbie Redux is a JavaScript developer working on large-scale applications. He's also a teacher who strives to support students in removing all barriers to learning code.&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6 col-lg-4"&gt;
+                            &lt;div class="card mb-3"&gt;
+                                &lt;img src="../images/nodestradamus.png" class="card-img-top" alt="Ecma"&gt;
+                                &lt;div class="card-body"&gt;
+                                    &lt;h5 class="card-title"&gt;Ecma Scriptnstuff&lt;/h5&gt;
+                                    &lt;p class="card-text"&gt;Ecma found her passiong for programming and teaching over 15 years ago. She is excited to introduce people to the wonderful world of JavaScript.&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6 col-lg-4"&gt;
+                            &lt;div class="card mb-3"&gt;
+                                &lt;img src="../images/nodestradamus.png" class="card-img-top" alt="Jay"&gt;
+                                &lt;div class="card-body"&gt;
+                                    &lt;h5 class="card-title"&gt;Jay Query&lt;/h5&gt;
+                                    &lt;p class="card-text"&gt;Jay is a developer, author of CSS: The missing Manual, JavaScript &amp; jQuery: The Missing Manual, and web development teacher.&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md-6 col-lg-4"&gt;
+                            &lt;div class="card mb-3"&gt;
+                                &lt;img src="../images/nodestradamus.png" class="card-img-top" alt="Json"&gt;
+                                &lt;div class="card-body"&gt;
+                                    &lt;h5 class="card-title"&gt;Json Bable&lt;/h5&gt;
+                                    &lt;p class="card-text"&gt;All of his professional life, Json has worked with computers online; he is a polyglot programmer and likes using the right tools for the job.&lt;/p&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- /Speakers --&gt;
+            
+                    &lt;!-- Schedule --&gt;
+                    &lt;h1 id="schedule" class="display-4 text-center my-5 text-muted"&gt;&lt;strong&gt;Schedule&lt;/strong&gt;&lt;/h1&gt;
+                    &lt;ul class="list-group"&gt;
+                        &lt;li class="list-group-item"&gt;
+                            &lt;div class="d-flex justify-content-between"&gt;
+                                &lt;h5 class="mb-1"&gt;Keynote: Internet of Things&lt;/h5&gt;
+                                &lt;span class="badge badge-pill badge-info p02"&gt;9:00am&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;p class="mb-1"&gt;NodeStradamus&lt;/p&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item"&gt;
+                            &lt;div class="d-flex justify-content-between"&gt;
+                                &lt;h5 class="mb-1"&gt;React Basics&lt;/h5&gt;
+                                &lt;span class="badge badge-pill badge-info p02"&gt;10:00am&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;p class="mb-1"&gt;Vivianne&lt;/p&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item"&gt;
+                            &lt;div class="d-flex justify-content-between"&gt;
+                                &lt;h5 class="mb-1"&gt;Hey, Mongo!&lt;/h5&gt;
+                                &lt;span class="badge badge-pill badge-info p02"&gt;11:00am&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;p class="mb-1"&gt;Jay Query&lt;/p&gt;
+                        &lt;/li&gt;
+                        &lt;li class="list-group-item list-group-item-success"&gt;
+                            &lt;div class="d-flex justify-content-between"&gt;
+                                &lt;h5 class="mb-1"&gt;Lunch&lt;/h5&gt;
+                                &lt;span class="badge badge-pill badge-info p02"&gt;12:00am&lt;/span&gt;
+                            &lt;/div&gt;
+                            &lt;p class="mb-1"&gt;Free Pizza for everyone&lt;/p&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                    &lt;!-- /Sechedule --&gt;
+            
+                    &lt;!-- callout button --&gt;
+                    &lt;button type="button" class="btn btn-outline-info d-block btn-lg mx-auto my-5" data-toggle="modal" data-target="#register"&gt;Don't Miss Out, Register Now&lt;/button&gt;
+                    &lt;!-- /callout button --&gt;
+            
+                    &lt;!-- signup form --&gt;
+                    &lt;hr&gt;
+                    &lt;div class="row py-4 text-muted"&gt;
+                        &lt;div class="col-md col-xl-5"&gt;
+                            &lt;p&gt;&lt;strong&gt;About Treehouse&lt;/strong&gt;&lt;/p&gt;
+                            &lt;p&gt;Treehouse brings affordable technology education to people everywhere to help them achieve their dreams and change the world.&lt;/p&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md col-xl-5 ml-auto"&gt;
+                            &lt;p&gt;&lt;strong&gt;Stay up-to-date on Full Stack Conf&lt;/strong&gt;&lt;/p&gt;
+                            &lt;div class="input-group"&gt;
+                                &lt;input type="text" class="form-control" placeholder="Email"&gt;
+                                &lt;span class="input-group-btn"&gt;
+                                    &lt;button class="btn btn-primary" type="button"&gt;Sign Up&lt;/button&gt;
+                                &lt;/span&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- /signup form --&gt;
+            
+                    &lt;!-- footer --&gt;
+                    &lt;div class="row py-3"&gt;
+                        &lt;div class="col-md-7"&gt;
+                            &lt;ul class="nav"&gt;
+                                &lt;li class="nav-item"&gt;
+                                    &lt;a class="nav-link" href="#"&gt;Community&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="nav-item"&gt;
+                                    &lt;a class="nav-link" href="#"&gt;Tracks&lt;/a&gt;
+                                &lt;/li&gt;
+                                &lt;li class="nav-item"&gt;
+                                    &lt;div class="btn-group dropup"&gt;
+                                        &lt;button type="button" class="btn btn-outline-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"&gt;
+                                          Other Confs
+                                        &lt;/button&gt;
+                                        &lt;div class="dropdown-menu"&gt;
+                                            &lt;a class="dropdown-item" href="#"&gt;CSS Conf&lt;/a&gt;
+                                            &lt;a class="dropdown-item" href="#"&gt;Python Conf&lt;/a&gt;
+                                            &lt;a class="dropdown-item" href="#"&gt;Java Conf&lt;/a&gt;
+                                            &lt;a class="dropdown-item" href="#"&gt;Swift Conf&lt;/a&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                &lt;/li&gt;
+                            &lt;/ul&gt;
+                        &lt;/div&gt;
+                        &lt;div class="col-md text-md-right"&gt;
+                            &lt;small&gt;&copy; 2020 Full Stack Conf &amp; Treehouse&lt;/small&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                    &lt;!-- /footer --&gt;
+            
+                &lt;/div&gt;
+                &lt;!-- /.container --&gt;
+            
+                &lt;!-- ======================================================
+                    FORM Modal
+                ======================================================= --&gt;
+                &lt;div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="register form" aria-hidden="true"&gt;
+                    &lt;div class="modal-dialog"&gt;
+                        &lt;div class="modal-content"&gt;
+                            &lt;div class="modal-header bg-info text-white"&gt;
+                                &lt;h5 class="modal-title" id="exampleModalLabel"&gt;Register Form for Full Stack Conf&lt;/h5&gt;
+                                &lt;button type="button" class="close" data-dismiss="modal" aria-label="Close"&gt;
+                                    &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+                                &lt;/button&gt;
+                            &lt;/div&gt;
+                            &lt;div class="modal-body"&gt;
+                                &lt;!-- Alerts --&gt;
+                                &lt;div class="alert alert-warning alert-dismissible fade show" role="alert"&gt;
+                                    &lt;strong&gt;Hurry!&lt;/strong&gt; Early bird registration ends in two days.
+                                    &lt;button type="button" class="close" data-dismiss="alert" aria-label="Close"&gt;
+                                      &lt;span aria-hidden="true"&gt;&times;&lt;/span&gt;
+                                    &lt;/button&gt;
+                                &lt;/div&gt;
+                                &lt;!-- /Alerts --&gt;
+                                &lt;!-- Registration Form --&gt;
+                                &lt;form&gt;
+                                    &lt;h5 class="mb-4"&gt;Basic Info&lt;/h5&gt;
+                                    &lt;div class="form-group"&gt;
+                                        &lt;label for="name"&gt;Name:&lt;/label&gt;
+                                        &lt;!-- class="sr-only" --&gt;
+                                        &lt;input type="text" class="form-control" id="name"&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="form-group"&gt;
+                                        &lt;label for="email"&gt;Email:&lt;/label&gt;
+                                        &lt;input type="text" class="form-control" id="email"&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="form-group"&gt;
+                                        &lt;label for="role"&gt;Job Role:&lt;/label&gt;
+                                        &lt;select class="custom-select form-control" id="role"&gt;
+                                            &lt;option value="full stack js developer"&gt;Full Stack JavaScript Developer&lt;/option&gt;
+                                            &lt;option value="front end developer"&gt;Front End Developer&lt;/option&gt;
+                                            &lt;option value="back end developer"&gt;Back End Developer&lt;/option&gt;
+                                            &lt;option value="designer"&gt;Designer&lt;/option&gt;
+                                            &lt;option value="student"&gt;Student&lt;/option&gt;
+                                        &lt;/select&gt;
+                                    &lt;/div&gt;
+            
+                                    &lt;hr class="my-4"&gt;
+                                    &lt;h5 class="mb-4"&gt;Which Topics Interest You Most?&lt;/h5&gt;
+            
+                                    &lt;div class="form-check"&gt;
+                                        &lt;div class="custom-control custom-checkbox"&gt;
+                                            &lt;input type="checkbox" class="custom-control-input" id="check1"&gt;
+                                            &lt;label class="custom-control-label" for="check1"&gt;JavaScript Frameworks&lt;/label&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="form-check"&gt;
+                                        &lt;div class="custom-control custom-checkbox"&gt;
+                                            &lt;input type="checkbox" class="custom-control-input" id="check2"&gt;
+                                            &lt;label class="custom-control-label" for="check2"&gt;JavaScript Libraries&lt;/label&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="form-check"&gt;
+                                        &lt;div class="custom-control custom-checkbox"&gt;
+                                            &lt;input type="checkbox" class="custom-control-input" id="check3"&gt;
+                                            &lt;label class="custom-control-label" for="check3"&gt;Node.js&lt;/label&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="form-check"&gt;
+                                        &lt;div class="custom-control custom-checkbox"&gt;
+                                            &lt;input type="checkbox" class="custom-control-input" id="check4"&gt;
+                                            &lt;label class="custom-control-label" for="check4"&gt;Build Tools&lt;/label&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+                                    &lt;div class="form-check"&gt;
+                                        &lt;div class="custom-control custom-checkbox"&gt;
+                                            &lt;input type="checkbox" class="custom-control-input" id="check5"&gt;
+                                            &lt;label class="custom-control-label" for="check5"&gt;ES2015&lt;/label&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+            
+                                    &lt;hr class="mb-4"&gt;
+                                    &lt;h5 class="mb-4"&gt;Payment Info&lt;/h5&gt;
+            
+                                    &lt;div class="form-row"&gt;
+                                        &lt;div class="col-lg-6 form-group"&gt;
+                                            &lt;label for="cc-num"&gt;Card Number:&lt;/label&gt;
+                                            &lt;input type="text" class="form-control" id="cc-num"&gt;
+                                        &lt;/div&gt;
+            
+                                        &lt;div class="col-lg form-group"&gt;
+                                            &lt;label for="cc-num"&gt;Zip Code:&lt;/label&gt;
+                                            &lt;input type="text" class="form-control" id="cc-num"&gt;
+                                        &lt;/div&gt;
+            
+                                        &lt;div class="col-lg form-group"&gt;
+                                            &lt;label for="cc-num"&gt;CVV:&lt;/label&gt;
+                                            &lt;input type="text" class="form-control" id="cc-num"&gt;
+                                        &lt;/div&gt;
+            
+                                    &lt;/div&gt;
+            
+                                    &lt;div class="form-row"&gt;
+                                        &lt;label class="col-lg-12"&gt;Expiration Date:&lt;/label&gt;
+            
+                                        &lt;div class="form-group col-lg-8"&gt;
+                                            &lt;select class="custom-select form-control" id="exp-month"&gt;
+                                                &lt;option value="1"&gt;1 - January&lt;/option&gt;
+                                                &lt;option value="2"&gt;2 - February&lt;/option&gt;
+                                                &lt;option value="3"&gt;3 - March&lt;/option&gt;
+                                                &lt;option value="4"&gt;4 - April&lt;/option&gt;
+                                                &lt;option value="5"&gt;5 - May&lt;/option&gt;
+                                                &lt;option value="6"&gt;6 - June&lt;/option&gt;
+                                                &lt;option value="7"&gt;7 - July&lt;/option&gt;
+                                                &lt;option value="8"&gt;8 - August&lt;/option&gt;
+                                                &lt;option value="9"&gt;9 - September&lt;/option&gt;
+                                                &lt;option value="10"&gt;10 - October&lt;/option&gt;
+                                                &lt;option value="11"&gt;11 - November&lt;/option&gt;
+                                                &lt;option value="12"&gt;12 - December&lt;/option&gt;
+                                            &lt;/select&gt;
+                                        &lt;/div&gt;
+                                        &lt;div class="form-group col-lg"&gt;
+                                            &lt;select class="custom-select form-control" id="exp-year"&gt;
+                                                &lt;option value="2016"&gt;2016&lt;/option&gt;
+                                                &lt;option value="2017"&gt;2017&lt;/option&gt;
+                                                &lt;option value="2018"&gt;2018&lt;/option&gt;
+                                                &lt;option value="2019"&gt;2019&lt;/option&gt;
+                                                &lt;option value="2020"&gt;2020&lt;/option&gt;
+                                            &lt;/select&gt;
+                                        &lt;/div&gt;
+                                    &lt;/div&gt;
+            
+                                    &lt;hr class="mb-4"&gt;
+            
+                                    &lt;button type="submit" class="btn btn-primary btn-lg"&gt;Register&lt;/button&gt;
+                                &lt;/form&gt;
+                                &lt;!-- /Registration Form --&gt;
+                            &lt;/div&gt;
+                            &lt;!-- &lt;div class="modal-footer"&gt;
+                                &lt;button type="button" class="btn btn-secondary" data-dismiss="modal"&gt;Close&lt;/button&gt;
+                                &lt;button type="button" class="btn btn-primary"&gt;Save changes&lt;/button&gt;
+                            &lt;/div&gt; --&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            
+                &lt;!-- Optional JavaScript --&gt;
+                &lt;!-- jQuery first, then Popper.js, then Bootstrap JS --&gt;
+                &lt;script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"&gt;&lt;/script&gt;
+                &lt;script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .navbar .navbar-brand {
+                color: rgba(255, 255, 255, .8);
+                font-size: 1rem;
+            }
+            
+            .jumbotron {
+                background: url('../images/jumbotron.png');
+                background-size: cover;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/responsive_bs.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2></h2>
+    <p></p>
+
+
+
+</body>
+
+</html>

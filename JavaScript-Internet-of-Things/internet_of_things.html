@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Internet of Things</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>What is Internet of Things or IoT?</h2>
+    <p>Internet of Things or IoT ဆိုတာ electronics, sensors နဲ့ software တို့ကို internet နဲ့ချိတ်ဆက်ထားတဲ့ physical objects တွေအဖြစ် ဖော်ပြထားပါတယ်။ Data ကို collected လုပ်တယ် (သို့) devices တွေဆီကို sent လုပ်ပေးတာဖြစ်ပါတယ်။ Internet of Things devices တွေဟာ
+        internet နဲ့ connect လုပ်တဲ့အခါမှာ နည်းလမ်းအမျိုးမျိုးရှိပါတယ်။ Router ဆီကို via WiFi or Ethernet နဲ့ တိုက်ရိုက် connect လုပ်ပေးတယ် (သို့မဟုတ်) IoT devices တွေဟာ smartphone မှာပါတဲ့ via Bluetooth ကဲ့သို့သော geteway device တစ်ခုနဲ့ connect လုပ်နိုင်ပါတယ်။
+        Zigbee နဲ့ Z-Wave လိုမျိုး အခြား wireless technologies တွေလည်း ရှိပါသေးတယ်။ အဲ့ဒီ devices တွေကတော့ hubs ဆိုတာနဲ့ connect လုပ်ပြီးမှ phone or Internet services တွေကို ပြန်ပြီး connect လုပ်ပေးတာပါ။ ဥပမာ Samsung မှာဆိုရင် Internet နဲ့ ချိတ်ဆက်ပေးတဲ့
+        security cameras တွေကို produce လုပ်ပေးပါတယ်။ Big data နဲ့ IoT ရဲ့ combination ကြောင့် လယ်သမားတွေဟာ သီးနှံတွေအထွက်တိုးဖို့ algorithms တွေအသုံးပြုတာလိုမျိုး၊ Automatic industry တွေဟာ employee တွေ safe ဖြစ်စေဖို့ accident တစ်ခုဖြစ်ခဲ့ရင် emergency
+        services တွေ alerting လုပ်ပြတာမျိုး၊ consumer electric meterတွေကကျွန်တော်တို့energy consumption ကိုကူညီပေးတယ်တာမျိုး ၊ပြီးတော့electricity နဲ့ ပိုက်ဆံကိုဘယ်လို save လုပ်ရမယ်ဆိုတဲ့ suggestion တွေကိုပေးပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Single Board Computers</h2>
+    <p>ကျွန်တော်တို့အနေနဲ့ Internet of Things အတွက် JavaScript ကို ဘာကြောင့်အသုံးပြုရလဲလို့ မေးကောင်းမေးပါလိမ့်မယ်။ ဘာကြောင့်အသုံးပြုသင့်လဲဆိုရင်တော့ ပထမဆုံး သူဟာ asynchronous & event-driven ဖြစ်လို့ပဲ ဖြစ်ပါတယ်။ ကျွန်တော်တို့က input or sensor data ကို read
+        လုပ်လိုက်တဲ့အချိန် event တစ်ခုတွေ့မယ်ဆိုရင် အဲ့ဒီ input or sensor data ကို EventListener တစ်ခုကို trigger လုပ်လို့ရအောင် add လုပ်ပေးရပါတယ်။ ဒါဟာ DOM element ထဲမှာ click listener ထည့်လိုက်တာနဲ့ တူတူပါပဲ။ အခြား languages တွေမှာလည်း သူတို့ရဲ့ asynchronous
+        programming ဟာ JavaScript ရဲ့ built-in အဖြစ်ရှိကြပါတယ်။ JavaScript ကို browser ပေါ်က dashboard ကနေ server side က data တွေကို collect လုပ်ဖို့ နဲ့ electronics တွေမှာလည်း နေရာတိုင်းလိုလိုအသုံးပြုနိုင်ပါတယ်။ JavaScript ဟာ ကျွန်တော်တို့ကို architect
+        solutions နဲ့ one language မှာ ပြီးမြောက်စေဖို့ allow လုပ်ပေးပါတယ်။ JavaScript နဲ့ Internet of Things မှာ strategy 3ခု ရှိပါတယ်။ ပထမတစ်ခုက Single Board Computes ၊ ဒုတိယတစ်ခုက JavaScript Micro-controller နဲ့ တတိယတစ်ခုကတော့ Client-Host Model တို့ပဲဖြစ်ပါတယ်။
+        Single Board Computers ဆိုတာကတော့ processing power, RAM နဲ့ single board တစ်ခုမှာရှိတဲ့ storage space တွေအားလုံးရှိတဲ့ Computers တွေပဲဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင်တော့ သူတို့ဟာ full computers တွေဖြစ်ပြီး node.js ကိုပါ လုပ်ဆောင်ပေးနိုင်ပါတယ်။ Single
+        board computers တွေကတစ်ခုကတော့ Raspberry Pi ဖြစ်ပြီး သူ့မှာ Wi-Fi, internet နဲ့ Bluetooth တို့ built-in အနေနဲ့ ပါရှိပါတယ်။ Board ရဲ့ edge မှာလည်း inputs နဲ့ outputs တွေအတွက် အသုံးပြုနိုင်တဲ့ pins 40 လောက်ရှိပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Microcontrollers</h2>
+    <p>Microcontrollers တွေဟာ processing power နဲ့ RAM အနည်းငယ်သာပါဝင်တဲ့ instant-on computers တွေနဲ့ specialize လုပ်ထားတာဖြစ်ပါတယ်။ ဒါပေမယ့် သူတို့မှာ မယုံနိုင်လောက်အောင် မြန်ဆန်တဲ့ IEO ရှိပါတယ်။ ဘာလို့လဲဆိုရင် သူတို့ကို power လုံလုံလောက်လောက်ရရှိပြီးတော့
+        single uses တွေအတွက် specialize လုပ်ထားလို့ပဲဖြစ်ပါတယ်။ Processing power နည်းခြင်းဟာ interpreted language ကနေ running လုပ်ခြင်းကို prevent လုပ်မပေးပါဘူး။ Espruino, Smart.js, XS6 နဲ့ Sausungရဲ့ Jerry Script တွေကဲ့သို့သော microcollers ပေါ်မှာ run
+        နိုင်တဲ့ specialized လုပ်ထားတဲ့ JavaScript Runtimes တွေ အများကြီးရှိပါတယ်။ Espruino Runtime ကို အခြား microcontrollers တွေနဲ့ အလုပ်လုပ်ဖို့အတွက် ported လုပ်ထားပါတယ်။ ESP8266 ဆိုတဲ့ microcontroller ကတော့ WiFi ပါဝင်ပြီးတော့ $2 ပဲကုန်ကျပါမယ်။ Feather
+        HUZZAH မှာတော့ သူ့ထဲမှာ embed လုပ်ထားတဲ့ ESP8266 တစ်ခုရှိပါတယ်။ ESP8266 က အဲ့ဒီအပေါ်မှာဆိုရင် JavaScript မရှိပါဘူး။ ဒါကြောင့် device ပေါ်မှာ install လုပ်ရပါတယ်။ အဲ့ဒီ installation process ကိုတော့ Flashing လို့ခေါ်ပါတယ်။ ကျွန်တောတို့အနေနဲ့ device
+        ပေါ်မှာ JavaScript Runtime ကို install လုပ်ဖို့ Python based tool, ESP tool or graphical user interface, Flasher.js ကို အသုံးပြုနိုင်ပါတယ်။ ES6 နဲ့လာတဲ့ Kinoma Element ကို သူ့ထဲမှာ built လုပ်ထားတာဖြစ်တဲ့အတွက် Flashing မလိုအပ်တော့ပါဘူး။ </p>
+    <hr>
+
+
+    <h2>Client-Host Model</h2>
+    <p>Internet of Things မှာရှိတဲ့ JavaScript အတွက် strategies 3ခုထဲက နောက်ဆုံးတစ်ခုကတော့ Client-Host Model ပဲဖြစ်ပါတယ်။ ဒါကတော့ ကျွန်တော်တို့ microcontroller တစ်ခုပေါ်က software တွေကို ပိုပြီး powerful ဖြစ်တဲ့ computer ဆီကနေ instructions တွေကိုစောင့်ပြီးတော့
+        install လုပ်တာပဲဖြစ်ပါတယ်။ ဒီလိုပြုလုပ်ဖို့အတွက် ကျွန်တော်တို့မှာ device ဆီကို flashed လုပ်ထားတဲ့ specialized software နဲ့ microcontroller တစ်ခုလိုအပ်ပါတယ်။ အများဆုံးအသုံးပြုတဲ့ microcontroller ကတော့ Firmata ပဲဖြစ်ပါတယ်။ ဒုတိယတစ်ခုအနေနဲ့ Firmata
+        protocol ကိုသုံးပြီး microcontroller ကို ဘာလုပ်ရမလဲဆိုတာပြောဖို့အတွက် Node.js running လုပ်နေတဲ့ host computer လိုအပ်ပါလိမ့်မယ်။ Common ဖြစ်တဲ့ microcontroller bolts တွေထဲကတစ်ခုကတော့ Arduino Uno ဖြစ်ပါတယ်။ Computers တွေက UNO, A USB တို့နဲ့ communicate
+        လုပ်ပါတယ်။ Arduino 101 ဟာဆိုရင် wireless ချိတ်လို့ရတဲ့ Intel Bluetooth chip ပါရှိပါတယ်။ Firmata ကို ESP8266 ဆီ flash လုပ်နိုင်ပြီးတော့ Wi-Fi ပေါ်မှာ talk လုပ်နိုင်ပါတယ်။ Node.js မှာ running လုပ်နေတဲ့ host computer ဟာ laptop or desktop တစ်ခုရှိဖို့မလိုပါဘူး။
+        သူဟာ Raspberry Pi လိုမျိုး single board computer ဖြစ်နိုင်ပါတယ်။ Node.js ကို addition အနေနဲ့ပြောရရင် Firmata ပြောတတ်တဲ့ framework တစ်ခုလိုအပ်ပါတယ်။ Johnny-Five နဲ့ Cylon.js libraries တွေကတော့ Firmata ပြောတတ်ပါတယ်။ </p>
+    <hr>
+
+
+    <p>
+        <h1>Defining Variables with let and const</h1>
+    </p>
+
+    <h2>Declaring Variables in JavaScript</h2>
+    <p>JavaScript ကိုစလေ့လာပြီဆိုတာနဲ့ အမြဲတမ်းတွေ့ရမှာကတော့ variables တွေပါပဲ။ ကျွန်တော်တို့ဟာ variable တစ်ခုကို create or declare လုပ်တဲ့ နည်းလမ်းတစ်ခုရှိပါတယ်။ အဲ့ဒါကတော့ var ဆိုတဲ့ keyword ဖြစ်ပြီး JavaScript programmers တော်တော်များများကတော့ အဲ့ဒီ method
+        ကိုအသုံးပြုကြပါတယ်။ ဒါပေမယ့် တစ်ချို့သော behaviors တွေမှာ var ကိုသုံးခြင်းက problematic or unexpected ဖြစ်နိုင်ပါတယ်။ ဒါကြောင့် JavaScript programming language မှာရှိတဲ့ developers တွေဟာ variables တွေကို create လုပ်ဖို့ နည်းလမ်းအသစ်တွေကို မိတ်ဆက်ပေးဖို့
+        ဆုံးဖြတ်ခဲ့ကြပါတယ်။ ES2015 လို့ခေါ်တဲ့ JavaScript 6th version (သို့) ECMAScript 2015 မှာ const နဲ့ let ဆိုတဲ့ new keyword နှစ်ခုကို မိတ်ဆက်လိုက်ပါတယ်။ အခု const နဲ့ let က ဘယ်လိုကွာခြားပြီး ဘယ်လို အလုပ်လုပ်သလဲဆိုတာ လေ့လာကြည့်ရအောင်။ ပြီးတော့ var
+        နဲ့ကြေငြာမယ့်အစား ဘာကြောင့် const နဲ့ let ကို သုံးရသလဲဆိုတာကိုရောပါ လေ့လာပါမယ်။ ဒါပေမယ့် ပထမဆုံးပြောချင်တာကတော့ const နဲ့ let ဟာ var လိုမျိုးပဲ တူညီတဲ့နည်းလမ်းတွေပဲဖြစ်ပါတယ်။ var or const or let လို့အရင်ဆုံးရေးပြီး သူ့နောက်မှာ variable name ရေးပေးရပါတယ်။
+        ပြီးတော့မှာ အဲ့ဒီ variable ထဲကို equal sign အသုံးပြုပြီး ထည့်ချင်တဲ့ value ကို ထည့်ပေးရတာပါ။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            var message = "Hello!";
+            const pi = 3.14159;
+            let score = 0;
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Creating Unchanging Variables with const</h2>
+    <p>ကျွန်တော်တို့အနေနဲ့ variable တစ်ခုကို create လုပ်မယ့်ဆိုရင် အရင်ဆုံးစဉ်းစားသင့်တာက variable declare လုပ်နည်း သုံးမျိုးထဲက const ဆိုတဲ့ keyword ပဲဖြစ်ပါတယ်။ ဒါဟာ declaring variables လုပ်တာအတွက် best choice တစ်ခုဖြစ်ပါတယ်။ Const ဆိုတာ constant လို့ပြောတာဖြစ်ပြီး
+        ဆိုလိုတာကတော့ အဲ့ဒီ const နဲ့ကြေငြာလိုက်တဲ့ variable ထဲက value ဟာ အသေအနေနဲ့ရှိနေသင့်ပြီး လုံးဝမပြောင်းလဲသင့်ပါဘူး။ ဥပမာ const pi = 3.14159 လိုမျိုး pi တန်ဖို့ဟာ လုံးဝပြောင်းလဲပစ်လို့မရပါဘူး။ Const ဟာ variables တွေထဲကို ကျွန်တော်တို့ code ထဲက ဘယ်
+        assign လုပ်မယ့် value တွေဖြစ်ပါစေ overwrite လာလုပ်တာကို ကာကွယ်ပေးပါတယ်။ တစ်နည်းအားဖြင့် constant တစ်ခုကြေငြာလိုက်တာနဲ့ သူ့ကို အခြား value တစ်ခုထပ်ပေးလို့ မရတော့ပါဘူး။ ကျွန်တော်တို့အနေနဲ့ const pi = 3.14159 ဆိုတဲ့ constant variable ထဲကို အခြား
+        value တစ်ခုထပ်ထည့်မယ်ဆိုရင်တော့ Uncaught TypeError: Assignment to a constant variable ဆိုတဲ့ error ကို ပြပေးမှာဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့က value အသေဖြစ်ချင်တဲ့ variable တစ်ခုကို ကြေငြာမယ်ဆိုရင် const ကိုသုံးသင့်ပါတယ်။ ဥပမာ score လိုမျိုး
+        game ရဲ့ score တွေက အမြဲတမ်းပြောင်းနေမှာဖြစ်တဲ့ အခြေအနေမျိုးမှာဆိုရင်တော့ let နဲ့ ကြေငြာသင့်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Creating Unchanging Variables with const&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;h1&gt;My Web Page&lt;/h1&gt;
+            
+                &lt;script&gt;
+                    const name = "Andrew";
+            
+                    function createFullName(fName, lName) {
+                        name = fName + " " + lName;
+                        console.log(name);
+                    }
+                    console.log(name);
+            
+                    createFullName("Peaky", "Blinders");
+                &lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        <a href="directory/const.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+
+    <div class="img-size">
+        <img src="images/const.png" alt="Constant Variable image">
+    </div>
+    <hr>
+
+
+    <h2>Using Constants with Arrays and Objects</h2>
+    <p>ကျွန်တော်တို့အနေနဲ့ constant variable တစ်ခုကို reassign လုပ်လို့မရပါဘူး။ အဲ့ဒီလိုပဲ constant variable တစ်ခုရဲ့ ဘယ် value မဆို reassign လုပ်လို့မရပါဘူး။ Reassign လုပ်လို့မရတဲ့ values တွေကတော့ ဥပမာ strings, numbers, booleans, objects နဲ့ arrays တို့ပဲဖြစ်ပါတယ်။
+        Strings, numbers နဲ့ booleans တဲ့မတူတဲ့ arrays တွေထဲမှာရှိတဲ့ objects တွေမှာ objects or array ကို modify လုပ်ပေးတဲ့ methods တွေနဲ့ properties တွေရှိကြပါတယ်။ သူတို့ const နဲ့ အလုပ်လုပ်သေးရဲ့လားဆိုတာ ကြည့်ရအောင်။ ပထမဆုံး days ဆိုခေါ်တဲ့ variable
+        တစ်ခုကို const ဆိုတာနဲ့ ကြေငြာလိုက်မယ်။ အဲ့ဒီ days ထဲကို array တစ်ခုနဲ့ သူ့ထဲမှာ Monday ဆိုတဲ့ single string တစ်ခုကို assign လုပ်လိုက်ပါမယ်။ ဒုတိယတစ်ခုကတော့ နောက်ထပ် constant variable ဖြစ်တဲ့ person ထဲကို first_name လို့ပါဝင်တဲ့ object literal
+        တစ်ခု assign လုပ်လိုက်ပါမယ်။ first_name ရဲ့နောက်က key ကိုတော့ "Imagen" ဆိုတဲ့ string တစ်ခုပေးလိုက်ပါမယ်။ အခု အဲ့ဒီ variables တွေကို modify လုပ်ကြည့်ရအောင်။ ကျွန်တော်တို့ဟာ array ထဲကို အခြား day တစ်ခု ထပ်ထည့်ချင်တယ်ဆိုရင် push() ဆိုတဲ့ function
+        ကိုအသုံးပြုရပါတယ်။ အဲ့ဒီလိုထည့်လိုက်မယ်ဆိုရင်တော့ သူဟာ new array length ကို number တစ်ခုအနေနဲ့ return ပြန်ပေးမှာဖြစ်ပါတယ်။ နောက်တစ်ခုအနေနဲ့ person object ထဲကို last_name ဆိုတဲ့ property ထည့်ပါမယ်။ အဲ့ဒီမှာ ကျွန်တော်တို့က person လို့ရေးပြီး enter
+        လုပ်လိုက်မယ်ဆိုရင် first_name နဲ့ last_name ကို literal back အနေနဲ့ ရလာမှာဖြစ်ပါတယ်။ အဲ့ဒီမှာဘာဖြစ်နေလဲဆိုရင် Const ဟာ arrays တွေနဲ့ objects တွေကဲ့သို့သော complex objects တွေ modify လုပ်တာကို prevent လုပ်မပေးနိုင်ပါဘူး။ Const ဟာ arrays နဲ့ objects
+        တွေ reassign or overwrite လုပ်တာကိုပဲ prevent လုပ်ပေးတာဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <div class="img-size">
+        <img src="images/const-array-object.png" alt="Constant with array and object image">
+    </div>
+    <p>first_name ကို modify လုပ်မယ်ဆိုရင်တော့</p>
+    <div class="img-size">
+        <img src="images/const-array-object-1.png" alt="Constant with array and object image">
+    </div>
+    <hr>
+
+
+    <h2>Defining Variable with let</h2>
+    <p>ကျွန်တော်တို့အနေနဲ့ variable တစ်ခုကို re-assign လုပ်ချင်တဲ့အခါမျိုးမှာဆိုရင် let ဆိုတဲ့ keyword ကို အသုံးပြုနိုင်ပါတယ်။ let ဆိုတဲ့ keyword ဟာ var နဲ့ အလုပ်လုပ်ပုံချင်းတူပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Defining Variable with let&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;h1&gt;Simple Let Example&lt;/h1&gt;
+            
+                &lt;script&gt;
+                    let score = 0;
+                    let age = 60;
+                    let isHungry = flase;
+                &lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <div class="img-size">
+        <img src="images/defining-let.png" alt="Defining let image">
+    </div>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;person - let and const&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;h1&gt;Person&lt;/h1&gt;
+            
+                &lt;script&gt;
+                    const person = {
+                        first_name: "Aung Zin",
+                        role: "Developer"
+                    }
+            
+                    function personDescription(person) {
+                        /* if you declare "const", you get an error: Uncaught TypeError: Assignment to constant variable. at personDescription */
+                        let description = person.first_name;
+                        if (person.role) {
+                            description = description + " is a ";
+                            description = description + person.role + ".";
+                        }
+                        console.log(description);
+                    }
+                    personDescription(person);
+                &lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <div class="img-size">
+        <img src="images/defining-let-1.png" alt="Defining let image">
+    </div>
+    <hr>
+
+
+    <h2>Using let with For Loop</h2>
+    <p>let ဆိုတဲ့ keyword ဟာ များသောအားဖြင့် for loops တွေမှာ အသုံးများပါတယ်။ For loop မှာ counter လုပ်ရမယ့် variable ကို var keyword နဲ့ အသုံးပြုခြင်းဟာ တစ်ကယ်ကို confuse ဖြစ်စေပြီးတော့ မထင်မှတ်ထားတဲ့ outcomes တွေလည်း ရလာနိုင်ပါတယ်။ အခု common example တစ်ခုကို
+        ဥပမာအနေနဲ့ကြည့်ရအောင်။ ကျွန်တော်တို့ button.html ထဲမှာ buttons အားလုံးကို select လုပ်မယ်လို့ရေးထားတာဖြစ်ပြီး အဲ့ဒီအချိန်မှာ တစ်ယောက်ယောက်က button ကို click လုပ်တဲ့အခါ alert box တစ်ခုကို ထုတ်ပြမှာပဲဖြစ်ပါတယ်။ အဲ့ဒီမှာဆိုရင် var i လို့ကြေငြာလိုက်တာဟာ
+        i က global scope အတွင်းမှာရှိတယ်လို့ပြောချင်တာပါ။ ကျွန်တော်တို့ var i လို့ကြေငြာထားမယ်ဆိုရင် ဘယ် button ကိုပဲနှိပ်နှိပ် button number က နောက်ဆုံး i ထဲမှာ assign လုပ်ထားတဲ့ current i တန်ဖိုးကိုပဲ ဖော်ပြပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့က အဲ့ဒီလို လိုချင်တာမဟုတ်ဘဲ
+        ကိုယ့်နှိပ်လိုက်တဲ့ button ကို ပဲ ဖော်ပြပေးချင်တဲ့အခါ let i လို့ကြေငြာပေးရမှာဖြစ်ပါတယ်။ ဒါဆိုရင်တော့ ကျွန်တော်တို့ click လုပ်လိုက်တဲ့ button number ကို ဖော်ပြပေးမှာဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့မှတ်ထားရမှာက let ဆိုတာ variables တွေကို re-assign
+        ပြန်လုပ်ချင်တဲ့ အခါမျိုးမှာ အသုံးပြုရတယ်ဆိုတာပဲ ဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Using let with For Loop&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1&gt;Buttons&lt;/h1&gt;
+                &lt;button&gt;Button 1&lt;/button&gt;
+                &lt;button&gt;Button 2&lt;/button&gt;
+                &lt;button&gt;Button 3&lt;/button&gt;
+                &lt;button&gt;Button 4&lt;/button&gt;
+                &lt;button&gt;Button 5&lt;/button&gt;
+                &lt;button&gt;Button 6&lt;/button&gt;
+                &lt;button&gt;Button 7&lt;/button&gt;
+                &lt;button&gt;Button 8&lt;/button&gt;
+                &lt;button&gt;Button 9&lt;/button&gt;
+            
+                &lt;script&gt;
+                    const buttons = document.getElementsByTagName("button");
+            
+                    // var i is within the global scope
+                    // var i = 0;
+                    for (let i = 0; i &lt; buttons.length; i++) {
+                        const button = buttons[i];
+                        button.addEventListener("click", function() {
+                            alert("Button " + i + " Pressed");
+                        });
+                    }
+                &lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        <a href="directory/buttons.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Overview</h2>
+    <p>Summary အနေနဲ့ပြောရမယ်ဆိုရင် const keyword ကို variables တွေ declaring လုပ်တဲ့နေရာမှာ ပထမဆုံး option အနေနဲ့ အသုံးပြုပါတယ်။ သူတို့ကို ကျွန်တော်တို့အနေနဲ့ bugs တွေကို re-assign လုပ်ခြင်းကနေ ကာကွယ်ပေးပြီး ကျွန်တော်တို့ code ကို debug လုပ်တဲ့အခါမှာလည်း
+        မြန်ဆန်အောင် ကူညီပေးပါတယ်။ Const variables တွေမှာ block level scoping တွေရှိကြပါတယ်။ Block of code တစ်ခုဆိုတာ curly braces အတွင်းက everything ကိုပြောတာဖြစ်ပါတယ်။ let keyword ကတော့ var နေရာမှာ substitute လုပ်ပြီး value တစ်ခုကို re-assign လုပ်ရတာဖြစ်ပါတယ်။
+        ဥပမာ ကျွန်တော်တို့က loop တစ်ခုအတွင်းက index တစ်ခုကို increment လုပ်တဲ့အချိန်မှာ (သို့) strings တွေကို အတူတကွ add လုပ်တဲ့အချိန်မှာ let ဆိုတဲ့ keyword ကို အသုံးပြုရတာဖြစ်ပါတယ်။ ဒါဟာ for loops တွေသုံးတဲ့အခါမှာ ဖြစ်လာတဲ့ errors တွေကို prevent လုပ်ပေးပြီးတော့
+        web pages တွေကိုလည်း dynamic functionality ဖြစ်အောင် add လုပ်ပေးပါတယ်။ var keyword ကိုတော့ နောက်ပိုင်းမှာ အသုံးပြုဖို့ recommend မလုပ်တော့ပါဘူး။ ဘာဖြစ်လို့လဲဆိုရင် var keyword နဲ့ပတ်သတ်ပြီး scoping issues တွေရှိနေလို့ပဲဖြစ်ပါတယ်။ ဒါကြောင့် variables
+        တွေကို declare လုပ်မယ်ဆိုရင် const ဆိုတဲ့ keyword နဲ့စကြေငြာသင့်ပြီး ၊ ပြီးတော့မှ အဲ့ဒီ variables တွေကို re-assign လုပ်ချင်တဲ့အခါ let keyword ကို ပြောင်းအသုံးပြုပေးရပါတယ်။ </p>
+
+
+</body>
+
+</html>

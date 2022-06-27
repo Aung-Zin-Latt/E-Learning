@@ -1,0 +1,17 @@
+/************************
+Grid Container
+************************/
+
+.grid {
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    /* grid-template-rows: 100px 200px; */
+    grid-template-rows: 100px 100px;
+    grid-gap: 15px;
+    /*  grid-auto-rows: 250px;         this is for implicit rows   */
+    /* grid-auto-rows: minmax(150px, auto);      this is for minmax function for above grid-auto-rows  */
+    grid-auto-flow: column;
+    /* cause number order to up amd down  */
+    grid-auto-columns: 1fr;
+}

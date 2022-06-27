@@ -1,0 +1,21 @@
+@import "style.css";
+body {
+    text-align: center;
+}
+
+p {
+    font-weight: bold;
+}
+
+h1 {
+    font-size: 71px;
+    color: white;
+}
+
+header {
+    background-color: orange;
+}
+
+p {
+    font-size: 20px;
+}

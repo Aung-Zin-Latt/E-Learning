@@ -1,0 +1,142 @@
+/*******************
+1700px
+********************/
+
+#header p {
+  font-size: 1.1em;
+}
+
+#misc #call_to_action {
+  font-size: 1.3em;
+}
+
+#misc blockquote {
+  font-size: 1.4em;
+}
+
+#features .feature .info p {
+  font-size: 1em;
+}
+
+#features .feature {
+  min-height: 150px;
+}
+
+
+/*******************
+1400px
+********************/
+
+
+#header p {
+  font-size: 1em;
+}
+
+#header h2 {
+  font-size: 1em;
+}
+
+#misc #call_to_action {
+  font-size: 1.2em;
+}
+
+#misc blockquote {
+  font-size: 1.2em;
+}
+
+#features .feature .info p {
+  font-size: 0.9em;
+}
+
+#features .feature {
+  min-height: 130px;
+}
+
+
+
+/*******************
+1200px
+********************/
+
+#header {
+  float: left;
+  width: 50%;
+  margin-top: 10%;
+}
+
+#misc {
+  float: left;
+  clear: left;
+  width: 55%;
+}
+  
+#misc #call_to_action, #logo {
+  margin-top: 0;
+}
+
+#phone {
+  float: right;
+}
+
+#misc blockquote {
+  display: none;
+}
+
+#wrapper {
+  width: 90%;
+}
+
+
+
+/*******************
+720px
+********************/
+
+
+#header, #phone, #misc {
+  float: left;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#header p {
+  -ms-text-size-adjust: none;
+}
+
+#phone {
+  margin-bottom: 50px;
+}
+
+#features .feature {
+  float: left;
+  width: 100%;
+  margin: 0 auto;
+}
+
+#features .feature .info p {
+  font-size: 1em;
+  -ms-text-size-adjust: none;
+}
+
+#phone {
+  width: 100%;
+  background: transparent;
+  margin: 0;
+  float: none;
+}
+
+#phone #video_container {
+  width: 100%;
+  margin: 0px
+          auto
+          10%;
+}
+
+
+#phone #video_container #phone_static {
+  display: none;
+}
+
+#phone #video_container #app_screenshot {
+  display: inline;
+}

@@ -1,0 +1,16 @@
+html {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    height: 100%;
+    color: #fff;
+}
+
+.wrapper {
+    background: #1E90FF;
+    height: -webkit-calc(80% - 100px);
+    /*width: -webkit-calc(50% - 120px);*/
+    width: -webkit-calc(100%/3 + 2em);
+}

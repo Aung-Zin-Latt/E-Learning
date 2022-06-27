@@ -1,0 +1,219 @@
+body {
+    margin: 0;
+    color: #878787;
+}
+
+h1 {
+    font-size: 90px;
+    color: white;
+    text-transform: uppercase;
+    font-weight: bold;
+    line-height: 1.3;
+    text-shadow: 5px 10px 0 #222;
+    /* Textshadow Property  */
+}
+
+h2 {
+    font-size: 53px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #48525c;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+img {
+    max-width: 100%;
+    margin-bottom: 20px;
+    margin: auto;
+    border-radius: 10px;
+    /* Border Radius Property */
+}
+
+
+/****************** 
+Pseudo-class
+******************/
+
+a:link {
+    color: orange;
+    /* display: block; */
+    text-decoration: none;
+}
+
+a:visited {
+    color: lightblue;
+}
+
+a:hover {
+    color: forestgreen;
+}
+
+a:active {
+    color: lightcoral;
+}
+
+a:focus {
+    color: white;
+    background-color: orange;
+}
+
+
+/* End Pseudo class */
+
+
+/************** Float Property   **************/
+
+.resorts,
+.tips {
+    width: 46.5%;
+}
+
+.tips {
+    float: right;
+}
+
+.resorts {
+    float: left;
+}
+
+
+/** Float Clearfix *****************/
+
+.group:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* List Property ******************/
+
+ul {
+    list-style-type: square;
+}
+
+ol {
+    list-style-type: decimal-leading-zero;
+}
+
+li {
+    /* border: 1px solid; */
+    /* list-style-position: inside; */
+    margin-bottom: 10px;
+}
+
+ul,
+ol {
+    margin: 30px 0;
+    /* padding-left: 0; */
+    /* margin-left: 0; */
+}
+
+.main-header {
+    text-align: center;
+    height: 850px;
+    padding-top: 170px;
+    /* background-color: orange;
+     background-image: url('../../img/background.jpg');
+     background-size: cover;
+     background-repeat: no-repeat;
+     background-position: center; */
+    background: linear-gradient(#ffa949, transparent 90%), linear-gradient(0deg, #fff, transparent), orange url('https://i.pinimg.com/originals/c8/a4/9c/c8a49c6babe79c2efd4a6963c931df3e.jpg') no-repeat center;
+    /* These two lines are shortand property for above background                                                                                    property */
+    background-size: cover;
+    background-attachment: fixed;
+    /* background-image: linear-gradient(90deg, #ffa949, firebrick); */
+    /* background-image: radial-gradient(circle at top right, #ffa949 0%, firebrick 20%, dodgerblue 100%); */
+}
+
+header span {
+    color: white;
+}
+
+.primary-content {
+    text-align: center;
+    padding-top: 80px;
+    padding-bottom: 70px;
+}
+
+.secondary-content {
+    overflow: auto;
+    border-bottom: 2px solid #e3e3e3;
+    padding-top: 80px;
+    padding-bottom: 70px;
+}
+
+.t-border {
+    border-bottom: 2px solid #e3e3e3;
+}
+
+.primary-content,
+.secondary-content {
+    width: 72%;
+    padding-left: 50px;
+    padding-right: 50px;
+    margin: auto;
+    /* align content to center */
+    max-width: 900px;
+}
+
+.callout {
+    font-size: 1.25em;
+    border-bottom: 3px solid;
+    padding: 0 9px 3px;
+    margin-top: 20px;
+    display: inline-block;
+    margin-bottom: 30px;
+}
+
+.wildlife {
+    color: white;
+    background-color: #434a52;
+    padding-top: 18%;
+    padding-bottom: 18%;
+    padding-right: 24%;
+    padding-left: 245;
+    padding: 18% 24%;
+    /* shortand padding property for above padding property */
+    /* border-width: 10px;
+    border-style: dashed;
+    border-color: #ffa949; */
+    border-top: 10px solid #ffa949;
+    /* border: 10px dashed #ffa949; */
+    /* shortand border property for above border property */
+    /* border-bottom-style: solid;
+    border-bottom-width: 10px;
+    border-bottom-color: red; */
+    /* margin-top: 105px;
+    margin-right: 0;
+    margin-bottom: 60px;
+    margin-left: 0; */
+    margin: 105px 0 60px 0;
+    /* shortand margin property for above margin property */
+    background: #434a52 url('../images/bear.jpg') no-repeat center;
+    background-size: cover;
+    box-shadow: 15px 15px 10px -5px rgba(0, 0, 0, .8);
+    border-radius: 25px;
+    /* Border radius Property */
+}
+
+
+/****************** 
+ID Selectors 
+******************/
+
+#main-footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid 10px orange;
+    text-align: center;
+}
+
+.arrow {
+    width: 50px;
+}

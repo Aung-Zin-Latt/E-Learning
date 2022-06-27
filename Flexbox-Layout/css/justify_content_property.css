@@ -1,0 +1,10 @@
+.container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    /*flex-start, flex-end, center, space-between */
+}
+
+.item-2 {
+    margin-right: auto;
+}

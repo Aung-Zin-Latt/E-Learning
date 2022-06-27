@@ -1,0 +1,1209 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Media Queries</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Introduction to Media Quries</h2>
+    <p>ပြီးခဲ့တဲ့ သင်ခန်းစာတွေမှာ responsive web design တွေကိုသုံးပြီးတော့ low fidelity နဲ့ high fidelity mockups တွေ ဘယ်လို create လုပ်ရမလဲဆိုတာ လေ့လာခဲ့ပြီးပါပြီ။ ထို့နောက် Fluid grids တွေ set up လလုပ်တာကို လေ့လာခဲ့တယ်။ အခုသင်ခန်းစာမှာတော့ responsive web
+        design ရဲ့ major component ဖြစ်တဲ့ media queries တွေကိုသုံးပြီးတော့ ကျွန်တော်တို့ရဲ့ project ကို အဆုံးသတ်မှာဖြစ်ပါတယ်။ ဒါတွေကို မပြုလုပ်ခင်မှာ review အနည်းငယ်လုပ်ပါမယ်။ ကျွန်တော်တို့ အောက်မှာပြထားတဲ့ example ကတော့ "GeoNotation" ဆိုတဲ့ advertising
+        web app ပဲဖြစ်ပါတယ်။ သူဟာ ကြိုက်တဲ့နေရာကနေ notes တွေကို ယူနိုင်ပြီး geolocation နဲ့လည်း သူတို့ကို tag လုပ်လို့ရပါမယ်။ သူ့မှာ app ရဲ့အကြောင်းကို ပြောပြထားတဲ့ testimonials တွေပါမယ်။ call to action လုပ်လို့ရမယ့် button တစ်ခုပါတယ်။ နောက်ဆုံး center
+        မှာ ကျွန်တော်တို့ app ကဘယ်လိုအလုပ်လုပ်သလဲဆိုတာပြပေးမယ့် HTML5 video တစ်ခုပါဝင်ပါမယ်။ အခု ကျွန်တော်တို့တည်ဆောက်မယ့် app ကို Fluid grid နဲ့အသုံးပြုပြီး တည်ဆောက်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ browser ကို resize လုပ်ကြည့်တဲ့အခါ ကျွန်တော်တို့ရဲ့ fluid
+        grid ဟာ effect ဖြစ်လာပြီးတော့ page ရဲ့ elements တွေအားလုံးကိုပါ resize လုပ်သွားမှာဖြစ်ပါတယ်။ ပြီးတော့ elements တွေတစ်ခုနဲ့တစ်ခုလည်း relative ဖြစ်ပြီးတော့ proportional ဖြစ်အောင် keep လုပ်ပေးမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ ပြသနာကတော့ တစ်ကယ်ကို သေးငယ်တဲ့
+        small sizes ကိုရောက်သွားတဲ့အခါမှာ layout ဟာစပြီး ပျက်သွားတာဖြစ်ပါတယ်။ Columns တွေကလည်းကြည့်ရတာ အဆင်မပြေတော့ဘူး။ text size တွေလည်းကြီးသွားတယ်။ ပြီးတော့ Button ဟာလည်း သူ့ထဲက text ကို wrap မလုပ်နိုင်အောင်သေးသွားပါတယ်။ ဒါတွေကို fix လုပ်နိုင်ဖို့အတွက်
+        media queries ကိုအသုံးပြုရခြင်းဖြစ်ပါတယ်။ ဥပမာအနေနဲ့ ကျွန်တော်တို့ text editor ထဲမှာ index.html file တစ်ခုရှိမယ်။ သူ့ထဲမှာတော့ HTML5 doc type တစ်ခုရှိမယ်။ Font တွေကိုတော့ Google Font API ကနေခေါ်သုံးထားမယ်။ ပြီးတော့ CSS files တွေကိုခေါ်ထားတယ်။
+        ကျွန်တော်တို့မှာ main content တစ်ခုရှိပြီး သူ့ထဲမှာ columns သုံးခုပါမယ်။ ပထမ column က header တစ်ခုဖြစ်ပြီး သူ့ထဲမှာ logo နဲ့ paragraph အချို့ရှိပါမယ်။ ဒုတိယ column မှာတော့ phone ဆိုတဲ့ id name နဲ့ div တစ်ခုရှိပြီး သူ့ထဲမှာ video_container ဆိုတဲ့
+        div တစ်ခု nested နဲ့ရှိနေမယ်။ အဲ့ဒီ div ထဲမှာတော့ video ကို display လုပ်ဖို့ browser ကို depending လုပ်နေတဲ့ အမျိုးမျိုးသော sources တွေပါတဲ့ HTML 5 video ရှိမယ်။ ပြီးရင်တော့ phone အတွက် background image တစ်ခုရှိပြီး သူ့ရဲ့ top ဘက်မှာ HTML 5 video
+        ကို ထည့်ထားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ နောက်ဆုံး တတိယ column ထဲမှာတော့ miscellaneous ဖြစ်ပြီး သူ့ထဲမျာ "Start Taking Notes" လို့ခေါ်တဲ့ call to action button တစ်ခုပါဝင်မယ်။ ပြီးရင် block quotes အချို့ပါဝင်ပြီး အဲ့ဒါကတော့ app ရဲ့ testimonials
+        အကြောင်းပြောပြထားမှာဖြစ်ပါတယ်။ Main content ပြီးတဲ့နောက် ကျွန်တော်တို့ဟာ particular feature တွေဖော်ပြထားတဲ့ paragraph text တွေနဲ့ image-based icon တစ်ခုပါဝင်တဲ့ unordered list တစ်ခုရှိပါမယ်။ ထို့နောက် ကျွန်တော်တို့ရဲ့ application.css ကိုကြည့်မယ်ဆိုရင်
+        သူ့ရဲ့ အပေါ်ဆုံးမှာ platforms အားလုံးအတွက် အလုပ်လုပ်ပေးနိုင်မယ့် reset code တွေပါဝင်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့မှာ base ဆိုတဲ့ flag တစ်ခုရှိပြီး သူ့မှာတော့ wrapper div, main content စတဲ့ page တစ်ခုလုံးကို basic styling လုပ်ထားတဲ့ CSS code တွေပါဝင်ပါမယ်။
+        ဒါတွေကို media queries ထည့်မယ်ဆိုရင်တော့ ကျွန်တော်တို့ project folder ထဲမှာ rwd.css ဆိုတဲ့ file တစ်ခု create လိုက်မယ်။ ပြီးရင်တော့ အဲ့ဒီ css file ကို HTML ထဲမှာ link ချိတ်ပေးရပါမယ်။ အခု CSS ကို dive မလုပ်ခင် HTML ထဲမှာ ပထမတစ်ခုအနေနဲ့ viewport
+        ဆိုတဲ့ name နဲ့ meta tag တစ်ခုထည့်ပါမယ်။ Eg. (&lt;meta name = viewport, content=width=device-width, user-scalable=no, initial-scale=1.0, minimum scale=1.0, maximum-scale=1.0 /&gt;) ။ အဲ့ဒီ meta tag ဟာ mobile devices တွေမှာ viewport ကို lock off
+        လုပ်ဖို့အတွက်ပဲဖြစ်ပါတယ်။ user-scalable=no ဆိုတာ user ဟာ page ကို scale မလုပ်နိုင်ဘူးလို့ပြောလိုက်တာပါ။ initial-scale=1.0 , minimum-scale=1.0 နဲ့ maximum-scale=1.0 စတာတွေဟာ page ရဲ့ scale ဟာ ဘယ်လိုပဲဖြစ်နေဖြစ်နေ ပြောင်းလဲမသွားဘဲ 1.0 မှာပဲ အမြဲတမ်းရှိနေမယ်လို့
+        ဆိုလိုတာပါ။ နောက်တစ်ခုကတော့ HTML5 video အတွက် fallback images တွေ ထည့်ဖို့လိုပါလိမ့်မယ်။ အဲ့ဒီ images တွေဟာ HTML5 video ကို support မလုပ်နိုင်တဲ့အခါ ပေါ်ပေးမှာဖြစ်ပါတယ်။ ပြီးရင်တော့ application.css ထဲမှာ ဒီ images တွေကို hide လုပ်ထားမှာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ create လုပ်ထားတဲ့ element တစ်ခုကို hide လုပ်ချင်တယ်ဆိုရင်တော့ display: none; ဆိုတဲ့ property ကို သုံးပေးရတာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"&gt;
+                &lt;title&gt;GeoNotation App&lt;/title&gt;
+                &lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico"&gt;
+                &lt;link rel="stylesheet" href="../css/geo_application.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div id="wrapper"&gt;
+                    &lt;div id="main_content"&gt;
+                    
+                        &lt;div id="header"&gt;
+                            &lt;div id="logo"&gt;
+                                &lt;h1&gt;GeoNotation&lt;/h1&gt;
+                                &lt;img src="../images/geonotation.png" alt="Logo for the GeoNotation application."&gt;
+                                &lt;h2&gt;Take notes anywhere.&lt;/h2&gt;
+                            &lt;/div&gt;
+                            &lt;p&gt;Have you ever written something down, only to later be confused your own note?&lt;/p&gt;
+                            &lt;p&gt;GeoNotation is a mobile web-app that allows you to take notes with geolocation information attached. Often times, being able to know where and when you jotted something down makes all the difference.&lt;/p&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div id="phone"&gt;
+                            &lt;div id="video_container"&gt;
+                                &lt;video width="100%" poster="../images/app_screenshot.jpg" controls&gt;
+                                    &lt;source src="../videos/app_demo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'&gt;
+                                    &lt;source src="../videos/app_demo.webm" type='video/webm; codecs="vp8, vorbis"'&gt;
+                                    &lt;source src="../videos/app_demo.ogv" type='video/ogg; codecs="theora, vorbis"'&gt;
+                                    &lt;img src="../images/app_screenshot.jpg" alt="Screenshot of GeoNotation" id="video_app_screenshot"&gt;
+                                &lt;/video&gt;
+                                &lt;img src="../images/app_screenshot.jpg" id="app_screenshot" alt="Screenshot of GeoNotation"&gt;
+                                &lt;img src="../images/phone_static.jpg" id="phone_static" alt="Screenshot of GeoNotation"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div id="misc"&gt;
+                            &lt;a id="call_to_action" href="http://mc-mobile-app.s3.amazonaws.com/index.html"&gt;Start Taking Notes&lt;/a&gt;
+                            &lt;blockquote&gt;
+                                Holy Heck, it's awesome!
+                                &lt;div&gt;- Ryan Carson&lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;blockquote&gt;
+                                This changes everything.
+                                &lt;div&gt;- Aung Zin Latt&lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                
+                    &lt;ul id="features"&gt;
+                        &lt;li id="global" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/globe.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Global&lt;/h3&gt;
+                                &lt;p&gt;Keep track of your notes using advanced geolocation technology.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="easy" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/notes.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Easy&lt;/h3&gt;
+                                &lt;p&gt;This app is even easier to use than regular old pen and paper.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="friendly" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/heart.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Friendly&lt;/h3&gt;
+                                &lt;p&gt;You'll love the experience of taking notes and interacting with GeoNotation.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="fast" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/bolt.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Fast&lt;/h3&gt;
+                                &lt;p&gt;GeoNotation is, quite simply, the fastest note-taking app on the market.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /*******************
+            RESET
+            ********************/
+            
+            /* http://meyerweb.com/eric/tools/css/reset/ 
+               v2.0 | 20110126
+               License: none (public domain)
+            */
+            
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, u, i, center,
+            dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, canvas, details, embed, 
+            figure, figcaption, footer, header, hgroup, 
+            menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+                margin: 0;
+                padding: 0;
+                border: 0;
+                font-size: 100%;
+                font: inherit;
+                vertical-align: baseline;
+            }
+            /* HTML5 display-role reset for older browsers */
+            article, aside, details, figcaption, figure, 
+            footer, header, hgroup, menu, nav, section {
+                display: block;
+            }
+            body {
+                line-height: 1;
+            }
+            ol, ul {
+                list-style: none;
+            }
+            blockquote, q {
+                quotes: none;
+            }
+            blockquote:before, blockquote:after,
+            q:before, q:after {
+                content: '';
+                content: none;
+            }
+            table {
+                border-collapse: collapse;
+                border-spacing: 0;
+            }
+            
+            
+            
+            /*******************
+            BASE
+            ********************/
+            
+            
+            html {
+              height: 100%;
+            }
+            
+            body {
+              background: -moz-linear-gradient(top, #FFFFFF 0%, #C5C5C5 30%) no-repeat;
+              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(30%, #C5C5C5)) no-repeat;
+              height: 100%;
+              background-color: #C5C5C5;
+              color: #222;
+              font-family: Helvetica, arial, serif;
+            }
+            
+            img {
+              max-width: 100%;
+            }
+            
+            p {
+              line-height: 1.2em;
+            }
+            
+            #wrapper {
+              margin: 0 auto;
+              width: 70%;
+            }
+            
+            #header, #misc {
+              width: 24.2105263157895%;
+              float: left;
+              margin-left: 4.2105263157895%;
+            }
+            
+            #main_content {
+              float: left;
+              width: 100%;
+              margin-bottom: 5%;
+            }
+            
+            
+            
+            /*******************
+            HEADER
+            ********************/
+            
+            
+            #logo {
+              margin: 100% 0 30px 0;
+            }
+            
+            #logo h1 {
+              text-indent: -20000px;
+            }
+            
+            #logo h2 {
+              text-align: right;
+              margin-top: -5%;
+              font-size: 1.2em;
+              text-shadow: 0px 1px 1px rgba(255,255,255,0.9);
+            }
+            
+            #header p {
+              font-size: 1.2em;
+              margin-bottom: 24px;
+              color: #555;
+            }
+            
+            
+            
+            /*******************
+            VIDEO CONTAINER
+            ********************/
+            
+            
+            #phone {
+              width: 32.6315789473684%;
+              float: left;
+              background: url('../../img/phone1.png') top center no-repeat;
+              -webkit-background-size: 100% auto;
+              -moz-background-size: 100% auto;
+              background-size: 100% auto;
+              margin-left: 4.2105263157895%;
+              margin-top: 35px;
+            }
+            
+            #phone #video_container {
+              width: 83.5455435847209%;
+              margin: 34.4760039177277%
+                      auto
+                      33.8883447600392%;
+            }
+            
+            #phone #video_container #app_screenshot,
+            #phone #video_container #phone_static {
+              display: none;
+            }
+            
+            
+            
+            /*******************
+            CALL TO ACTION
+            ********************/
+            
+            
+            #misc #call_to_action {
+              background: url('../../img/noise.png'), -moz-linear-gradient(top, #46D06C 0%, #1DA051 100%);
+              background: url('../../img/noise.png'), -webkit-gradient(linear, left top, left bottom, color-stop(0%, #46D06C), color-stop(100%, #1DA051));
+              background-color: #1DA051;
+              color: #FFF;
+              font-weight: bold;
+              text-decoration: none;
+              display: block;
+              margin: 100% auto 30px;
+              text-align: center;
+              padding: 15px;
+              font-size: 1.7em;
+              -webkit-border-radius: 30px;
+              -moz-border-radius: 30px;
+              border-radius: 10px;
+              -webkit-box-shadow: 0px 1px 1px #000;
+              -moz-box-shadow: 0px 1px 1px #000;
+              box-shadow: 0px 1px 1px #000;
+              -webkit-text-shadow: 0px -1px 1px #000;
+              -moz-text-shadow: 0px -1px 1px #000; 
+              text-shadow: 0px -1px 1px #000;
+            }
+            
+            #misc #call_to_action:hover {
+              background: url('../../img/noise.png'), -moz-linear-gradient(top, #46FF6C 0%, #46D06C 100%);
+              background: url('../../img/noise.png'), -webkit-gradient(linear, left top, left bottom, color-stop(0%, #46FF6C), color-stop(100%, #46D06C));
+              background-color: #46FF6C;
+            }
+            
+            
+            
+            /*******************
+            QUOTES
+            ********************/
+            
+            
+            #misc blockquote {
+              font-family: 'Pacifico', arial, serif;
+              font-size: 1.6em;
+              line-height: 1.8em;
+              margin-bottom: 24px;
+            }
+            
+            #misc blockquote div {
+              font-family: Helvetica, arial, serif;
+              font-weight: bold;
+              font-size: 0.7em;
+              margin-left: 5%;
+              color: #555;
+            }
+            
+            
+            
+            /*******************
+            FEATURES
+            ********************/
+            
+            #features {
+              float: left;
+            }
+            
+            #features .feature {
+              width: 32.6315789473684%;
+              float: left;
+              min-height: 200px;
+            }
+            
+            #features .feature .icon {
+              float: left;
+              width: 22.9032258064516%;
+              margin-right: 3.2258064516129%;
+              height: 100%;
+            }
+            
+            #features .feature .info {
+              float: left;
+              width: 73%;
+              margin-top: 2%;
+            }
+            
+            #features .feature h3 {
+              font-family: 'Pacifico', arial, serif;
+              font-size: 1.8em;
+              margin-bottom: 16px;
+            }
+            
+            #features .feature p {
+              font-size: 1.1em;
+              color: #555;
+            }
+            
+            #features .feature:nth-child(1),
+            #features .feature:nth-child(3) {
+              margin-left: 12.7368421052632%;
+            }
+            
+            #features .feature:nth-child(2),
+            #features .feature:nth-child(4) {
+              margin-left: 9.4736842105263%;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/geo_application.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Media Queries: Desktop Resolution</h2>
+    <p>ကျွန်တော်တို့ရဲ့ project ကို အပေါ်မှာ preview လုပ်ပြီးတဲ့နောက် media queries တွေကိုဆက်သွားပါမယ်။ Media queries ကိုမသွားခင် သူကဘယ်လို အလုပ်လုပ်ပေးသလဲဆိုတာ သိထားဖို့လိုပါတယ်။ ကျွန်တော်တို့ အခုရေးမယ့် code ထဲမှာဆိုရင် media queries တွေအများကြီးပါဝင်ပါတယ်။
+        အဲ့ဒီ media queries တစ်ခုချင်းစီဟာ တိကျတဲ့ minimum resolution တစ်ခုစီကို တာဝန်ယူပေးရပါတယ်။ သို့သော်လည်း မှတ်ထားရမယ့် အချက်တစ်ခုကတော့ Cascading Style Sheets ရဲ့ cascading nature ကြောင့် အဲ့ဒီ media queries တစ်ခုချင်းစီဟာ နောက်ထပ် resolutions အစုလိုက်ကို
+        applied လုပ်သွားမယ်ဆိုတာကိုပါ။ ဒါကြောင့် ဥပမာအနေနဲ့ပြောရရင် ကျွန်တော်တို့ CSS ထဲက ပထမ media query ဟာ သူ့အောက်က follow လိုက်တဲ့ media query တိုင်းကို applied လုပ်သွားပါလိမ့်မယ်။ အဲ့လိုပဲ ဒုတိယ media query ကလည်း သူ့နောက်က media query တိုင်းကို apply
+        လုပ်သွားမှာဖြစ်ပါတယ်။ နောက်ဆုံးတစ်ခုပြောချင်တာကတော့ ကျွန်တော်တို့ရဲ့ font sizes တွေကို manually ထည့်တာဖြစ်ပါတယ်။ ပထမဆုံးအနေနဲ့ rwd.css မှာ သူ့ကို media query method နဲ့ max-width ကို 1700px ပေးလိုက်မယ်။ 1700px ဆိုတာကတော့ screen size 1700px ရောက်တဲ့အချိန်မှာ
+        ပြောင်းလဲသွားမယ့် layout ကိုထည့်ရေးချင်တာဖြစ်ပါတယ်။ သူ့ထဲက font size ကိုပြောင်းချင်တာဖြစ်တဲ့အတွက် header အောက်က paragraph tag ကို select လုပ်ပြီး font-size: 1.1em; လို့ပေးလိုက်မယ်။ Media query ကို တစ်ကယ်အလုပ် လုပ်မလုပ်သိချင်တယ်ဆိုရင်တော့ ကျွန်တော်တို့
+        body ရဲ့ background-color ကို အရောင်တစ်ခုထားပြီး စမ်းသပ်လို့ရပါတယ်။ အဲ့ဒီနောက် ကျွန်တော်တို့ဟာ အပေါ်မှာတည်ဆောက်ခဲ့တဲ့ example ထဲက call_to_action button ကို adjust လုပ်ဖို့လိုပါတယ်။ ပြီးရင် #misc #call_to_action ကို target လုပ်ပြီး font-size: 1.3em;
+        ထားလိုက်မယ်။ ပြီးရင်တော့ blockquote ကို target လုပ်ပြီး font-size: 1.4em; ပေးလိုက်ပါမယ်။ နောက်တစ်ခုကတော့ #features .feature .info p ကို font-size: 0.9em; ဆိုပြီးပေးပါမယ်။ ပီးရင်တော့ #features .feature ကို min-height: 130px ထားလိုက်ပါမယ်။ နောက်
+        resolution တစ်ခုကတော့ 1200px ပဲ ဖြစ်ပါတယ်။ media query မှာ max-width ကို 1200px ကို သုံးလိုက်ပီး header ကို target ထားပီး float:left , margin-top: 10%, width:50% ကို ပြောင်းလိုက်မှာ ဖြစ်ပါတယ်။ #misc ကို target လုပ်ပီး float:left, clear:left, width:
+        55% ကို ပေးလိုက်ပါမယ်။ ပီးရင် #misc #call_to_action #logo ကို target ထားပီး margin-top: 0 ပေးလိုက်ပါမယ်။ပီးရင် #phone ကို target ထားပီး float:right ဆိုပီး ပေးလိုက်ပါမယ်။ ပီးရင် #misc blockquote ကို target လုပ်ပီး display:none ပေးလိုက်ပါမယ်။ ပီးရင်တော့
+        #wrapper ကို target လုပ်ပီး width: 90% ပေးလိုက်ပါမယ်။ အောက်မှာ Example နဲ့တကွ ကြည့်နိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"&gt;
+                &lt;title&gt;GeoNotation App&lt;/title&gt;
+                &lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico"&gt;
+                &lt;link rel="stylesheet" href="../css/geo_application.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div id="wrapper"&gt;
+                    &lt;div id="main_content"&gt;
+                    
+                        &lt;div id="header"&gt;
+                            &lt;div id="logo"&gt;
+                                &lt;h1&gt;GeoNotation&lt;/h1&gt;
+                                &lt;img src="../images/geonotation.png" alt="Logo for the GeoNotation application."&gt;
+                                &lt;h2&gt;Take notes anywhere.&lt;/h2&gt;
+                            &lt;/div&gt;
+                            &lt;p&gt;Have you ever written something down, only to later be confused your own note?&lt;/p&gt;
+                            &lt;p&gt;GeoNotation is a mobile web-app that allows you to take notes with geolocation information attached. Often times, being able to know where and when you jotted something down makes all the difference.&lt;/p&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div id="phone"&gt;
+                            &lt;div id="video_container"&gt;
+                                &lt;video width="100%" poster="../images/app_screenshot.jpg" controls&gt;
+                                    &lt;source src="../videos/app_demo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'&gt;
+                                    &lt;source src="../videos/app_demo.webm" type='video/webm; codecs="vp8, vorbis"'&gt;
+                                    &lt;source src="../videos/app_demo.ogv" type='video/ogg; codecs="theora, vorbis"'&gt;
+                                    &lt;img src="../images/app_screenshot.jpg" alt="Screenshot of GeoNotation" id="video_app_screenshot"&gt;
+                                &lt;/video&gt;
+                                &lt;img src="../images/app_screenshot.jpg" id="app_screenshot" alt="Screenshot of GeoNotation"&gt;
+                                &lt;img src="../images/phone_static.jpg" id="phone_static" alt="Screenshot of GeoNotation"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div id="misc"&gt;
+                            &lt;a id="call_to_action" href="http://mc-mobile-app.s3.amazonaws.com/index.html"&gt;Start Taking Notes&lt;/a&gt;
+                            &lt;blockquote&gt;
+                                Holy Heck, it's awesome!
+                                &lt;div&gt;- Ryan Carson&lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;blockquote&gt;
+                                This changes everything.
+                                &lt;div&gt;- Aung Zin Latt&lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                
+                    &lt;ul id="features"&gt;
+                        &lt;li id="global" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/globe.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Global&lt;/h3&gt;
+                                &lt;p&gt;Keep track of your notes using advanced geolocation technology.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="easy" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/notes.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Easy&lt;/h3&gt;
+                                &lt;p&gt;This app is even easier to use than regular old pen and paper.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="friendly" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/heart.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Friendly&lt;/h3&gt;
+                                &lt;p&gt;You'll love the experience of taking notes and interacting with GeoNotation.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="fast" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/bolt.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Fast&lt;/h3&gt;
+                                &lt;p&gt;GeoNotation is, quite simply, the fastest note-taking app on the market.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /*******************
+            RESET
+            ********************/
+
+            /* http://meyerweb.com/eric/tools/css/reset/ 
+               v2.0 | 20110126
+               License: none (public domain)
+            */
+
+            html, body, div, span, applet, object, iframe,
+            h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+            a, abbr, acronym, address, big, cite, code,
+            del, dfn, em, img, ins, kbd, q, s, samp,
+            small, strike, strong, sub, sup, tt, var,
+            b, u, i, center,
+            dl, dt, dd, ol, ul, li,
+            fieldset, form, label, legend,
+            table, caption, tbody, tfoot, thead, tr, th, td,
+            article, aside, canvas, details, embed, 
+            figure, figcaption, footer, header, hgroup, 
+            menu, nav, output, ruby, section, summary,
+            time, mark, audio, video {
+            	margin: 0;
+            	padding: 0;
+            	border: 0;
+            	font-size: 100%;
+            	font: inherit;
+            	vertical-align: baseline;
+            }
+            /* HTML5 display-role reset for older browsers */
+            article, aside, details, figcaption, figure, 
+            footer, header, hgroup, menu, nav, section {
+            	display: block;
+            }
+            body {
+            	line-height: 1;
+            }
+            ol, ul {
+            	list-style: none;
+            }
+            blockquote, q {
+            	quotes: none;
+            }
+            blockquote:before, blockquote:after,
+            q:before, q:after {
+            	content: '';
+            	content: none;
+            }
+            table {
+            	border-collapse: collapse;
+            	border-spacing: 0;
+            }
+
+
+
+            /*******************
+            BASE
+            ********************/
+
+
+            html {
+              height: 100%;
+            }
+
+            body {
+              background: -moz-linear-gradient(top, #FFFFFF 0%, #C5C5C5 30%) no-repeat;
+              background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #FFFFFF), color-stop(30%, #C5C5C5)) no-repeat;
+              height: 100%;
+              background-color: #C5C5C5;
+              color: #222;
+              font-family: Helvetica, arial, serif;
+            }
+
+            img {
+              max-width: 100%;
+            }
+
+            p {
+              line-height: 1.2em;
+            }
+
+            #wrapper {
+              margin: 0 auto;
+              width: 70%;
+            }
+
+            #header, #misc {
+              width: 24.2105263157895%;
+              float: left;
+              margin-left: 4.2105263157895%;
+            }
+
+            #main_content {
+              float: left;
+              width: 100%;
+              margin-bottom: 5%;
+            }
+
+
+
+            /*******************
+            HEADER
+            ********************/
+
+
+            #logo {
+              margin: 100% 0 30px 0;
+            }
+
+            #logo h1 {
+              text-indent: -20000px;
+            }
+
+            #logo h2 {
+              text-align: right;
+              margin-top: -5%;
+              font-size: 1.2em;
+              text-shadow: 0px 1px 1px rgba(255,255,255,0.9);
+            }
+
+            #header p {
+              font-size: 1.2em;
+              margin-bottom: 24px;
+              color: #555;
+            }
+
+
+
+            /*******************
+            VIDEO CONTAINER
+            ********************/
+
+
+            #phone {
+              width: 32.6315789473684%;
+              float: left;
+              background: url('../../img/phone1.png') top center no-repeat;
+              -webkit-background-size: 100% auto;
+              -moz-background-size: 100% auto;
+              background-size: 100% auto;
+              margin-left: 4.2105263157895%;
+              margin-top: 35px;
+            }
+
+            #phone #video_container {
+              width: 83.5455435847209%;
+              margin: 34.4760039177277%
+                      auto
+                      33.8883447600392%;
+            }
+
+            #phone #video_container #app_screenshot,
+            #phone #video_container #phone_static {
+              display: none;
+            }
+
+
+
+            /*******************
+            CALL TO ACTION
+            ********************/
+
+
+            #misc #call_to_action {
+              background: url('../../img/noise.png'), -moz-linear-gradient(top, #46D06C 0%, #1DA051 100%);
+              background: url('../../img/noise.png'), -webkit-gradient(linear, left top, left bottom, color-stop(0%, #46D06C), color-stop(100%, #1DA051));
+              background-color: #1DA051;
+              color: #FFF;
+              font-weight: bold;
+              text-decoration: none;
+              display: block;
+              margin: 100% auto 30px;
+              text-align: center;
+              padding: 15px;
+              font-size: 1.7em;
+              -webkit-border-radius: 30px;
+              -moz-border-radius: 30px;
+              border-radius: 10px;
+              -webkit-box-shadow: 0px 1px 1px #000;
+              -moz-box-shadow: 0px 1px 1px #000;
+              box-shadow: 0px 1px 1px #000;
+              -webkit-text-shadow: 0px -1px 1px #000;
+              -moz-text-shadow: 0px -1px 1px #000; 
+              text-shadow: 0px -1px 1px #000;
+            }
+
+            #misc #call_to_action:hover {
+              background: url('../../img/noise.png'), -moz-linear-gradient(top, #46FF6C 0%, #46D06C 100%);
+              background: url('../../img/noise.png'), -webkit-gradient(linear, left top, left bottom, color-stop(0%, #46FF6C), color-stop(100%, #46D06C));
+              background-color: #46FF6C;
+            }
+
+
+
+            /*******************
+            QUOTES
+            ********************/
+
+
+            #misc blockquote {
+              font-family: 'Pacifico', arial, serif;
+              font-size: 1.6em;
+              line-height: 1.8em;
+              margin-bottom: 24px;
+            }
+
+            #misc blockquote div {
+              font-family: Helvetica, arial, serif;
+              font-weight: bold;
+              font-size: 0.7em;
+              margin-left: 5%;
+              color: #555;
+            }
+
+
+
+            /*******************
+            FEATURES
+            ********************/
+
+            #features {
+              float: left;
+            }
+
+            #features .feature {
+              width: 32.6315789473684%;
+              float: left;
+              min-height: 200px;
+            }
+
+            #features .feature .icon {
+              float: left;
+              width: 22.9032258064516%;
+              margin-right: 3.2258064516129%;
+              height: 100%;
+            }
+
+            #features .feature .info {
+              float: left;
+              width: 73%;
+              margin-top: 2%;
+            }
+
+            #features .feature h3 {
+              font-family: 'Pacifico', arial, serif;
+              font-size: 1.8em;
+              margin-bottom: 16px;
+            }
+
+            #features .feature p {
+              font-size: 1.1em;
+              color: #555;
+            }
+
+            #features .feature:nth-child(1),
+            #features .feature:nth-child(3) {
+              margin-left: 12.7368421052632%;
+            }
+
+            #features .feature:nth-child(2),
+            #features .feature:nth-child(4) {
+              margin-left: 9.4736842105263%;
+            }
+        </code>
+    </pre>
+    <p>Example of rwd.css:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            1700px
+            ************************/
+
+            @media (max-width: 1700px) {
+                body {
+                    background: yellow;
+                }
+                #header p {
+                    font-size: 1.1em;
+                }
+                #misc #call_to_action {
+                    font-size: 1.3em;
+                }
+                #misc blockquote {
+                    font-size: 1.4em;
+                }
+                #features .feature .info p {
+                    font-size: 1em;
+                }
+                #features .feature {
+                    min-height: 150px;
+                }
+            }
+
+
+            /*************************
+            1400px
+            *************************/
+
+            @media (max-width: 1400px) {
+                body {
+                    background: green;
+                }
+                #header p {
+                    font-size: 1em;
+                }
+                #header h2 {
+                    font-size: 1em;
+                }
+                #misc #call_to_action {
+                    font-size: 1.2em;
+                }
+                #misc blockquote {
+                    font-size: 1.2em;
+                }
+                #features .feature .info p {
+                    font-size: 0.9em;
+                }
+                #features .feature {
+                    min-height: 130px;
+                }
+            }
+
+
+            /*************************
+            1400px
+            *************************/
+
+            @media (max-width: 1200px) {
+                body {
+                    background: red;
+                }
+                #header {
+                    float: left;
+                    width: 50%;
+                    margin-top: 10%;
+                }
+                #misc {
+                    float: left;
+                    clear: left;
+                    width: 55%;
+                }
+                #misc #call_to_action,
+                #logo {
+                    margin-top: 0;
+                }
+                #phone {
+                    float: right;
+                }
+                #misc blockquote {
+                    display: none;
+                }
+                #wrapper {
+                    width: 90%;
+                }
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/geo_desktop_size.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Media Queries: Mobile Resolution</h2>
+    <p>နောက် resolution တစ်ခုကတော့ 720px ပဲ ဖြစ်ပါတယ်။ ဒီ resolution မှာဆို စဉ်းစား စရာတွေ အများကြီး ရှိပါတယ်။ အခု media query မှာ max-width:720px ကို သုံးလိုက်ပါမယ်။ ပထမဆုံးအနေနဲ့ body ကို background color ပြောင်းရမှာ ဖြစ်ပါတယ်။ gradient color ကို မသုံးသင့်ပါဘူး။
+        ဘာလို့လဲဆိုရင် mobile phone တော်တော်များများဟာ gradient ကို support မလုပ်သေးလို့ပဲ ဖြစ်ပါတယ်။ ဒါကြောင့် flat color ကို သုံးတာ ပိုပြီးအဆင်ပြေပါတယ်။ ပြီးရင်တော့ html video ကို diaplay:none ကို ပြောင်းလိုက်ပါမယ်။ တစ်ချို့ device တွေဟာ HTML5 video
+        ကို support မလုပ်ပေးနိုင်လို့ ဖြစ်ပါတယ်။ ဒါကြောင့် HTML5 video ကို screenshot photo တွေ ပြောင်းတာဟာ ပိုကောင်းပါတယ်။ ပီးရင်တော့ screenshot ကို display:block; ဆိုပြီး ပြောင်းလိုက်ပါမယ်။ ပြီးရင် #header, #phone, #misc အားလုံကို target လုပ်ပီး float:left,
+        width:100%, margin:0 auto; ကို ထားလိုက်ပါမယ်။ ဒါဟာ columns အားလုံးကို ဘေးတိုက်အစား အထက်အောက် ဖြစ်စေပါတယ်။ ပီးရင်တော့ #header p ကို target လုပ်ပီး -webkit-text-size-adjust: none ကို ပေးလိုက်ပါမယ်။ ဒါဟာ webkit-based browser ကို target လုပ်ပီး webkit
+        ဟာ automatic text-size ကို apply မလုပ်တယ့် အတွက် text ကို အလိုအလျောက် မညှိပေးပါဘူး။ ပီးရင် #phone ကို target လုပ်ပီး margin-bottom: 50px; ပေးလိုက်ပါမယ်။ ပီးရင် background ကို transparent ပေးလိုက်ပါမယ်။ ပီးရင် float ကို none ပေးလိုက်ပါမယ်။ ပီးရင်
+        video container ကို targer လုပ်ပီး width:100%, margin: 0px auto 10% ဆိုပီး ပေးလိုက်ပါမယ်။ ပီးရင် call_to_action ကို target လုပ်ပီး background color ပေးလိုက်ပါမယ်။ ပီးရင်တော့ call_to_action ရဲ့ hover ကို လည်း background color ပေးလိုက်ပါမယ်။ ဒါဟာ
+        mobile phone တွေမှာ မပြပေးမယ့် desktop browser မှာ ပြမှာ ဖြစ်ပါတယ်။ ပီးရင် screeshot images တွေကို video tag အပြင်ဘက်ကို ထုတ်ဖို့လိုပါတယ်။ ဘာလို့လဲဆိုရင် video ကို display none ပေးထားလို့ပဲ ဖြစ်ပါတယ်။ ပီးရင်တော့ features တွေကို အလုပ်လုပ်ဖို့ လိုပါတယ်။
+        #features .feature:nth-child(1n) ကို target လုပ်ပီး float:left, width:100%, margin:0 auto 30px auto စတာတွေ ပေးလိုက်ပါမယ်။ ဒါဟာ features တွေကို အထက်အောက် ဖြစ်စေပါတယ်။ ပီးရင် #features .feature .info p ကို target လုပ်ပီး font-size ကို 1em ပေးလိုက်ပါမယ်။
+        ပီးရင် -webkit-text-size-adjust ကိုလည်း none ပေးဖို့ လိုပါတယ်။ နောက်ဆုံး လုပ်ရမှာကတော့ iPad အတွက် ညှိပေးဖို့ ဖြစ်ပါတယ်။ များသောအားဖြင့်တော့ device တစ်ခုစီအတွက် လိုက်ပီး ညှိပေးနေဖို့ မလိုပါဘူး။ ဒါပေမယ့် iPad ဟာ popular ဖြစ်တယ့် အတွက် သူ့အတွက် အထူး
+        ajdustment လုပ်ဖို့ လိုပါတယ်။ သူ့ကိုတော့ "@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait)" ကို သုံးရမှာ ဖြစ်ပါတယ်။ အဲ့ထဲမှာ #phone #video_container video ကို target လုပ်ပီး height: 282px
+        ကို ပေးလိုက်မှာ ဖြစ်ပါတယ်။ နောက် media query တစ်ခုကတော့ landscape orientation အတွက် ဖြစ်တာကြောင့် အပေါ်က media query ကို သုံးနိုင်ပီး orientation:portrait နေရာမှာ orientation: landscape လို့ ပြောင်းလိုက်ရင် ရပါပီ။ သူ့မှာတော့ video height ကို 376px
+        ပေးလိုက်ပါမယ်။ ဒါဆိုရင်တော့ layout ဟာ devices တော်တော်များများမှာ ကျွန်တော်တို့ web page က အဆင်ပြေသွားပါလိမ့်မယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0"&gt;
+                &lt;title&gt;GeoNotation App&lt;/title&gt;
+                &lt;link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Pacifico"&gt;
+                &lt;link rel="stylesheet" href="../css/geo_application.css"&gt;
+                &lt;link rel="stylesheet" href="../css/rwd_mobile.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div id="wrapper"&gt;
+                    &lt;div id="main_content"&gt;
+                    
+                        &lt;div id="header"&gt;
+                            &lt;div id="logo"&gt;
+                                &lt;h1&gt;GeoNotation&lt;/h1&gt;
+                                &lt;img src="../images/geonotation.png" alt="Logo for the GeoNotation application."&gt;
+                                &lt;h2&gt;Take notes anywhere.&lt;/h2&gt;
+                            &lt;/div&gt;
+                            &lt;p&gt;Have you ever written something down, only to later be confused your own note?&lt;/p&gt;
+                            &lt;p&gt;GeoNotation is a mobile web-app that allows you to take notes with geolocation information attached. Often times, being able to know where and when you jotted something down makes all the difference.&lt;/p&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div id="phone"&gt;
+                            &lt;div id="video_container"&gt;
+                                &lt;video width="100%" poster="../images/app_screenshot.jpg" controls&gt;
+                                    &lt;source src="../videos/app_demo.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"'&gt;
+                                    &lt;source src="../videos/app_demo.webm" type='video/webm; codecs="vp8, vorbis"'&gt;
+                                    &lt;source src="../videos/app_demo.ogv" type='video/ogg; codecs="theora, vorbis"'&gt;
+                                    &lt;img src="../images/app_screenshot.jpg" alt="Screenshot of GeoNotation" id="video_app_screenshot"&gt;
+                                &lt;/video&gt;
+                                &lt;img src="../images/app_screenshot.jpg" id="app_screenshot" alt="Screenshot of GeoNotation"&gt;
+                                &lt;img src="../images/phone_static.jpg" id="phone_static" alt="Screenshot of GeoNotation"&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div id="misc"&gt;
+                            &lt;a id="call_to_action" href="http://mc-mobile-app.s3.amazonaws.com/index.html"&gt;Start Taking Notes&lt;/a&gt;
+                            &lt;blockquote&gt;
+                                Holy Heck, it's awesome!
+                                &lt;div&gt;- Ryan Carson&lt;/div&gt;
+                            &lt;/blockquote&gt;
+                            &lt;blockquote&gt;
+                                This changes everything.
+                                &lt;div&gt;- Aung Zin Latt&lt;/div&gt;
+                            &lt;/blockquote&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                
+                    &lt;ul id="features"&gt;
+                        &lt;li id="global" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/globe.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Global&lt;/h3&gt;
+                                &lt;p&gt;Keep track of your notes using advanced geolocation technology.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="easy" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/notes.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Easy&lt;/h3&gt;
+                                &lt;p&gt;This app is even easier to use than regular old pen and paper.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="friendly" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/heart.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Friendly&lt;/h3&gt;
+                                &lt;p&gt;You'll love the experience of taking notes and interacting with GeoNotation.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                        &lt;li id="fast" class="feature"&gt;
+                            &lt;div class="icon"&gt;
+                                &lt;img src="../images/icons/bolt.png" alt="An icon of a globe."&gt;
+                            &lt;/div&gt;
+                            &lt;div class="info"&gt;
+                                &lt;h3&gt;Fast&lt;/h3&gt;
+                                &lt;p&gt;GeoNotation is, quite simply, the fastest note-taking app on the market.&lt;/p&gt;
+                            &lt;/div&gt;
+                        &lt;/li&gt;
+                    &lt;/ul&gt;
+                
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of rwd_mobile.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            1700px
+            ************************/
+
+            @media (max-width: 1700px) {
+                body {
+                    background: yellow;
+                }
+                #header p {
+                    font-size: 1.1em;
+                }
+                #misc #call_to_action {
+                    font-size: 1.3em;
+                }
+                #features .feature .info p {
+                    font-size: 1em;
+                }
+                #features .feature {
+                    min-height: 150px;
+                }
+            }
+
+
+            /************************
+            1400px
+            ************************/
+
+            @media (max-midth: 1400px) {
+                body {
+                    background: green;
+                }
+                #header p {
+                    font-size: 1em;
+                }
+                #header h2 {
+                    font-size: 1em;
+                }
+                #misc #call_to_action {
+                    font-size: 1.2em;
+                }
+                #misc blockquote {
+                    font-size: 1.2em;
+                }
+                #features .feature .info p {
+                    font-size: 0.9em;
+                }
+                #features .feature {
+                    min-height: 130px;
+                }
+            }
+
+
+            /************************
+            1200px
+            ************************/
+
+            @media (max-width: 1200px) {
+                body {
+                    background: red;
+                }
+                #header {
+                    float: left;
+                    width: 50%;
+                    margin-top: 10%;
+                }
+                #misc {
+                    float: left;
+                    clear: left;
+                    width: 55%;
+                }
+                #phone {
+                    float: right;
+                }
+                #misc #call_to_action,
+                #logo {
+                    margin-top: 0;
+                }
+                #misc blockquote {
+                    display: none;
+                }
+                #wrapper {
+                    width: 90%;
+                }
+            }
+
+
+            /************************
+            MOBILE SIZE
+            ************************/
+
+            @media (max-width: 720px) {
+                body {
+                    background: #C5C5C5;
+                }
+                #phone #video_container video {
+                    display: none;
+                }
+                #phone #video_container #app_screenshot {
+                    display: block;
+                }
+                #header,
+                #phone,
+                #misc {
+                    float: left;
+                    width: 100%;
+                    margin: 0 auto;
+                }
+                #header p {
+                    -webkit-text-size-adjust: none;
+                }
+                #phone {
+                    margin-bottom: 50px;
+                    background: transparent;
+                    float: none;
+                }
+                #phone #video_container {
+                    width: 100%;
+                    margin: 0px auto 10%;
+                }
+                #misc #call_to_action {
+                    background: #1DA051;
+                }
+                #misc #call_to_action:hover {
+                    background: #46FF6C;
+                }
+                #features .feature:nth-child(1n) {
+                    float: left;
+                    width: 100%;
+                    margin: 0 auto 3px auto;
+                }
+                #features .feature .info p {
+                    font-size: 1em;
+                    -webkit-text-size-adjust: none;
+                }
+            }
+
+
+            /************************
+            iPad
+            ************************/
+
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: protrait) {
+                #phone #video_container video {
+                    height: 282px;
+                }
+            }
+
+            @media only screen and (min-device-width: 768px) and (max-device-width: 1024) and (orientation: landscape) {
+                #phone #video_container video {
+                    height: 376px;
+                }
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/geo_mobile_size.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Media Queries: Cross-Browser Testing</h2>
+    <p>ကျွန်တော်တို့အနေနဲ့ အခု cross-browser testing လုပ်ဖို့လိုအပ်လာပြီဖြစ်ပါတယ်။ ပထမဆုံးအနေနဲ့ Firefox လိုမျိုး browser ကို အခြေခံတဲ့ non-webkit တစ်ခုထဲမှာရှိရဲ့လားဆိုတာစစ်ပါမယ်။ Firefox browser ပေါ်မှာ page ကိုဖွင့်ပြီးတော့ ကျွန်တော်တို့ resize လုပ်တဲ့အခါ
+        media queries တွေ တစ်ကယ်အလုပ်လုပ်ရဲ့လားဆိုတာ သေချာအောင်စစ်ဆေးဖို့လိုပါတယ်။ အခုအနေထားအရဆိုရင် ကျွန်တော်တို့ရေးထားတဲ့ features အားလုံးဟာမှန်ကန်နေပေမယ့် mobile size ကိုရောက်တဲ့အခါမှာ screenshot image ပျောက်နေတာကိုတွေ့ရမှာပါ။ ဘာကြောင့်လဲဆိုရင်တော့
+        ကျွန်တော်တို့ media query ထဲမှာ video screenshot ကို display: block; ပေးထားတာကြောင့်ဖြစ်ပြီး သူ့ကို display: inline; ပြောင်းလိုက်ရင် အဆင်ပြေသွားပါလိမ့်မယ်။ ဒါကို ကျွန်တော်တို့ နောက်ထပ် browser ဖြစ်တဲ့ Chrome မှာကြည့်လိုက်တဲ့အခါမှာလည်း display:
+        inline; ပေးထားတာကြောင့် layout က မပြောင်းလဲပဲရှိနေမှာပါ။ ပြီးတဲ့နောက်မှာ Internet Explorer ကိုစစ်ပါမယ်။ Internet Explorer ဟာ different rendering system ဖြစ်တဲ့အတွက် အတော်လေးကွဲပြားနေပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ HTML ထဲက conditional comments
+        ကိုသုံးပြီးတော့ သူ့ကို target လုပ်နိုင်ပါတယ်။ ဒါကိုပြုလုပ်ဖို့ ပထမဆုံးအနေနဲ့ style အချို့တည်ဆောက်ပြီး ပထမ တစ်ခုက Internet Explorer 8 အတွက် ie8 ဆိုတယ့် css ကို create လုပ်ပီး Internet Explorer 9 အတွက် ie9 ဆိုတယ့် css ကို create လုပ်ရမှာ ဖြစ်ပါတယ်။
+        နောက်ထပ်ကျွန်တော်တို့ဟာ window mobile phone တွေအတွက် winmo or windowsmobile.css ဆိုတဲ့ file ကိုလည်းတည်ဆောက်မှာဖြစ်ပါတယ်။ ပြီးတော့ သူတို့အားလုံးကို conditional statement ထဲထည့်ရမှာဖြစ်ပါတယ်။ Conditional statement ရေးနည်းကတော့ သူတို့တစ်ခုချင်းစီကို
+        Eg. &lt;!--[if gte IE 9&gt; နဲ့ဖွင့်ပြီး &lt;![endif]--&gt; နဲ့ပိတ်ပေးရမှာဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+             &lt;!--[if gte IE 9]&gt;
+                &lt;link rel="stylesheet" type="text/css" href="../css/ie9.css" media="screen" /&gt;
+                &lt;![endif]--&gt;
+                &lt;!--[if lt IE 9]&gt;
+                &lt;link rel="stylesheet" type="text/css" href="../css/ie8.css" media="screen" /&gt;
+                &lt;![endif]--&gt;
+                &lt;!--[if IEMobile]&gt;
+                &lt;link rel="stylesheet" type="text/css" href="../css/winmo7.css" media="screen" /&gt;
+                &lt;![endif]--&gt;
+        </code>
+    </pre>
+
+
+    <h2></h2>
+    <p></p>
+
+
+
+
+
+</body>
+
+</html>

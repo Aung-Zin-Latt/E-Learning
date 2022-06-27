@@ -1,0 +1,9 @@
+/************************
+Grid Container
+************************/
+
+.grid {
+    max-width: 800px;
+    display: grid;
+    grid-template-columns: 200px auto 200px;
+}

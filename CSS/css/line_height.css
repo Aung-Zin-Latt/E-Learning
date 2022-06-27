@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    color: #878787;
+    /* font-size: 1em;        
+    font-family: Helvetica, Arial, sans-serif;   
+    font-style: italic;                          
+    font-weight: normal;
+    line-height: 1.5; */
+    font: italic normal 1em/1.5 Helvetica, Arial, sans-serif;
+    /* this is font property for above font and line property and can be remove normal */
+}
+
+h1 {
+    font-size: 5.625rem;
+    /*This is relative unit and 90px/16 = 5.625em */
+    color: white;
+    text-transform: uppercase;
+    font-weight: normal;
+    /*This is font weight property */
+    line-height: 1.3;
+}
+
+.title {
+    font-size: 1.625rem;
+    /* This is relative unit and 26px/16 = 1.625em */
+    color: white;
+}
+
+h2 {
+    font-size: 53px;
+    text-decoration: underline;
+    /*this make underline for h2 */
+    font-weight: normal;
+}
+
+h3 {
+    font-size: 20px;
+    color: #48525c;
+}
+
+
+/****************** 
+Class Selectors 
+******************/
+
+.main-header {
+    background-color: orange;
+    /* width: 50%; */
+    font-size: 2em;
+}
+
+.primary-content {
+    text-align: center;
+}
+
+.secondary-content {
+    border-top: 3px solid lightgray;
+}
+
+.primary-content,
+.secondary-content {
+    width: 60%;
+}
+
+
+/****************** 
+ID Selectors 
+******************/
+
+#main-footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid 10px orange;
+}

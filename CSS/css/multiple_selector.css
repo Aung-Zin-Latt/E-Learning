@@ -1,0 +1,51 @@
+body {
+    margin: 0;
+    color: #878787;
+}
+
+h1 {
+    font-size: 90px;
+    color: white;
+}
+
+h2 {
+    font-size: 53px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #48525c;
+}
+
+
+/****************** 
+Class Selectors 
+******************/
+
+#top {
+    background-color: red;
+}
+
+.main-header {
+    background-color: orange;
+    /* This style is overwited by ID selector ( #top )  */
+}
+
+.primary-content {
+    text-align: center;
+}
+
+.t-border {
+    border-top: 3px solid lightgray;
+}
+
+
+/****************** 
+ID Selectors 
+******************/
+
+#main-footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid 10px orange;
+}

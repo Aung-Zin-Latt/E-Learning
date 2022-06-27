@@ -1,0 +1,1552 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Basic</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>Introduction to JavaScript</h2>
+    <p>ယနေ့ခေတ်မှာ အသုံးများနေတဲ့ JavaScript ဟာဆိုရင် တစ်ကယ်ကို useful ဖြစ်ပြီးတော့ web browser အားလုံးနီးပါးမှာ run နိုင်ပါတယ်။ JavaScript ဟာ ကောင်းမွန်တဲ့ first language တစ်ခုဖြစ်ပြီး front-end developer တစ်ယောက်ဖြစ်ချင်တယ်ဆိုရင်တော့ JavaScript ကို လေ့လာထားဖို့လိုအပ်ပါတယ်။
+        JavaScript ဟာ web pages တွေကို အပြန်အလှန်လုပ်ဆောင်နိုင်တဲ့ features အချို့ကို ထည့်ပေးနိုင်တဲ့ language တစ်ခုဖြစ်ပါတယ်။ သို့သော်လည်း သူဟာ ပိုပြီးတော့ powerful ဖြစ်တဲ့ programming language တစ်ခုဖြစ်လာပြီးတော့ သူ့ကို website တိုင်းမှာ အသုံးပြုနေကြပါတယ်။
+        JavaScript ဟာ Google Maps, Gmail နဲ့ Facebook လိုမျိုး ကြီးမားတဲ့ web applications တွေကိုတောင် ကောင်းစွာ အလုပ်လုပ်ပေးနေပါတယ်။ ဒါတင်မကဘဲ back-end မှာပါ အရမ်းမြန်ဆန်တဲ့ web server တစ်ခုအဖြစ် running လုပ်နိုင်ပါတယ်။ JavaScript ဟာ web pages တွေကို
+        fun & useful additions တွေ အမြဲတမ်း add လုပ်ပေးနေပါတယ်။ ကျွန်တော်တို့ဟာ page တစ်ခုကို interesting effects တွေ ထည့်ဖို့အတွက် JavaScript ကိုအသုံးပြုနိုင်ပါတယ်။ JavaScript နဲ့ပဲ ကျွန်တော်တို့ဟာ site တစ်ခုကို sign up လုပ်တာနဲ့ form တစ်ခုကို စိတ်ဝင်စားဖို့အကောင်းဆုံးနဲ့
+        အလှပဆုံးဖြစ်အောင် ပြုလုပ်ခြင်းဖြင့် ordinary web experiences တွေကို ရလာမှာဖြစ်ပါတယ်။ ပြီးတော့ JavaScript ဟာ တစ်ကယ်ကို immersive ဖြစ်တဲ့ web experiences တွေကို ဖန်တီးဖို့ ခွင့်ပြုပေးပါတယ်။ ကျွန်တော်တို့ဟာ HTML, CSS နဲ့ JavaScript တွေကိုသုံးပြီးတော့
+        games တွေကိုတောင် ဖန်တီးနိုင်ပါတယ်။ ဒါပေမယ့် JavaScript ကို website တစ်ခုအတွက် visual ပိုင်းလောက်သာလျှင် အသုံးပြုတာဖြစ်ပါတယ်။ Google Maps, Google Docs နဲ့ Gmail ကဲ့သို့ web applications တွေဟာ JavaScript ကိုပဲ အခြေခံပြီးတော့ ရေးသားထားတာဖြစ်ပါတယ်။
+        JavaScript ကို web browser က ကန့်သတ်ထားတာမျိုးမရှိသလို web servers တွေမှာတောင် အသုံးပြုနိုင်ပါတယ်။ Node.JS ကတော့ server side development အတွက် လူသုံးများတဲ့ popular choice တစ်ခုဖြစ်ပါတယ်။ Node.JS ဟာ ကောင်းမွန်တဲ့ performance ရှိပြီးတော့ users
+        တွေတပြိုင်တည်း သုံးနေတဲ့အခါမျိုးမှာလည်း လွယ်ကူစွာ handle လုပ်နိုင်ပါတယ်။ Company ကြီးတွေဖြစ်တဲ့ Wal-Mart, PayPal, LinkedIn, Netflix နဲ့ Groupon တို့ရဲ့ favoriate တစ်ခုဖြစ်ပါတယ်။ သူတို့ရဲ့ website တွေကို serve up လုပ်ဖို့အတွက် Node.JS ကိုအသုံးပြုကြပါတယ်။
+        နောက်ပိုင်း JavaScript ဟာ desktop တွေဆီတောင် ရောက်လာနေပါပြီ။ Adobe ရဲ့ products အများစုဟာလည်း JavaScript ကိုသုံးပြီး သူတို့ကို automate လုပ်ဖို့ ခွင့်ပြုပေးထားပါတယ်။ JavaScript ဟာ Photoshop, Acrobat, Dreamweaver နဲ့ After Effects တွေကို automate
+        ဖြစ်အောင်ပြုလုပ်နိုင်ပါတယ်။ JavaScript နဲ့ရေးသားထားတဲ့ Breach လိုမျိုး desktop applications တွေတောင် ရှိနေပါတယ်။ ဒါမှမဟုတ် <a href="http://brackets.io/">Brackets</a> လိုမျိုး website တွေ create လုပ်ဖို့သုံးတဲ့ text editor လိုမျိုးပေါ့။ Chrome
+        app လို့ခေါ်တဲ့ desktop apps တွေကိုလည်း Html, CSS နဲ့ javascript တွေကိုသုံးပြီးရေးသားနိုင်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Syntax of JavaScript</h2>
+    <p>JavaScript ဟာ programming language တစ်ခုဖြစ်ပြီးတော့ အခြား language တွေလိုပဲ သူ့မှာ ကိုယ်ပိုင် vocabulary နဲ့ grammar တွေရှိပါတယ်။ Programmers တွေကတော့ ဒါကို Syntax လို့ခေါ်ကြပါတယ်။ Programming language တစ်ခုရဲ့ syntax ဆိုတာ ကျွန်တော်တို့ program
+        ထဲကို ထည့်မယ့် commands အမျိုးမျိုး ၊ special words တွေနဲ့ punctuation တို့ဖြစ်ပါတယ်။ Programming language တိုင်းမှာလည်း English, Spanish နဲ့ Mandarin တွေကဲ့သို့သော Syntax တွေရှိပြီးတော့ သူတို့တစ်ခုချင်းစီမှာ ကိုယ်ပိုင် vocabulary နဲ့ grammar
+        တွေရှိကြပါတယ်။ Program တစ်ခုကို ရေးတယ်ဆိုတာ programming language ရဲ့ vocabulary နဲ့ grammar တွေကိုသုံးပြီး story တစ်ခု ရေးသားခြင်းနဲ့တူတူပါပဲ။ အခု programming ရဲ့ concepts တွေကို လေ့လာကြည့်ရအောင်။ အဲ့ဒီ concepts တွေဟာ JavaScript တစ်ခုတည်းအတွက်မဟုတ်ဘဲ
+        အခြား programming languages တွေမှာရောသုံးတဲ့ common ideas တွေဖြစ်ပါတယ်။ အဲ့ဒါတွေကတော့ variables, strings, conditional statements တွေနဲ့ functions တွေပဲဖြစ်ပါတယ်။ နောက်ပြီးတော့ ကျွန်တော်တို့အနေနဲ့ PHP, Ruby, Java နဲ့ Python ကဲ့သို့ အခြားသော programming
+        language တွေမှာ apply လုပ်နိုင်တဲ့ programming concepts တွေကိုလည်း ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ တစ်ခုမှတ်ထားရမှာကတော့ JavaScript ဟာ Java မဟုတ်ပါဘူး။ ဒါကို လူတော်တော်များများက confuse ဖြစ်ကြပါတယ်။ Java လို့ name တူနေတာကလွဲလို့ သူတို့ဟာ မတူညီတဲ့ programming
+        language တွေဖြစ်ပါတယ်။ "JavaScript is not a Java " ဆိုတာကိုပဲ မှတ်ထားပါ။ အဲ့ဒီ ဆောင်ပုဒ်ကိုသိထားခြင်းဖြင့် Job Interview တွေမှာ save ဖြစ်စေမှာဖြစ်ပါတယ်။
+    </p>
+    <hr>
+
+
+    <h2>Simple JavaScript Statement</h2>
+    <p>လူတွေအများစုရဲ့ လက်သုံးစကားကတော့ မိုင်ထောင်ပေါင်းများစွာရှိတဲ့ ခရီးကို တစ်လှမ်းချင်းလှမ်းသွားရမယ် ဆိုတာပါပဲ။ ဒီသင်ခန်းစာမှာတော့ ကျွန်တော်တို့က ရိုးရှင်းတဲ့ JavaScript program တစ်ခုကို create လုပ်သွားမှာ ဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ editor ထဲမှာ index.html
+        နဲ့ script.js file နှစ်ခုကိုတည်ဆောက်ပြီး script.js file ထဲမှာ alert("Hello, I'm JavaScript"); လို့ရိုက်ပြီး browser ကို run ကြည့်လိုက်မယ်ဆိုရင် browser မှာ alert box လေးတစ်ခုနဲ့ "Hello, I'm JavaScript" ဆိုပြီးတွေ့ရမှာဖြစ်ပါတယ်။ Alert ဆိုတာ browser
+        ထဲကိုသွားပြီး built လုပ်လိုက်တဲ့ command တစ်ခုဖြစ်ပါတယ်။ သူဟာ dialogue box တစ်ခုနဲ့အတူ ရေးလိုက်တဲ့ message ကို open လုပ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရေးလိုက်လိုက်တဲ့ စာကြောင်းကိုတော့ JavaScript statement လို့ခေါ်ပြီး statement တစ်ခုဟာ sentence
+        တစ်ခုနဲ့တူပြီး JavaScript Statement တွေဟာ semicolon(;) နဲ့အဆုံးသတ်ပါတယ်။ Program တစ်ခုမှာ statement တွေအများကြီးရေးနိုင်ပါတယ်။ ပြီးတော့ နောက် command အသစ်တစ်ခုဖြစ်တဲ့ document.write() လို့ရေးလိုက်ပါမယ်။ document.write() မှာဆိုရင် document ဆိုတဲ့
+        word ဟာ လက်ရှိ web page ကို ရည်ညွှန်းလိုက်တာဖြစ်ပြီး ၊ write ဆိုတဲ့ စကားလုံးကတော့ page မှာ message အဖြစ်ရေးမယ့် command တစ်ခုဖြစ်ပါတယ်။ အခုနားလည်ထားရမယ့်အချက်ကတော့ ကျွန်တော်တို့ web page တစ်ခုဆီကို directly write လုပ်ဖို့အတွက် JavaScript ကိုအသုံးပြုနိုင်တယ်ဆိုတာပဲ
+        ဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့မှာ messages တွေပို့ဖို့အတွက် နည်းလမ်းနှစ်ခုရှိပါပြီ။ အဲ့ဒါတွေကတော့ dialog box တစ်ခုရယ်၊ webpage ဆီကို တိုက်ရိုက် write လုပ်တာရယ်တို့ဖြစ်ပါတယ်။ အဲ့ဒီမှာသိထားရမယ့် အချက်က program တစ်ခုဟာ statements လေးတွေကို စုစည်းထားတဲ့
+        set တစ်ခုဖြစ်ပြီး အဲ့ဒီ statement တွေဟာလည်း တစ်ခုပြီးသွားမှ နောက်တစ်ခုကို run တာဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ statement တစ်ခုဟာ နောက် statement တစ်ခု မ run ခင် complete ဖြစ်နေဖို့လိုပါတယ်။ ဒါကြောင့် JS file ထဲက statement နှစ်ခုရှိတယ်ဆိုရင် ဒုတိယ
+        statement ဟာ ပထမ statement ကအလုပ်လုပ်မပြီးသေးရင် သူက အလုပ်လုပ်မပေးနိုင်သေးပါဘူး။ ပထမ statement က complete ဖြစ်မှသာ ဒုတိယ statement က ဆက်ပြီးအလုပ်လုပ်နိုင်မှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Syntax of JavaScript&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;script src="../js/script.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            alert("Hello, I'm JavaScript");
+            document.write("<h1>Welcome to JavaScript Basics</h1>");
+            alert("Thanks for visiting.");
+        </code>
+    </pre>
+    <p>
+        <a href="directory/index.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Where Does JavaScript Go</h2>
+    <p>JavaScript ကို web servers, applications တွေဖြစ်တဲ့ Photoshop နဲ့ automate operating systems တွေတော်တော်များများမှာ အသုံးပြုကြပါတယ်။ ဒီသင်ခန်းစာမှာတော့ JavaScript ကို ဘယ်လို program လုပ်ရမလဲဆိုတာကို မလေ့လာခင် JavaScript ဟာ browser ထဲမှာ ဘယ်လိုအလုပ်လုပ်လဲဆိုတာကို
+        လေ့လာပါမယ်။ Browser ဟာ ကျွန်တော်တို့ JavaScript ကို encounter လုပ်မယ့် common place ပဲဖြစ်ပါတယ်။ ပြီးတော့ JavaScript programming ကို try our လုပ်ဖို့လည်း အလွယ်ကူဆုံးနေရာဖြစ်ပါတယ်။ Browsers တွေဟာ မတူညီတဲ့ functions အမျိုးမျိုးကို လုပ်ဆောင်နိုင်ပါတယ်။
+        သူတို့ဟာ HTML ကိုသုံးပြီးတော့ content တွေကို read & display လုပ်ပေးပါတယ်။ ပြီးတော့ သူတို့ကို CSS rules တွေနဲ့ styling လုပ်တာဖြစ်ပါတယ်။ ပြီးတော့ သူတို့ဟာ JavaScript program ထဲမှာ ပေးထားတဲ့ instructions တွေကို page မှာလုပ်ဆောင်ပေးပါတယ်။ Browser
+        တိုင်းမှာ JavaScript interpreter လို့ခေါ်တဲ့ အသင့်ပါပြီးသား built in tools တွေရှိပါတယ်။ ဒါဟာ browser ကို read လုပ်တဲ့အပိုင်းဖြစ်ပြီး JavaScript program တစ်ခုအတွင်းမှာ instructions တွေကို run ပေးပါတယ်။ Browser တစ်ခုက JavaScript ကို encounter လုပ်လိုက်တဲ့အချိန်မှာ
+        JavaScript Interpreter က program ထဲက statement တစ်ခုချင်းစီကို ကြည့်ပြီးတော့ ဘာလုပ်ရမလဲဆိုတာကို ညွှန်ကြားပေးပါတယ်။ Browser တစ်ခုက JavaScript program တစ်ခုပေါ်ကို read & act လုပ်တဲ့အချိန်ကို ကျွန်တော်တို့ running program လို့ခေါ်ပါတယ်။ နောက်ထပ်
+        Executing program လို့လည်းခေါ်ပါတယ်။ Web browser ရဲ့ နေရာတော်တော်များများမှာ JavaScript code တွေထည့်လို့ရပါတယ်။ JavaScript file တွေကို .js ဆိုတဲ့ extension နဲ့ save လုပ်ပေးရပါတယ်။ အဲ့ဒီ JS file ထဲမှာတော့ အခြား HTML နဲ့ CSS code တွေထည့်လို့မရပါဘူး။
+        ပြီးရင်တော့ အဲ့ဒီ JS file ကို HTML ထဲက body tag အပိတ်ရဲ့အပေါ်မှာ &lt;script&gt; ဆိုတဲ့ tag နဲ့ link ချိတ်ပေးရပါမယ်။ &lt;script&gt; tag ထဲက src ဆိုတဲ့ attribute ကတော့ browser ကို JavaScript file ရှာဖို့ ညွှန်ကြားလိုက်ပြီး browser ဟာ အဲ့ဒီ fileကနေ
+        JavaScript ကို load လုပ်လိုက်ပြီး web page ဆီမှာ run ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ src property နဲ့ link လုပ်ပြီး အဲ့ထဲမှာ JavaScript code တွေကို same script tags အတွင်းမှာ ထည့်လို့မရပါဘူး။ Linked file တစ်ခုကို script tag တစ်ခုပဲရှိရမှာဖြစ်ပြီး
+        နောက်ထပ် script tag ကတော့ ကျွန်တော်တို့တိုက်ရိုက်ထည့်ချင်တဲ့ programming ဖြစ်ရပါမယ်။ &lt;script&gt; tag ကို body အတွင်းမှာ link ချိတ်ပေးခြင်းဟာ Browser ကို JavaScript က running မလုပ်ခင် HTML တွေကို အရင်ဆုံး load & display လုပ်ပေးတဲ့ advantage
+        ကိုရစေပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Where does JavaScript Go?&lt;/title&gt;
+                &lt;script&gt;
+                    alert("Here's another message from ITVisionHub!");
+                &lt;/script&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Where to place your JavaScript code&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/my_script.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            alert("Hey, you're back for more?");
+        </code>
+    </pre>
+    <p>
+        <a href="directory/javascript_go.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>The JavaScript Console</h2>
+    <p>ကျွန်တော်တို့ဟာ programming ကိုစရေးပြီဆိုရင် အမှားတော်တော်များများကို လုပ်မိတတ်ပါတယ်။ Computers တွေကတော့ ဒါကိုခွင့်ပြုမှာ မဟုတ်ပါဘူး။ စာလုံးပေါင်းတစ်ခုမှားလိုက်တာနဲ့ program က break ဖြစ်သွားမှာ ဖြစ်ပါတယ်။ Program အစမှာ ကျွန်တော်တို့လုပ်မိတဲ့ အမှားတစ်ချို့ကတော့
+        typing errors, leaving off a quote mark (သို့) mistyping a command တို့ပဲ ဖြစ်ပါတယ်။ Problems တွေကို finding လုပ်ခြင်းနဲ့ fixing လုပ်ခြင်းဟာ programming မှာ ကြီးမားတဲ့ အပိုင်းတစ်ခုဖြစ်ပါတယ်။ ကံကောင်းစွာပဲ browsers တွေက အဲ့ဒီ mistakes တွေကို find
+        လုပ်ဖို့အတွက် tools တွေ provide လုပ်ပေးတာကြောင့် ကျွန်တော်တို့ program ကို အလွယ်တကူ fix လုပ်နိုင်မှာ ဖြစ်ပါတယ်။ အဲ့ဒီမှာ အရေးအကြီးဆုံးအပိုင်းကတော့ JavaScript console ပဲဖြစ်ပါတယ်။ Popular browsers အားလုံးမှာ JavaScript console တစ်ခုရှိပါတယ်။ အဲ့ဒီ
+        console ဟာဆိုရင် browser ရဲ့ JavaScript interpreter တွေထဲကို encounter လုပ်လာတဲ့ ဘယ် errors တွေကိုမဆို lists တစ်ခုနဲ့ပြပေးပါတယ်။ ကျွန်တော်တို့ရဲ့ browser ပေါ်မှာ console ကိုဖွင့်ဖို့အတွက် shortcut key ကတော့ windows မှာဆိုရင် (Ctrl + shift + j)
+        ဖြစ်ပြီးတော့ Macs မှာဆိုရင် (Cmd + Option + J) ပဲ ဖြစ်ပါတယ်။ အဲ့ဒီမှာဆိုရင် ကျွန်တော်တို့ program ကသာ မှားနေခဲ့ရင် syntax error တက်မှာ ဖြစ်ပါတယ်။ မှတ်ထားရမှာကတော့ program တစ်ခုရဲ့ syntax ဆိုတာ သူ့ရဲ့ vocabulary နဲ့ grammar ပဲဖြစ်ပါတယ်။ Program
+        တစ်ခုမှာ errors တွေအများကြီးရှိနေခဲ့ရင် console က အဲ့ဒီ error အမျိုးအစားနဲ့ error တက်နေတဲ့ line number တွေကိုပါ ပြပေးမှာ ဖြစ်ပါတယ်။ ပြီးတော့ အဲ့ဒီ error တစ်ခု fix လုပ်ပြီးတိုင်း နောက်ထပ် error ထပ်ရှိရင် အဲ့ဒီ error ကိုပဲ အရင်ဆုံးပြပေးတာဖြစ်ပါတယ်။
+        Console ဟာ ကျွန်တော်တို့ messages တွေ write လုပ်နိုင်တဲ့ နေရာတစ်ခုဖြစ်ပါတယ်။ console.log() function ဟာ console မှာ message တွေ print လုပ်ဖို့အတွက်ပဲဖြစ်ပါတယ်။ ဒါဟာ program ထဲမှာ ဘာဖြစ်နေလဲဆိုတာ အလွယ်တကူသိနိုင်တဲ့အတွက် နောက်ပိုင်းမှာ အလွန် handy
+        ဖြစ်လာမှာ ဖြစ်ပါတယ်။ console.log() ဟာ alert or document.write() နဲ့ ဆင်တူပါတယ်။ အခုဆိုရင် ကျွန်တော်တို့အနေနဲ့ dialog box ထဲမှာ alert တစ်ခုနဲ့ ပေါ်တာရယ်၊ page ပေါ်မှာ document.write() နဲ့ ရေးတာရယ်၊ console.log() ကိုသုံးပြီး console မှာပေါ်ချင်တာကိုရိုက်ထည့်တာဆိုပြီး
+        message ထုတ်ပြတဲ့ နည်းလမ်းသုံးခုကို လေ့လာခဲ့ပြီ ဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;The JavaScript Console&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Can you get the JavaScript to work?&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/console.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            alert("Hello there ");
+            document.write("No it works!");
+            console.log("Program Completed");
+        </code>
+    </pre>
+    <p>
+        <a href="directory/console.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>JavaScript Variables</h2>
+    <p>အခုသင်ခန်းစာမှာတော့ ကျွန်တော်တို့က programming မှာ အရေးအကြီးဆုံးအပိုင်းဖြစ်တဲ့ Variables တွေအကြောင်းကို လေ့လာသွားမှာ ဖြစ်ပါတယ်။ Variable တစ်ခုဆိုတာ program တစ်ခုအတွင်းမှာ information တွေကို storing လုပ်ဖို့နဲ့ track လုပ်ဖို့အတွက် keeping လုပ်ထားတဲ့
+        နည်းလမ်းတစ်ခုပဲ ဖြစ်ပါတယ်။ ဥပမာ computer game တစ်ခုမှာဆိုရင် player တစ်ယောက်ရဲ့ score တွေကို သိမ်းထားမှာဖြစ်ပြီး game အစမှာ score က zero ရှိနေပြီး player က do well or do mistake အပေါ်မူတည်ပြီး game end သွားပြီဆိုရင် particular score တစ်ခုထုတ်ပြမှာ
+        ဖြစ်ပါတယ်။ Variable တစ်ခုကို box တစ်ခုအဖြစ်စဉ်းစားမယ်ဆိုပါစို့။ အဲ့ဒီထဲကို တစ်ခုခုထည့်မယ်။ Box ထဲက content တွေ change သွားလည်း box ကတော့ အတူတူဖြစ်နေမှာပါ။ Program တစ်ခုကလည်း box လိုပဲ information တွေကို သိမ်းဆည်းပေးထားပါတယ်။ အဲ့ဒီ variable အားလုံးကို
+        follow လုပ်ဖို့အတွက် program တစ်ခုမှာရှိတဲ့ variable တစ်ခုချင်းစီကို identify လုပ်ဖို့လိုပါတယ်။ ဒါကြောင့်ပဲ variable တစ်ခုစီမှာ ကိုယ်ပိုင် name တစ်ခုရှိတာဖြစ်ပါတယ်။ အခု JavaScript မှာ variable တစ်ခုကို ဘယ်လို create လုပ်ရမလဲကြည့်ရအောင်။ JavaScript
+        မှာ variable ကိုကြေငြာမယ်ဆိုရင် special JavaScript word (သို့) keyword လို့ခေါ်တဲ့ var ဆိုတဲ့ keyword နဲ့ကြေငြာရပါမယ်။ အဲ့ဒီလိုရေးပြီးတော့မှာ သူ့နောက်မှာ space တစ်ခုခြားပြီး variable name ကိုရေးပေးရမှာဖြစ်ပြီး နောက်ဆုံးမှာ semi-colon နဲ့အဆုံးသတ်ပါတယ်။
+        ကျွန်တော်တို့က equal sign (=) ကိုသုံးပြီးတော့ variable ထဲကို value တစ်ခု insert လုပ်လို့ရပါတယ်။ Equal sign ဟာ JavaScript interpreter ကို right side က ဘာကိုပဲဖြစ်ဖြစ် left side ထဲကို ထည့်လိုက်မယ်လို့ ပြောလိုက်တာပါ။ ကျွန်တော်တို့ variable ထဲမှာ
+        တစ်ခုခုထည့်လိုက်တာကို ကျွန်တော်တို့က variable တစ်ခုထဲကို value တစ်ခု assign လုပ်တာလို့ ခေါ်ကြပါတယ်။ ကျွန်တော်တို့ variable ထဲကို actual letters, numbers နဲ့ symbols တွေကိုထည့်မယ်ဆိုရင် quote ("") ထည့်ပေးရပါမယ်။ အဲ့ဒီ quote ထဲမှာရှိတဲ့ series of
+        characters တွေကို string လို့ခေါ်ပါတယ်။ Variable တစ်ခုကို alert box နဲ့ထုတ်ချင်ရင်တော့ parenthesis ထဲက အဲ့ဒီ variable ကို quotes တွေထည့်ပေးစရာမလိုပါဘူး။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;JavaScript Variables&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;script src="../js/js_variable.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var message = "Hello";
+            alert(message);
+            message = "Welcome to JavaScript Basic";
+            alert(message);            
+        </code>
+    </pre>
+    <p>
+        <a href="directory/js_variable.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Naming Variables</h2>
+    <p>ပြီးခဲ့တဲ့သင်ခန်းစာမှာ variables တွေကို ဘယ်လို create လုပ်ရမလဲဆိုတာ လေ့လာပြီးတဲ့နောက် တစ်ခုသိထားရမှာက variable name တစ်ခုကို ဘယ်စကားလုံးပဲဖြစ်ဖြစ်ဆိုပြီး သတ်မှတ်လို့မရပါဘူး။ ဘာကြောင့်လဲဆိုရင် JavaScript မှာ reserved words တွေရဲ့ long list တစ်ခုရှိလို့ပဲ
+        ဖြစ်ပါတယ်။ အဲ့ဒါတွေဟာ JavaScript ရဲ့ တစ်စိတ်တစ်ပိုင်းဖြစ်တဲ့ words တွေဖြစ်ပြီး သူတို့ကို တစ်ခါတစ်ရံမှာ keywords လို့ခေါ်ကြပါတယ်။ အနီးဆုံးပြောရရင် var ပါပဲ။ ဒါကြောင့်မို့ var ဆိုတဲ့ word ကို variable တစ်ခုအဖြစ် သုံးလို့မရပါဘူး။ ဒီလိုသုံးလိုက်မယ်ဆိုရင်တော့
+        browser က syntax error တစ်ခုတက်မှာ ဖြစ်ပါတယ်။ JavaScript မှာ variable name အဖြစ်သုံးလို့မရတဲ့ special words တွေရှိပါတယ်။ ဒါကြောင့် variable တစ်ခုတည်ဆောက်တဲ့အခါ syntax error တက်ပြီဆိုရင် အကြောင်းတစ်ခုခုရှိရမယ်လို့ မှတ်ထားရပါမယ်။ အခုချိန်မှာ error
+        မတက်ပေမယ့် နောက်ထွက်မယ့် JavaScript version မှာ error တက်နိုင်တဲ့ အခြား words တွေလည်းရှိပါသေးတယ်။ ဥပမာပြောရရင် names တွေကို number တစ်ခုနဲ့မစရဘူး။ ဒါပေမယ့် name ရဲ့နောက်မှာတော့ number ထည့်လို့ရပါတယ်။ Eg. 9lines = not allowed, rights = allowed
+        ။ များသောအားဖြင့် variables တွေမှာ letters, numbers, $ နဲ့ underscore (_) တွေပဲ ပါရပါမယ်။ များသောအားဖြင့် word တစ်ခုနဲ့တစ်ခုကြားမှာ underscore ခံရေးတယ် (သို့) word တစ်ခုနောက်က နောက်ထပ် word တွေကို capitalize လုပ်ပြီးရေးလေ့ရှိပါတယ်။ ပထမဆုံး word
+        နောက်က capitalize လုပ်ရေးတာကိုတော့ programmers တွေက camel case လို့ခေါ်ကြပါတယ်။ တစ်ခုရှိတာက ကိုယ်ရေးထားတဲ့ program တစ်ခုက 9လလောက်ရှိတဲ့အခါ confusing ဖြစ်နိုင်ပါတယ်။ ဒါကြောင့် variable တွေကို ဒါက ဘာအတွက်ရေးတယ်ဆိုတာ နားလည်လွယ်အောင် ပေးထားသင့်ပါတယ်။
+        variable name တွေကို p, t1, n1 လို့အလွယ်ပေးထားမယ့်အစား score, playerName or pricePerPound ဆိုပြီး နားလည်လွယ်အောင် ရေးရပါမယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            var p, t1, n1;      //Bad naming variables
+
+            var score, playerName, pricePerPound;       //Good naming variables
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Strings and Numbers</h2>
+    <p>Variables တွေဟာ ကျွန်တော်တို့လေ့လာခဲ့သလို boxes တွေကဲ့သို့ information တွေကို store လုပ်ထားနိုင်ပါတယ်။ ဒါပေမယ့် ဘာတွေကို store လုပ်တာလဲ?။ ကျွန်တော်တို့က variable ထဲကိုထည့်တဲ့ information တွေကို value လို့ခေါ်ပြီး အဲ့ဒီ values တွေကလည်း types တွေအမျိုးမျိုးရှိပါတယ်။
+        ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့က common value types နှစ်ခုဖြစ်တဲ့ numbers နဲ့ strings တွေအကြောင်းကို လေ့လာသွားမှာ ဖြစ်ပါတယ်။ Numbers တွေကို adding, subtracting, computing total costs နဲ့ game score တွေကို သိမ်းဆည်းတဲ့အခါမျိုးတွေမှာ calculate လုပ်ဖို့အတွက်
+        အသုံးပြုပါတယ်။ Strings တွေကိုတော့ words, sentences နဲ့ other text တွေအတွက် အသုံးပြုပါတယ်။ ဥပမာ alert ထဲမှာ quote နဲ့ရေးထားတဲ့ message ဟာ string ပါပဲ။ String တစ်ခုဟာ quote marks အတွင်းက series of letters တစ်ခု၊ numbers တွေနဲ့ အခြား characters တွေပဲဖြစ်ပါတယ်။
+        Quote marks တွေဟာ browser ကို အခြား ဘာspecial meaning မှမရှိဘဲ content တစ်ခုသာဖြစ်တယ်လို့ JavaScript interpreter ကိုပြောလိုက်ခြင်းဖြစ်ပါတယ်။ String တွေကို web page မှာ message တစ်ခုပြချင်တိုင်း၊ alert တစ်ခုနဲ့ pop up လုပ်ချင်တိုင်း (သို့) collect
+        information ကိုလုပ်ဖို့သာလျှင် အသုံးပြုပါတယ်။ JavaScript ဟာ string တစ်ခုကို create လုပ်ဖို့ double or single quote ဆိုပြီး ကြိုက်တာနဲ့အသုံးပြုနိုင်ပါတယ်။ ဒါပေမယ့် string ထဲမှာ single quote ပါနေရင် double quote နဲ့ရေးပေးရပြီး တစ်ကယ်လို့ double
+        quote ပါနေရင်တော့ single quote နဲ့ string ကိုရေးပေးရပါမယ်။ နောက်တစ်ခုကတော့ escape character လို့ခေါ်တဲ့ back slash (\) ကိုအသုံးပြုလို့ရပါတယ်။ ပြောချင်တာက string ထဲမှာ double or single quote ပါနေရင် သူရဲ့ရှေ့မှာ back slash (\) ကိုခံပြီး ရေးပေးရပါမယ်။
+    </p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Strings and Numbers&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;script src="../js/string_number.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var message = 'Hello!';
+            alert(message);
+            message = "Goodbye";
+            alert(message);
+            message = "She's a great person!";
+            var htmlSinppet = '&lt;h1 class="special"&gt;Important Headline&lt;/h1&gt;';
+
+            message = 'She\s a great person!';
+            alert(message);
+
+            htmlSinppet = "&lt;h1 class=\"special\"&gt;Important Headline&lt;/h1&gt;";
+            alert(htmlSinppet);
+        </code>
+    </pre>
+    <p>
+        <a href="directory/strings_numbers.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Spaces, Texts and New Lines in JavaScript</h2>
+    <p>အခု JavaScript programs အများစုမှာတွေ့ရတဲ့ space အကြောင်းကို လေ့လာသွားပါမယ်။ Space ဆိုတာကတော့ ကျွန်တော်တို့ code ထဲမှာ သူ့အပိုင်းနဲ့သူ separate ခြားတဲ့အခါမှာသုံးတဲ့ adding tabs, space characters နဲ့ line returns တွေပဲဖြစ်ပါတယ်။ HTML နဲ့ CSS လိုပဲ
+        JavaScript ကလည်း space တွေကို ဂရုစိုက်နေစရာမလိုဘဲ ignore လုပ်ပေးပါတယ်။ ကျွန်တော်တို့အနေနဲ့ variable တစ်ခု create လုပ်တုန်းကလို equal sign ရဲ့ ရှေ့မှာရော နောက်မှာရော space တွေကို ခြားခဲ့ပါတယ်။ JavaScript က ဒါတွေကို care မလုပ်ပါဘူး။ Multiple lines
+        တွေပေါ်မှာ single JavaScript statement တစ်ခုကိုတောင် spread လုပ်နိုင်ပါတယ်။ Space တွေကိုသုံးခြင်းဟာ ကျွန်တော်တို့ code ကို ဖတ်ဖို့ပိုလွယ်ကူစေပါတယ်။ ဒါပေမယ့် space တွေများလွန်းရင်လည်း အာရုံထွေပြားစေလွယ်ပါတယ်။ Space မခြားဘဲရေးခြင်းဟာ code ကိုဖတ်ရတာ
+        ပိုမိုခက်ခဲစေပါတယ်။ ဘာလို့လဲဆိုရင် letters တွေနဲ့ symbols တွေဟာ အရမ်းကပ်လွန်းနေတာကြောင့် ဖြစ်ပါတယ်။ Programmer တွေအများစုကတော့ code ကိုဖတ်ရတာ ပိုပြီးလွယ်ကူအောင် space ကိုသုံးကြပါတယ်။ ဥပမာ var daysInWeek = 7; မှာဆိုရင် browser ဟာ variable ကိုကြေငြာထားတယ်ဆိုတာ
+        ခွဲခြားနိုင်ပါတယ်။ ဒီလိုမဟုတ်ဘဲ vardaysInWeek လို့ space မခြားဘဲရေးလိုက်မယ်ဆိုရင် browser ကအလုပ်လုပ်မှာ မဟုတ်တော့ပါဘူး။ ဘာလို့လဲဆိုတော့ browser က daysInWeek ဆိုတာကို var ကြေငြာထားမှန်း မသိတော့လို့ပဲ ဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            var daysInWeek = 7;         //correct
+			vardaysInWeek = 7;          //not define
+			var days In Week = 7;       //this cause a syntax error
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Capturing Visitor's Input</h2>
+    <p>ပြီးခဲ့တဲ့ သင်ခန်းစာက ကျွန်တော်တို့ဟာ visitor တစ်ယောက်ဆီကို message ပို့ဖို့အတွက် document.write() ကိုသုံးပြီး webpage ထဲကို တိုက်ရိုက်ရေးတာနဲ့ console.log() ကိုသုံးပြီး hidden message အဖြစ် console မှာပဲပေါ်အောင်ရေးတဲ့ technique အချို့ကို လေ့လာခဲ့ပါတယ်။
+        ဒါပေမယ့် ကျွန်တော်တို့ဟာ site visitors တွေဆီက inputs တွေကို capture လုပ်ဖို့ နည်းလမ်းတွေရှိပါသေးတယ်။ ဥပမာ visitor တစ်ယောက်က site ထဲက form တစ်ခုကို fill လုပ်တဲ့အချိန်မှာ သူဘာရိုက်ထားတာလဲဆိုတာကို capture လုပ်ထားလို့ရပါတယ်။ Browsers တွေဟာ capturing
+        input တွေအတွက် ရိုးရှင်းတဲ့ command တစ်ခုကို provide လုပ်ပေးပါတယ်။ အဲ့ဒီ command တစ်ခုကတော့ prompt() ပဲဖြစ်ပါတယ်။ Prompt command ဟာ ကျွန်တော်တို့ကို question တစ်ခု ask လုပ်ဖို့ ခွင့်ပြုပေးထားပြီး response တစ်ခုကိုလည်း ရယူလိုက်ပါတယ်။ Prompt command
+        ဟာ alert command လိုပဲ parenthesis () အတွင်းမှာ string ထည့်လို့ရပါတယ်။ Browser ကို run ကြည့်တဲ့အခါမှာတော့ dialog box တစ်ခုထဲမှာမှ textbox တစ်ခုနဲ့ ပေါ်လာမှာဖြစ်ပါတယ်။ အဲ့ဒီ text box အတွင်းမှာ name ကိုရိုက်ထည့်လို့ရပါတယ်။ အခုကျွန်တော်တို့ရိုက်လိုက်တဲ့
+        name က ဘာဖြစ်သွားသလဲဆိုရင် browser က user ရဲ့ response ကို capture လုပ်ပေးပြီးတော့ အဲ့ဒီ ရိုက်လိုက်တဲ့ name ကို program ဆီကို ပို့ပေးမှာဖြစ်ပါတယ်။ ဒါကို programming စကားအရပြောရမယ်ဆိုရင် value တစ်ခု return ပြန်တယ်လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့ဟာ
+        အဲ့ဒီ return value ကို variable တစ်ခုအတွင်းမှာ store လုပ်လို့ရပါတယ်။ တစ်နည်းပြောရရင် user ရိုက်ထည့်လိုက်တဲ့ input ကို capture လုပ်ပြီး program ထဲမှာ အသုံးပြုလိုက်တာဖြစ်ပါတယ်။ အဲ့ဒီ return value ကို alert တစ်ခုနဲ့သုံးပြီး ထုတ်ကြည့်နိုင်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့
+        console.log() ကိုသုံးပြီးတော့လည်း variable ကို console မှာထုတ်ပြလို့ရပါတယ်။ တစ်ခုရှိတာက console မှာတော့ user က သူရိုက်လိုက်တဲ့ name ကို မြင်ရမှာမဟုတ်ပါဘူး။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Capturing Visitor's Input&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;script src="../js/capturing_input.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var userName = prompt("What is your name?");
+            alert(userName);
+            console.log(userName);
+        </code>
+    </pre>
+    <p>
+        <a href="directory/capturing_input.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Combining Strings</h2>
+    <p>အခုဆိုရင် ကျွန်တော်တို့မှာ visitor တစ်ယောက်ဆီကနေ ကျွန်တော်တို့ site မှာ information တွေကို collect လုပ်နိုင်မယ့် method တစ်ခုရှိနေပါပြီ။ အခု အဲ့ဒီ input ကို messages အမျိုးမျိုးဘယ်လို create လုပ်ရမလဲဆိုတာကို လေ့လာသွားပါမယ်။ ကျွန်တော်တို့ဟာ browser
+        prompt တစ်ခုကနေ input တွေကို collect လုပ်ပြီး အဲ့ဒီ collect လုပ်ထားတဲ့ input ထဲကို words တွေထပ်ထည့်ပြီး နောက်ဆုံး final message ကို web page ဆီ printing လုပ်မှာ ဖြစ်ပါတယ်။ String တွေကို combining လုပ်တာကို concatenation လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့
+        variable တစ်ခုမှာ string တစ်ခုပါတယ်ဆိုပါစို့။ အဲ့ဒီ variable ကို အခြား string တစ်ခုနဲ့ပေါင်းလိုက်ရင်လည်း string နှစ်ခုကို concatenate လုပ်တယ်လို့ပြောလို့ရပါတယ်။ တစ်နည်းပြောရရင် variable တွေဟာ သူ့ထဲမှာရှိတဲ့ string အတွက် placeholder တစ်ခုပဲဖြစ်ပါတယ်။
+        JavaScript မှာဆိုရင် string တစ်ခုနဲ့တစ်ခု concatenate လုပ်တဲ့အခါ plus sign (+) ကိုအသုံးပြုပါတယ်။ ဒါပေမယ့် တစ်ခါတစ်ရံ ကျွန်တော်တို့က paragraph လိုမျိုး long string တွေကို ပေါင်းတဲ့အခါ ဖတ်ရတာခက်စေပါတယ်။ ဒါကိုဖြေရှင်းဖို့ variable ထဲကိုမှ + နဲ့ string
+        ထပ်ထည့်ပြီး ဖတ်ရလွယ်အောင် fix လုပ်နိုင်ပါတယ်။ အဲ့ဒီနည်းကတော့ variable ထဲကို string တစ်ခု update လုပ်တာပဲဖြစ်ပါတယ်။ ဒီလိုလုပ်တာဟာ programming မှာ ရှိပြီးသား value တစ်ခုထဲကို variable တစ်ခု update လုပ်တာဟာ တစ်ကယ်အသုံးများကြပြီး သူ့မှာ shorthand
+        method တစ်ခုတောင်ရှိပါတယ်။ အဲ့ဒါကတော့ plus equal (+=) ပဲဖြစ်ပါတယ်။ += ကတော့ variable ထဲကို တစ်ခုခုပေါင်းထည့်မယ်လို့ ဆိုလိုတာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Combining String  &lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;script src="../js/combining_string.js"  &lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var visitor = prompt("What is your name?");
+            var message = "Hello " + visitor + ". Welcome to our site. ";
+            message = message + "Thanks for visiting my page. ";
+            message += "We are so glad that you came by to visist, Thank you.";
+            document.write(message);            
+        </code>
+    </pre>
+    <p>
+        <a href="directory/combining_string.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>JavaScript Resources and Properties</h2>
+    <p>JavaScript language မှာထည့်သွင်းထားတဲ့ power built များစွာရှိပါတယ်။ Developer တိုင်းဟာ programming language တစ်ခုမှာပါဝင်တဲ့ features တွေကို ဘယ်လိုလေ့လာရမလဲဆိုတာကို သိထားဖို့လိုပါတယ်။ အဖြေတွေကို ဘယ်လိုရှာရမလဲဆိုတာနဲ့ documentation တွေကို ဘယ်လိုဖတ်ရမလဲဆိုတာကို
+        သိထားရင် အလုပ်တွေကိုမြန်မြန်ဆန်ဆန် ပြီးမြောက်စေမှာ ဖြစ်ပါတယ်။ ဒီတစ်ခါမှာ ကျွန်တော်တို့က JavaScript programmers တွေအတွက် Mozilla Developer Network(MDN) ဆိုတဲ့ resources တစ်ခုကို ပြောပြပေးမှာ ဖြစ်ပါတယ်။ အဲ့ဒီ MDN မှာ JavaScript strings တွေဘယ်လိုအလုပ်လုပ်ပြီး
+        သူတို့နဲ့ ဘာတွေပြုလုပ်သွားမလဲဆိုတာ လေ့လာသွားမှာ ဖြစ်ပါတယ်။ JavaScript မှာဆိုရင် strings တွေရဲ့ data ရဲ့ type တစ်ခုသာမက သူတို့ဟာ properties တွေရှိတဲ့ objects တွေလည်းဖြစ်ပါတယ်။ ဥပမာ string တစ်ခုရဲ့ length ကိုသိချင်ရင် length ဆိုတဲ့ property ကိုအသုံးပြုရပါတယ်။
+        Length property ကို user ရိုက်လိုက်တဲ့ password က အနည်းဆုံး 10 characters ရှိပြီး 20 characters ထက်မပိုရဘူးဆိုတဲ့ နေရာမျိုးမှာအသုံးပြုနိုင်ပါတယ်။ ဒါပေမယ့် အဲ့ဒီ variable name နဲ့ length ဆိုတဲ့ keyword ရဲ့ကြားက dot(.) ဆိုတာ ဘာလဲဆိုရင် string value
+        တစ်ခုပါတဲ့ variable ကို object လို့ခေါ်ပြီး၊ objects တွေရဲ့ types အမျိုးမျိုးမှာလည်း properties အမျိုးမျိုးရှိကြပါတယ်။ ဒါကြောင့် dot(.) ဆိုတာ object တစ်ခုရဲ့ property ကို access လုပ်ပေးနိုင်တဲ့ အရာတစ်ခုဖြစ်ပါတယ်။ Property တစ်ခုဟာ variable တစ်ခုလိုပဲ
+        information တွေကို hold လုပ်ပေးပါတယ်။ String တစ်ခုရဲ့ length property ကတော့ number တစ်ခုပါရှိပါတယ်။ ပြောချင်တာက အဲ့ဒီ string ထဲက character အရေအတွက်ပဲ ဖြစ်ပါတယ်။ ဘာဖြစ်လို့လဲဆိုရင် တစ်ကယ်လို့ string တစ်ခုက 38 characters ရှိတယ်ဆိုရင် အဲ့ဒီ string
+        ရဲ့ length property ဟာ 38 ဖြစ်လို့ပဲ ဖြစ်ပါတယ်။ Variable တစ်ခုလိုပဲ property တစ်ခုဟာလည်း dynamic ဖြစ်ပြီး change လုပ်လို့ရပါတယ်။ နောက်ထပ် strings တွေဘယ်လိုအလုပ်လုပ်ပေးလဲသိချင်ရင်တော့ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/toLowerCase"
+            target="_blank">MDN</a> မှာ လေ့လာနိုင်ပါတယ်။ အဲ့ဒီမှာ properties နဲ့ methods တွေကိုလည်းလေ့လာနိုင်ပါတယ်။ Method တစ်ခုဆိုတာ object နဲ့ တစ်ခုခုကို ပြုလုပ်ရကိုပြောတာဖြစ်ပါတယ်။ အဲ့ဒီ methods တွေအများကြီးရှိတဲ့အထဲကမှ method နှစ်ခုကို ပြောပြသွားပါမယ်။
+        ပထမတစ်ခုကတော့ string.prototype.toLowerCase() ပဲဖြစ်ပါတယ်။ အဲ့ဒီမှာဆိုရင် string.prototype ဟာ string တစ်ခုကို ရည်ညွှန်းတာပဲဖြစ်ပါတယ်။ အရေးကြီးတဲ့အပိုင်းက toLowerCase အပိုင်းပဲဖြစ်ပါတယ်။ ပြီးတော့ သူ့နောက်မှာထည့်ရတဲ့ parenthesis ကတော့ string ရဲ့
+        command or method တစ်ခုဖြစ်ပါတယ်လို့ ပြောပြပေးတာဖြစ်ပါတယ်။ toLowerCase ဟာဆိုရင် document.write() နဲ့ console.log() ဆိုတဲ့ method နှစ်မျိုးလုံးမှာ အသုံးပြုနိုင်ပါတယ်။log() ဟာ console အတွက် method or command တစ်ခုဖြစ်ပြီး ၊ write() ကတော့ document
+        ရဲ့ method တစ်ခုဖြစ်ပါတယ်။ toLowerCase ဟာ string တစ်ခုထဲက characters တွေအကုန်လုံးကို lowercase ပြောင်းပေးတာဖြစ်ပါတယ်။ နောက်တစ်ခုကတော့ toUpperCase ဖြစ်ပြီးသူဟာ string ထဲက characters တွေကို uppercase အဖြစ်ပြောင်းပေးတာဖြစ်ပါတယ်။ အဲ့ဒီမှာဆိုရင် toLowerCase
+        or toUpperCase ပြောင်းလိုက်တဲ့ string က အမှန်တကယ် ပြောင်းလဲသွားမှာမဟုတ်ဘူးဆိုတာ သိထားရပါမယ်။ ကျွန်တော်တို့ဟာ JavaScript နဲ့ program လုပ်မယ်ဆိုရင် string, document နဲ့ browser ရဲ့ console တွေကဲ့သို့သော objects တွေနဲ့ မကြာခနဆိုသလို အလုပ်လုပ်ရပါတယ်။
+        Objects တွေမှာ object တစ်ခုအတွက် variables တွေရှိသလိုမျိုး properties တွေလည်းရှိပါတယ်။ သူတို့ဟာ string ရဲ့ length လိုမျိုး object နဲ့ ပတ်သတ်တဲ့ information တွေကို store လုပ်ထားပေးနိုင်ပါတယ်။ Objects တွေမှာ actions တွေအဖြစ်လုပ်ဆောင်နိုင်တဲ့ methods
+        တွေလည်းရှိပါတယ်။ ဥပမာ string အတွက်ဆိုရင် toUpperCase() ဆိုတဲ့ method နဲ့ document အတွက်ဆိုရင် document.write() ဆိုတဲ့ methods တွေပဲဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;JavaScript Resources and Properties&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;script src="../js/js_properties.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var passphrase = 'Open Sesame';
+            console.log(passphrase.length);
+            console.log(passphrase.toLowerCase());
+            console.log(passphrase);
+            console.log(passphrase.toUpperCase());
+            console.log(passphrase);
+        </code>
+    </pre>
+    <p>
+        <a href="directory/js_properties.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Shout App&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;script src="../js/shout_app.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;           
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var stringToShout = prompt("What should I shout");
+            var shout = stringToShout.toUpperCase();
+            shout += "!!!";
+            alert(shout);
+        </code>
+    </pre>
+    <p>
+        <a href="directory/shout_app.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Code Challenge of Story</h2>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Story Maker Program&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;The Story Maker&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/mad_libs.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            //There once has a [adjective] programmer who wanted to use JavaScript to [verb] the [noun]
+
+
+            var adjective = prompt("Please type an adjective!");
+            var sentence = "&lt;h3&gt;There once has a " + adjective;
+            console.log(adjective);
+
+            var verb = prompt("Please type a verb!");
+            console.log(verb);
+
+            var noun = prompt("Please type a noun!");
+            alert("All done. Ready for the message?");
+            console.log(noun);
+
+            sentence += " programmer who wanted to use JavaScript to " + verb;
+            sentence += " the " + noun + "&lt;/h3&gt;";
+            console.log(sentence);
+
+            document.write(sentence);
+        </code>
+    </pre>
+    <p>
+        <a href="directory/mad_libs.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Working with Numbers</h2>
+    <p>ကျွန်တော်တို့အရင်က သင်ခန်းစာမှာလေ့လာခဲ့တဲ့ string ဟာ letters, numbers နဲ့ other characters တွေရဲ့ series တစ်ခုဖြစ်ပြီး quote marks အတွင်းမှာ ရေးသားရတာဖြစ်ပါတယ်။ Strings တွေဟာ JavaScript ထဲမှာအလုပ်လုပ်မယ့် data ရဲ့ type တစ်ခုဖြစ်ပါတယ်။ နောက်ထပ် type
+        of information တစ်ခုကတော့ Number ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ numbers တွေကို calculations တွေ လုပ်ဆောင်ဖို့အတွက် အသုံးပြုပါတယ်။ JavaScript မှာဆိုရင် numbers တွေက whole numbers ဖြစ်နိုင်ပြီး သူတို့ကို integers လို့ခေါ်ပါတယ်။ Eg.( Integers= 5, 0,
+        -100, 9999 ၊ Floating point numbers= 3.14, -9.8888, .00009 ၊ Scientific Notation= 9e-6 same as .000009, 9e+6 same as 900000) ။ ကျွန်တော်တို့ဟာ number တစ်ခုကို variable တစ်ခုထဲကို put or assign လုပ်လို့ရပါတယ်။ Strings တွေနဲ့မတူတဲ့အချက်က number
+        တွေကို quote marks ထည့်ပေးစရာမလိုပါဘူး။ တစ်ကယ်လို့ထည့်လိုက်မယ်ဆိုရင် အဲ့ဒီ number က number မဟုတ်တော့ဘဲ string တစ်ခုဖြစ်သွားမှာ ဖြစ်ပါတယ်။ ဒါဟာ output ထွက်ရင်မသိသာပေမယ့် math လုပ်တဲ့အခါမှာ မျှော်လင့်ထားတဲ့ result က မရတတ်ပါဘူး။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            var aString = 10;       // 10 is a number
+            
+            var bString = '10';     // 10 is not a number, it just a string
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Mathematical Calculation in JavaScript</h2>
+    <p>ကျွန်တော်တို့ဟာ JavaScript နဲ့ game တစ်ခုမှာ player scores တွေကို track လုပ်ဖို့ ၊ e-commerce site တစ်ခုမှာ visitor တစ်ယောက်ရဲ့ shopping cart ထဲက items တွေရဲ့ total cost ကိုတွက်ဖို့ နဲ့ နောက် birthday ဆိုရင် ဘယ်နှစ်ရက်ရောက်နေပြီးဆိုတာကို တွက်ချက်ဖို့
+        numbers တွေနဲ့ math အချို့ကိုအသုံးပြုရပါမယ်။ JavaScript ဟာ addition, subtraction, multiplication နဲ့ division တွေအပါအဝင် mathematical calculations တွေကို လုပ်ဆောင်ဖို့ ခွင့်ပြုပေးထားပါတယ်။ ကျွန်တော်တို့ အရင်သင်ခန်းစာမှာ string နှစ်ခုကို ဆက်ရေးချင်ရင်
+        plus(+) ကိုအသုံးပြုသလိုပဲ addition မှာလည်း number နှစ်ခုကိုပေါင်းရင် plus(+) ကိုပဲ အသုံးပြုပါတယ်။ မတူတဲ့အချက်ကတော့ strings တွေကို combining လုပ်တာကို Concatenation လို့ခေါ်ပါတယ်။ ဒါပေမယ့် number နှစ်ခုကြားကို plus(+) sign နဲ့ရေးရင်တော့ အဲ့ဒီ number
+        နှစ်ခုက math လုပ်သွားပြီး sum လုပ်ပေးမှာ ဖြစ်ပါတယ်။ တစ်ခုရှိတာက အဲ့ဒီ numbers တွေကို variables တွေထဲမှာအရင်ထည့်ထားပြီးမှ အဲ့ဒီ variables တွေနဲ့ calculations တွေကိုလုပ်ဆောင်သင့်ပါတယ်။ ကျွန်တော်တို့ရဲ့ variable တစ်ခုပေါ်မှာ basic mathematical operations(addition,
+        subtraction, multiplication, division) တွေကိုလုပ်ဆောင်ဖို့ shorthand methods တွေရှိပါတယ်။ ဥပမာ variable တစ်ခုထဲကို 10 ပေါင်းချင်ရင် += 10 လို့ရေးရပါတယ်။ အဲ့ဒီလိုရေးတာဟာ current variable ကို 10 ပေါင်းပြီး result ကို variable ထဲကို assign လုပ်လိုက်တာဖြစ်ပါတယ်။
+        Eg. ( +=, -=, *=, /=) ။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Mathematical Calculations in JavaScript&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Time Calculator&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/math.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var secondPerMin = 60;
+            var minsPerHour = 60;
+            var hoursPerDay = 24;
+            var daysPerWeek = 7;
+            var weeksPerYear = 52;
+
+            var secondsPerDay = secondPerMin * minsPerHour * hoursPerDay;
+            document.write("There are " + secondsPerDay + " seconds in a day.");           
+        </code>
+    </pre>
+    <p>
+        <a href="directory/math.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Numbers and Strings</h2>
+    <p>ကျွန်တော်တို့ဟာ JavaScript မှာဆိုရင် strings တွေနဲ့ပဲ အလုပ်လုပ်ရတာများပါတယ်။ ဥပမာ prompt command ဟာ visitor တစ်ယောက်က dialog box ထဲမှာ ဘာကိုပဲရိုက်ရိုက် string တစ်ခုကိုပဲ return ပြန်ပေးလို့ဖြစ်ပါတယ်။ တစ်ကယ်လို့ visitor တစ်ယောက်ရဲ့ age ကိုမေးလို့ visitor
+        က prompt window ထဲကို age ကို 31 လို့ရိုက်ထည့်ရင်တောင် အဲ့ဒီ 31 ဟာ string ဖြစ်နေမှာ ဖြစ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့က prompt window မှာ number နှစ်ခုဖြစ်တဲ့ 10 နဲ့ 5 ကို ပေါင်းမယ်ဆိုပါစို့။ ပုံမှန်အတိုင်းဆိုရင် 15 ရမှာဖြစ်ပါတယ်။ JavaScript မှာတော့
+        အဲ့ဒီလိုမရဘဲ 105 ဆိုတဲ့အဖြေပဲ ရပါလိမ့်မယ်။ အဲ့ဒီမှာ ကျွန်တော်တို့ မှတ်ထားရမှာက strings တွေနဲ့ အလုပ်လုပ်တဲ့အခါ plus (+) symbol ဟာ strings တွေကို combine or concatenate လုပ်ပေးတာဖြစ်ပါတယ်။ တစ်နည်းအားဖြင့် string နှစ်ခုကို အတူပူးရေးလိုက်တာဖြစ်ပါတယ်။
+        အဲ့ဒီ problem ကို ဖြေရှင်းဖို့အတွက်ဆိုရင် number characters တွေပါတဲ့ strings တွေကို real numbers တွေဖြစ်အောင်ပြောင်းပေးရပါမယ်။ ဆိုလိုတာက dialog box ထဲမှာ user ရိုက်လိုက်တာကို number တစ်ခုအဖြစ်အရင်ပြောင်းရပါမယ်။ အဲ့ဒီအတွက် JavaScript ဟာ strings
+        ကနေ numbers တွေကိုပြောင်းတဲ့ command အချို့ကို provide လုပ်ပေးထားပါတယ်။ ပထမတစ်ခုကတော့ parseInt လို့ခေါ်ပြီး string ကနေ integer ကိုပြောင်းပေးပါတယ်။ မှတ်ထားရမှာတစ်ခုက integer တစ်ခုဟာ decimal point တွေမပါတဲ့ 1, 5, or -233 လိုမျိုးဖြစ်နေရပါမယ်။ ကျွန်တော်တို့က
+        string တစ်ခုကို parseInt ပေးလိုက်မယ်ဆိုရင် အဲ့ဒီ string က integer ဖြစ်သွားပါပြီ။ Decimal point တွေအတွက် အဲ့ဒီလိုပဲ similar command ဖြစ်တဲ့ method တစ်ခုရှိပါသေးတယ်။ အဲ့ဒါကတော့ parseFloat ပဲဖြစ်ပါတယ်။ parseFloat ဟာ string value တစ်ခုကနေ floating
+        point value တစ်ခုအဖြစ် ပြောင်းပေးပါတယ်။ Console ဟာ message တွေကို console.log command ကိုသုံးပြီး ကိုယ်တိုင်ကြည့်ဖို့အတွက်တင်မဟုတ်ဘဲ console ကို JavaScript code နဲ့ရေးပြီး အဲ့ထဲမှာပဲ ချက်ခြင်း run လို့ရပါတယ်။ parseInt နဲ့ parseFloat မှာ number
+        နဲ့ character တွေထည့်ရေးလို့ရပါတယ်။ ဒါပေမယ့် တစ်ကယ်လို့ အဲ့ဒီလိုရေးတဲ့အခါ number က ပထမဆုံးဖြစ်နေမယ်ဆိုရင်သာ အဲ့ဒီ string ကို number အဖြစ်ပြောင်းပေးမှာဖြစ်ပြီး တစ်ကယ်လို့ character နဲ့အရင်စရေးထားရင်တော့ NaN ဆိုတာကို return ပြန်ပေးမှာဖြစ်ပါတယ်။
+        NaN ကတော့ not a number လို့ခေါ်ပြီး string ထဲမှာ number ကိုရှာလို့မတွေ့ဘူးလို့ ဆိုလိုတာပါ။ ဒါမှမဟုတ် string ရဲ့အစမှာ number ကိုရှာမတွေ့တာပါ။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Numbers and Strings&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Parse Strings to Numbers&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/number_and_string.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            //parseInt() Method
+
+            var HTMLBadges = prompt("How many HTML badges do you have?");
+            var CSSBadges = prompt("How many CSS badges do you have?");
+            var totalBadges = parseInt(HTMLBadges) + parseInt(CSSBadges);
+            alert("Wow! You have " + totalBadges + "badges!");
+            
+            //parseFloat() Method
+            
+            var killRate = prompt("How many people do you kill in a game?");
+            var footballRate = prompt("How many speed rate do you have in a match?");
+            var totalRate = parseFloat(killRate) + parseFloat(footballRate);
+            alert("Wow! You have " + totalRate + "rates!");
+        </code>
+    </pre>
+    <p>
+        <a href="directory/number_and_string.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>The Mad Libs Challenge Revisited</h2>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Question Story&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;The Question Maker&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/question_story.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            //There once has a [adjective] programmer who wanted to use Javascript to [verb] the [noun]
+
+
+            var questions = 3;
+
+            var questionLeft = "[" + questions + "questions left]";
+            var adjective = prompt("Please type an adjective" + questionLeft);
+            questions -= 1;
+            
+            questionLeft = "[" + questions + "questions left]";
+            var verb = prompt("Please type a verb" + questionLeft);
+            questions -= 1;
+            
+            questionLeft = "[" + questions + "questions left]";
+            var noun = prompt("Please type a noun" + questionLeft);
+            
+            var sentence = "&lt;h3&gt;There once has a " + adjective;
+            alert("All done. Ready for the message");
+            
+            sentence += ' programmer who wanted to use Javascript to ' + verb;
+            sentence += ' the ' + noun + '&lt;/h3&gt;';
+            
+            document.write(sentence);           
+        </code>
+    </pre>
+    <p>
+        <a href="directory/question_story.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>The Math Objects</h2>
+    <p>ကျွန်တော်တို့ဟာ နောက်သင်ခန်းစာတွေမှာ JavaScript ကိုသုံးပြီး random numbers တွေကို ဘယ်လို create လုပ်ရမလဲဆိုတာကို လေ့လာသွားမှာ ဖြစ်ပါတယ်။ Random numbers တွေကို generating လုပ်ခြင်းဟာ games တွေအတွက် (သို့) ကျွန်တော်တို့ program ကို predictable လုပ်တဲ့အခါ
+        less ဖြစ်ဖို့အတွက် တစ်ကယ်ကို အသုံးဝင်လာမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ JavaScript မှာ random numbers တွေကို create လုပ်ဖို့အတွက် math object ကို အသုံးပြုနိုင်ပါတယ်။ အခု အဲ့ဒီ math object အကြောင်းကို အရင်လေ့လာသွားမှာ ဖြစ်ပါတယ်။ JavaScript ဟာ အမျိုးမျိုးသော
+        objects တွေအများကြီးနဲ့ ဖွဲ့စည်းထားတာ ဖြစ်ပါတယ်။ Numbers တွေဟာ object ရဲ့ type တစ်ခုဖြစ်ပြီး strings တွေဟာလည်း object ရဲ့ နောက်ထပ် type တစ်ခုဖြစ်ပါတယ်။ Objects တွေမှာ properties တွေရှိပါတယ်။ Property တစ်ခုဟာလည်း variable တစ်ခုလိုပဲ အဲ့ဒီ object
+        နဲ့ associated ဖြစ်နေပါတယ်။ ဥပမာ string object တစ်ခုမှာ .length လို့ခေါ်တဲ့ property တစ်ခုရှိပါတယ်။ Length property ဟာ numeric value တစ်ခုကို hold လုပ်ထားပြီးတော့ string ထဲက characters တွေရဲ့ အရေအတွက်ပဲဖြစ်ပါတယ်။ String တစ်ခုချင်းစီမှာလည်း သူ့ရဲ့
+        ကိုယ်ပိုင် length property တစ်ခုရှိပါတယ်။ ဘာဖြစ်လို့လဲဆိုရင် strings အမျိုးမျိုးမှာ characters တွေအမျိုးမျိုးရှိနိုင်လို့ပဲ ဖြစ်ပါတယ်။ Objects တွေမှာ သူတို့လုပ်ဆောင်နိုင်တဲ့ actions တွေရှိပါတယ်။ အဲ့ဒီ actions တွေကိုတော့ methods တွေလို့ခေါ်ပါတယ်။
+        အခု special object တစ်ခုဖြစ်တဲ့ math object အကြောင်းကိုပြောပါမယ်။ math object ဟာ number တစ်ခုကို square root ရှာတာလိုမျိုး complex ဖြစ်တဲ့ mathematical functions တွေကို လုပ်ဆောင်ပေးပါတယ်။ <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math"
+            target="_blank">MDN</a> မှာ math object ရဲ့ properties နဲ့ method တွေကို လေ့လာနိုင်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Create a Random Number</h2>
+    <p>ကျွန်တော်တို့ဟာ အံစာတုံးတစ်ခုကို လှည့်မယ်ဆိုရင် number 1 to 6 မှာ ကျွန်တော်တို့ရနိုင်တဲ့ chance ဟာ random ပဲဖြစ်ပါတယ်။ JavaScript မှာလည်း random numbers တွေ create လုပ်လို့ရပါတယ်။ Random numbers တွေကို generate လုပ်ဖို့ Math.random() ဆိုတဲ့ math function
+        တစ်ခုရှိပြီး သူ့ကို <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/random" target="_blank">MDN</a> မှာ လေ့လာနိုင်ပါတယ်။ Math.random ဟာ range(0,1) ထဲက floating point pseudo random number တစ်ခုကို
+        return ပြန်ပေးပါတယ်။ ဒါပေမယ့် 0 နဲ့ 1 မှာ 0 က inclusive ဖြစ်ပြီး 1မပါပါဘူး။ 0 နဲ့ 1 ကြားမှာရှိတဲ့ floating point numbers တွေကို randomly အရ ထုတ်ပေးမှာ ဖြစ်ပါတယ်။ JavaScript မှာ Math.floor နဲ့ Math.ceil ဟာ decimal values တွေကို integers တွေအဖြစ်
+        convert လုပ်ပေးပါတယ်။ အဲ့ဒီမှာဆိုရင် Math.floor က number ကို သူ့ရဲ့ floor ကိုပဲ ယူသွားတာဖြစ်ပါတယ်။ ဒါကြောင့် Math.floor(1.2) ဟာ 1 ဆိုတဲ့ value ကိုပဲ return ပြန်မှာပါ။ Math.ceil ကတော့ number ကို ceiling ဘက်ကိုယူသွားမှာဖြစ်ပြီး Math.ceil(1.2) ဆိုရင်
+        2 ကို return ပြန်ပါမယ်။ တစ်ကယ်လို့ number က integer ဖြစ်နေရင်တော့ အဲ့ဒီ math function နှစ်ခုလုံးဟာ integer ကိုပဲ return ပြန်ပေးပါတယ်။ Math.floor ဟာ floating point random number တွေကို integer ချည်းပဲ return ပြန်နိုင်အောင် ကူညီပေးပါတယ်။ </p>
+    <div class="img-size">
+        <img src="images/math-floor.png" alt="Math function image">
+    </div>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Creating Random Number&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Random Number&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/math_random.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var dieRoll = Math.floor(Math.random() * 6) + 1;
+            alert("You rolled a " + dieRoll);
+        </code>
+    </pre>
+    <p>
+        <a href="directory/math_random.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>The Random Number Challenge</h2>
+    <p>ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့ဟာ numbers တွေကို JavaScript ရဲ့ math function ကိုသုံးပြီး randomly အရထုတ်သွားမှာ ဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ random number generator တစ်ခုရဖို့ user ဆီကနေ starting number နဲ့ ending number တစ်ခုကို browser ရဲ့ dialog box
+        window ကနေ request လုပ်ရပါမယ်။ အဲ့ဒီမှာ သိထားရမယ့် knowledge တွေကတော့ prompt(), ဝင်လာတဲ့ input ကို integer ပြောင်းဖို့အတွက် parseInt(), random number ကို create လုပ်ဖို့ Math.random() method နဲ့ အဲ့ဒီ ရလာတဲ့ random floating point number ကို integer
+        ပြောင်းဖို့အတွက်အသုံးပြုရတဲ့ Math.floor() တို့ပဲ ဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;The Random Number Challenge&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;The Random Number Challenge&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/random_challenge.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var randomInput1 = prompt("Please Enter a starting number");
+            var startNumber = parseInt(randomInput1);
+            
+            var randomInput2 = prompt("Please Enter an ending number");
+            var endNumber = parseInt(randomInput2);
+            
+            var randomNumber = Math.floor(Math.random() * (startNumber - endNumber + 1)) + endNumber;
+            
+            var message = "<p>" + randomNumber + " is a number between " + startNumber + " and " + endNumber + "</p>";
+            document.write(message);           
+        </code>
+    </pre>
+    <p>
+        <a href="directory/random_challenge.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Introduction to Conditional Statements</h2>
+    <p>ပြီးခဲ့တဲ့ code challenge မှာ ကျွန်တော်တို့က random number ကို generate လုပ်တဲ့ simple program တစ်ခုကို ရေးသားခဲ့ပါတယ်။ တစ်ကယ်လို့ user က number နှစ်ခုကို ရိုက်ထည့်မယ်ဆိုရင် ကျွန်တော်တို့ program က အဲ့ဒီ number နှစ်ခုကြားက random number တစ်ခုကို generate
+        လုပ်ပေးမှာ ဖြစ်ပါတယ်။ အဲ့ဒီမှာဆိုရင် user က input fields ထဲမှာ number တွေချည်းရိုက်ထည့်မယ်ဆိုရင် ဘာမှမဖြစ်ပေမယ့် တစ်ကယ်လို့ user က string တွေရိုက်ထည့်မယ်ဆိုရင် output က NaN ဖြစ်သွားမှာ ဖြစ်ပါတယ်။ ဒါကြောင့်မို့လို့ ကျွန်တော်တို့အနေနဲ့ user input
+        ဟာ number တစ်ခုဟုတ်ရဲ့လားဆိုတာကို အရင်ဆုံး စစ်သင့်ပါတယ်။ တစ်ကယ်လို့ number ဟုတ်ရင် random number ကို output ထုတ်ပြပြီး ၊ number မဟုတ်ရင်တော့ "It's not a number" ဆိုတဲ့ message တစ်ခုနဲ့ ပြပေးရမှာ ဖြစ်ပါတယ်။ ဒါကြောင့် programmers တွေဟာ မတူညီတဲ့
+        အခြေအနေအမျိုးမျိုးမှာ conditional statements ဆိုတဲ့ program နဲ့ user ဆီက ဝင်လာတဲ့ input တွေကို စစ်နိုင်ပါတယ်။ Conditional statement တစ်ခုဆိုတာကတော့ တကယ်လို့မှန်ရင် ဒါကိုလုပ်မယ်၊ မှားရင်တော့ အခြားတစ်ခုကို လုပ်မယ်ဆိုတဲ့ logic ဖြစ်ပါတယ်။ Conditional
+        statements တွေဟာ if ဆိုတဲ့ keyword နဲ့စပြီး သူ့နောက်က parenthesis ထဲမှာ condition ထည့်ပေးရတာဖြစ်ပါတယ်။ ပြီးရင်တော့ condition မှန်ရင်လုပ်ဖို့အတွက် ရေးရမယ့် statement ကို ရေးဖို့အတွက် curly braces ( { } ) တစ်စုံ or code block ထည့်ပေးရပါမယ်။ တစ်ကယ်လို့
+        ကျွန်တော်တို့ condition က false ဖြစ်ခဲ့ရင် statement တစ်ခုသပ်သပ်ပြုလုပ်ဖို့ else ဆိုတဲ့ block တစ်ခုရှိပါသေးတယ်။ နောက်ပြီးတော့ computer မှာ lowercase နဲ့ uppercase တွေက character တူမယ်ဆိုရင်တောင် သူတို့ဟာ မတူကြပါဘူး။ Eg. "ruby" is not equal "Ruby"
+        ။ ဒါကြောင့် ကျွန်တော်တို့ type လုပ်မယ့် input ကို uppercase or lowercase ပြောင်းပေးရပါမယ်။ Conditional statement အပြည့်အစုံကိုတော့ အောက်က example မှာ လေ့လာနိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&lt;
+            &lt;html lang="en"&lt;
+            
+            &lt;head&lt;
+                &lt;meta charset="UTF-8"&lt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&lt;
+                &lt;title&lt;Introducing Conditional Statements&lt;/title&lt;
+            &lt;/head&lt;
+            
+            &lt;body&lt;
+            
+                &lt;div class="container"&lt;
+                    &lt;h1&lt;A Programming Quiz&lt;/h1&lt;
+                &lt;/div&lt;
+            
+                &lt;script src="../js/conditional_statement.js"&lt;&lt;/script&lt;
+            &lt;/body&lt;
+            
+            &lt;/html&lt;
+        </code>
+    </pre>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var answer = prompt("What programming language is the name of a gem?");
+
+            if (answer.toUpperCase() === "RUBY") {
+                document.write("<p>That's right!");
+            } else {
+                document.write("<p>Sorry, That's wrong!");
+            }            
+        </code>
+    </pre>
+    <p>
+        <a href="directory/conditional_statement.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Comparison Operators</h2>
+    <p>Programmers တွေဟာ သူတို့ program ရဲ့ flow ကို control လုပ်ဖို့အတွက် conditional statements တွေကို အသုံးပြုကြပါတယ်။ ပြီးတော့ အဲ့ဒီ conditions တွေကိုအခြေခံပြီးတော့ program ထဲမှာ respond ပြန်ပေးပါတယ်။ ကျွန်တော်တို့သုံးခဲ့တဲ့ triple equal (===) ဟာ user
+        ရိုက်လိုက်တဲ့ value နဲ့ သတ်မှတ်ထားတဲ့ string က match ဖြစ်လားလို့ စစ်တာဖြစ်ပါတယ်။ ဒါတင်မကဘဲ JavaScript ဟာ အခြား comparison operators တွေကိုလည်း provide လုပ်ပေးထားပါတယ်။ greater than(>) နဲ့ less than( &gt;) ဟာ numeric values တွေကို compare လုပ်တဲ့အခါမှာ
+        အသုံးပြုပါတယ်။ အဲ့ဒီမှာဆိုရင် a နဲ့ b ကို compare လုပ်တဲ့အခါ alphabet အရ a ဟာ b ထက်ကြီးပါတယ်။ Letter strings တွေဟာလည်း number string တွေထက် ကြီးပါတယ်။ JavaScript မှာ double equal sign(==) ကို equality operator လို့ခေါ်ပြီး သူဟာ values နှစ်ခု same
+        ဖြစ်လားဆိုတာ စစ်ပါတယ်။ Eg. ( "3"==3 ) is true ။ Triple equal sign ကိုတော့ strict equality operator လို့ခေါ်ပြီး သူဟာ type ရော၊ value ရော နှစ်ခုစလုံးကိုစစ်ပေးပါတယ်။ Eg. ( "3"===3 ) is false because "3" is a string and 3 is a number ။ ဒါကြောင့်မို့
+        professional ကျတဲ့ JavaScript programmer တွေက triple equals operator ကိုပဲ သုံးကြပါတယ်။ JavaScript က case sensitive အရမ်းဖြစ်ပါတယ်။ Eg. ( 'javascript'==='JavaScript' ) is false ။ JavaScript ဟာ value နှစ်ခုလုံး မညီရဘူးဆိုတာကို ရေးဖို့အတွက် not
+        equal (!=) ဆိုတဲ့ operator ကိုလည်း provide လုပ်ပေးထားပါတယ်။ ဒါပေမယ့် !==က ိုသုံးတာက ပိုကောင်းပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            (3 > 2)                 // true
+            (100 > 100)             // false
+            (100 >= 100)            // true
+            (-12 &gt; 0)               // true
+            ('apple' &gt; 'bear')      // true
+            ("3" == 3)              // true
+            ("3" === 3)             // false
+            ('' === 0)              // false
+            (165 === 165.9)         // false
+            ('Python' === 'Ruby')   // false
+            ('JavaScript' === 'JavaScript')     // true
+            ('javascript' === 'JavaScript')     // false
+            (10 != 9)               // true
+            ('10' !== 10)           // true
+            ('Ruby' !== 'ruby')     // true
+            (-95 !== -95)           // false
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Build a Random Number Guessing Game</h2>
+    <p>အခု conditional statements တွေကို အသုံးပြုပြီးတော့ program တစ်ခုရေးမှာ ဖြစ်ပါတယ်။ အဲ့ဒီ program မှာ ကျွန်တော်တို့က random number တစ်ခုကို create လုပ်ပြီးတော့ အဲ့ဒီ number ကို visitor က guess(ခန့်မှန်း) လုပ်ရမှာ ဖြစ်ပါတယ်။ ပြီးရင်တော့ user က number
+        ကို guess လုပ်ဖို့အတွက် prompt တစ်ခုနဲ့ ထုတ်ပြထားပါမယ်။ ပြီးရင်တော့ conditional statements ကိုအသုံးပြုပြီး condition က true ဖြစ်ရင် set of code တစ်ခုထုတ်ပေးပြီး ၊ တစ်ကယ်လို့ false ဖြစ်ရင်တော့ အခြား set of code တစ်ခုထုတ်ပေးမှာ ဖြစ်ပါတယ်။ if condition
+        ထဲမှာတော့ guess လုပ်မယ့် number နဲ့ random number က ညီလားဆိုတာကို triple equal သုံးပြီး စစ်ထားပါတယ်။ နောက်သင်ခန်းစာမှာတော့ JavaScript မှာရှိတဲ့ new value type တစ်ခုဖြစ်တဲ့ Boolean အကြောင်းကို လေ့လာသွားမှာ ဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Random Number Guessing Game&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Random Number Guessing Game&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/guess_number.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var randomNumber = Math.floor(Math.random() * 6) + 1;
+            var guess = prompt("I am thinking of a number between 1 and 6. What is it?");
+            
+            if (parseInt(guess) === randomNumber) {
+                document.write("&lt;p&gt;You guessed the number!&lt;/p&gt;");
+            } else {
+                document.write("&lt;p&gt;Sorry, The number was " + randomNumber + "&lt;/p&gt;");
+            }            
+        </code>
+    </pre>
+    <p>
+        <a href="directory/guess_number.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Booleans in JavaScript</h2>
+    <p>Conditional statement အတွင်းမှာရှိတဲ့ condition တစ်ခုဟာ yes or no ဖြေပေးရတဲ့ question တစ်ခုသာဖြစ်ပါတယ်။ JavaScript မှာတော့ condition တွေကို true (သို့) false ဆိုပြီး evaluate လုပ်ပေးပါတယ်။ True & false ဟာ JavaScript မှာဆိုရင် specific meaning တစ်ခုရှိပါတယ်။
+        အဲ့ဒီ meaning ကတော့ Booleans ပဲဖြစ်ပါတယ်။ Boolean ဟာ string နဲ့ number တွေပြီးရင် third type ပဲဖြစ်ပါတယ်။ Boolean value ကို represent လုပ်ပေးတဲ့ value နှစ်ခုကတော့ true နဲ့ false ပဲဖြစ်ပါတယ်။ ဘာလို့လဲဆိုတော့ condition တိုင်းက true or false ကို
+        return ပြန်ပေးလို့ဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Random Number Guessing Game&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Random Number Guessing Game&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/boolean.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var correctNumber = false;
+
+            var randomNumber = Math.floor(Math.random() * 6) + 1;
+            var guess = prompt("I am thinking of a number between 1 and 6. What is it?");
+            
+            if (parseInt(guess) === randomNumber) {
+                correctNumber = true;
+            }
+            
+            if (correctNumber) {
+                document.write("&lt;p&gt;You guessed the correct number!&lt;/p&gt;");
+            } else {
+                document.write("&lt;p&gt;Sorry. The number was " + randomNumber + ".&lt;/p&gt;");
+            }           
+        </code>
+    </pre>
+    <p>
+        <a href="directory/boolean.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Programming Multiple Outcomes</h2>
+    <p>ကျွန်တော်တို့ create လုပ်လိုက်တဲ့ conditional statements တွေဟာ door 1 နဲ့ door 2 ဆိုပြီး possible paths နှစ်ခုကို ပေးပါတယ်။ တစ်ကယ်လို့ condition က true ဖြစ်ရင် program က door 1 ကိုသွားမှာ ဖြစ်ပါတယ်။ ဒါပေမယ့် condition က false ဖြစ်ရင်တော့ program က
+        door 2 ကို သွားမှာဖြစ်ပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့ program မှာ door 1 နဲ့ door 2 ထက်ပိုပြီး outcomes အများကြီးလိုချင်တယ်ဆိုရင် ဘယ်လိုလုပ်ရမလဲ?။ အဲ့ဒီအတွက် JavaScript မှာ program တစ်ခုကို else if clause လို့ခေါ်တဲ့ multiple outcomes တွေကို provide
+        လုပ်ပေးနိုင်တဲ့ နည်းလမ်းတစ်ခုရှိပါတယ်။ သူ့ရဲ့ရေးနည်းကတော့ ပထမဆုံး simple conditional statement တစ်ခုနဲ့စမယ်။ ပြီးတော့မှ အခြား condition တစ်ခုကို ထပ်စစ်ဖို့အတွက် else if clause တစ်ခုထပ်ရေးရတာဖြစ်ပါတယ်။ အခုဆိုရင် conditions နှစ်ခုရှိသွားပါပြီ။ အဲ့ဒီ
+        condition block တစ်ခုချင်းစီမှာ true ဖြစ်နေတဲ့ block ကိုပဲ အလုပ်လုပ်သွားမှာ ဖြစ်ပါတယ်။ တစ်ကယ်လို့ ပထမ condition က false ဖြစ်ရင် ဒုတိယ condition ကို test လုပ်သွားမှာ ဖြစ်ပါတယ်။ ဒါပေမယ့် ပထမ condition က true ဖြစ်ရင်တော့ အောက်က condition တွေကို ထပ်မစစ်တော့ပါဘူး။
+        နောက်ဆုံး condition တစ်ခုမှ true မဖြစ်ဘူးဆိုရင် နောက်ဆုံးမှာ else ဆိုတဲ့ block နဲ့ အဆုံးသတ်ပေးရမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Programming Multiple Outcomes&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Programming Multiple Outcomes&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/multiple_outcome.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var correctNumber = false;
+
+            var randomNumber = Math.floor(Math.random() * 6) + 1;
+            var guess = prompt("I am thinking of a number between 1 and 6. What is it?");
+            
+            if (parseInt(guess) === randomNumber) {
+                correctNumber = true;
+            } else if (parseInt(guess) < randomNumber) {
+                var guessMore = prompt("Try again, The number I am think of is more than " + guess);
+                if (parseInt(guessMore) === randomNumber) {
+                    correctNumber = true;
+                }
+            } else if (parseInt(guess) > randomNumber) {
+                var guessLess = prompt("Try again. The number I am thinking of is less than " + guess);
+                if (parseInt(guessLess) === randomNumber) {
+                    correctNumber = true;
+                }
+            }
+            
+            if (correctNumber) {
+                document.write("&lt;p&gt;You guessed the correct number!&lt;/p&gt;");
+            } else {
+                document.write("&lt;p&gt;Sorry. The number was " + randomNumber + ".&lt;/p&gt;");
+            }           
+        </code>
+    </pre>
+    <p>
+        <a href="directory/multiple_outcome.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>JavaScript Comments</h2>
+    <p>ကျွန်တော်တို့ program တစ်ခုကို ရေးပြီးချက်ချင်း trace လိုက်ရင်တော့ ဘယ်ဟာက ဘာဆိုတာကို တန်းမှတ်မိနိုင်ပါတယ်။ ဒါပေမယ့် 6 လလောက် (သို့) 1 နှစ်လောက်ကြာသွားတဲ့အခါ ဘယ်ဟာက ဘာအတွက်ရေးခဲ့တယ်ဆိုတာ မှတ်မိဖို့ခက်ခဲပါလိမ့်မယ်။ တစ်ခါတစ်ရံ ကိုယ်ရေးခဲ့တဲ့ program
+        က foreign language တစ်ခုကို ဖတ်နေရသလို ခံစားရပါလိမ့်မယ်။ အဲ့ဒီ problem အတွက် JavaScript ဟာ ကျွန်တော်တို့ code ထဲကို message တွေချန်ထားခဲ့ဖို့ နည်းလမ်းတွေကို provide လုပ်ပေးခဲ့ပါတယ်။ အဲ့ဒီအတွက်ကြောင့် ကျွန်တော်တို့ program ထဲက code ဟာ ဘာအတွက်ရေးထားတယ်ဆိုတာကို
+        messages or comments တွေကိုကြည့်ပြီး တန်းသိနိုင်မှာ ဖြစ်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ comments တွေကို JavaScript မှာ ဘယ်နေရာမဆို ထည့်နိုင်ပြီးတော့ သူတို့ကို browser က ignore လုပ်ပေးသွားမှာ ဖြစ်ပါတယ်။ Comments တွေထည့်မယ်ဆိုရင် code တစ်ခုရဲ့ sections
+        အမျိုးမျိုးကို identify လုပ်တဲ့နေရာမှာ ထည့်တာဟာ good idea ပဲဖြစ်ပါတယ်။ ဥပမာ long conditional statement တစ်ခုကို introduce လုပ်တာ (သို့) complex ဖြစ်တဲ့ blocks of code တွေကို ရှင်းပြချင်တဲ့အခါမျိုးမှာ comments တွေကို အသုံးပြုကြပါတယ်။ JavaScript
+        မှာ comment ရေးနည်း နှစ်မျိုးနဲ့ provide လုပ်ပေးထားပါတယ်။ တစ်ခုက single line comments နဲ့ နောက်တစ်ခုက multi-line comments တို့ဖြစ်ပါတယ်။ Single line comments တွေကိုတော့ two forward slashes (//) ဖော်ပြပြီး သူဟာ // နောက်က တစ်lineတည်းကိုပဲ ignore
+        လုပ်ပေးတာဖြစ်ပါတယ်။ Multi-line comments တွေကိုတော့ ( /* ...... */) နဲ့ဖော်ပြပြီးတော့ သူတို့ကို long definition တစ်ခုအနေနဲ့ ရှင်းပြချင်တဲ့အခါမျိုး (သို့) line တစ်ကြောင်းထက် ပိုပြီး comment ရေးချင်တဲ့အခါမျိုးမှာ အသုံးပြုပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            /*
+            The Random Number Guessing Game
+            Generates a number between 1 and 6
+            and gives a player two attempts to 
+            guess the number.
+            */
+            
+            // assume the player didn't guess correctly
+            var correctNumber = false;
+            
+            // genereate random number from 1 to 6
+            var randomNumber = Math.floor(Math.random() * 6) + 1;
+            var guess = prompt("I am thinking of a number between 1 and 6. What is it?");
+            
+            /* test to see if player is
+            1. correct
+            2. guessed too high
+            3. guessed too low
+            */
+            if (parseInt(guess) === randomNumber) {
+                correctNumber = true;
+            } else if (parseInt(guess) < randomNumber) {
+                var guessMore = prompt("Try again, The number I am think of is more than " + guess);
+                if (parseInt(guessMore) === randomNumber) {
+                    correctNumber = true;
+                }
+            } else if (parseInt(guess) > randomNumber) {
+                var guessLess = prompt("Try again. The number I am thinking of is less than " + guess);
+                if (parseInt(guessLess) === randomNumber) {
+                    correctNumber = true;
+                }
+            }
+            
+            // test if player is correct and output response 
+            if (correctNumber) {
+                document.write("&lt;p&gt;You guessed the correct number!&lt;/p&gt;");
+            } else {
+                document.write("&lt;p&gt;Sorry. The number was " + randomNumber + ".&lt;/p&gt;");
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>The AND(&&) and OR(||) Operators in JavaScript</h2>
+    <p>တစ်ခါတစ်ရံ ကျွန်တော်တို့မှာ decision တစ်ခုချဖို့ single condition တစ်ခုတည်းနဲ့ မလုံလောက်ပါဘူး။ ဥပမာ condition နှစ်ခုလုံး true ဖြစ်မှသာ အလုပ်လုပ်မယ်ဆိုတဲ့အခါမျိုးလည်းရှိနိုင်ပါတယ်။ အဲ့ဒီအတွက် JavaScript မှာဆိုရင် condition နှစ်ခုလုံး true ဖြစ်မှ အလုပ်လုပ်မယ်ဆိုတာကို
+        စစ်ဖို့အတွက် && ဆိုတဲ့ operator ရှိပါတယ်။ သူ့ကို AND (&&) operator လို့ခေါ်ပါတယ်။ Condition တစ်ခုနဲ့တစ်ခုကြားမှာ && ခံရေးပေးရတာဖြစ်ပါတယ်။ condition တစ်ခုစီက separately အလုပ်လုပ်တယ်ဆိုပေမယ့် AND(&&) သူတို့နှစ်ခုကိုပေါင်းပြီး single boolean value
+        ဖြစ်တဲ့ true or false ကိုထုတ်ပေးတာဖြစ်ပါတယ်။ ဥပမာ 20 &lt; 30 ဆိုရင် အဖြေက true ပါ။ AND (&&) operator ရဲ့ သဘောတရားကတော့ condition အကုန်လုံး true ဆို true ချည်း၊ false ဆို false ချည်းဖြစ်မှ condition တစ်ခုလုံးက true ဖြစ်မှာ ဖြစ်ပါတယ်။ အနီးဆုံးဥပမာ
+        ပြောရရင် login page မှာ user name နဲ့ password နှစ်ခုလုံး fill လုပ်မှ pass ဖြစ်တာမျိုးပေါ့။ နောက်တစ်ခုကတော့ OR (||) operator ဖြစ်ပြီး အနည်းဆုံး condition တစ်ခုမှန်ရင် condition တစ်ခုလုံး true ဖြစ်တာဖြစ်ပါတယ်။ အောက်က example ကိုကြည့်ရအောင်။</p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            var score = 20;
+            var ships = 0;
+            var time = 0;
+
+            var email = "aungzinlatt007@gmail.com";
+            var password = "1234";
+            var phoneNumber = "09 799 799 799";
+
+            var conditionT = "This condition is true";
+            var conditionF = "This condition is false";
+            
+            if (score === 0 && score <= 0 && time === 0) {
+                alert(conditionT);
+            } else {
+                alert(conditionF);
+            }
+
+            if (password === "" || email === "" || phoneNumber === "09 799 799 799") {
+                alert(conditionT);
+            } else {
+                alert(conditionF);
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>The Conditional Challenge</h2>
+    <p>အောက်က challenge ကတော့ user က question 5ခုကို answer လုပ်မယ်။ ပြီးရင် သူ answer လုပ်ခဲ့တာက မှန်ရင် count ကို 1 တိုးသွားပြီး နောက်ဆုံးမှာ user က question ဘယ်နှစ်ခုမှန်ပါတယ်ဆိုတာကို browser ကို document.write() နဲ့ ဖော်ပြပေးမယ်။ ပြီးရင်တော့ user ဖြေခဲ့တဲ့
+        answer ရဲ့ မှန်တဲ့ question အရေအတွက်အပေါ်မူတည်ပြီး gold crown, silver crown, bronze crown နဲ့ no crown ဆိုပြီး medal တစ်ခုသတ်မှတ်ပေးမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;The Conditional Challenge&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Answering the Language Game&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/conditional_challenge.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;  
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            // quiz begins, no answers correct
+            var correct = 0;
+            
+            // ask question
+            var answer1 = prompt("Name a programming language that's also a gem");
+            if (answer1.toUpperCase() === "RUBY") {
+                correct += 1;
+                console.log(correct);
+            }
+            
+            var answer2 = prompt("Name a programming language that's also a snake");
+            if (answer2.toUpperCase() === "PYTHON") {
+                correct += 1;
+                console.log(correct);
+            }
+            
+            var answer3 = prompt("What language do you use to style web pages?");
+            if (answer3.toUpperCase() === "CSS") {
+                correct += 1;
+                console.log(correct);
+            }
+            
+            var answer4 = prompt("What language do you use to build the structure of web pages?");
+            if (answer4.toUpperCase() === "HTML") {
+                correct += 1;
+                console.log(correct);
+            }
+            
+            var answer5 = prompt("What language do you use to add interactivity to a web page?");
+            if (answer5.toUpperCase() === "JAVASCRIPT") {
+                correct += 1;
+                console.log(correct);
+            }
+            
+            // output results
+            document.write("&lt;p&gt;You got " + correct + " out of 5 questions correct.&lt;/p&gt;");
+            
+            // output rank
+            if (correct === 5) {
+                document.write("&lt;p&gt;&lt;strong&gt;You earned a gold crown!&lt;/strong&gt;&lt;/p&gt;");
+            } else if (correct &gt;= 3) {
+                document.write("&lt;p&gt;&lt;strong&gt;You earned a silver crown.&lt;/strong&gt;&lt;/p&gt;");
+            } else if (correct &gt;= 1) {
+                document.write("&lt;p&gt;&lt;strong&gt;You earned a bronze crown.&lt;/strong&gt;&lt;/p&gt;");
+            } else {
+                document.write("&lt;p&gt;&lt;strong&gt;No crown for you. You need to study.&lt;/strong&gt;&lt;/p&gt;");
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/conditional_challenge.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Introducing Functions</h2>
+    <p>JavaScript ကို တစ်ခါတစ်ရံမှာ functional programming language တစ်ခုလို့လည်း ခေါ်ပါတယ်။ ဘာလို့လည်းဆိုရင် JavaScript ကိုအလုပ်လုပ်တဲ့အခါ functions တွေက အရေးအကြီးဆုံးအပိုင်းဖြစ်လို့ပဲ ဖြစ်ပါတယ်။ ရိုးရိုးရှင်းရှင်းပြောရရင် function တစ်ခုဆိုတာ ကျွန်တော်တို့
+        ထပ်ခါထပ်ခါ run ချင်တဲ့ instructions တွေရဲ့ set တစ်ခုပဲဖြစ်ပါတယ်။ JavaScript မှာ functions တွေကိုကြေငြာချင်ရင် အရင်ဆုံး function ဆိုတဲ့ keyword နဲ့စရေးရပြီး သူ့နောက်မှာ function name တစ်ခုနဲ့ parenthesis တစ်စုံလိုက်ပါတယ်။ ပြီးရင်တော့ curly braces
+        တစ်စုံရေးလိုက်ရုံပါပဲ။ ဒါဆိုရင် function တစ်ခုဖြစ်သွားပါပြီ။ ကျွန်တော်တို့ဟာ function name ကိုကြိုက်သလိုပေးလို့ရတယ်ဆိုပေမယ့် naming variables အတွက် ကိုက်ညီတဲ့ rule ကို ရေးပေးရပါမယ်။ function name တွေကိုများသောအားဖြင့် letters, numbers, underscore
+        နဲ့ dollar sign characters တွေကို အသုံးပြုပြီး ရေးကြပါတယ်။ သူတို့ကို number နဲ့စရေးလို့မရသလို spaces နဲ့အခြား punctuation တွေထည့်လို့မရပါဘူး။ Parenthesis တစ်စုံကတော့ ဒါဟာ function တစ်ခုဖြစ်ပါတယ်လို့ ရည်ညွှန်းတာပါ။ Curly braces အတွင်းမှာတော့ block
+        of code တွေရေးရပါတယ်။ Function ထဲမှာရေးထားတဲ့ block of code တွေက function ခေါ်လိုက်တဲ့နေရာတိုင်းမှာ activate ဖြစ်ပြီး အလုပ်လုပ်ပေးပါတယ်။ Function တစ်ခုအတွင်းက programming ကို activate လုပ်ဖို့အတွက် function ကိုခေါ်ပေးရပါတယ်။ Function ကိုခေါ်မယ်ဆိုရင်တော့
+        function ရဲ့ name ကိုရေးပေးပြီး သူ့နောက်က parenthesis နဲ့ semi colon ထည့်ပေးရုံပါပဲ။ အဲ့ဒီမှာ parenthesis ကအရေးပါပါတယ်။ သူတို့က function ကိုခေါ်လိုက်တာပါလို့ရည်ညွှန်းပြီး programming ကို activate လုပ်လိုက်တာပါ။ Programmers အများစုဟာ functions
+        တွေကို file ရဲ့ ထိပ်ဆုံးမှာ ထားလေ့ရှိပါတယ်။ တစ်ခုသိထားရမှာက function ထဲက code ဟာ ချက်ချင်း run ပေးမှာမဟုတ်ဘဲ function ကိုခေါ်လိုက်မှသာ run ပေးမှာဖြစ်ပါတယ်။ Function ရဲ့ အားသာချက်တစ်ခုက ကျွန်တော်တို့ code ကို ထပ်ခါထပ်ခါ run ပေးတာဖြစ်ပြီး ကျွန်တော်တို့က
+        function name ကိုခေါ်လိုက်တဲ့အခါတိုင်း run ပေးပါတယ်။ Function ကိုခေါ်လိုက်တဲ့ line တစ်ခုတည်းနဲ့ browser ကို function ထဲက code တွေ run ဖို့အတွက် trigger လုပ်ပေးပါတယ်။ ဥပမာ ကျွန်တော်တို့မှာ JavaScript code က line 50 ရှိတယ်ဆိုပါစို့။ အဲ့ဒီ code ကို
+        နေရာနှစ်နေရာမှာ ရေးချင်တဲ့အခါ line 50 ၊ line 50 နှစ်ခါရေးမနေတော့ဘဲ function တစ်ခု ဘုံထားကာရေးပြီး အဲ့ဒီ function ကို ပြန်ခေါ်လိုက်ရုံပါပဲ။ တစ်ကယ်ကို အသုံးဝင်ပြီးတော့ တစ်ကယ်လည်း မြန်ဆန်ပါတယ်။ Function တစ်ခု create လုပ်တဲ့အခါ နောက်ထပ် နည်းလမ်းတစ်ခုရှိပါသေးတယ်။
+        အဲ့ဒါကိုတော့ function expression တစ်ခုလို့ခေါ်ပါတယ်။ Function expression ကို variable တစ်ခုထဲမှာ assign လုပ်ပေးလို့ရပါတယ်။ အဲ့ဒီမှာတော့ function name ရယ်လို့မရှိပါဘူး။ ဘာလို့လဲဆိုတော့ သူက anonymous function တစ်ခုဖြစ်လို့ပါပဲ။ Function name အစား
+        variable တစ်ခု assign လုပ်လိုက်တာဖြစ်ပါတယ်။ တစ်နည်းအားဖြင့် ကျွန်တော်တို့ function တစ်ခုကို variable တစ်ခုအတွင်းမှာ store လုပ်လိုက်တာပါ။ တစ်ခုသတိထားရမှာက anonymous function မှာ semicolon ပါပါတယ်။ ဘာလို့လဲဆိုတော့ ပုံမှန်ရေးနေကျလို variable တစ်ခုထဲကို
+        assign လုပ်တဲ့နည်းနဲ့ အတူတူဖြစ်နေလို့ပါပဲ။ ပြီးရင်တော့ အဲ့ဒီ variable name ကိုခေါ်ပြီး parenthesis ထည့်လိုက်တာနဲ့ function တစ်ခုခေါ်လိုက်ခြင်းဖြစ်ပါတယ်။ Function တွေခွဲရေးခြင်းက code ကို မရှုပ်ထွေးစေပဲ modular ပိုပြီးဖြစ်သလို update လုပ်ရတာလည်း
+        ပိုမိုလွယ်ကူစေပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Introducing Functions&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Let's Make a Function&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/functions.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            function alertRandom() {
+                var randomNumber = Math.floor(Math.random() * 6) + 1;
+                alert(randomNumber);
+                document.write("Random number is " + randomNumber + "&lt;br&gt;");
+            }
+            
+            alertRandom();
+            alertRandom();
+            alertRandom();
+            
+            
+            // Anonymous Function
+            
+            var writeRandom = function() {
+                var randomNo = Math.floor(Math.random() * 4) + 1;
+                alert(randomNo);
+                document.write("The result of random number using anonymous function is " + randomNo + "&lt;br&gt;");
+            };
+            
+            writeRandom();
+            writeRandom();           
+        </code>
+    </pre>
+    <p>
+        <a href="directory/functions.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Getting Information from a Function</h2>
+    <p>ကျွန်တော်တို့ မြင်တွေ့ခဲ့ရသလိုပဲ functions တွေဟာ single command ကိုပဲ issuing လုပ်ချင်းဖြင့် JavaScript code lines တွေအများကြီး run ပေးနိုင်တဲ့ နည်းလမ်းတစ်ခုဖြစ်ပါတယ်။ ကျွန်တော်တို့က function တစ်ခုကို ခေါ်လိုက်တဲ့အခါ JavaScript interpreter ကို အဲ့ဒီ
+        function ကို jump လုပ်ပြီး သူ့ထဲက code ကို run ပေးဖို့ ညွှန်ကြားလိုက်တာနဲ့ အတူတူပါပဲ။ Function တွေဟာ သူတို့အလုပ်လုပ်ပြီးသွားရင် returning value တစ်ခုကို ပြန်ပေးနိုင်ပါတယ်။ ဥပမာ ကျွန်တော်တို့က current time ကိုရနိုင်မယ့် function တစ်ခုကို create
+        လုပ်မယ်ဆိုရင် web page မှာ သူ့ကို display လုပ်နိုင်ပါတယ်။ Page ဆီကို အဲ့ဒီ date ရောက်ဖို့အတွက် function တစ်ခုကိုရေးမယ့်အစား ကျွန်တော်တို့အနေနဲ့ current date ကိုရနိုင်မယ့် function တစ်ခုကို create လုပ်ပြီး page ပေါ်ကို display လုပ်နိုင်ပါတယ်။ ထို့နောက်
+        အဲ့ဒီ return value ကို page မှာရေးနိုင်ပါတယ်။ Function တစ်ခုကနေ value တစ်ခုကို return ပြန်ချင်တယ်ဆိုရင်တော့ return ဆိုတဲ့ keyword ကိုအသုံးပြု return statement တစ်ခုတည်ဆောက်လို့ရပါတယ်။ JavaScript interpreter က return keyword ဝင်လာတဲ့အချိန်မှာ သူက
+        function ကနေ leave လုပ်လိုက်ပြီး return keyword နောက်က value ကို provide လုပ်ပေးလိုက်ပါတယ်။ Function ကနေ return ပြန်လာတဲ့ အဲ့ဒီ value ကို program ထဲမှာ အသုံးပြုနိုင်ပါတယ်။ Value တစ်ခုကို return ပြန်ပေးတဲ့ functions တွေကို တည်ဆောက်ခြင်းဟာ programming
+        မှာ တစ်ကယ်ကို အသုံးများလွန်းပါတယ်။ Function က return ပြန်လာမယ့် value ကို တစ်ခုထပ်ပိုပြီး return ပြန်ပေးလို့မရပါဘူး။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Getting Information from a Function&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Returning Values in JavaScript&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/return_value.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            function getRandomNumber() {
+                var randomNumber = Math.floor(Math.random() * 6) + 1;
+                return randomNumber;
+            }
+            
+            alert(getRandomNumber());
+            console.log(getRandomNumber());
+            var dieRoll = getRandomNumber();
+            document.write("The returned value is " + dieRoll);
+        </code>
+    </pre>
+    <p>
+        <a href="directory/return_value.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <p>Another Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            function isEmailEmpty() {
+                var field = document.getElementById('email');
+                if (field.value === '') {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+
+            var fieldTest = isEmailEmpty();
+            if (fieldTest === true) {
+                alert('Please provide your email address.');
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Giving Information to a Function or Function Arguments</h2>
+    <p>ကျွန်တော်တို့လေ့လာခဲ့သလိုပဲ functions တွေဟာ value တစ်ခုကို return ပြန်ပေးနိုင်ပါတယ်။ ဒါပေမယ့် function တစ်ခုကနေ information တွေထပ်ပြီးရယူချင်တယ်ဆိုရင် ကျွန်တော်တို့အနေနဲ့ အဲ့ဒီ function ကဘယ်လိုအလုပ်လုပ်တယ်ဆိုတာကို change လုပ်ဖို့ function တစ်ခုဆီကို
+        information တွေ send လုပ်နိုင်ပါတယ်။ JavaScript functions တွေဟာ argument လို့ခေါ်တဲ့ ကျွန်တော်တို့ function ဆီကို send လုပ်မယ့် information တွေကို accept လုပ်ပေးနိုင်ပါတယ်။ Argument ကို function ထဲမှာ အသုံးပြုနိုင်တဲ့ parameter လို့ခေါ်တဲ့ variable
+        တစ်ခုထဲမှာ store လုပ်ထားပါတယ်။ ဒီလိုလုပ်ဖို့ဆိုရင် function တစ်ခုတည်ဆောက်တဲ့အခါ parenthesis ထဲမှာ parameter name တစ်ခုထည့်ပေးဖို့လိုအပ်ပါတယ်။ Parameter ဟာ variable တစ်ခုလိုပဲ အလုပ်လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ function ထဲက parameter ကို ဘယ်နေရာမှာဖြစ်ဖြစ်
+        variable လိုပဲသုံးနိုင်ပါတယ်။ ကျွန်တော်တို့ function ကို call ခေါ်တဲ့အခါမှာ အဲ့ဒီ parameter ကို information အချို့နဲ့ pass လုပ်ပေးရပါမယ်။ ဒါကို passing an argument to the function လို့ခေါ်ပါတယ်။ အခုဆိုရင် function ထဲက argument or parameter ကိုသုံးပြီး
+        လိုချင်တဲ့ value တွေနဲ့ pass လုပ်နိုင်ပါပြီ။ Functions တွေဟာ multiple arguments တွေကိုလည်း accept လုပ်ပေးနိုင်ပါတယ်။ Function တစ်ခုခေါ်လိုက်ပြီဆိုရင် ကျွန်တော်တို့ဟာ function ထဲကို multiple arguments တွေ pass လုပ်နိုင်ပါပြီ။ ပြီးတော့ argument
+        တစ်ခုချင်းစီဟာလည်း parameter တစ်ခုစီမှာ store လုပ်သွားပြီးတော့ အဲ့ဒီ function ထဲမှာပဲ သီးခြား variable တစ်ခုအဖြစ် အသုံးပြုလိုက်တာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Giving Information to a Function or Function Arguments&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h1&gt;Let's Make a Function Argument&lt;/h1&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/function_argument.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            // using single argument
+            function getRandomNumber(upper) {
+                var randomNumber = Math.floor(Math.random() * upper) + 1;
+                return randomNumber;
+            }
+            
+            document.write(getRandomNumber(6));
+            console.log(getRandomNumber(100));
+            console.log(getRandomNumber(10000));
+            console.log(getRandomNumber(2));
+            
+            
+            // using multiple arguments
+            function getArea(width, length, unit) {
+                var area = width * length;
+                return area + " " + unit;
+            }
+            
+            console.log(getArea(10, 20, 'sq ft'));
+        </code>
+    </pre>
+    <p>
+        <a href="directory/function_argument.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Variable Scope</h2>
+    <p>တစ်ကယ်လို့ ကျွန်တော်တို့မှာ width ဆိုတဲ့ name ရှိတဲ့ variable တစ်ခုရှိတဲ့ script တစ်ခုရေးထားမယ်။ နောက်ထပ်လည်း computeArea() ဆိုတဲ့ function ထဲမှာ တူညီတဲ့ variable တစ်ခုဖြစ်တဲ့ width ဆိုတာရေးထားပါမယ်။ ဒါဆိုရင် name တူနေတဲ့ different variable နှစ်ခုဖြစ်နေပါပြီ။
+        ဒါကို JavaScript က ဘာလုပ်သလဲ?။ ဘာလုပ်လဲဆိုရင်တော့ ကံကောင်းစွာပဲ JavaScript ဟာ function တစ်ခုချင်းစီအတွက် separate scopes တွေကို provide လုပ်ပေးပါတယ်။ ဆိုလိုတာက function တစ်ခုချင်းစီဟာ သူ့ရဲ့ ကိုယ်ပိုင် individual universe နဲ့ လုပ်ဆောင်ပြီးတော့
+        အဲ့ဒီ universe အတွင်းမှာ create လုပ်ထားတဲ့ variables (eg. width) တွေဟာလည်း အခြား function တစ်ခု (သို့) အခြား universe တစ်ခုကိုသွားပြီး interact မလုပ်ပါဘူး။ ဥပမာ function တစ်ခုထဲကို person ဆိုတဲ့ variable တစ်ခုရေးလိုက်မယ်။ အဲ့ဒီလိုပဲ function ရဲ့အပြင်ဘက်မှာလည်း
+        person ဆိုတဲ့ name အတူတူရှိတဲ့ variable တစ်ခုတည်ဆောက်လိုက်ပါမယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့က function ကိုခေါ်လိုက်ပြီဆိုရင် JavaScript ဟာ function ထဲကိုပဲ ဝင်သွားပြီး သူ့ထဲက person ကိုပဲ အရင်အလုပ်လုပ်ပါတယ်။ တစ်ကယ်လို့ alert(person) ဆိုပြီး ခေါ်လိုက်မယ်ဆိုရင်တော့
+        function ရဲ့အပြင်ဘက်က variable ကိုပဲ အလုပ်လုပ်သွားမှာဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင် variable တစ်ခုချင်းစီဟာ မတူညီတဲ့ scope တစ်ခုအတွင်းမှာရှိနေလို့ပဲဖြစ်ပါတယ်။ function ထဲမှာမရှိတဲ့ အပြင်ဘက်က scope ကိုတော့ global scope လို့ခေါ်ပါတယ်။ သူတို့ဟာ function
+        ထဲမှာရှိတဲ့ scope ထက် bigger universe ဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင်တော့ functions အားလုံးဟာ global scope ကို access လုပ်ပေးနိုင်လို့ဖြစ်ပါတယ်။ တစ်နည်းပြောရရင် function တစ်ခုဟာ variable တစ်ခုရဲ့ value ကို global scope ကနေ change လုပ်နိုင်တယ်လို့ ဆိုလိုတာပါ။
+        ဒါပေမယ့် ကျွန်တော်တို့ function ထဲကို global variables တွေကို လက်ခံခြင်းကတော့ bad idea ဖြစ်ပါတယ်။ သူဟာ errors တွေ track လုပ်ရတာ ခက်ခဲစေပြီးတော့ ကျွန်တော်တို့ function ကိုလည်း global variables တွေအပေါ်ကို မှီခိုသွားစေမှာပဲ ဖြစ်ပါတယ်။ ဒါတင်မကပဲ
+        အခြား script တွေမှာလည်း reuse လုပ်ရတာ ပိုခက်ခဲမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of using scope:</p>
+    <pre>
+        <code class="html hljs xml">
+            function greeting() {
+                var person = "Jack Smith";
+                alert(person);
+            }
+            
+            var person = "John Doe";
+
+            greeting();         // Jack Smith
+            alert(person);      // John Doe
+            greeting();         // Jack Smith
+        </code>
+    </pre>
+    <p>Example of using global scope:</p>
+    <pre>
+        <code class="html hljs xml">
+            function greeting() {
+                person = "Jack Smith";      // bad idea without keyword 'var'
+                alert(person);
+            }
+
+            var person = "John Doe";
+
+            greeting();         // Jack Smith
+            alert(person);      // Jack Smith
+            greeting();         // Jack Smith
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Random Number Challenge using Scopes</h2>
+    <p>ကျွန်တော်တို့ဟာ random number generating program ကို code challenge လုပ်မှာဖြစ်ပါတယ်။ ဒီတစ်ခါမှာ function က lower နဲ့ upper ဆိုပြီး value နှစ်ခုကို accept လုပ်ရပါမယ်။ ကျွန်တော်တို့ဟာ random values တွေကို range တစ်ခုအတွင်းထုတ်ချင်တာဖြစ်ပါတယ်။ ဥပမာ
+        10 and 100, 9 and 78 လိုမျိုး lower နဲ့ upper values နှစ်ခုရဲ့ကြားက random number ကိုထုတ်ချင်တာဖြစ်ပါတယ်။ အောက်က example ကို တစ်ချက်ကြည့်ရအောင်ပါ။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Random Number Challenge using Scopes&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;div class="container"&gt;
+                    &lt;h3&gt;Random Number Challenge using Scope&lt;/h3&gt;
+                &lt;/div&gt;
+            
+                &lt;script src="../js/scope_challenge.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            function getRandomNumber(lower, upper) {
+                if (isNaN(lower) || isNaN(upper)) {
+                    throw new Error("Both arguments must be numbers");
+                }
+                return Math.floor(Math.random() * (upper - lower + 1)) + lower;
+            }
+            
+            console.log(getRandomNumber(1, 6));
+            console.log(getRandomNumber(200, 500));
+            console.log(getRandomNumber('nine', 100));
+            console.log(getRandomNumber(1000, 20000));
+            console.log(getRandomNumber(50, 'one-handred'));
+        </code>
+    </pre>
+
+
+
+</body>
+
+</html>

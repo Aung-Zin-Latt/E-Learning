@@ -1,0 +1,29 @@
+   /* ================================= 
+              Button Transitions
+            ==================================== */
+   
+   .button {
+       transition: background .3s;
+   }
+   
+   .button:hover {
+       background: rgba(74, 137, 202, 1);
+   }
+   /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+   
+   .content {
+       perspective: 700px;
+   }
+   
+   .photo {
+       transition: transform .5s;
+   }
+   
+   .photo:hover {
+       transform: skewX(10deg);
+       /* transform: skewX(-10deg); 
+       transform: skewY(10deg);
+       transform: skewY(-10deg);*/
+   }

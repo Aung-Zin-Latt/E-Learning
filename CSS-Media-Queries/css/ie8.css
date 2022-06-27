@@ -1,0 +1,43 @@
+body {
+  background: #C5C5C5;
+}
+
+#misc #call_to_action {
+  background: #1DA051;
+}
+
+#misc #call_to_action:hover {
+  background: #46FF6C;
+}
+
+#phone {
+  background: transparent;
+}
+
+#phone #video_container {
+  margin-top: 5%;
+  margin-bottom: 0px;
+}
+
+#phone #video_container #app_screenshot,
+#phone #video_container #video_app_screenshot {
+  display: none;
+}
+
+#phone #video_container video {
+  display: none;
+}
+
+#phone #video_container #phone_static {
+  display: inline;
+}
+
+#header p {
+  font-size: 1em;
+}
+
+#features .feature {
+  width: 45%;
+  margin-right: 5%;
+  height: 200px;
+}

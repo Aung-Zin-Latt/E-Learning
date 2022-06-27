@@ -1,0 +1,137 @@
+/************************
+Basic Page Styes
+************************/
+
+body {
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
+    font-size: 0.85em;
+    background: #eac657;
+}
+
+#wrapper {
+    width: 920px;
+    margin: 0 auto;
+    max-width: 100%;
+}
+
+
+/************************
+Header
+************************/
+
+#header {
+    float: left;
+    margin: 20px 0;
+    width: 100%;
+    background: #d2b14e;
+}
+
+h1 {
+    float: left;
+    margin: 0;
+    text-indent: 50px;
+    font-size: 2.5em;
+    width: 300px;
+    height: 66px;
+    background: url(../images/widget.jpg) top left no-repeat;
+    font-weight: 900;
+}
+
+
+/************************
+Navigation
+************************/
+
+#nav {
+    margin-top: 20px;
+    list-style: none;
+    float: right;
+}
+
+#nav li {
+    float: left;
+    margin-left: 20px;
+}
+
+a {
+    font-size: 1.2em;
+    font-weight: bold;
+    padding: 6px;
+    background-color: #4a4a4a;
+    color: #eac657;
+    text-decoration: none;
+    border-radius: 10px;
+}
+
+a:hover,
+a:focus {
+    color: 3d2b14e;
+    background: #000;
+}
+
+
+/************************
+Content
+************************/
+
+img {
+    max-width: 100%;
+}
+
+#widget_pic {
+    float: left;
+    width: 30%;
+    margin-left: 5%;
+    height: 300px;
+}
+
+#content {
+    width: 65%;
+    float: left;
+}
+
+#about {
+    font-size: 1.3em;
+    margin: 20px 0px;
+    float: left;
+}
+
+#about p {
+    background: #d2b14e;
+    padding: 20px;
+    font-style: italic;
+    font-size: 0.9em;
+}
+
+
+/************************
+Table
+************************/
+
+#compare {
+    float: left;
+    font-weight: bold;
+}
+
+#product_table {
+    float: left;
+    width: 100%;
+    font-size: 1.2em;
+}
+
+#product_table thead {
+    background: #4a4a4a;
+    color: #eee;
+    text-align: left;
+}
+
+#product_table th,
+#product_table td {
+    padding: 10px;
+}
+
+#product_table td {
+    background: #d2b14e;
+    color: #333;
+}

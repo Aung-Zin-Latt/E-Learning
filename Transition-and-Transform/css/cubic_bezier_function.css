@@ -1,0 +1,38 @@
+/* ================================= 
+   Button Transitions
+ ==================================== */
+
+.button {
+    transition: background .3s;
+}
+
+.button:hover {
+    background: rgba(74, 137, 202, 1);
+}
+
+
+/* ================================= 
+  Photo 3D Transforms & Transitions
+==================================== */
+
+.content {
+    perspective: 700px;
+}
+
+.photo img {
+    transition: transform .5s cubic-bezier(.7, -0.39, .31, 1.38);
+    /* transform-origin: 0 0; */
+}
+
+.photo:hover img {
+    transform: scale(1.2);
+}
+
+
+/* ================================= 
+  Combining Transform Functions
+==================================== */
+
+.photo:hover img {
+    transform: rotate(-5deg) scale(1.1) translateY(-30px);
+}

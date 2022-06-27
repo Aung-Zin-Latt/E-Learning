@@ -1,0 +1,1194 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Selectors Basic</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Beyond The Basics</h2>
+    <p>အခုကျွန်တော်တို့သင်ခန်းစာမှာဆိုရင် basic selector တွေရဲ့ concepts ကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ CSS Basics မှာတုန်းကဆို ကျွန်တော်တို့ဟာ base selectors တွေဖြစ်တဲ့ type, id, class နဲ့ descendant selectors တွေကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ အခုသင်ခန်းစာမှာတော့
+        CSS selectors တွေကို detail ကျကျလေ့လာသွားပါမယ်။ Selectors တွေဟာ designers တွေနဲ့ developers တွေအတွက် flexibility တစ်ခုဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့သိထားသလိုပဲ selectors တွေဟာ တစ်ကယ်ကို CSS ရဲ့ important အဖြစ်ဆုံးနဲ့ powerful အဖြစ်ဆုံးတွေဖြစ်ပါတယ်။
+        ဘာဖြစ်လို့လဲဆိုရင် selectors တွေဟာ ကျွန်တော်တို့ HTML elements တွေကို target လုပ်ရတာဖြစ်ပြီး သူတို့ကို style တွေ apply လုပ်ရတာကြောင့်ဖြစ်ပါတယ်။ နောက်ထပ် attribute selectors, child selectors selector combinators တွေနဲ့ တစ်ကယ်အထောက်အကူဖြစ်တဲ့ pseudo-classes
+        တွေအကြောင်းကို ဆက်လေ့လာသွားမှာဖြစ်ပါတယ်။ Combination of elements တွေကို target လုပ်ဖို့အတွက် ပိုပြီး advanced ဖြစ်တဲ့ selectors တွေနဲ့ simple expressions တွေကိုအသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ CSS နဲ့ပဲ ကျွန်တော်တို့ရဲ့ page ထဲကို virtual elements
+        တွေနဲ့ content တွေထည့်ဖို့အတွက် pseudo-elements လို့ခေါ်တဲ့ special selectors တွေကိုတောင်သုံးနိုင်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Selector with Attributes</h2>
+    <p>ပြီးခဲ့တဲ့ သင်ခန်းစာတွေမှာလေ့လာခဲ့သလို HTML elements တွေဟာ attributes တွေရဲ့ types အမျိုးမျိုးကို accept လုပ်နိုင်ပါတယ်။ ဥပမာ id attribute, class attribute (သို့) href နဲ့ title attribute တွေဖြစ်ကြပါတယ်။ ဒါကြောင့် CSS ဟာ သူ့ရဲ့ attributes နဲ့ values
+        တွေတဲ့ element တစ်ခုကို target လုပ်တဲ့အခါမှာ flexibility ရှိပါတယ်။ ဒါတွေဟာ form elements တွေကို styling လုပ်ဖို့ တစ်ကယ်ကိုအသုံးဝင်ပါတယ်။ ဥပမာအားဖြင့် ကျွန်တော်တို့ရဲ့ HTML tag ထဲမှာ type attribute, for attribute, placeholder atrribute နဲ့အခြားသော
+        attribute တွေကို သူတို့ရဲ့ attributes နဲ့ values တွေပေါ်မူတည်ပြီး target လုပ်နိုင်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့က attribute selector ကို element class or ID name ကို define လုပ်တဲ့အခါ selector တွေက attributes တွေကို match လုပ်ပေးပါတယ်။ ဒါကြောင့်
+        basic attribute selector အများစုဟာ သူ့ရဲ့ value က ဘာပဲဖြစ်နေနေ element attribute တစ်ခုကို target လုပ်ပါတယ်။ Attribute selector ကိုရေးမယ်ဆိုရင်တော့ square bracket ထဲမှာ class လို့ရေးပြီး သူ့နောက်က curly braces ထဲမှာ styling တွေထည့်ရမှာဖြစ်ပါတယ်။
+    </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            form[class="form-contact"] {
+                padding: 20px 24px;
+                background: #f4f5f8;
+            }
+
+            div[id="container"] {
+                max-width: 500px;
+                margin: auto;
+            }
+
+            input[type="text"] {
+                background: #fdfee6;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Styling Mouser Hover & Anchor Elements</h2>
+    <p>အခုသင်ခန်းစာမှာ ကျွန်တော်တို့က form ထဲက buttons တွေကို target လုပ်ပြီး mouse cursor အသစ်တစ်ခု define လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ button ကို hover လုပ်တဲ့အခါမှာ pointer cursor ကိုပြချင်တဲ့အတွက် CSS file ထဲမှာ button, reset နဲ့ submit တို့ကို
+        target လုပ်ပြီး သူ့ရဲ့ curly braces {} အတွင်းထဲမှာ cursor: pointer; လို့ပေးသတ်မှတ်ပေးရပါမယ်။ ပြီးရင် browser ကိုသွားပြီး button တွေကို hover လုပ်လိုက်တဲ့အခါ pointer style က ပြောင်းသွားမှာဖြစ်ပါတယ်။ နောက်ဆုံးမှာ ကျွန်တော်တို့ဟာ page ပေါ်မှာ class
+        or id names တွေတူတဲ့ elements တွေရှိနိုင်ပါတယ်။ ဒါပေမယ့် သူတို့ထဲက တစ်ချို့မှာလည်း special attribute တွေ assign လုပ်ထားတာရှိနိုင်ပါတယ်။ ဥပမာ link လိုမျိုး anchor elements တွေပေါ့။ သူတို့ကို target="_blank"; လို့ပေးလိုက်တာဟာ အဲ့ဒီ link ကိုနှိပ်လိုက်တဲ့အချိန်
+        browser ကနေ new window ကို open လုပ်ပေးတာဖြစ်ပါတယ်။ သူတို့ကို CSS ထဲမှာ a[target="_blank"]{ } လို့ရေးပြီး style တွေဖန်တီးနိုင်ပါတယ်။ ဒါကို အောက်က example မှာကြည့်ရအောင်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            input[type="button"],
+            input[type="reset"],
+            input[type="submit"] {
+                cursor: pointer;
+            }
+
+
+            a[target="_blank"] {
+                color: #39add1;
+                text-decoration: none;
+                border-bottom: 1px dotted;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>DRY (Don't Repeat Yourself)</h2>
+    <p>ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့ style declarations တွေမထပ်အောင်ရေးတဲ့နည်းလေးကိုပြောပြချင်ပါတယ်၊ သူ့ကို web development မှာဆိုရင် DRY (don't repeating yourself) လို့ခေါ်ပါတယ်။ သူ့ရဲ့ ရည်ရွယ်ချက်ကတော့ same bits of code တွေကို ထပ်ခါထပ်ခါ ရေးနေရတာတွေကို
+        ရှောင်စေချင်တာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ css file ထဲမှာ တူညီနေတဲ့ code တွေထပ်ခါထပ်ခါ ထပ်နေရင် ကျွန်တော်တို့ code တွေကိုပြင်ချင်တဲ့အခါ တူတဲ့နေရာတိုင်းကိုလိုက်ပြင်ရလို့အချိန်ကြာတာရယ်၊ ကျွန်တော်တို့ရဲ့ code ကို execute လုပ်တဲ့အချိန်မှာလဲ run time
+        ကြာပီးတော့ ကျွ်တော်တို့ရဲ့ web site ကလဲ မြန်မြန်ဆန်ဆန်တတ်မလာပါဘူး။ ဒါကြောင့် အဲ့လိုဟာတွေကိုရှောင်ချင်တယ်ဆိုရင်ကျွန်တောတို့ DRY ကိုသုံးဖို့လိုပါတယ်။ ဥပမာ ကျွန်တော်တို့က p tag တွေမှာရော h tag တွေမှာရော background color ကိုတစ်ခုတည်းထည့်ချင်တယ်ဆိုရင်တော့
+        တစ်ခုချင်းဆီကို background color လိုက်ထည့်နေမဲ့အစား ကျွန်တော်တို့ bgcolor ဆိုတဲ့ class ကို p tag နဲ့ h tag တွေမှာထည့်ပီးတော့ ကျွန်တော်တို့ရဲ့ css property ကိုတစ်ခုတည်းမှာရေးပါတယ်၊ အဲ့လိုမျိုးရေးလိုက်ချင်းကြောင့် ကျွန်တော်တို့က color ကိုလိုက်ပြင်ချင်တယ်ဆိုရင်တောင်
+        တစ်ခုတည်းပြင်လိုက်ရုံနဲ့ အကုန်လုံးပြင်ပီးသွားဖြစ်သွားမှာပါ။ ပီးတော့ ကျွန်တော်တို့ရဲ့ code ကလဲ 10 ကြောင်းလောက်ရေးရမှာကို တစ်ကြောင်းတည်းနဲ့ ရေးလို့ရသွားတဲ့ အတွက် execute လုပ်တာလဲမြန်သွားမှာပါ။ ဒါကြောင့်ကျွန်တော်တို့ code တွေတတ်နိုင်သမျှမထပ်အောင်ပြုလုပ်ဖို့လိုပါတယ်၊
+        အမြဲတမ်းသုံးနေတဲ့ကောင်တွေကို class name သီးသန့်ပေးထားပီးတော့ လိုတဲ့အချိန်တိုင်းသူ့ကိုခေါ်သုံးတာကောင်းပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;DRY (Don't Repeat Yourself)&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div id="container"&gt;
+                    &lt;form class="form-contact br"&gt;
+                        &lt;h1&gt;Contact&lt;/h1&gt;
+    
+                        &lt;label for="name"&gt;Name:&lt;/label&gt;
+                        &lt;input type="text" id="name"&gt;
+                        &lt;br&gt;&lt;br&gt;
+                        &lt;label for="email"&gt;Email:&lt;/label&gt;
+                        &lt;input type="text" id="email" placeholder="email@website.com"&gt;
+                        &lt;br&gt;&lt;br&gt;
+                        &lt;label for="msg"&gt;Message:&lt;/label&gt;
+                        &lt;textarea id="msg" rows="7"&gt;&lt;/textarea&gt;
+                        &lt;br&gt;&lt;br&gt;
+                        &lt;input class="btn inln default" type="submit" value="Submit"&gt;
+                        &lt;input class="btn inln error" type="reset" value="Reset"&gt;
+    
+                    &lt;/form&gt;
+    
+                    &lt;hr&gt;
+                    &lt;img src="../img/image3.jpg" class="avator rounded" alt="Mountains"&gt;
+                    &lt;form class="form-login"&gt;
+                        &lt;label for="username"&gt;Username:&lt;/label&gt;
+                        &lt;input type="text" id="username"&gt;&lt;br&gt;&lt;br&gt;
+    
+                        &lt;label for="password"&gt;Password:&lt;/label&gt;
+                        &lt;input type="password" id="password"&gt;&lt;br&gt;&lt;br&gt;
+    
+                        &lt;input class="btn default" type="submit" value="Login"&gt;
+                        &lt;a href="#" target="_blank"&gt;Forgot your password?&lt;/a&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;    
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .br {
+                border-radius: .5em;
+            }
+
+            .avator {
+                display: block;
+                margin: 0 auto 2em;
+            }
+
+            .rounded {
+                border-radius: 50%;
+            }
+
+            .btn {
+                cursor: pointer;
+                font-size: .875em;
+                font-weight: 400;
+                color: #fff;
+                padding-left: 20px;
+                paddign-right: 20px;
+                text-transform: uppercase;
+            }
+
+            .btn:hover {
+                opacity: .75;
+            }
+
+            .default {
+                background-color: #52bab3;
+            }
+
+            .error {
+                background-color: #ff784f;
+            }
+
+            @media (min-width: 769px) {
+                .inln {
+                    width: auto;
+                    display: inline-block;
+                }
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Combinators</h2>
+    <p>Combinator ဆိုတာ selector တစ်ခုအတွင်းမှာရှိတဲ့ elements တွေကြားက relationship ကိုခေါ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ နှစ်ခု (သို့) နှစ်ခုထက်ပိုတဲ့ elements တွေကို selector တစ်ခုနဲ့ target လုပ်မယ်ဆိုရင် combinator ကိုသုံးဖို့လိုပါလိမ့်မယ်။ ကျွန်တော်တို့
+        ရှေ့ပိုင်းမှာအသုံးပြုခဲ့တဲ့ descendent selectors တွေကလည်း combinator တစ်ခုပဲဖြစ်တယ်။ ဘာလို့လဲဆိုရင် descendent selector ဟာ selector နှစ်ခုကြားမှာ space ခြားထားတာရယ်၊ descendent elements တွေကို target လုပ်နိုင်လို့ပဲဖြစ်ပါတယ်။ Combinators တွေဟာ
+        element တစ်ခုရဲ့ ဘယ်လို sibling ကိုမဆို ပြောင်းလဲလို့လွယ်အောင် ပြုလုပ်ပေးထားပါတယ်။ Combinators တွေကို symbol အဖြစ် greater than ( >) sign, plus (+) sign နဲ့ tilde symbol ဆိုပြီး ကျွန်တော်တို့ရဲ့ selectors တွေကို ပိုပြီးတိကျစွာ target လုပ်ဖို့အတွက်
+        သုံးနိုင်ပါတယ်။ Greater than sign ကို child combinator အဖြစ်အသုံးပြုပါတယ်။ Child combinators တွေကိုသုံးတဲ့ child selectors တွေလို့လည်းခေါ်ပါတယ်။ ဘာလို့လဲဆိုရင် သူတို့ဟာ အခြား elements တွေရဲ့ direct children တွေဖြစ်တဲ့ elements တွေကို target လုပ်နိုင်လို့ပါ။
+        Direct children တွေဟာ parent element တစ်ခုထဲမှာ nested ဖြစ်နေပါတယ်။ နောက်ထပ်ကျွန်တော်တို့အသုံးပြုနိုင်တဲ့ combinator ကတော့ plus sign ပဲဖြစ်ပါတယ်။ Plus sign combinator ကတော့ ကပ်လျှက်ရှိနေတဲ့ sibling combinator ပဲဖြစ်ပါတယ်။ ဘာဖြစ်လို့လဲဆိုရင် page
+        တစ်ခုမှာရှိတဲ့ next sibling elements တွေကိုပဲ target လုပ်နိုင်လို့ပါ။ ဥပမာ ကျွန်တော်တို့က ကပ်လျှက်ရှိတဲ့ button နှစ်ခုရှိတယ်ဆိုပါစို့။ ဒုတိယ button ရဲ့ style ကိုပဲပြောင်းချင်တယ်ဆိုရင် plus sign combinator ကိုအသုံးပြုနိုင်ပါတယ်။ နောက်ဆုံးတစ်ခုကတော့
+        tilde symbol (~) ပဲဖြစ်ပါတယ်။ သူ့ကို general sibling combinator လို့လည်းခေါ်ပါတယ်။ ဘာလို့လဲဆိုရင် သူက siblings တွေကို target လုပ်တယ်ဆိုပေမယ့် sibling ကိုပဲ target လုပ်ရုံသာမက တိကျတဲ့ sibling တိုင်းကိုပါ target လုပ်ပေးပါတယ်။ အောက်က ဥပမာအရပြောရရင်
+        h1 ရဲ့ နောက်က label element တိုင်းကို target လုပ်ပေးမှာပဲ ဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Combinators&lt;/title&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div id="container"&gt;
+                    &lt;form class="form-contact br"&gt;
+                        &lt;h1&gt;Contact&lt;/h1&gt;
+    
+                        &lt;label for="name"&gt;Name:&lt;/label&gt;
+                        &lt;input type="text" id="name"&gt;
+                        &lt;br&gt;&lt;br&gt;
+                        &lt;label for="email"&gt;Email:&lt;/label&gt;
+                        &lt;input type="text" id="email" placeholder="email@website.com"&gt;
+                        &lt;br&gt;&lt;br&gt;
+                        &lt;label for="msg"&gt;Message:&lt;/label&gt;
+                        &lt;textarea id="msg" rows="7"&gt;&lt;/textarea&gt;
+                        &lt;br&gt;&lt;br&gt;
+                        &lt;input class="btn inln default" type="submit" value="Submit"&gt;
+                        &lt;input class="btn inln error" type="reset" value="Reset"&gt;
+    
+                    &lt;/form&gt;
+    
+                    &lt;hr&gt;
+                    &lt;img src="../img/image3.jpg" class="avator rounded" alt="Mountains"&gt;
+                    &lt;form class="form-login"&gt;
+                        &lt;label for="username"&gt;Username:&lt;/label&gt;
+                        &lt;input type="text" id="username"&gt;&lt;br&gt;&lt;br&gt;
+    
+                        &lt;label for="password"&gt;Password:&lt;/label&gt;
+                        &lt;input type="password" id="password"&gt;&lt;br&gt;&lt;br&gt;
+    
+                        &lt;input class="btn default" type="submit" value="Login"&gt;
+                        &lt;a href="#" target="_blank"&gt;Forgot your password?&lt;/a&gt;
+                    &lt;/form&gt;
+                &lt;/div&gt;    
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .br {
+                border-radius: .5em;
+            }
+
+            .avator {
+                display: block;
+                margin: 0 auto 2em;
+            }
+
+            .rounded {
+                border-radius: 50%;
+            }
+
+            .btn {
+                cursor: pointer;
+                font-size: .875em;
+                font-weight: 400;
+                color: #fff;
+                padding-left: 20px;
+                paddign-right: 20px;
+                text-transform: uppercase;
+            }
+
+            .btn:hover {
+                opacity: .75;
+            }
+
+            .default {
+                background-color: #52bab3;
+            }
+
+            .error {
+                background-color: #ff784f;
+            }
+
+            @media (min-width: 769px) {
+                .inln {
+                    width: auto;
+                    display: inline-block;
+                }
+                .btn + .btn {
+                    margin-left: 20px;
+                }
+            }
+
+            /* Combinators -------------- */
+
+            form > a {
+                font-size: .7em;
+            }
+
+            h1 ~ label {
+                background: tomato;
+                color: white;
+                padding: 5px;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Attribute Selectors and Pseudo-classes</h2>
+    <p>ကျွန်တော်တို့ CSS basic မှာပြောခဲ့တဲ့ pseudo classes တွေသာမက နောက်ထပ် pseudo classes တွေများစွာရှိပါတယ်။ CSS မှာ အခြားအသုံးဝင်တဲ့ CSS pseudo classes တွေအများကြီးရှိပါသေးတယ်။ အခုစပြီးလေ့လာမှာကတော့ structural pseudo classes တွေဖြစ်ပြီး သူတို့ဟာ page
+        ပေါ်က သူတို့ရဲ့ position အရ elements တွေကို target လုပ်ပြီး အခြား elements တွေနဲ့ relation လုပ်ပေးပါတယ်။ Structural pseudo class တွေဖြစ်တဲ့ first child pseudo class နဲ့ last child pseudo class တွေအကြောင်းကိုပြောပြချင်ပါတယ်။ first child pseudo
+        class ဆိုတာကတော့ elements တစ်ခုရဲ့ ပထမဆုံး element ကို target လုပ်တာဖြစ်ပီးတော့၊ last child pseudo class ကတော့ နောက်ဆုံး element ကို target လုပ်တာပဲဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+	        &lt;html&gt;
+	        &lt;head&gt;
+                &lt;title&gt;Attribute Selectors and Pseudo-classes&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/pseudo_classes.css"&gt;
+	        	&lt;style type="text/css"&gt;
+	        		body {
+	        			width: 60%;
+	        			margin: 0 auto;
+	        		}
+	        		ul li {
+	        			list-style: none;
+	        			padding: 20px;
+	        			border-bottom: 1px dotted black;
+	        		}
+	        	&lt;/style&gt;
+	        	&lt;link rel="stylesheet" type="text/css" href="css/style.css"&gt;
+	        &lt;/head&gt;
+	        &lt;body&gt;
+	        	&lt;ul&gt;
+	        		&lt;li&gt;Item 1&lt;/li&gt;
+	        		&lt;li&gt;Item 2 &lt;/li&gt;
+	        		&lt;li&gt;Item 3&lt;/li&gt;
+	        		&lt;li&gt;Item 4&lt;/li&gt;
+	        		&lt;li&gt;Item 5&lt;/li&gt;
+	        		&lt;li&gt;Item 6&lt;/li&gt;
+	        		&lt;li&gt;Item 7&lt;/li&gt;
+	        		&lt;li&gt;Item 8&lt;/li&gt;
+	        		&lt;li&gt;Item 9&lt;/li&gt;
+	        		&lt;li&gt;Item 10&lt;/li&gt;
+	        	&lt;/ul&gt;
+	        &lt;/body&gt;
+	        &lt;/html&gt;	
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* Structural Pseudo-classes ------------- */
+
+            li:first-child {
+                background: #52bab3;
+                color: white;
+            }
+
+            li:last-child {
+                border: none;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/pseudo_classes.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+    <p>အခုကျွန်တော်တို့ အခြား structural pseudo classes အချို့ကို လေ့လာသွားပါမယ်။ ပထမဆုံးအနေနဲ့ only-child pseudo class ဟာ parent တစ်ခုရဲ့ child ဖြစ်နေတဲ့ element တစ်ခုကို target လုပ်နိုင်ပါတယ်။ သူကတော့ parent element မှာ child နှစ်ခုရှိခဲ့ရင် အလုပ်လုပ်မပေးတော့ပါဘူး။
+        နောက်တစ်ခုကတော့ empty ဆိုတဲ့ pseudo class ပဲဖြစ်ပါတယ်။ သူကတော့ ကျွန်တော်တို့ရဲ့ child element ထဲမှာ empty ဖြစ်နေတဲ့ကောင်တွေကိုပဲ effect ဖြစ်စေတာဖြစ်ပါတယ်။ သူတို့နှစ်ခုရဲ့ ရေးသားနည်းကို အောက်မှာပြပေးထားပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;Attribute Selectors and Pseudo-classes&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/pseudo_classes1.css"&gt;
+                &lt;style type="text/css"&gt;
+                    body {
+                        width: 60%;
+                        margin: 0 auto;
+                    }
+
+                    ul li {
+                        list-style: none;
+                        padding: 20px;
+                        border-bottom: 1px dotted black;
+                    }
+                &lt;/style&gt;
+                &lt;link rel="stylesheet" type="text/css" href="css/style.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Item 1&lt;/li&gt;
+                    &lt;li&gt;Item 2 &lt;span&gt;&check;&lt;/span&gt;&lt;/li&gt;
+                    &lt;li&gt;Item 3&lt;/li&gt;
+                    &lt;li&gt;&lt;/li&gt;
+                    &lt;li&gt;Item 5&lt;/li&gt;
+                    &lt;li&gt;Item 6&lt;/li&gt;
+                    &lt;li&gt;Item 7 &lt;span&gt;&check;&lt;/span&gt;&lt;/li&gt;
+                    &lt;li&gt;Item 8&lt;/li&gt;
+                    &lt;li&gt;Item 9&lt;/li&gt;
+                    &lt;li&gt;Item 10&lt;/li&gt;
+                &lt;/ul&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* Structural Pseudo-classes ------------- */
+
+            li:first-child {
+                background: #52bab3;
+                color: white;
+            }
+
+            li:last-child {
+                border: none;
+            }
+
+            span:only-child {
+                color: #52bab3;
+                font-size: 1.5em;
+            }
+
+            li:empty {
+                background: tomato;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/pseudo_classes1.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Substring Matching attribute selector</h2>
+    <p>ဒီတစ်ခါမှာ ကျွန်တော်တို့ပြောချင်တာကတော့ substring matching attribute selectors လို့ခေါ်တဲ့ powerful selectors သုံးကို add လုပ်တာကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ သူက attribute's value တစ်ခုရဲ့ specific ဖြစ်တဲ့အပိုင်းကို target လုပ်ပေးပါတယ်။ ကျွန်တော်တို့အရင်က
+        သင်ခန်းစာမှာ လေ့လာခဲ့သလို HTML element ရဲ့ ဘယ် attribute နဲ့ value ကိုမဆို target လုပ်နိုင်ပါတယ်။ အခု substring attribute selectors တွေနဲ့ certain letters or words တွေကို တိကျစွာ target လုပ်နိုင်ပါတယ်။ အဲ့ဒီ pieces တွေကိုတော့ substring လို့ခေါ်ပါတယ်။
+        ပထမဆုံးအနေနဲ့ ကျွန်တော်တို့ attribute selector ထဲက attribute value ရဲ့ ပထမအပိုင်းလေးကိုပဲ target လုပ်ပီးတော့ css style တွေသတ်မှတ်သွားမှာဖြစ်ပါတယ်။ အဲ့လိုသတ်မှတ်ချင်တယ်ဆိုရင်တော့ ကျွန်တော်တို့ carat (^) character နဲ့သတ်မှတ်ပါတယ်။ ဥပမာကျွန်တော်တို့
+        a element တွေထဲကမှ ကျွန်တော်တို့က href attribute ထဲက ဘယ်သူနဲ့စတဲ့ကောင်ကိုပဲ target လုပ်မယ်ဆိုတာကို သီးခြားသတ်မှတ်ချင်တယ်ဆိုရင်တော့ carat character ကိုသုံးပီးတော့ အခုလိုသတ်မှတ်နိုင်ပါတယ်။ နောက်တစ်ခုကတော့ attribute value တွေရဲ့ နောက်ဆုံးမှာရှိတဲ့ကောင်ကို
+        target လုပ်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒီလိုလုပ်ဖို့အတွက် ကျွန်တော်တို့က element selector ရဲ့နောက်မှာ square brackets နဲ့သူ့ထဲမှာ ကျွန်တော်တို့ target လုပ်ချင်တဲ့ href နဲ့သူ့နောက်မှာ dolla sign($) ရေးပေးရမယ်။ ပြီးရင် equal နဲ့ ကျွန်တော်တို့ target လုပ်ချင်တဲ့
+        .pdf ကိုရေးပေးရမှာဖြစ်ပါတယ်။ နောက်ဆုံး substring selector ကတော့ ကျွန်တော်တို့ attribute ထဲမှာရှိတဲ့ ကျွန်တော်တို့နှစ်သက်တဲ့ word ကိုသတ်မှတ်တဲ့ selector ပဲဖြစ်ပါတယ်။ သူကတော့ ကျွန်တော်တို့ သတ်မှတ်ထားတဲ့ attribute ထဲမှာရှိတဲ့ value နဲ့ ကျွန်တော်တို့
+        သတ်မှတ်လိုက်တဲ့ ကောင်နဲ့ ကိုက်တဲ့ကောင်ကိုပဲ select လုပ်သွားမှာပဲဖြစ်ပါတယ်။ အဲ့လိုသတ်မှတ်ချင်တယ်ဆိုရင်တော့ ကျွန်တော်တို့ asterisk character ကိုသုံးပီးတော့ သတ်မှတ်နိုင်ပါတယ်။ ဥပမာ ကိုတစ်ချက်ကြည့်ရအောင်ပါ။ ဥပမာထဲမှာဆိုရင်တော့ ကျွန်တော်တို့ရဲ့ a element
+        ထဲမှာရှိတဲ့ href attribute ရဲ့ value တွေထဲက downloads ဆိုတာပါတဲ့ကောင်တိုင်းကို target လုပ်သွားမှာပဲဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Substring Matching Attribute Selectors&lt;/title&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="gallery"&gt;
+                    &lt;h1&gt;My Gallery&lt;/h1&gt;
+                    &lt;p&gt;&lt;a href="#"&gt;Lorem ipsum dolor&lt;/a&gt; sit amet, consectetur adipiscing elit. Morbi lacinia nibh sed justo efficitur, vitae accumsan risus euismod. &lt;a href="#"&gt;Praesent quis ornare&lt;/a&gt; libero. Nulla &lt;a href="#"&gt;sederos efficitur&lt;/a&gt;, tempus justo a,
+                        tincidunt neque Morb diam elit.&lt;/p&gt;
+                    
+                        &lt;img src="../image/thumbnails/trees.jpg" alt=""&gt;
+                        &lt;img src="../image/thumbnails/falls.jpg" alt=""&gt;
+                        &lt;img src="../image/thumbnails/sunset.jpg" alt=""&gt;
+                        &lt;img src="../image/thumbnails/lake.jpg" alt=""&gt;
+                        &lt;img src="../image/thumbnails/beach.jpg" alt=""&gt;
+                        &lt;img src="../image/thumbnails/bay.jpg" alt=""&gt;
+                    
+                    &lt;h2&gt;Download Photos&lt;/h2&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;&lt;a href="http://downloads/gallery.pdf"&gt;Download as PDF&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="http://downloads/gallery.jpg"&gt;Download as JPGs&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="http://downloads/gallery.zip"&gt;Download as zip&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* Base Styles ----------------- */
+
+            body {
+                font-family: 'Nunito', sans-serif;
+                line-height: 1.5;
+                color: #384047;
+                padding: 10px 0 80px;
+            }
+
+            div {
+                max-width: 610px;
+                margin: auto;
+            }
+
+            ul {
+                list-style: none;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 14px;
+            }
+
+            a {
+                color: #4183c4;
+            }
+
+
+            /* Substring Matching Attribute Selectors ---- */
+
+            a[href^="http:"] {
+                color: #52bab3;
+                text-decoration: none;
+            }
+            a[href$=".pdf"] {
+                background: green;
+                /* background-image: url('../image/icn-pdf.svg'); */
+            }
+            
+            a[href$=".jpg"] {
+                background: yellow;
+                /* background-image: url('../image/icn-pdf.svg'); */
+            }
+            
+            a[href$=".zip"] {
+                background: lightblue;
+                /* background-image: url('../image/icn-pdf.svg'); */
+            }
+            
+            a[href*="downloads"] {
+                background-repeat: no-repeat;
+                background-size: 18px 18px;
+                padding-left: 25px;
+            }
+            
+            img[src*="thumb"] {
+                margin: 4px;
+                border: solid 2px;
+                width: 180px;
+                height: 140px;
+            }
+            
+            img[src*="lake"] {
+                border-color: red;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/substring_match.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <p>ဒါကြောင့် substring matching attribute selectors တွေဟာ ကျွန်တော်တို့ရဲ့ CSS selectors တွေမှာ ပိုပြီး powerful ဖြစ်တဲ့ selectors တွေပဲဖြစ်ပါတယ်။ ဘာဖြစ်လို့လဲဆိုရင် သူတို့ကိုသုံးပြီးတော့ attribute တစ်ခုရဲ့ ဘယ်အပိုင်းကိုမဆို target လုပ်နိုင်ပြီး သူ့ရဲ့
+        value ကို အပြည့်သတ်မှတ်စရာမလိုတဲ့အတွက် ကြောင့်ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ ဘာကြောင့်နဲ့ ဘယ်အချိန်မှာမဆို regulat ID or class selectors တွေအစား structural pseudo classes or substring matching attribute selectors တွေကို ပိုပြီး သုံးသင့်ပါတယ်။ နောက်ပြီးတော့
+        အချို့သော HTML elements တွေကလည်း class or ID သတ်မှတ်လို့မရတဲ့အတွက် ဒီနည်းဟာ တစ်ကယ်ကိုသိထားသင့်တဲ့ နည်းလမ်းပဲဖြစ်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Focus Pseudo Classes</h2>
+    <p>ကျွန်တော်တို့ ဒီသင်ခန်းစာမှာ လေ့လာသွားမှာကတော့ focus pseudo class အကြောင်းပဲဖြစ်ပါတယ်။ Focus pseudo class တွေဟာ ကျွန်တော်တို့ input element ကို click လုပ်လိုက်တဲ့အချိန်မှာ ပြောင်းလဲသွားတာဖြစ်ပါတယ်။ ဥပမာ input တစ်ခုကို focus လုပ်ခဲ့တယ်ဆိုရင် အဲ့ဒီ
+        Input ကို click လိုက်တဲ့အချိန်မှာ ကျွန်တော်တို့ရေးခဲ့တဲ့ CSS style က ပြောင်းလဲသွားမှာဖြစ်ပါတယ်။ သူနဲ့ဆင်တူတဲ့ user action pseudo classes တွေလည်းရှိပါသေးတယ်။ CSS မှာ ကျွန်တော်တို့ user interaction states ပေါ်အခြေခံပြီး elements တွေကို target လုပ်ဖို့ခွင့်ပြုပေးတဲ့
+        ui element states pseudo classes တွေလည်းရှိပါတယ်။ ပြီးတော့ သူတို့ဟာ first styling form elements တွေမှာ အသုံးများကြပါတယ်။ ဒါကြောင့် သူတို့ထဲက အသုံးအများဆုံး နှစ်ခုထဲက တစ်ခုဖြစ်တဲ့ disable selector အကြောင်းကိုပြောပြချင်ပါတယ်။ ကျွန်တော်တို့ဟာ UI
+        elements တွေဖြစ်တဲ့ buttons or input fields တွေကို disable ပေးလိုက်တဲ့အချိန်မှာ disable state ကိုရောက်သွားတာပဲဖြစ်ပါတယ်။ Form fields နဲ့ buttons အားလုံးဟာ default အားဖြင့် enabled အခြေအနေမှာရှိပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့က disabled ပေးလိုက်ရင်
+        သူတို့ကို select or click လုပ်လို့မရတော့ပါဘူး။ Text field တစ်ခုဖြစ်နေမယ်ဆိုရင်တော့ ရိုက်ထည့်လိုက်တဲ့ input ကို လက်ခံပေးမှာမဟုတ်ပါဘူး။ ဒါကြောင့် disabled လုပ်ထားတဲ့ form element ကိုမဆို target လုပ်ဖို့ဆိုရင် disabled pseudo-class ဖြစ်တဲ့ :disabled
+        { } ဆိုပြီးတော့ ရေးပေးရမှာဖြစ်ပါတယ်။ အဲ့ဒီလိုမဟုတ်ဘဲ ကျွန်တော်တို့သီးသန့်ထည့်ချင်တဲ့ input field ရှိတယ်ဆိုရင်တော့ HTML File ထဲက သီးသန့်ထည့်ချင်တဲ့ input tag ထဲမှာ disabled ဆိုတဲ့ keyword ကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+	        &lt;html&gt;
+	        &lt;head&gt;
+	        	&lt;title&gt;Focus Pseudo Class&lt;/title&gt;
+	        	&lt;link rel="stylesheet" type="text/css" href="../css/focus_pseudo_class.css"&gt;
+	        &lt;/head&gt;
+	        &lt;body&gt;
+	        	&lt;form&gt;
+	        		&lt;label for="name"&gt;Name:&lt;/label&gt;
+	        		&lt;input type="text" name="name" id="name"&gt; &lt;br&gt;
+	        		&lt;label for="email"&gt;Email:&lt;/label&gt;
+	        		&lt;input type="email" name="email" id="email" disabled&gt; &lt;br&gt;
+	        		&lt;label&gt;Interests&lt;/label&gt;&lt;br&gt;
+	        		&lt;input type="checkbox" name="development"&gt;&lt;label&gt;Development&lt;/label&gt;&lt;br&gt;
+	        		&lt;input type="checkbox" name="development"&gt;&lt;label&gt;Design&lt;/label&gt;&lt;br&gt;
+	        		&lt;input type="checkbox" name="development"&gt;&lt;label&gt;Business&lt;/label&gt;&lt;br&gt;
+	        		&lt;input type="submit" value="Submit"&gt;
+	        	&lt;/form&gt;
+	        &lt;/body&gt;
+	        &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* UI Element states pseudo-classes ---------- */
+
+            input:focus,
+            textarea:focus {
+                border-color: #52bab3;
+            }
+
+            input:disabled {
+                background: #ddd;
+            }
+
+            input[type="checkbox"]:checked + label {
+                font-weight: bold;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/focus_pseudo_class.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Checked Pseudo Classes</h2>
+    <p>အခုပြောချင်တာကတော့ checked pseudo class အကြောင်းပဲဖြစ်ပါတယ်။ Checked pseudo class က ဥပမာ ကျွန်တော်တို့ check box ကို check လုပ်လိုက်တာပဲဖြစ်ဖြစ် radio button ကို check လုပ်တာပဲဖြစ်ဖြစ်၊ အဲ့ဒီလို check လုပ်လိုက်တဲ့အချိန်မှာ သူတို့နဲ့ ကပ်လျှက်ရှိတဲ့
+        label ကို highlights လုပ်ပေးသွားမှာပဲဖြစ်ပါတယ်။ Check pseudo class ကိုရေးမယ်ဆိုရင် ကျွန်တော်တို့ သတ်မှတ်ချင်တဲ့ input element ကို select လုပ်ပီးတော့ သူ့ရဲ့နောက်မှာ selected ဆိုတဲ့ keyword ကိုရေးမယ်သူ့ရဲ့နောက်မှာ plus sign (+) လိုက်ပီးတေ့ plus
+        sign ရဲ့နေက်မှာ သူနဲ့ကပ်လျှက်ရှိတဲ့ ကောင်ကို ရေးပေးရတာပဲဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;Checked Pseudo Class&lt;/title&gt;
+                &lt;link rel="stylesheet" type="text/css" href="../css/check_pseudo_class.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;form&gt;
+                    &lt;label for="name"&gt;Name:&lt;/label&gt;
+                    &lt;input type="text" name="name" id="name"&gt; &lt;br&gt;
+                    &lt;label for="email"&gt;Email:&lt;/label&gt;
+                    &lt;input type="email" name="email" id="email" disabled&gt; &lt;br&gt;
+                    &lt;label&gt;Interests&lt;/label&gt;&lt;br&gt;
+                    &lt;input type="checkbox" name="development"&gt;&lt;label&gt;Development&lt;/label&gt;&lt;br&gt;
+                    &lt;input type="checkbox" name="development"&gt;&lt;label&gt;Design&lt;/label&gt;&lt;br&gt;
+                    &lt;input type="checkbox" name="development"&gt;&lt;label&gt;Business&lt;/label&gt;&lt;br&gt;
+                    &lt;input type="submit" value="Submit"&gt;
+                &lt;/form&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* UI Element states pseudo-classes ---------- */
+
+            input:focus,
+            textarea:focus {
+                border-color: #52bab3;
+            }
+
+            input:disabled {
+                background: #ddd;
+            }
+
+            input[type="checkbox"]:checked+label {
+                font-weight: bold;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/check_pseudo_class.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Nth-child Pseudo Classes</h2>
+    <p>အစောပိုင်းသင်ခန်းစာမှာတုန်းက first and last child elements တွေကို structural pseudo-classes တွေနဲ့ ဘယ်လို target လုပ်ရမလဲဆိုတာ လေ့လာခဲ့ပါတယ်။ အခုကျွန်တော်တို့နောက်ထပ်လေ့လာမှာကတော့ ဘယ် combination of child elements ကိုမဆို target လုပ်နိုင်တဲ့ nth-child
+        elements တွေကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Nth-child ဟာ useful နဲ့ powerful ဖြစ်တဲ့ structural pseudo-class ဖြစ်ပါတယ်။ ဘာဖြစ်လို့လဲဆိုရင်တော့ သူဟာ parent element တစ်ခုအတွင်းက ဘယ် elements တွေရဲ့ position ကိုမဆို target လုပ်နိုင်လို့ပဲဖြစ်ပါတယ်။ First
+        & last child pseudo-classes တွေလိုမဟုတ်ဘဲ child elements တွေရဲ့ any combination or any child-element ကိုမဆို target လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဟာ class or ID မပေးဘဲ unordered list ထဲက elements တွေကို သူတို့ရဲ့ position ကိုမူတည်ပြီး dynamically
+        target လုပ်လို့ရပါတယ်။ Nth-child selector ကို create လုပ်မယ်ဆိုရင် ပထမဆုံး li ကို target လုပ်ပြီးတော့ သူ့နောက်က colon(:) လိုက်ပြီး နောက်ကကပ်လျှက်မှာ nth-child လို့လိုက်ရပြီး parenthesis ထည့်ပေးရပါမယ်။ တစ်ခုသတိထားရမှာက သူတို့ရဲ့ကြားကို space တစ်ခုမှမခြားရပါဘူး။
+        Nth-child ကို value တစ်ခု pass လုပ်ပေးတဲ့ syntax လိုမျိုး function တစ်ခုကိုသုံးပါတယ်။ ပြီးတော့ အဲ့ဒီ value ကို argument တစ်ခုအဖြစ် ရည်ညွှန်းပါတယ်။ ဒါပေမဲ့ ကျွန်တော်တို့ရဲ့ CSS ထဲမှာ တကယ့် argument အစစ်တော့မဟုတ်ပါဘူး အဓိပ္ပါယ်သတ်သတ်ပဲဖြစ်ပါတယ်။
+        အဲ့ဒီက passing value က ဘယ် element ကို target လုပ်မယ်ဆိုတာကို selector ကိုပြောပါတယ်။ Parenthesis ထဲမှာ ကျွန်တော်တို့ရဲ့ value တွေဖြစ်တဲ့ even or odd လို့ရေးသလို even or odd number တွေလည်းရေးလို့ရပါတယ်။ ဥပမာ ကျွန်တော်တို့က nth-child ကို odd ပေးလိုက်မယ်ဆိုရင်
+        သူက မကိန်းတွေကိုပဲ effect ဖြစ်သွားမှာဖြစ်ပြီး တစ်ကယ်လို့ particular child element ကို သတ်မှတ်ချင်တယ်ဆိုရင်တော့ element ရဲ့ position ကို အတိအကျတွက်ပြီး သတ်မှတ်လို့ရပါတယ်။ Eg. li:nth-child(2n+1) { } ။ </p>
+    <p>nth-pseudo class ကအမှန်တကယ်ကို powerful selector တစ်ခုဖြစ်ပါတယ်၊ ပီးတော့သူက အဲ့ထက်ပိုပီးတော့ လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ expressions ကိုသုံးပီးတော့ child elements တွေရဲ့ combination တွေကိုသီးသန့် select လုပ်လို့ရပါတယ်။ ဒါပေမဲ့ expression တွေကနဲနဲလေးရှုပ်တယ်လို့ထင်ရပါတယ်။
+        ကျွန်တော်တို့ရဲ့ expression ကတော့ an + b ပဲဖြစ်ပါတယ်။ အဲ့ထဲက a နဲ့ b ကိုအမြဲတမ်း number တွေနဲ့ ကိုယ်စားပြုပီးတော့ n value ကတော့ဘယ်တော့မှမပြောင်းလဲပါဘူး သူကအမြဲတမ်း letter n ပဲဖြစ်နေမှာပါ။ b ဆိုတာကတော့ ကျွန်တော်တို့ အစဆုံး select လုပ်ချင်တဲ့ element
+        ကိုပြောတာပါ၊ ကျွန်တော်တို့က b နေရာမှာ 3 လို့ပေးလိုက်ရင် ကျွန်တော်တို့ရဲ့ item က သုံးခုမြောက်နေရာကနေစမှာပါ။ ပီးတော့ a ဆိုတာကတော့ b သတ်မှတ်ပီးသားနေရာကနေ နောက်ထပ် ဘယ်နှစ်ခုသတ်မှတ်မယ်ဆိုတာကိုပြောတာပဲဖြစ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့က b တန်ဖိုးကို 3 လို့ပေးပီးတော့
+        a တန်ဖိုးကို 2 လို့ပေးလိုက်တယ်ဆိုပါဆို့။ အဲ့ဒါဆိုရင် ကျွန်တေ်ာတို့ရဲ့ list item ထဲက သုံးခုမြောက်နေရာဖြစ်တဲ့ third item ကနေစပီးတော့သတ်မှတ်မယ်။ ပြီးတော့ သုံးခုမြောက်နေ စပီးတော့ 2 ခုမြာက်ထိ item တိုင်းကို သူကသတ်မှတ်သွားမှာပါ။ ဆိုလိုတာကတော့ သုံးခုမြောက်
+        item ကို effect ဖြစ်မယ်၊ နောက်ပီးတော့ 5 ခုမြောက် item ကိုလဲ effect ဖြစ်မယ်။ a ဆိုတာ သူနောက်ထပ် effect ဖြစ်မဲ့ item ကိုတွက်ပေးတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့က a နေရာမှာ ဒီတိုင်း ဘာတန်ဖိုးမှမသတ်မှတ်ပဲထားလိုက်မယ်ဆိုရင်တော့ သူက ကျွန်တေ်တို့ စသတ်မှတ်တဲ့
+        b ရဲ့နောက်မှာရှိတဲ့ကောင်တိုင်းကို effect ဖြစ်သွားမှာပါ။ ထိုနည်းအတူပဲ ကျွန်တော်တို့က b ကိုလဲဘာမှ မသတ်မှတ်ဖူးဆိုရင်လဲ သူက ကျွန်တော်တို့ list item ရဲ့ အစဆုံးကနေစပီးတော့ သတ်မှတ်သွားမှာပါ။ နောက်ပီးတော့ကျွန်တော်တို့ a တန်ဖိုးကို negative number လဲသတ်မှတ်လို့ရပါတယ်။
+        ကျွန်တော်တို့က negative number ကိုသတ်မှတ်မယ်ဆိုရင်တော့ သူက ကျွန်တော်တို့ b မှာ သတ်မှတ်ထားတဲ့ number ရှိသလောက်ရဲ့ li တွေကို ပြောင်းပြန်အနေနဲ့ 1,2,3 မဟုတ်ဘဲ 3,2,1 လို့ effect ဖြစ်သွားမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+            <code class="html hljs xml">
+                &lt;!DOCTYPE html&gt;
+                &lt;html&gt;
+                
+                &lt;head&gt;
+                    &lt;title&gt;Attribute Selectors and Pseudo-classes&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="../css/nth_child_pseudo_classes.css"&gt;
+                    &lt;style type="text/css"&gt;
+                        body {
+                            width: 60%;
+                            margin: 0 auto;
+                        }
+                        
+                        ul li {
+                            list-style: none;
+                            padding: 20px;
+                            border-bottom: 1px dotted black;
+                        }
+                    &lt;/style&gt;
+                &lt;/head&gt;
+                
+                &lt;body&gt;
+                    &lt;ul&gt;
+                        &lt;li&gt;Item 1&lt;/li&gt;
+                        &lt;li&gt;Item 2&lt;/li&gt;
+                        &lt;li&gt;Item 3&lt;/li&gt;
+                        &lt;li&gt;Item 4&lt;/li&gt;
+                        &lt;li&gt;Item 5&lt;/li&gt;
+                        &lt;li&gt;Item 6&lt;/li&gt;
+                        &lt;li&gt;Item 7&lt;/li&gt;
+                        &lt;li&gt;Item 8&lt;/li&gt;
+                        &lt;li&gt;Item 9&lt;/li&gt;
+                        &lt;li&gt;Item 10&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/body&gt;
+                
+                &lt;/html&gt;
+            </code>
+        </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+            <code class="html hljs xml">
+                /* :nth-child Pseudo-classes ------------- */
+ 
+                li:nth-child(even) {
+                    background: #52bab3;
+                    color: white;
+                }
+
+                li:nth-child(2n+1) {
+                    background: purple;
+                }
+
+                li:nth-child(-n+3) {
+                    background: gray;
+                }
+            </code>
+        </pre>
+    <p>
+        <a href="directory/nth_child_pseudo_classes.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Root Pseudo Class</h2>
+    <p>ကျွန်တော်တို့ ဒီနေရာမှာတော့ နောက်ဆုံး pseudo class သုံးခုထဲကတစ်ခုဖြစ်တဲ့ root pseudo class အကြောင်းကိုပြောသွားမှာပဲဖြစ်ပါတယ်။ Root pseudo class ဆိုတာက document တစ်ခုလုံးရဲ့ root element တွေကိုပဲ select လုပ်သွားတာပဲဖြစ်ပါတယ်။ ဥပမာ HTML file တစ်ခုမှာဆိုရင်
+        HTML element ကိုပဲသူက select လုပ်သွားမှာဖြစ်ပါတယ်။ root pseudo class ကိုရေးမယ်ဆိုရင်တော့ စစချင်းမှာ semi colon ကိုရေးတယ် သူ့ရဲ့နောက်မှာမှ root ဆိုတဲ့ key word ကိုရေးပါတယ်။ ဥပမာထဲမှာဆိုရင်တော့ root pseudo class ကိုသုံးပီးတော့ ကျွန်တော်တို့ web
+        page ရဲ့ back ground color ကိုရေးပြထားတာပဲဖြစ်ပါတယ်။ ဒီမှာထူးခြားတာက ကျွန်တော်တို့ HTML selector တစ်ခုမှ မသုံးပဲနဲ့ root pseudo class ကိုသုံးပီးတော့ ကျွန်တော်တို့ page ရဲ့ background color ကိုပြောင်းသွားတာပဲဖြစ်ပါတယ်။ root pseudo class ပေါ်လာချင်းရဲ့
+        အကြောင်းပြချက်ကတော့ SVG နဲ့ XML ကဲ့သို့သော အခြား markup language ဒါမှမဟုတ် တစ်ခြား format တွေနဲ့ CSS ကိုတွဲသုံးလို့ရအောင်ပဲဖြစ်ပါတယ်။ ဒါ့ကြောင့် root pseudo class ကမတူညီတဲ့ elements တွေကိုကိုယ်စားပြုပါတယ်၊ ပီးတော့ document ထဲမှာရှိတဲ့ top most
+        element တွေကိုအမြဲတမ်း target လုပ်ပါတယ်။</p>
+    <p>Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            :root {
+                background: #e3effb;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Target Pseudo Class</h2>
+    <p>အခု ကျွန်တော်တို့ target pseudo-class အကြောင်းကို ပြောပြသွားမှာဖြစ်ပါတယ်။ Target pseudo class ဆိုတာ ကျွန်တော်တို့ target ပေးလိုက်တဲ့ element ကိုပဲ browser ရဲ့ URL tag bar မှာ ပြောင်းသွားပြီး element တွေကိုလည်း select လုပ်သွားမှာဖြစ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့
+        browser က URL bar မှာ col-a လို့ပေါ်လာရင် သူက col-a ရှိတဲ့ elements section ကိုပဲ select လုပ်ပြီးတော့ style ပြောင်းပေးမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+            	&lt;title&gt;Target Pseudo Class&lt;/title&gt;
+              &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+              &lt;link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'&gt;
+              &lt;link rel="stylesheet" href="../css/base.css"&gt;
+              &lt;link rel="stylesheet" href="../css/terget_pseudo_class.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            	&lt;div id="container"&gt;
+            		&lt;nav&gt;
+            			&lt;a href="#col-a"&gt;Column A&lt;/a&gt;
+            			&lt;a href="#col-b"&gt;Column B&lt;/a&gt;
+            			&lt;a href="#col-c"&gt;Column C&lt;/a&gt;
+            		&lt;/nav&gt;
+            		&lt;div class="row group"&gt;
+            			&lt;div id="col-a" class="col"&gt;
+            				&lt;h2&gt;Column A&lt;/h2&gt;
+            				&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum arcu nisl, at vestibulum purus cursus ultrices. Sed consectetur faucibus velit, quis ultrices nisi.&lt;/p&gt;
+            				&lt;p&gt;Donec rutrum magna mi, vitae congue elit egestas quis. Praesent ultrices rhoncus venenatis. &lt;/p&gt;
+            			&lt;/div&gt;
+            			&lt;div id="col-b" class="col"&gt;
+            				&lt;h2&gt;Column B&lt;/h2&gt;
+            				&lt;p&gt;nteger scelerisque nisl sit amet eleifend mollis. Fusce eu tristique massa, et vehicula risus. Fusce congue convallis enim eget dignissim. Quisque auctor erat et.&lt;/p&gt;
+            				&lt;p&gt;Nulla faucibus, vel lacinia ex lacinia. Nunc ut odio mattis magna vulputate viverra et et ligula.&lt;/p&gt;
+            			&lt;/div&gt;
+            			&lt;div id="col-c" class="col"&gt;
+            				&lt;form&gt;
+            					&lt;h2&gt;Column C&lt;/h2&gt;
+                            
+            					&lt;label for="name"&gt;Name:&lt;/label&gt; 
+            					&lt;input type="text" id="name"&gt;
+                            
+            					&lt;label for="email"&gt;Email:&lt;/label&gt;
+            					&lt;input type="email" id="email" placeholder="email@website.com"&gt;
+                            
+            					&lt;input class="btn" type="submit" value="Sign up"&gt;
+            				&lt;/form&gt;
+            			&lt;/div&gt;
+            		&lt;/div&gt;
+            	&lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            :root {
+                background: #e3effb;
+            }
+            
+            :target {
+                background: #384047;
+                color: white;
+            }
+            
+            #col-c:target {
+                background: #eff1f2;
+                color: initial;
+                box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/target_pseudo_class.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+
+    <h2>Not Pseudo Class</h2>
+    <p>ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့က not pseudo class အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Not pseudo class ကို negation-pseudo class လို့လည်းခေါ်ပါတယ်။ ဘာလို့လဲဆိုရင် သူဟာ selector ထဲမှာ ကျွန်တော်တို့သတ်မှတ်လိုက်တဲ့ element ကလွဲပြီး ကျန်တဲ့ elements တွေအကုန်လုံးကို
+        style လုပ်ပေးတာဖြစ်ပါတယ်။ သူ့ကို ဘယ် type selector မှာမဆို အသုံးပြုနိုင်ပါတယ်။ Not-pseudo class ကိုရေးမယ်ဆိုရင်တော့ အရင်ဆုံး colon(:) နဲ့ရေးပြီး သူ့နောက်မှာ not ဆိုတဲ့ keyword ကိုရေးရပါတယ်။ not နောက်မှာတော့ set of parenthesis နဲ့ရေးရပြီး အဲ့ဒီထဲမှာမှ
+        ကျွန်တော်တို့ effect မဖြစ်ချင်တဲ့ element ကိုသတ်မှတ်ပေးရပါတယ်။ ဥပမာပြောရရင် ကျွန်တော်တို့ login form တစ်ခုမှာ submit button ကလွဲပြီး input tag တွေကို box-shadow ပုံစံပြောင်းချင်တဲ့ အခါမျိုးမှာ not-pseudo class ကိုသုံးပါတယ်။ not နောက်က set of parenthesis
+        ထဲမှာ ကျွန်တော်တို့က ပထမဆုံး element နဲ့ နောက်ဆုံး element ကို style လုပ်ချင်တဲ့အခါမျိုးဆိုရင် first-child နဲ့ last-child ကိုအသုံးပြုနိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+            	&lt;title&gt;Not Pseudo Class&lt;/title&gt;
+              &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+              &lt;link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'&gt;
+              &lt;link rel="stylesheet" href="../css/base.css"&gt;
+              &lt;link rel="stylesheet" href="../css/not_pseudo_class.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+            	&lt;div id="container"&gt;
+            		&lt;nav&gt;
+            			&lt;a href="#col-a"&gt;Column A&lt;/a&gt;
+            			&lt;a href="#col-b"&gt;Column B&lt;/a&gt;
+            			&lt;a href="#col-c"&gt;Column C&lt;/a&gt;
+            		&lt;/nav&gt;
+            		&lt;div class="row group"&gt;
+            			&lt;div id="col-a" class="col"&gt;
+            				&lt;h2&gt;Column A&lt;/h2&gt;
+            				&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris interdum arcu nisl, at vestibulum purus cursus ultrices. Sed consectetur faucibus velit, quis ultrices nisi.&lt;/p&gt;
+            				&lt;p&gt;Donec rutrum magna mi, vitae congue elit egestas quis. Praesent ultrices rhoncus venenatis. &lt;/p&gt;
+            			&lt;/div&gt;
+            			&lt;div id="col-b" class="col"&gt;
+            				&lt;h2&gt;Column B&lt;/h2&gt;
+            				&lt;p&gt;nteger scelerisque nisl sit amet eleifend mollis. Fusce eu tristique massa, et vehicula risus. Fusce congue convallis enim eget dignissim. Quisque auctor erat et.&lt;/p&gt;
+            				&lt;p&gt;Nulla faucibus, vel lacinia ex lacinia. Nunc ut odio mattis magna vulputate viverra et et ligula.&lt;/p&gt;
+            			&lt;/div&gt;
+            			&lt;div id="col-c" class="col"&gt;
+            				&lt;form&gt;
+            					&lt;h2&gt;Column C&lt;/h2&gt;
+                            
+            					&lt;label for="name"&gt;Name:&lt;/label&gt; 
+            					&lt;input type="text" id="name"&gt;
+                            
+            					&lt;label for="email"&gt;Email:&lt;/label&gt;
+            					&lt;input type="email" id="email" placeholder="email@website.com"&gt;
+                            
+            					&lt;input class="btn" type="submit" value="Sign up"&gt;
+            				&lt;/form&gt;
+            			&lt;/div&gt;
+            		&lt;/div&gt;
+            	&lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            :root {
+                background: #e3effb;
+            }
+            
+            :target {
+                background: #384047;
+                color: white;
+            }
+            
+            #col-c:target {
+                background: #eff1f2;
+                color: initial;
+                box-shadow: 0 0 6px rgba(0, 0, 0, .2);
+            }
+            
+            input::not([type="submit"]) {
+                box-shadow: inset 0 2px 0 rgba(0, 0, 0, .15);
+            }
+            
+            .col::not(:first-child),
+            nav a:not(:first-child) {
+                margin-left: 15px;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/not_pseudo_class.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>First-line and first-letter Pseudo Elements</h2>
+    <p>Pseudo-elements တွေဟာ pseudo-classes တွေနဲ့ဆင်တူပါတယ်။ ဒါပေမယ့် pseudo-classes တွေလို state တစ်ခုကိုဖော်ပြမယ့်အစား pseudo-elements တွေဟာ element တစ်ခုရဲ့ အချို့သော အစိတ်အပိုင်းတွေသာလျှင် style လုပ်ပေးပါတယ်။ ပြီးတော့ သူတို့ဟာ elements တွေနဲ့ content
+        တွေကို CSS ကနေ ကျွန်တော်တို့ page ထဲကို ထည့်ပေးနိုင်ပါတယ်။ Pseudo-elements တွေဟာ elements တွေရဲ့ name ကို imply လုပ်တဲ့နေရာမှာ တိကျပါတယ်။ သူတို့ဟာ real HTML elements တွေဖြစ်တဲ့ DOM ရဲ့ အစိတ်အပိုင်းတွေမဟုတ်တဲ့ phony elements တွေဖြစ်ကြပါတယ်။ သူတို့ဟာ
+        ကျွန်တော်တို့ HTML ကို cleaner ဖြစ်စေပါတယ်။ ဘာဖြစ်လို့လဲဆိုရင် သူတို့ဟာ markup ထဲမှာ define လုပ်မထားတဲ့ virtual elements တွေကို target လုပ်ပါတယ်။ ပြီးတော့ သူတို့ဟာ source code ထဲမှာလည်း အပေါ်ပါဘူး။ CSS မှာဆိုရင် pseudo-elements အမျိုးအစား 4 မျိုးရှိပါတယ်။
+        ပထမဆုံးတစ်ခုကတော့ first line and first letter pseudo-elements ဖြစ်ပါတယ်။ First line pseudo element ကတော့ ကျွန်တော်တို့ run လိုက်တဲ့အခါ browser မှာပေါ်နေတဲ့ အပေါ်ဆုံးစာကြောင်းတစ်ကြောင်းလုံးကို effect ဖြစ်ပါတယ်၊ ကျွန်တော်တို့ရဲ့ browser ကိုဘယ်လိုပဲချဲ့ချဲ့
+        ဘယ်လိုပဲ ကျုံ့ကျုံ့ သူက အပေါ်ဆုံးမှာ ကျန်နေတဲ့ကောင်ကိုပဲ effect ဖြစ်သွားမှာပဲဖြစ်ပါတယ်။ First letter pseudo class ကတော့ ပထမဆုံးစာကြောင်းထဲမှာရှိတဲ့ ပထမဆုံး စာလုံးကို effect ဖြစ်သွားမှာပါ။ ပီးတော့ သူ့ကို drop caps ကဲ့သို့သော typographical effects
+        တွေပြုလုပ်တဲ့နေရာမှာ အများဆုံးအသုံးပြုပါတယ်။ ကျွန်တော်တို့ pseudo class နဲ့ pseudo element နဲ့ကိုခွဲပြားစေတာကတော့ semi colon ပဲဖြစ်ပါတယ်၊ semi colon တစ်ခုတည်းဆိုရင်တော့ pseudo class ဖြစ်ပီးတော့ semi colon နှစ်ခုနဲ့သတ်မှတ်ရင်တော့ pseudo element
+        ပဲဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;First Line and First Letter Pseudo Elements&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                &lt;link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/first_line&first_letter.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="gallery"&gt;
+                
+                    &lt;h1&gt;My Gallery&lt;/h1&gt;
+                    &lt;p class="intro"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lacinia nibh sed justo efficitur, vitae accumsan risus euismod. Praesent quis ornare libero. Nulla sed eros efficitur, tempus justo a, tincidunt neque Morbi diam elit.Donec imperdiet
+                        aliquam sem ut feugiat. Nunc ligula elit, malesuada nec aliquam eget, cursus in ipsum. Maecenas lacinia est id ante tincidunt vestibulum. Quisque risus justo, convallis vulputate lectus ut, ullamcorper volutpat nibh.&lt;/p&gt;
+                    
+                    &lt;ul class="d-loads"&gt;
+                        &lt;li&gt;&lt;a class="jpg" href="http://downloads/gallery.jpg" title="- JPG"&gt;Download&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class="zip" href="http://downloads/gallery.zip" title="- ZIP"&gt;Download&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* Base Styles -------------------------------- */
+
+            body {
+            	font-family: 'Nunito', sans-serif;
+            	font-size: 1.1em;
+            	line-height: 1.5;
+            	color: #384047;
+            	padding: 10px 0 80px;
+            }
+            div {
+            	width: 52%;
+            	margin: auto;
+            }
+            h1 {
+            	margin-bottom: 36px;
+            }
+            p {
+            	margin-bottom: 24px;
+              font-weight: 200;
+            }
+            ul {
+            	font-size: 1.25rem;
+            	list-style: none;
+            	margin-top: 36px;
+            	padding: 0;
+            }
+            li {
+            	margin-bottom: 16px;
+            }
+            a {
+            	color: #4183c4;
+            }
+
+            /* Substring Matching Attribute Selectors ---- */
+
+            a[href^="http:"] {
+              color: #52bab3;
+              text-decoration: none;
+            }
+
+            /* First Line and First Letter Pseudo-classes ---- */
+
+            .intro::first-line {
+                font-weight: bold;
+                font-size: 1.4em;
+            }
+            
+            .intro::first-letter {
+                float: left;
+                font-size: 80px;
+                color: white;
+                padding: 5px 10px;
+                background: #384047;
+                margin: 10px 10px 0 0;
+                border-radius: 5px;
+                line-height: 1;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/first_line&first_letter.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Before and After Pseudo-elements</h2>
+    <p>နောက်ထပ်ပြောပြသွားမှာကတော့ before and after pseudo elements တွေပဲဖြစ်ပါတယ်။ သူတို့ဟာ virtul elements တွေကို element ရဲ့ content တစ်ခုရဲ့ before or after မှာ insert လုပ်လို့ရပါတယ်။ အဲ့ဒီ virtual elements တွေကို user ကမြင်နိုင်ပြီး သူတို့ကို CSS နဲ့
+        style တွေဖန်တီးလို့ရပါတယ်။ ဒါပေမယ့် source code ထဲမှာတော့ ပေါ်ပေးမှာမဟုတ်ပါဘူး။ ဒါကြောင့် ကျွန်တော်တို့ဟာ သူတို့ကိုသုံးပြီး pageရဲ့ element ထဲမှာ new content တွေထပ်ထည့်နိုင်ပါတယ်။ ဒီလိုအသုံးပြုခြင်းဖြင့် ပိုပြီးစိတ်ဝင်စားဖို့ကောင်းတဲ့ design ကိုဖန်တီးနိုင်မှာဖြစ်ပါတယ်။
+        တကယ်လိုအပ်တဲ့ element တွေကို before and after pseudo element တွေကိုသုံးပီးတော့ ကျွန်တော်တို့ပြုလုပ်နိုင်ပါတယ်။ တခြား element တွေကို style သတ်မှတ်သလိုပဲ သူတို့ကိုလဲ style သတ်မှတ်လို့ရပါတယ်။ ဒါကို generated content လို့ခေါ်ပါတယ်။ Before and after
+        pseudo element ကိုသုံးပီးတော့ content တွေကို generate လုပ်ချင်တယ်ဆိုရင်တော့ content property ကိုသုံးပီးတော့ လုပ်နိုင်ပါတယ်။ content property က pseudo element ကို new box ဒါမှမဟုတ် content တစ်ခုရဲ့ layer ကိုဆောက်ဖို့ရန်အတွက် ခွင့်ပြုပါတယ်။ ဒါကြောင့်ကျွန်တော်တို့
+        content property တစ်ခုသတ်မှတ်မယ်ဆိုလို့ရှိရင် ကျွန်တော်တို့ web page မှာပေါ်စေချင်တဲ့ ကောင်တွေအားလုံးကို content value အဖြစ်သတ်မှတ်ရပါတယ်၊ content value ကိုသတ်မှတ်တဲ့အခါမှာ set of quotes ထဲမှာပဲသတ်မှတ်ပေးရပါတယ်။ Set of quotes မပါရင်တော့ မရပါဘူး။
+        ကျွန်တေ်ာတို့က အသစ်ထပ်ထည့်မဲ့ content တစ်ခုကို ရှေ့မှာပေါ်မှာစေချင်တယ်ဆိုရင်တော့ before pseudo element ကိုသုံးပီးတော့ နောက်မှာပေါ်ချေင်တယ်ဆိုရင်တော့ after pseudo element ကိုသုံးပါတယ်။ ချွင်းချက်အနေနဲ့ကျွန်တော်တို့ တစ်ခုသိထားရမှာက image ကိုထည့်ချင်တယ်ဆိုရင်တော့
+        content value မှာ set of quotes ပါစရာမလိုပါဘူး။ ဥပမာ အနေနဲ့ကျွန်တော်တို့က h1 element ရဲ့ရှေ့မှာ bullet ပုံစံလေးပေါ်ချင်တယ်ဆိုရင်တော့ content value ထဲမှာဘာမှထည့်စရာမလိုပဲနဲ့ သူ့ရဲ့ set of curly braces ထဲမှာပဲ ကျွန်တော်တို့လိုတာတွေကိုသတ်မှတ်လိုက်ရုံပါပဲ၊
+        အဲ့ဒီလိုသတ်မှတ်လိုက်တာနဲ့ သူ့အလိုလို ကျွန်တော်တို့ select လုပ်ထားတဲ့ element ရဲ့ရှေ့ ဒါမှမဟုတ် နောက်မှာလာပေါ်မှာပါ။ အောက်ဥပမာလေးကိုတစ်ချက်လောက်ကြည့်ရအောင်ပါ။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;Before and After Pseudo Elements&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                &lt;link href='http://fonts.googleapis.com/css?family=Nunito:400,300' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/before&after.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="gallery"&gt;
+                
+                    &lt;h1&gt;My Gallery&lt;/h1&gt;
+                    &lt;p class="intro"&gt;Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi lacinia nibh sed justo efficitur, vitae accumsan risus euismod. Praesent quis ornare libero. Nulla sed eros efficitur, tempus justo a, tincidunt neque Morbi diam elit.Donec imperdiet
+                        aliquam sem ut feugiat. Nunc ligula elit, malesuada nec aliquam eget, cursus in ipsum. Maecenas lacinia est id ante tincidunt vestibulum. Quisque risus justo, convallis vulputate lectus ut, ullamcorper volutpat nibh.&lt;/p&gt;
+                    
+                    &lt;ul class="d-loads"&gt;
+                        &lt;li&gt;&lt;a class="jpg" href="http://downloads/gallery.jpg" title="- JPG"&gt;Download&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a class="zip" href="http://downloads/gallery.zip" title="- ZIP"&gt;Download&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* Base Styles -------------------------------- */
+
+            body {
+                font-family: 'Nunito', sans-serif;
+                font-size: 1.1em;
+                line-height: 1.5;
+                color: #384047;
+                padding: 10px 0 80px;
+            }
+
+            div {
+                width: 52%;
+                margin: auto;
+            }
+
+            h1 {
+                margin-bottom: 36px;
+            }
+
+            p {
+                margin-bottom: 24px;
+                font-weight: 200;
+            }
+
+            ul {
+                font-size: 1.25rem;
+                list-style: none;
+                margin-top: 36px;
+                padding: 0;
+            }
+
+            li {
+                margin-bottom: 16px;
+            }
+
+            a {
+                color: #4183c4;
+            }
+
+
+            /* Substring Matching Attribute Selectors ---- */
+
+            a[href^="http:"] {
+                color: #52bab3;
+                text-decoration: none;
+            }
+
+
+            /* First Line and First Letter -------- */
+
+            .intro::first-line {
+                font-weight: bold;
+                font-size: 1.4em;
+            }
+
+            .intro::first-letter {
+                float: left;
+                font-size: 80px;
+                color: white;
+                padding: 5px 10px;
+                background: #384047;
+                margin: 10px 10px 0 0;
+                border-radius: 5px;
+                line-height: 1;
+            }
+
+            .jpg::before {
+                content: url(../image/icn-picture.svg);
+                margin-right: 10px;
+            }
+
+            .zip::before {
+                content: url(../image/icn-zip.svg);
+                margin-right: 10px;
+            }
+
+            h1::before,
+            h1::after {
+                content: "";
+                display: inline-block;
+                background: coral;
+                border-radius: 50%;
+                width: 24px;
+                height: 24px;
+                margin: 0 10px;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/before&after.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+
+</body>
+
+</html>

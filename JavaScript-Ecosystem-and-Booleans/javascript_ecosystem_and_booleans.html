@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Ecosystem and Booleans</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>Ecosystem, Front-end and Back-end</h2>
+    <p>JavaScript ဟာ လူကြိုက်အများဆုံးနဲ့ ဘက်စုံအသုံးပြုလို့ရတဲ့ programming language တစ်ခုဖြစ်ပါတယ်။ နောက်ထပ်သူ့ရဲ့ ကောင်းကျိုးတွေ အများကြီးရှိနေပါသေးတယ်။ ဒီသင်ခန်းစာမှာတော့ ကျွန်တော်တို့က JavaScript ရဲ့ စိတ်ဝင်စားစရာကောင်းတဲ့ Ecosystem အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။
+        ပြီးတော့ Node.js ကို ဘယ်လိုတည်ဆောက်ခဲ့ပြီး JavaScript ကိုဘယ်လောက်ထိ အထောက်အကူပြုလဲဆိုတာကိုလည်း လေ့လာသွားပါမယ်။ JavaScript နဲ့ပဲ ကျွန်တော်တို့ဟာ applications နဲ့ tools တွေကို built လုပ်လို့ရပါတယ်။ နောက်ထပ် popular ဖြစ်နေတဲ့ JavaScript frameworks
+        တွေနဲ့ libraries တွေများစွာရှိနေပါသေးတယ်။ JavaScript ကို အစောပိုင်းတည်းက browser မှာ run လုပ်ဖို့အတွက် design လုပ်ထားတာဖြစ်ပေမယ့် အခုဆိုရင် အခြားနေရာတွေမှာတောင် run လို့ရနေပါပြီ။ ဥပမာ JavaScript ဟာ front-end နဲ့ back-end မှာပါ run လုပ်နိုင်တဲ့
+        web-based programming language တစ်ခုပဲဖြစ်ပါတယ်။ Front-end (သို့) client side မှာ run တဲ့ JavaScript code ဟာ browser မှာ run တဲ့ JavaScript ပဲဖြစ်ပါတယ်။ Client-side JavaScript ဆိုတာ web pages တွေမှာ user interactivity ကို allow လုပ်ပေးတာပဲဖြစ်ပါတယ်။
+        JavaScript ကို DOM (သို့) Document Object Model ကဲ့သို့သော browser specific APIs ကို against လုပ်ပြီး browser ရဲ့ JavaScript engine နဲ့ interpret & execute လုပ်ပေးပါတယ်။ JavaScript နဲ့ form validation မှာ elements တွေကို select and manipulate
+        လုပ်လို့ရပါတယ်။ ဒါကြောင့် client-side JavaScript ဟာဆိုရင် rendered web page ရဲ့ appearance ကို အဓိကအားဖြင့် improve လုပ်ပေးတာဖြစ်ပါတယ်။ Google Maps ဟာဆိုရင် moving it around, zooming in & out တွေကို client-side JavaScript နဲ့အသုံးပြုထားတဲ့ application
+        တစ်ခုဖြစ်ပါတယ်။ သို့သော်လည်း JavaScript ဟာ DOM နဲ့အလုပ်လုပ်ဖို့အတွက်တော့ မဟုတ်ပါဘူး။ Back-end (သို့) server-side JavaScript ဆိုတာ browser မှာ execute လုပ်မယ့် code ကိုရေးမယ့်အစား server ပေါ်မှာ execute လုပ်မယ့် code ကိုရေးခြင်းဖြစ်ပါတယ်။ Server-side
+        JavaScript ကို APIs, databases နဲ့ web servers တွေ building လုပ်ဖို့အတွက် အသုံးပြုတာဖြစ်ပါတယ်။ Front-end နဲ့ back-end အပိုင်းနှစ်ခုလုံးမှာ JavaScript နဲ့ရေးတာကို Full-Stack Development လို့ခေါ်ပါတယ်။ JavaScript ကို different environments တွေမှာ
+        ဘယ်လို run လဲဆိုရင် environment ကနေ JavaScript ကို host objects တွေ supplied လုပ်ပြီး run ပေးတာဖြစ်ပါတယ်။ အဲ့ဒီနည်းနဲ့ပဲ JavaScript code တွေဟာ အဲ့ဒီ specific environment မှာ execute လုပ်နိုင်တာဖြစ်ပါတယ်။ ဥပမာ browser ဟာ DOM နဲ့အလုပ်လုပ်ဖို့အတွက်
+        window object ကို provide လုပ်ပေးပါတယ်။ ပြီးတော့ browser ဟာ document, history, XMLHttpRequest နဲ့ အခြားသော host objects တွေကိုလည်း provide လုပ်ပေးပါတယ်။ အခုဆိုရင် Node ဟာ JavaScript အတွက် server-side runtime environment တစ်ခုဖြစ်ပြီး host objects
+        set တွေအမျိုးမျိုးကို provide လုပ်ပေးပါတယ်။ Native objects တွေဟာ JavaScript programming language ရဲ့ အစိတ်အပိုင်းဖြစ်တဲ့ built-in objects တွေဖြစ်ပါတယ်။ String, number, array နဲ့ math objects တွေကို Node.js ကဲ့သို့သော server-side environment မှာရော
+        browser မှာရော နှစ်ခုစလုံးမှာအသုံးပြုနိုင်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Node JS</h2>
+    <p>Client side JavaScript ကို browser ကနေ execute လုပ်ပြီး server side JavaScript ကိုတော့ web server တစ်ခုကနေ execute လုပ်ပေးတာဖြစ်ပါတယ်။ ဒါဆို web server တစ်ခုပေါ်မှာ JavaScript ကို ဘယ်လို run သလဲဆိုရင် ပုံမှန်အားဖြင့်တော့ Node.js နဲ့ run ပါတယ်။ Node
+        ဟာ developers တွေကို JavaScript နဲ့ website တွေ interactive ဖြစ်အောင်လုပ်နိုင်ဖို့ ဖန်တီးထားတာဖြစ်ပါတယ်။ Node ဟာ JavaScript နဲ့ဆိုရင် developing server-side applications တွေအတွက် cross platform runtime environment တစ်ခုဖြစ်ပါတယ်။ Node ဟာ browser
+        ရဲ့အပြင်ဘက်မှာ JavaScript ကို run လို့ရတဲ့နည်းလမ်းတစ်ခုကို provide လုပ်ပေးထားတာကြောင့် ကျွန်တော်တို့ဟာ frameworks, web servers နဲ့ အခြားအရာတွေကို command line tools တွေကနေ ဘယ်အရာကိုမဆို Node ကိုသုံးပြီး built လုပ်နိုင်မှာဖြစ်ပါတယ်။ Node.js ဟာ
+        Google Chrome ရဲ့ V8 open source JavaScript engine ကိုအခြေခံထားတာဖြစ်ပါတယ်။ Chrome broser နဲ့ Node ဟာ JavaScript engine တစ်ခုတည်းကို အသုံးပြုတယ်ဆိုပေမယ့်လည်း သူတို့မှာ မတူညီတဲ့ run time environment နှစ်ခုရှိပါတယ်။ Node ဟာ JavaScript ကို browser
+        နဲ့ယှဉ်ပြီးတော့ မတူညီတဲ့ host objects တွေကို supply လုပ်ပေးထားပါတယ်။ Host objects တွေဆိုတာကတော့ browser ရဲ့အပြင်ဘက်မှာ run လို့ရအောင် ခွင့်ပြုပေးထားတဲ့ JavaScript မှာရနိုင်တဲ့ http, https, fs for file system, url, os နဲ့ အခြားသောအရာတွေပဲဖြစ်ပါတယ်။
+        Node ရဲ့အားသာချက်ကတော့ many events (သို့) user actions တွေကို တစ်ချိန်တည်းမှာ handle လုပ်နိုင်တဲ့ real-time multi-user applications တွေတည်ဆောက်တဲ့အခါမှာ ဖြစ်ပါတယ်။ Node ရဲ့အကောင်းဆုံးအပိုင်းတွေထဲက တစ်ခုကတော့ သူ့မှာရှိတဲ့ free-open source tools
+        တွေရဲ့ driving ecosystem ပဲဖြစ်ပါတယ်။ Npm လို့ခေါ်တဲ့ node package manage ဟာ JavaScript community မှာရှိတဲ့ အခြား developers တွေရေးထားတဲ့ code တွေနဲ့ software တွေကို sharing & reuse လုပ်ဖို့ ခွင့်ပြုပေးပါတယ်။ Npm ဟာဆိုရင် developer တွေကို awesome
+        projects တွေ setup and build လုပ်တဲ့အခါမှာကူညီနိုင်ဖို့ packages ပေါင်း 700, 000 ကျော်လောက်ရနိုင်တဲ့ largest package ecosystem တစ်ခုဖြစ်ပါတယ်။ Developers တွေဟာ တစ်ခါတစ်ရံ npm ကို automate repetitive tasks တွေနဲ့ သူတို့ရဲ့ built tool chain တွေမှာ
+        ကူညီဖို့ task runner တစ်ခုအဖြစ်လည်း အသုံးပြုကြပါတယ်။ Node ဟာ runtime environment တစ်ခုဖြစ်တာကြောင့် သူဟာအနည်းငယ်တော့ ကျယ်ပြန့်ပါတယ်။ သူ့ကို လွယ်လွယ်ကူကူ setup လုပ်နိုင်ဖို့အတွက် developer အများစုက Node framework တစ်ခုကို အသုံးပြုပါတယ်။ Node framework
+        ဟာ Express မှာဆိုရင် popular အဖြစ်ဆုံး framework တစ်ခုဖြစ်ပါတယ်။ Node နဲ့ Express က ယှဉ်တွဲနေပါတယ်။ Express ဟာ Node ပေါ်မှာ developers တွေကို scalable feature rich applications တွေနဲ့ websites တွေ build လုပ်ဖို့ ခွင့်ပြုပေးပါတယ်။ Express ဟာ URL
+        paths အမျိုးမျိုးမှာရှိတဲ့ routing or handling requests ကဲ့သို့သော common tasks တွေကို take care လုပ်ပေးဖို့ built-in tools တွေနဲ့ functionality တွေကို provide လုပ်ပေးထားပါတယ်။ ပြီးတော့ HTML pages တွေကို render လုပ်ဖို့ static files တွေနဲ့ dynamic
+        templating တွေကိုလည်း serving လုပ်ပေးပါသေးတယ်။ Developers တွေက Express နဲ့ REST APIs တွေကို built နိုင်ပြီး browser ကို tell လုပ်နိုင်တဲ့ simple servers တွေကိုလည်း တည်ဆောက်နိုင်ပါတယ်။ Node ဟာ server side နဲ့ client side နှစ်ခုလုံးမှာ JavaScript
+        applications တွေကို run နိုင်တဲ့ powerful tool တစ်ခုဖြစ်ပါတယ်။ Node မရှိဘူးဆိုရင် ကျွန်တော်တို့ရေးနေတဲ့ JavaScript ဟာလည်း စိတ်ဝင်စားစရာကောင်းလာမှာ မဟုတ်ပါဘူး။ </p>
+    <hr>
+
+
+    <h2>JavaScript Frameworks</h2>
+    <p>JavaScript ecosystem ဟာ Node ကြောင့် မြန်မြန်ဆန်ဆန်ပဲ တိုးတက်လာခဲ့ပါတယ်။ Node ဟာ browser ရဲ့ အပြင်ဘက်မှာ JavaScript ကို run ဖို့နည်းလမ်းတစ်ခုကို provide လုပ်ပေးထားတာကြောင့် ကျွန်တော်တို့အနေနဲ့ native cross-platform desktop & mobile apps တွေတည်ဆောက်ဖို့
+        front-end နဲ့ server side development ကနေ ဘယ်အရာကိုမဆို ပြုလုပ်နိုင်ပါတယ်။ အခု Node နဲ့တည်ဆောက်ထားတဲ့ native applications အချို့ကို လေ့လာကြည့်ရအောင်။ ပထမဆုံးအနေနဲ့ Node.js ဟာ interactive Command-Line applications (သို့) Command-Line Interfaces
+        တွေတည်ဆောက်တဲ့အခါမှာ တစ်ကယ်ကို အသုံးဝင်ပါတယ်။ အဲ့ဒါတွေကတော့ ကျွန်တော်တို့ computer မှာ install လုပ်ထားတဲ့ software နဲ့ computer နဲ့ interact လုပ်ဖို့အတွက် ကျွန်တော်တို့အသုံးပြုတဲ့ Terminal or Console ဆိုတဲ့ programs တွေပဲဖြစ်ပါတယ်။ ဥပမာ Create
+        React App, Vue-cli နဲ့ Angular CLI ဆိုတဲ့ tools တွေဟာ Node နဲ့တည်ဆောက်ထားတာပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ project ကို production level တစ်ခုအထိရဖို့အတွက် အဲ့ဒီ command line တွေနဲ့ပဲ project တစ်ခုကို စတယ်၊ configuration လုပ်ပြီး run တယ်ဆိုတဲ့
+        အလုပ်တွေကို ထပ်ခါထပ်ခါ ပြုလုပ်ရတာဖြစ်ပါတယ်။ Webpack ကဲ့သို့သော Module bundlers တွေနဲ့ Gulp လိုမျိုး task runners တွေကိုတောင် Node နဲ့ create လုပ်ထားတာဖြစ်ပါတယ်။ Node ဟာ iOS နဲ့ Android devices တွေမှာ run နိုင်တဲ့ native apps တွေတောင် ပြုလုပ်လို့ရပါတယ်။
+        Framework တစ်ခုဖြစ်တဲ့ React Native ကို ကျွမ်းကျင်ထားမယ်ဆိုရင် objective C, Swift, or Java တွေကို ကောင်းကောင်းလေ့လာနိုင်မှာဖြစ်ပါတယ်။ အခုဆိုရင် popular ဖြစ်နေတဲ့ mobile apps တော်တော်များများဟာ React Native ကိုသုံးပြီး create လုပ်ထားတာဖြစ်ပါတယ်။
+        နောက်ထပ် HTML, CSS နဲ့ JavaScript ပဲသုံးပြီး cross-platform desktop applications တွေတည်ဆောက်ဖို့အတွက်သုံးတဲ့ Electron ဆိုတဲ့ framework တစ်ခုလည်း ရှိပါသေးတယ်။ ကျွန်တော်တို့သုံးနေတဲ့ Visual Studio Code နဲ့ Slack တွေဟာ Electron framework နဲ့ရေးထားတာဖြစ်ပါတယ်။
+        Skype, WordPress.com app နဲ့ GitHub desktop app တွေကတော့ Electron 2 နဲ့ built လုပ်ထားတာပါ။ ဒါကြောင့် JavaScript နဲ့ Node ဟာ application development မှာ အချိန်အများကြီးပေးစရာမလိုဘဲ creative နဲ့ innovative တွေ ပြုလုပ်နိုင်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>JavaScript Frameworks, Libraries, and Developer Roles</h2>
+    <p>Developers အများစုဟာ low level decisions, increase efficiency နဲ့ projects တွေကို မြန်မြန်ဆန်ဆန် build လုပ်နိုင်အောင် front-end JavaScript or Library တစ်ခုကို အသုံးပြုကြပါတယ်။ Frameworks တွေနဲ့ libraries တွေဟာ ကျွန်တော်တို့ကို clean ဖြစ်တဲ့ modern
+        JavaScript ကိုရေးနိုင်အောင် ကူညီပေးပြီး သူတို့ဟာ အစတည်းက reliable and effective software design patterns တွေကို အသုံးပြုဖို့ ခွင့်ပြုပေးပါတယ်။ JavaScript framework တစ်ခုအတွက် common usecase တစ်ခုကတော့ browser မှာ run နိုင်တဲ့ single page web applications
+        တွေကို built လုပ်နိုင်ဖို့ပဲဖြစ်ပါတယ်။ အခု ကျွန်တော်တို့ကြားဖူးတဲ့ (သို့) တွေ့လာရမယ့် frameworks နဲ့ libraries အချို့ကို လေ့လာသွားပါမယ်။ အဲ့မှာဆိုရင် အသုံးအများဆုံး framework သုံးခုကတော့ React, Vue နဲ့ Angular တို့ပဲဖြစ်ပါတယ်။ React ကို Facebook
+        ကနေ develop လုပ်ထားပြီး popular JavaScript libraries တွေထဲက တစ်ခုဖြစ်ပါတယ်။ React ဟာ ကျွန်တော်တို့ application ရဲ့ user interface ကို building & maintaining လုပ်ရာမှာ လွယ်ကူပြီး မြန်ဆန်စေဖို့အတွက် သေးငယ်တဲ့ reusable components လေးတွေအဖြစ် breaking
+        up လုပ်လိုက်တာဖြစ်ပါတယ်။ React ဟာ web browser အတွက် UI library တစ်ခုအနေနဲ့ စတင်ခဲ့တာဖြစ်ပါတယ်။ ဒါပေမယ့် သူ provide လုပ်ပေးထားတဲ့ patterns နဲ့ tools တွေက တစ်ကယ်ကိုအသုံးဝင်ပြီး ပိုမိုကျယ်ပြန့်လာတာကြောင့် mobile development မှာ React Native framework
+        တောင် ပေါ်လာခဲ့ပါတယ်။ သူ့နောက်မှာတော့ Vue.js ဟာ popular framework တစ်ခုဖြစ်ခဲ့ပြီး React နဲ့ဆင်တူပါတယ်။ React နဲ့မတူတာတစ်ခုကတော့ Vue မှာ file size ကသေးလည်းသေးပြီးတော့ pick up လုပ်လို့လည်း ပိုမိုလွယ်ကူတဲ့ tools တွေကို offer လုပ်ပေးထားတာပါပဲ။ Vue
+        ဟာ UI တစ်ခုလုံးကို create လုပ်ရတာလွယ်ကူတယ် (သို့) project UI ရဲ့ small parts တွေကိုပဲ build လုပ်ရုံပါပဲ။ Angular ကတော့ full-fledged JavaScript framework တစ်ခုဖြစ်ပြီး အခြား JavaScript frameworks နဲ့ libraries တွေထက် functionality တွေပိုပြီးတော့
+        ပါဝင်ပါတယ်။ Angular ကို Google က maintain လုပ်ထားတာဖြစ်တဲ့အတွက် သူ့ကို complete solution တစ်ခုလို့တောင် ပြောလို့ရပါတယ်။ ဘာလို့လဲဆိုရင်တော့ Angular ဟာ complex & single page web apps တွေတည်ဆောက်တဲ့အခါ အခြား ဘယ် frameworks or plug-ins တွေကိုမှ မမှီခိုဘဲ
+        လိုအပ်တဲ့ tools တွေကို ပေးထားလို့ပဲဖြစ်ပါတယ်။ React, Vue နဲ့ Angular တို့ဟာ client side frameworks and libraries တွေပဲဖြစ်ပါတယ်။ သူတို့ဟာ browser မှာ run တယ်။ Default အနေနဲ့ DOM ကို output အဖြစ်ထုတ်ပေးပြီး rendered page ရဲ့ DOM နဲ့ manipulate
+        လုပ်ပေးပါတယ်။ ဒါပေမယ့် သူတို့သုံးခုမှာ open source JavaScript community က built လုပ်ထားတဲ့ server side counterparts တွေရှိပါတယ်။ ဥပမာ Next.js ဟာဆိုရင် server rendered React apps တွေအတွက် popular ဖြစ်တဲ့ framework တစ်ခုဖြစ်ပါတယ်။ ပြီးတော့ Nuxt
+        ဟာ Vue ရဲ့ server side rendered apps တွေအတွက် higher level framework တစ်ခုဖြစ်ပါတယ်။ Nuxt ဟာ code တွေကို client နဲ့ server ကြားမှာ share လုပ်ရတာလွယ်တဲ့အတွက် applications ရဲ့ logic ကို ကောင်းကောင်းအာရုံစိုက်ရုံပါပဲ။ Angular application တစ်ခုမှာ
+        server side rendering အတွက်တော့ developers တွေဟာ Angular universal library ကို အသုံးပြုပါတယ်။ အဲ့ဒီ server side frameworks တွေဟာ app ကို web server တစ်ခုပေါ်မှာ pre-load လုပ်ပြီး browser က request လုပ်လိုက်ချိန်မှာ render HTML ကို send လုပ်လိုက်ပါတယ်။
+        ပြီးရင်တော့ usual DOM manipulation တွေလုပ်ဆောင်ပြီး client side ကို update လုပ်လိုက်တာဖြစ်တဲ့အတွက် load ဖြစ်တာက မြန်ဆန်နေတာဖြစ်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Testing</h2>
+    <p>Testing ဟာ JavaScript programming မှာ မရှိမဖြစ်လိုအပ်တဲ့ major part တစ်ခုဖြစ်ပါတယ်။ Testing လုပ်ခြင်းဟာ developers တွေကို သူတို့ projects တွေမှာရှိတဲ့ bugs တွေနဲ့ ချို့ယွင်းချက်တွေကင်းဝေးစေဖို့အတွက် ကူညီပေးပါတယ်။ Developers တွေဟာ website (သို့) app
+        တစ်ခုကို new features တွေထည့်လိုက်မယ်။ ပြီးတော့ သူတို့ထည့်လိုက်တဲ့ features တွေက တစ်ကယ်အလုပ်လုပ်ရဲ့လား၊ ဆက်ပြီးတော့ပဲ run နေလားဆိုတာကို test လုပ်ရပါတယ်။ သူ့တို့ဟာ အဲ့ဒီလိုစစ်ဖို့အတွက် combination of testing methods တစ်ခုကို အသုံးပြုရပါတယ်။ ဥပမာ
+        small program တစ်ခုရေးတယ်၊ ပြီးတော့ app or site ကို refresh လုပ်ပြီး မျှောလင့်ထားသလိုဖြစ်ရဲ့လားဆိုတာကို testing လုပ်လေ့ရှိပါတယ်။ နောက်ပြီးတော့ browser ရဲ့ console မှာလည်း runtime errors တွေနဲ့ warning messages တွေကို check လုပ်ပါတယ်။ အဲ့ဒီ manual
+        testing process တွေက အလုပ်လုပ်ပေမယ့် သူ့မှာ slow ဖြစ်နိုင်တာနဲ့ error prone တွေရှိနိုင်ပါတယ်။ ပြီးတော့ ကျွန်တော်တို့ logic က အမြဲတမ်းအလုပ်လုပ်ပါတယ်လို့လည်း သက်သေပြလို့မရပါဘူး။ Case အများစုမှာတော့ developers တွေဟာ code တွေနဲ့ project မှာပါရမယ့်
+        မျှော်လင့်ထားတဲ့ features တွေကို programmatically ကျကျ test လုပ်ကြပါတယ်။ သူတို့ဟာ program အလုပ်လုပ်တဲ့ အစိတ်အပိုင်းတစ်ခုစီနဲ့ even edge cases or extreme operating parameters တွေမှာတောင် အလုပ်လုပ်ဖို့အတွက် unit tests လို့ခေါ်တဲ့ special functions
+        တွေကို ရေးကြပါတယ်။ သူတို့ဟာ ပထမဆုံး သူတို့ program မှာ မျှော်လင့်ထားတဲ့ outcomes တွေထွက်မလားဆိုတာကို identify လုပ်တယ်။ ပြီးတော့မှ အဲ့ဒီအပိုင်းတွေအလုပ်လုပ်လားဆိုတာကို စစ်ဆေးပါတယ်။ Big projects တွေမှာ scratch ကနေ JavaScript unit tests တွေကိုရေးတာဟာ
+        ကန့်သတ်ထားတာမျိုး ၊ implement လုပ်ဖို့ခက်ခဲတာမျိုးနဲ့ အချိန်လည်းကုန်စေပါတယ်။ ဒါကြောင့် JavaScript community ဟာ ကျွန်တော်တို့ code ထဲမှာ problems တွေကို detect လုပ်ပေးနိုင်မယ့် automated unit tests တွေကို လွယ်ကူစွာရေးနိုင်တဲ့ libraries နဲ့ frameworks
+        တွေကို create လုပ်ခဲ့ကြပါတယ်။ <a href="https://mochajs.org/" target="_blank">Mocha</a> ကတော့ testing လုပ်တဲ့အခါမှာ အသုံးအများဆုံး JavaScript testing framework တစ်ခုပဲဖြစ်ပါတယ်။ သူဟာ Node နဲ့ browser နှစ်ခုလုံးမှာ run ပေးပါတယ်။ <a href="https://jasmine.github.io/"
+            target="_blank">Jasmine</a> ကတော့ နောက်ထပ် popular ဖြစ်တဲ့ unit testing framework တစ်ခုဖြစ်ပြီး သူ့မှာကောင်းတဲ့အချက်က အခြားဘယ် JavaScript framework ကိုမှ မမှီခိုပါဘူး။ သူ့ကို angular applications တွေ test လုပ်တဲ့အခါ အသုံးများပါတယ်။ နောက်ပြီးတော့
+        <a href="https://jestjs.io/en/" target="_blank">Jest</a> ကတော့ Facebook က create လုပ်ထားတဲ့ feature-rich testing library တစ်ခုဖြစ်ပြီး React developers အများစုကတော့ Jest နဲ့ပဲ testing လုပ်ကြပါတယ်။ ဘာလို့လဲဆိုရင် ကျွန်တော်တို့က create-react-app
+        နဲ့ project တစ်ခုကို create လုပ်ကတည်းက Jest ကို set up လုပ်ပြီးသားဖြစ်နေလို့ပါပဲ။ သူ့ကို unit and integration testing တွေအတွက် built လုပ်ထားတာဖြစ်ပါတယ်။ ဆိုလိုတာက ကျွန်တော်တို့ app ရဲ့ units အားလုံးက အတူတကွအလုပ်လုပ်ရဲ့လားလို့စစ်တာပါ။ Enzyme ကလည်း
+        React အတွက် JavaScript testing utility တစ်ခုဖြစ်ပြီး သူ့ကိုတော့ Airbnb က create လုပ်ထားပြီး Airbnb ကိုယ်တိုင်က အသုံးပြုပါတယ်။ ဒါကြောင့် unit test တွေကိုရေးခြင်းဟာ ကျွန်တော်တို့ code ကို improve ဖြစ်စေပါတယ်။ ကျွန်တော်တို့မှာရှိတဲ့ bugs တွေကို အချိန်တိုတိုအတွင်း
+        debugging လုပ်နိုင်မယ်။ ပြီးတော့ bugs ဘာကြောင့်ဖြစ်လဲဆိုတာကိုလည်း ကောင်းကောင်းနားလည်သွားမှာဖြစ်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>JavaScript Boolean</h2>
+    <p>ဒီတစ်ခါမှာ ကျွန်တော်တို့က JavaScript မှာရှိတဲ့ Booleans တွေအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Boolean logic ဟာဆိုရင် ဘယ် programming language မှာပဲဖြစ်ဖြစ် အရေးပါတဲ့အစိတ်အပိုင်းတစ်ခုဖြစ်ပါတယ်။ ပြီးတော့ ထုံးစံအတိုင်းပဲ languages တွေမှာ true (သို့)
+        false ဆိုတဲ့ value နှစ်ခုဖြစ်တဲ့ boolean data type တစ်ခုရှိပါတယ်။ ယျေဘုယျအားဖြင့် truthy or falsey လို့စဉ်းစားတဲ့ types, keywords နဲ့ global variables ရှိပါတယ်။ Booleans တွေကို ကျွန်တော်တို့ application ရဲ့ states အမျိုးမျိုးမှာ အသုံးပြုနိုင်ပါတယ်။ဥပမာ
+        chickenCrossedTheRoad variable ထဲမှာ false ထည့်ထားမယ်။ ပြီးရင် အဲ့ဒီ value ကို true ပြောင်းဖို့ function တစ်ခုထဲမှာ true လို့ပြောင်းမယ်။ ပြီးရင်တော့ chicken က road ကို cross ဖြစ်သလားဆိုတာကို if ထဲမှာ စစ်လိုက်ပါမယ်။ အဲ့ဒီမှာ point out လုပ်ချင်တဲ့
+        နှစ်ချက်ကတော့ ပထမက code ဟာ line after line အနေနဲ့ run တယ်။ ဒုတိယတစ်ချက်ကတော့ variable ထဲကို false ထည့်ခဲ့တယ်။ ပုံမှန်အားဖြင့် ကျွန်တော်တို့ဟာ variable တစ်ခုကို value မပါဘဲ invoke (ကြေငြာ) လုပ်မယ်ဆိုရင် အဲ့ဒီ variable ဟာ undefined ဖြစ်နေပါလိမ့်မယ်။
+        undefined ဟာလည်း falsey ပါပဲ။ ဒါကြောင့် undefined ဟာ false အနေနဲ့ပဲ လုပ်ဆောင်သွားမှာပါ။ အောက်က example မှာ key တစ်ခုက object တစ်ခုအတွင်းမှာရှိလားဆိုတာကို if နဲ့စစ်ထားတာကို ကြည့်ရအောင်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;JavaScript Boolean&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;script type="text/javascript"&gt;
+                    function keyChecker() {
+                        if (teams.basketball === undefined) {
+                            console.log("Basketball is undefined!");
+                        }
+                    }
+                    var teams = {
+                        soccer: "Portland Timbers",
+                        hockey: "San Jose Sharks"
+                    };
+                &lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>
+        <a href="directory/js_boolean.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <div class="img-size">
+        <img src="images/js-boolean.png" alt="boolean image">
+    </div>
+    <hr>
+
+
+    <h2>Truthiness in JavaScript</h2>
+    <p>ကျွန်တော်တို့သိထားရမှာတစ်ခုကတော့ JavaScript ဟာ Loosely typed language တစ်ခုဖြစ်တယ်ဆိုတာကိုပါ။ ဘာကိုဆိုလိုတာလဲဆိုရင် JavaScript ဟာ data type တစ်ခုနဲ့တစ်ခု ဆက်နွယ်ဖို့ try လုပ်နေရပါတယ်။ ကျွန်တော်တို့ code က loose ဖြစ်သွားရင် ကျွန်တော်တို့ဟာ strings
+        နဲ့ဆုံးတဲ့ integers တွေကို find လုပ်ရမယ် (သို့) အခြား problems တွေရဲ့ any host ကို find လုပ်ရပါလိမ့်မယ်။ JavaScript မှာ boolean တွေနဲ့အလုပ်လုပ်ခြင်းဟာ သူတို့ကို lies, darn lies နဲ့ JavaScript truthiness တွေကို တွေနိုင်မှာ ဖြစ်ပါတယ်။ Strings တွေဟာ
+        truthy တွေပဲဖြစ်ပါတယ်။ False or 0 တောင်မှာ quote တစ်ခုထဲမှာထည့်ရေးထားရင် သူက truthy ပါပဲ။ ဘယ် object (သို့) ဘယ် array ပဲဖြစ်ဖြစ် သူတို့ထဲမှာ empty ဖြစ်နေရင်တောင် သူတို့ဟာ truthy ဖြစ်ပါတယ်။ ပြီးတော့ 2.0 (သို့) 3.3 လိုမျိုး floating value တွေဟာလည်း
+        truthy လို့ပဲ ဆုံးဖြတ်ကြပါတယ်။ အခုပြောနေတာတွေကို browser console မှာ စမ်းကြည့်ရအောင်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Truthiness and Falseness in JavaScript&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;script src="../js/falsey.js"&gt;&lt;/script&gt;
+                &lt;script src="../js/truthy.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            function truthyChecker(someValue) {
+                if (someValue) {
+                    console.log("This is truthy");
+                    return true;
+                } else {
+                    console.log("This is flasey");
+                    return false;
+                };
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/truthy.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <div class="img-size">
+        <img src="images/truthy.png" alt="Truthy image">
+    </div>
+    <hr>
+
+
+    <h2>Falseness in JavaScript</h2>
+    <p>False ဟာလည်း JavaScript boolean type တစ်ခုဖြစ်ပါတယ်။ ဒါကြောင့် သူ့ကို falsey လို့ခေါ်တာဖြစ်ပါတယ်။ Value 0 ကို integer or floating value အဖြစ်ထားတာဟာ falsey ဖြစ်ပါတယ်။ နောက်ထပ် null, undefined, NaN နဲ့ empty string တွေဟာလည်း falsey တွေပါပဲ။ ဒါကို browser
+        console မှာ falsey value တွေကို စမ်းကြည့်ရအောင်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Truthiness and Falseness in JavaScript&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;script src="../js/falsey.js"&gt;&lt;/script&gt;
+                &lt;script src="../js/truthy.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            function truthyChecker(someValue) {
+                if (someValue) {
+                    console.log("This is truthy");
+                    return true;
+                } else {
+                    console.log("This is flasey");
+                    return false;
+                };
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/truthy.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <div class="img-size">
+        <img src="images/falsey.png" alt="Falsey image">
+    </div>
+    <hr>
+
+
+    <p>Related Example:</p>
+    <div class="img-size">
+        <img src="images/undefined.png" alt="undefined image">
+    </div>
+    <hr>
+
+    <p>Related Example:</p>
+    <div class="img-size">
+        <img src="images/undefined-1.png" alt="undefined image">
+    </div>
+    <hr>
+
+    <p>Related Example:</p>
+    <div class="img-size">
+        <img src="images/null.png" alt="undefined image">
+    </div>
+    <hr>
+
+    <p>Related Example:</p>
+    <div class="img-size">
+        <img src="images/null-1.png" alt="undefined image">
+    </div>
+    <hr>
+
+    <p>Related Example:</p>
+    <div class="img-size">
+        <img src="images/NaN.png" alt="undefined image">
+    </div>
+
+
+
+
+
+</body>
+
+</html>

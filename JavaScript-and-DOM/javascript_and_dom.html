@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript and the DOM</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>The Browser Environment</h2>
+    <p>JavaScript ဟာ exciting language တစ်ခုဖြစ်ပြီးတော့ ကျွန်တော်တို့အနေနဲ့ web servers တွေကို power ပေးဖို့၊ desktop programs တွေ create လုပ်ဖို့နဲ့ robots တွေကိုတောင် control လုပ်ဖို့အတွက် အသုံးပြုနိုင်ပါတယ်။ ဒါပေမယ့် JavaScript ကို browser မှာ တွင်တွင်ကျယ်ကျယ်
+        အသုံးပြုခဲ့တာကတော့ 1995 ခုနှစ်ကပဲဖြစ်ပါတယ်။ သူ့ကို webpages တွေ responsive ဖြစ်ဖို့အတွက်နဲ့ visitors တွေရိုက်လိုက်တဲ့ input တွေကို create လုပ်ဖို့အသုံးပြုပါတယ်။ JavaScript ဟာ user actions တွေပေါ်ကို အခြေခံပြီး webpages တွေ interactive ဖြစ်ဖို့
+        create လုပ်ပေးထားတာဖြစ်ပါတယ်။ <a href="https://en.wikipedia.org/wiki/Main_Page"> Wikipedia</a> ကတော့ static webpage တစ်ခုရဲ့ example ပဲဖြစ်ပါတယ်။ အဲ့ဒီမှာ JavaScript မရှိသလို interactivity လည်းမရှိပါဘူး။ သူ့မှာ link နဲ့ text တွေပဲပါပြီး paragraph
+        တိုင်းမှာလည်း textual information တွေပါတဲ့အတွက်ကြောင့် site ကို perfect ဖြစ်စေပါတယ်။ Interactivity ဆိုတာ Page က load ဖြစ်သွားတဲ့အချိန် JavaScript code တွေက button clicks နဲ့ math တွေကို listen လုပ်ဖို့ browser ကို ပြောပြပေးတာဖြစ်ပါတယ်။ နားလည်အောင်ပြောရရင်
+        ကျွန်တော်တို့လုပ်လိုက်တဲ့ action မှန်သမျှကို JavaScript က browser ကို listen လုပ်ခိုင်းပြီး math တွေပြုလုပ်ပေးတာဖြစ်ပါတယ်။ ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့ရဲ့ static pages တွေကို JavaScript နဲ့ interact လုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ interactivity
+        ကို break လုပ်ဖို့ basic actions သုံးခုနဲ့ စတင်လေ့လာသွားပါမယ်။ ပထမတစ်ခုဟာ page ပေါ်က elements တွေကို select လုပ်မယ်။ ဒုတိယတစ်ခုကတော့ elements တွေကို manipulate လုပ်မှာဖြစ်ပြီး နောက်ဆုံးတစ်ခုကတော့ user actions တွေကို listen လုပ်မှာဖြစ်ပါတယ်။ ဥပမာ
+        calculator webpage လိုမျိုး webpages တွေမှာ elements တွေအများကြီးရှိပြီး သူတို့တစ်ခုချင်းစီကလည်း သီးခြားရပ်တည်နေပါတယ်။ အဲ့မှာဆိုရင် ဘယ် key ပေါ်ကို နှိပ်တယ်ဆိုတာကို သိဖို့အတွက် JavaScript ကိုအသုံးပြုပြီး အဲ့ဒီkey တွေကို sort လုပ်ရပါမယ်။ အဲ့ဒီ
+        process ကို Selection လို့ခေါ်ပါတယ်။ Element ကို select လုပ်ပြီးပြီဆိုတာနဲ့ သူ့ကို တစ်နည်းနည်းနဲ့ manipulate လုပ်ရပါတယ်။ ကျွန်တော်တို့ select လုပ်တဲ့ elements တိုင်းကိုလည်း manipulate လုပ်နေဖို့မလိုပါဘူး။ တစ်ခါတစ်လေ user ဘာလုပ်နေလဲဆိုတာ element
+        တစ်ခုကို listen လုပ်ခိုင်းချင်တဲ့အခါ ရှိနိုင်ပါတယ်။ Keyword တစ်ခုနဲ့ listen လုပ်ခြင်းဖြင့် element ကို လိုအပ်သလို change လုပ်နိုင်ပါတယ်။ အဲ့ဒီ actions သုံးခုကတော့ JavaScript နဲ့အမြဲတမ်း interact ဖြစ်နေပါတယ်။ ဒါကြောင့် ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့ဟာ
+        JavaScript မှာရှိတဲ့ DOM လို့ခေါ်တဲ့ Document Object Model ကို access လုပ်ခြင်းဖြင့် webpages တွေကို control လုပ်သွားမှာဖြစ်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Thinking Globally</h2>
+    <p>JavaScript's global environment ဟာဆိုရင် cockpit တစ်ခုလိုပဲ ကျွန်တော်တို့ things ဖြစ်ပျက်နေအောင် ပြုလုပ်တဲ့ code တွေကို control လုပ်ပေးနိုင်ပါတယ်။ အဲ့ဒီ controls တွေဟာ JavaScript objects နဲ့ functions တွေကနေ လာတာပဲဖြစ်ပြီး browser တစ်ခုအတွင်းမှာဆိုရင်
+        သူတို့ဟာ web pages တွေကိုမြင်ရဖို့နဲ့ manipulate လုပ်ပေးတဲ့ code တွေကို allow လုပ်ပေးပါတယ်။ အဲ့ဒါ browser environment ကိုတော့ Chrome ဆိုတဲ့ web browser ရဲ့ developer tools ကနေ explore လုပ်နိုင်ပါတယ်။ အခုဆိုရင် Internet Explorer, Firefox နဲ့ Safari
+        တို့မှာလည်း similar features တွေရှိကြပါတယ်။ ကျွန်တော်တို့ text editor ထဲမှာ html file တစ်ခုရှိပြီး သူ့ထဲမှာ heading နဲ့ paragraph ရှိပါမယ်။ အဲ့ဒီ file ကို browser မှာ run ပြီး JavaScript နဲ့ interact & investigate လုပ်ဖို့အတွက် Developer Tools
+        ကို အသုံးပြုပါမယ်။ Developer Tools ထဲက console ထဲမှာတော့ ကျွန်တော်တို့ test လုပ်ချင်တဲ့ JavaScript code တွေကို ရေးသွားမှာဖြစ်ပါတယ်။ အဲ့ဒီမှာ alert ဆိုတဲ့ function ဟာ browser function တစ်ခုဖြစ်ပြီး user ဆီကို window တစ်ခုနဲ့အတူ ကိုယ်ပြချင်တဲ့ message
+        ကို ပြပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ current URL ကိုသိချင်တယ်ဆိုရင် location.href လို့ရိုက်လိုက်မယ်ဆိုရင် လက်ရှိ run နေတဲ့ URL ကို address bar မှာရှိတဲ့ URL အတိုင်း တူညီစွာဖော်ပြပေးမှာဖြစ်ပါတယ်။ အဲ့ဒီလိုလုပ်လိုက်တာဟာ ကျွန်တော်တို့ html file
+        ထဲမှာ ဘာမှမရေးဘဲ ဖြစ်လာတဲ့ action တွေဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင်တော့ အဲ့ဒီ alert တို့ ၊ location.href တို့ စတဲ့ variables တွေဟာ browser ရဲ့ global environment အစိတ်အပိုင်းတွေဖြစ်ပြီး နောက်ထပ်လည်း အများကြီးရှိပါသေးတယ်။ Global variables တွေဟာ အမှန်တကယ်တော့
+        single global object တစ်ခုရဲ့ properties တွေပဲဖြစ်ပါတယ်။ အဲ့ဒီ properties တွေကိုတော့ browser မှာ window လို့ခေါ်ကြပါတယ်။ ဒါကြောင့် console မှာ window လို့ရိုက်လိုက်မယ်ဆိုရင် Developer Tools မှာရှိတဲ့ objects နဲ့ properties တွေကို မြင်တွေ့ရမှာဖြစ်ပါတယ်။
+        အဲ့ထဲမှာမှာ document object ကိုဆက်ပြောပါမယ်။ သူ့ကို elements တွေ web page မှာ currently အရ load ဖြစ်နေတဲ့ elements တွေကို select လုပ်ဖို့နဲ့ control လုပ်ဖို့အတွက် အသုံးပြုပါတယ်။ ဥပမာ heading ရဲ့ color ကို ပြောင်းလဲချင်တာမျိုးပေါ့။ ဒီလိုလုပ်ဖို့အတွက်ဆိုရင်
+        h1 ထဲက id ကိုယူပြီး document.getElementById ဆိုပြီး သုံးပေးရမှာဖြစ်ပါတယ်။ နောက်ထပ် ကျွန်တော်တို့ ပြုလုပ်ချင်နဲ့ elements တွေကို select လုပ်ပြီး clicking, mousing over a button, scrolling နဲ့ submitting a form စတာတွေလည်း ပြုလုပ်နိုင်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Thinking Globally&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;h1 id="myHeading"&gt;JavaScript and the DOM&lt;/h1&gt;
+                &lt;p&gt;Making a webpage interactive.&lt;/p&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <div class="img-size">
+        <img src="images/think-global.png" alt="Thinking Globally Image">
+    </div>
+    <hr>
+
+
+    <h2>What is the DOM?</h2>
+    <p>Document object အကြောင်းကို ပြီးခဲ့တဲ့ သင်ခန်းစာမှာ မိတ်ဆက်ပေးခဲ့ပါတယ်။ Document ဟာ webpage တစ်ခုရဲ့ HTML နဲ့ content တွေကို ကိုယ်စားပြုတဲ့ global object တစ်ခုဖြစ်ပါတယ်။ ပြီးတော့ JavaScript နဲ့ပဲ webpage ရဲ့ အစိတ်အပိုင်းအမျိုးမျိုးကို document နဲ့ပဲ
+        interact လုပ်ပြီးတော့ change & select လုပ်နိုင်ပါတယ်။ ဒါဟာ ဘယ်လိုအလုပ်လုပ်သလဲဆိုတာကို သိဖို့အတွက် အရင်ဆုံး DOM ဆိုတာကို နားလည်ဖို့လိုအပ်ပါတယ်။ DOM ရဲ့ အရှည်ကောက်ကတော့ Document Object Model ဖြစ်ပါတယ်။ DOM ဟာ JavaScript က အသုံးပြုနိုင်တဲ့ webpage
+        တစ်ခုရဲ့ representation တစ်ခုဖြစ်ပါတယ်။ DOM ဟာ JavaScript က အသုံးပြုနိုင်တဲ့ webpage တစ်ခုရဲ့ map တစ်ခုပဲဖြစ်ပါတယ်။ Map လိုမျိုးမဟုတ်တာဆိုလို့ DOM ဟာ live entity တစ်ခုဖြစ်တာပါပဲ။ ဒါကြောင့် DOM ကို JavaScript ကနေပြုလုပ်တဲ့ changes တွေက webpage
+        ကို ပြောင်းလဲစေမှာဖြစ်ပါတယ်။ DOM ဟာ webpage ကို tree-like structure တစ်ခုအဖြစ် ကိုယ်စားပြုပါတယ်။ HTML webpage တစ်ခုအဖြစ်စဉ်းစားမယ်ဆိုရင် head နဲ့ body tag ရှိမယ်။ သူ့ထဲမှာမှာ အခြား elements တွေက nested ဖြစ်နေမယ်။ Head မှာ title element ပါမယ်။
+        Body မှာတော့ heading, paragraph နဲ့ ul လိုမျိုး elements တွေပါဝင်မယ်ပေါ့။ ပြောချင်တာက အဲ့ဒီ nested ဖြစ်နေတဲ့ elements တွေဟာ tree ပုံစံတစ်ခုလိုပါပဲ။ Document element or node ကတော့ tree ရဲ့ root node ဖြစ်ပါလိမ့်မယ်။ head နဲ့ body tag ကတော့ branches
+        တွေအဖြစ် ခွဲထွက်မယ်။ ပြီးရင်တော့ tree မှာရှိတဲ့ leaves တွေကတော့ h1, li နဲ့ ul tag တွေပဲဖြစ်ပါမယ်။ အဲ့ဒီ leaves တွေဟာ HTML page ရဲ့ deeply nested tags တွေအဖြစ် ကိုယ်စားပြုပေးကြပါတယ်။ Computer science မှာဆိုရင်တော့ tree တွေဟာ ဇောက်ထိုးပုံစံနဲ့ရှိနေပါမယ်။
+        Top ကနေ down အတိုင်းပါ။ အဲ့ဒီမှာ nodes တွေက parent, child နဲ့ sibling ဆိုပြီး ကွဲထွက်သွားတာဖြစ်ပါတယ်။ ဒါကြောင့် JavaScript ဟာဆိုရင် family relationships တွေကို အသုံးပြုပြီး web pages တွေရဲ့ structure ကို ပြောင်းလဲပေးတဲ့ tree-like model ပဲဖြစ်ပါတယ်။
+    </p>
+    <hr>
+
+
+    <h2>Getting a Handle on the DOM</h2>
+    <p>ကျွန်တော်တို့ အခုသင်ခန်းစာမှာ browser ပေါ်က တစ်ခုခုကို click လုပ်လိုက်တာနဲ့ changes အချို့ဖြစ်သွားအောင် ပြုလုပ်မှာဖြစ်ပါတယ်။ အရင်ဆုံး HTML file ထဲမှာ h1 နဲ့ paragraph တစ်ခုရှိမယ်။ သူ့ထဲမှာ ကျွန်တော်တို့ JavaScript နဲ့ပြောင်းလဲမယ့် code ကို သီးခြားရေးပြီး
+        ချိတ်ဖို့အတွက် body အပိတ်ရဲ့အထက်မှာ script tag နဲ့ app.js ဆိုတဲ့ file ကို ချိတ်လိုက်ပါမယ်။ ကျွန်တော်တို့က heading element ကို click လုပ်လိုက်တာနဲ့ color ကို change လုပ်ချင်တာဖြစ်တဲ့အတွက် app.js ထဲမှာ အရင်ဆုံး heading ကို hold or select လုပ်လိုက်ပါမယ်။
+        အဲ့ဒီလို select လုပ်ဖို့အတွက် document.getElementById ကိုသုံးပြီး သူ့ထဲမှာ h1 ထဲက id ဖြစ်တဲ့ myHeading ကို pass လုပ်ပေးလိုက်ပါမယ်။ အဲ့ဒီမှာ h1 ကို click ဖို့အတွက် mouse click ကို listen လုပ်ဖို့ addEventListener method ကိုသုံးပါမယ်။ ဒါဟာ heading
+        element က browser events တွေအတွက် စပြီးတော့ listen လုပ်နေပြီလို့ပြောလိုက်တာဖြစ်ပါတယ်။ နောက်ထပ် keypress, scrolling နဲ့mouse moves တွေရှိပါသေးတယ်။ အခုကတော့ user တွေအသုံးများတဲ့ click ဆိုတာကို အသုံးပြုသွားပါမယ်။ ဒါကြောင့် addEventListener ထဲမှာ
+        ပထမ parameter အဖြစ် click ဆိုတဲ့ string ကို ထည့်ပေးရပါတယ်။ အဲ့ဒီ click ဟာ event name ပဲဖြစ်ပါတယ်။ ပြီးရင်တော့ click လုပ်ရင် ဘာကိုလုပ်ပါမယ်ဆိုတဲ့ action ကို ရေးပေးရမှာပဲ ဖြစ်ပါတယ်။ ဒါကြောင့် ဒုတိယ argument ကို function တစ်ခုနဲ့ pass လုပ်ပါမယ်။
+        ပြီးရင်တော့ လုပ်ချင်တဲ့ action ဖြစ်တဲ့ myHeading.style.color = 'red' ဆိုပြီးရေးပေးလိုက်ရုံပါပဲ။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Getting a Handle one the DOM&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1 id="myHeading"&gt;JavaScript and the DOM&lt;/h1&gt;
+                &lt;p&gt;Making a webpage interactive&lt;/p&gt;
+            
+                &lt;script src="../js/simple_example.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            const myHeading = document.getElementById('myHeading');
+
+            myHeading.addEventListener('click', () => {
+                myHeading.style.color = 'red';
+            });
+        </code>
+    </pre>
+    <p>
+        <a href="directory/simple_example.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Select a Page Element by It's ID</h2>
+    <p>ကျွန်တော်တို့ရဲ့ webpage ပေါ်က ဘယ် element ကို target လုပ်နေသလဲဆိုတာကို သိဖို့အတွက်ဆိုရင် ကျွန်တော်တို့ဟာ element ရဲ့ id ကိုယူပြီးတော့ document.getElementById ကိုအသုံးပြုခဲ့တာဖြစ်ပါတယ်။ Selection ဟာ browser တစ်ခုအတွက် element ကို သတ်မှတ်ပေးလိုက်တဲ့
+        နည်းလမ်းတစ်ခုဖြစ်ပါတယ်။ အဲ့ဒီလိုလုပ်လိုက်တဲ့အခါမှ browser ဟာ သူ့ကို ရှာတွေသွားကာ ကျွန်တော်တို့အနေနဲ့ JavaScript ကိုသုံးပြီး တစ်ခုခုကို ပြုလုပ်နိုင်မှာဖြစ်ပါတယ်။ အဲ့ဒီမှာဆိုရင် document ဆိုတာဟာ လက်ရှိ current page ကို ရည်ညွှန်းတဲ့ global variable
+        တစ်ခုပဲဖြစ်ပါတယ်။ ပြီးတော့ getElementById method ကတော့ document object ကို ပိုင်ဆိုင်တာပဲဖြစ်ပါတယ်။ သူဟာ page တစ်ခုလုံးမှာရှိတဲ့ သတ်မှတ်ပေးလိုက်တဲ့ ID ကိုရှာပြီးတော့ အဲ့ဒီ id ပါတဲ့ element ကရှိတယ်ဆိုမှ return ပြန်ပေးလိုက်ပါတယ်။ အောက်က example
+        မှာဆိုရင် input box တစ်ခုထဲမှာ color value တစ်ခုထည့်ပြီး button ကို click လိုက်တာနဲ့ ကျွန်တော်တို့ heading က color ပြောင်းလဲသွားမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Select a Page Element by It's ID&lt;/title&gt;
+                &lt;style&gt;
+                    button {
+                        background-color: rgb(85, 85, 238);
+                        padding: 3px;
+                        color: white;
+                        border-radius: 2px;
+                        border: none;
+                    }
+                    
+                    input {
+                        width: 70px;
+                    }
+                &lt;/style&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1 id="myHeading"&gt;JavaScript and the DOM&lt;/h1&gt;
+                &lt;p&gt;Making a webpage interactive&lt;/p&gt;
+                &lt;hr style="border: 1px dotted lightblue;"&gt;
+                &lt;input type="text" id="myTextInput"&gt;
+                &lt;button id="myButton"&gt;Change headline color&lt;/button&gt;
+            
+            
+                &lt;script src="../js/select_element_id.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            const myHeading = document.getElementById('myHeading');
+            const myButton = document.getElementById('myButton');
+            const myTextInput = document.getElementById('myTextInput');
+
+            myButton.addEventListener('click', () => {
+                myHeading.style.color = myTextInput.value;
+            });
+        </code>
+    </pre>
+    <p>
+        <a href="directory/select_element_id.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Select All Elements of a Particulat Type</h2>
+    <p>ပြီးခဲ့တဲ့သင်ခန်းစာမှာ ကျွန်တော်တို့အနေနဲ့ element တစ်ခုကို သူ့ရဲ့ ID နဲ့ select လုပ်ခဲ့တာဖြစ်ပါတယ်။ အဲ့ဒီ method ဟာ single element ဖြစ်တဲ့ ID တစ်ခုပါတဲ့ HTML tag ကိုပဲ select လုပ်လို့ရတာဖြစ်ပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့က ID မပါတဲ့ element တစ်ခု (သို့)
+        page တစ်ခုပေါ်မှာရှိတဲ့ multiple elements တွေကို select လုပ်ချင်တဲ့အခါမျိုးမှာဆိုရင်တော့ document.getElemetsByTagName() ဆိုတဲ့ method ကို အသုံးပြုပေးရပါတယ်။ ဒါဟာ အရင်သုံးခဲ့တဲ့ method တွေနဲ့ အတူတူဖြစ်ပေမယ့် မတူညီတာတစ်ခုကတော့ သူ့မှာ Elements ဆိုတဲ့နေရာမှာ
+        plural form ပြောင်းသွားတာပဲဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင် document.getElementById() က single element ကိုပဲ return ပြန်ပေးပြီး document.getElementsByTagName() ကတော့ collection of elements တွေကို return ပြန်ပေးတာဖြစ်ပါတယ်။ Collection တစ်ခုဆိုတာကတော့
+        array တစ်ခုလိုပဲ element တစ်ခုကို သူ့ရဲ့ index or loop ကိုသုံးပြီး access လုပ်နိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Select All Elements of a Particular Type&lt;/title&gt;
+                &lt;style&gt;
+                    ul {
+                        padding: 0;
+                    }
+                    
+                    ul li {
+                        list-style-type: none;
+                        color: gray;
+                        margin: 15px 0;
+                    }
+                &lt;/style&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1 id="myHeading"&gt;JavaScript and the DOM&lt;/h1&gt;
+                &lt;p&gt;Making a webpage interactive&lt;/p&gt;
+                &lt;hr style="border: 1px dotted lightblue;"&gt;
+            
+                &lt;p&gt;Things That are purple:&lt;/p&gt;
+                &lt;ul&gt;
+                    &lt;li&gt;Grapes&lt;/li&gt;
+                    &lt;li&gt;Amethyst&lt;/li&gt;
+                    &lt;li&gt;Lavender&lt;/li&gt;
+                    &lt;li&gt;Plums&lt;/li&gt;
+                &lt;/ul&gt;
+            
+                &lt;script src="../js/select_all_elements.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            const myList = document.getElementsByTagName('li');
+
+            for (let i = 0; i < myList.length; i += 1) {
+                myList[i].style.color = 'purple';
+            }    
+        </code>
+    </pre>
+    <p>
+        <a href="directory/select_all_elements.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2></h2>
+    <p></p>
+
+
+</body>
+
+</html>

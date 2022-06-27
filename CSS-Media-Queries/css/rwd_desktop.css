@@ -1,0 +1,87 @@
+/************************
+1700px
+************************/
+
+@media (max-width: 1700px) {
+    body {
+        background: yellow;
+    }
+    #header p {
+        font-size: 1.1em;
+    }
+    #misc #call_to_action {
+        font-size: 1.3em;
+    }
+    #misc blockquote {
+        font-size: 1.4em;
+    }
+    #features .feature .info p {
+        font-size: 1em;
+    }
+    #features .feature {
+        min-height: 150px;
+    }
+}
+
+
+/*************************
+1400px
+*************************/
+
+@media (max-width: 1400px) {
+    body {
+        background: green;
+    }
+    #header p {
+        font-size: 1em;
+    }
+    #header h2 {
+        font-size: 1em;
+    }
+    #misc #call_to_action {
+        font-size: 1.2em;
+    }
+    #misc blockquote {
+        font-size: 1.2em;
+    }
+    #features .feature .info p {
+        font-size: 0.9em;
+    }
+    #features .feature {
+        min-height: 130px;
+    }
+}
+
+
+/*************************
+DESKTOP SIZE
+*************************/
+
+@media (max-width: 1200px) {
+    body {
+        background: red;
+    }
+    #header {
+        float: left;
+        width: 50%;
+        margin-top: 10%;
+    }
+    #misc {
+        float: left;
+        clear: left;
+        width: 55%;
+    }
+    #misc #call_to_action,
+    #logo {
+        margin-top: 0;
+    }
+    #phone {
+        float: right;
+    }
+    #misc blockquote {
+        display: none;
+    }
+    #wrapper {
+        width: 90%;
+    }
+}

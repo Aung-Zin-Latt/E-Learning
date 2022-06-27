@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Arrow Function</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-serif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>Basic Arrow Syntax</h2>
+    <p>ဒီသင်ခန်းစာမှာတော့ ကျွန်တော်တို့က JavaScript version ဖြစ်တဲ့ ECMAScript 2015 မှာ မိတ်ဆက်လိုက်တဲ့ functions ရေးနည်းတွေထဲက method တစ်ခုအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အခုပြောပြပေးသွားမယ့် syntax ကို JavaScript developers တော်တော်များများက ကျယ်ကျယ်ပြန့်ပြန့်
+        အသုံးပြုနေတာဖြစ်ပါတယ်။ အဲ့ဒါကတော့ arrow syntax ပါ။ Arrow syntax ဟာ ရိုးရှင်းပြီး code ကို ကျစ်လစ်စေတဲ့အတွက် အသုံးများတာဖြစ်ပါတယ်။ Arrow Function Syntax က callback language problem တွေထဲမှာအသုံးပြုတဲ့ အသုံးအများဆုံး JavaScript gotchas surrounding
+        scope တွေကိုဖြေရှင်းပေးနိုင်ပါတယ်။ ကျွန်တော်တို့ လေ့လာသွားမယ့် file သုံးခုရှိပါတယ်။ ပထမ JS file ထဲမှာဆိုရင် function နှစ်ခုရှိပါတယ်။ အဲ့ဒီ sayName() နဲ့ sayBye() function နှစ်ခုလုံးမှာ arguments တွေမပါပါဘူး။ ဒုတိယ file မှာတော့ square(x) နဲ့ cube(x)
+        ဖြစ်ပြီး argument x ပါဝင်ပါတယ်။ Third file ထဲမှာတော့ multiple arguments တွေပါတဲ့ function သုံးခုရှိပါမယ်။ ECMAScript 2015 မထွက်ခင်မှာ ကျွန်တော်တို့ဟာ functions တွေကိုကြေငြာတဲ့အခါ function declaration နဲ့ function expression ဆိုပြီး နည်းလမ်းနှစ်ခုကို
+        အသုံးပြုခဲ့ပါတယ်။ Function declaration ကိုကြေငြာမယ်ဆိုရင် function ဆိုတဲ့ keyword နဲ့စရေးရပြီး သူ့နောက်မှာ function_name ရယ် ၊ parenthesis ရယ် ၊ curly braces ရယ်ကို ထည့်ပေးရပါတယ်။Function declaration နဲ့ရေးတာကို function expression အဖြစ် rewrite
+        လုပ်မယ်ဆိုရင် arrow function တစ်ခုရေးတာနဲ့ဆင်တူပါတယ်။ Function expression တစ်ခုနဲ့ရေးမယ်ဆိုရင်တော့ ရေးမယ့် function ကို variable တစ်ခုထဲမှာ assign လုပ်ရပါတယ်။ ဥပမာ sayName() ဆိုတဲ့ function ကိုရေးမယ်ဆိုရင် var sayName = function() {} ဆိုပြီးရေးပေးရတာဖြစ်ပါတယ်။
+        JavaScript ရဲ့ ECMAScript 2015 version မှာ variable တစ်ခုကို ကြေငြာမယ်ဆိုရင် const နဲ့ကြေငြာတာက အကောင်းဆုံးနည်းလမ်းဖြစ်ပါတယ်။ ဒါဟာ sayName() ဆိုတဲ့ function ကို change ဖြစ်မသွားစေဘဲ sayName variable ထဲမှာ re-assign လုပ်တာကို ကာကွယ်ပေးပါတယ်။ အခုဆိုရင်
+        sayName() က function expression တစ်ခုဖြစ်သွားပါပြီ။ Arrow functions တွေဟာလည်း function expressions တွေနဲ့ ဆင်တူပါတယ်။ အခု sayName() ဆိုတဲ့ function expression ကနေ arrow function expression တစ်ခုအဖြစ် convert လုပ်မယ်ဆိုရင် ရိုးရိုးလေးဖြစ်ပြီး function
+        ဆိုတဲ့ keyword ကို ဖြုတ်ပေးရပါမယ်။ ဖြုတ်ပြီးတော့ parenthesis() နောက်မှာ equal sign + greater sign (=>) ကိုထည့်ပေးလိုက်မယ်ဆိုရင် arrow function expression တစ်ခု ဖြစ်သွားမှာဖြစ်ပါတယ်။ နောက်သင်ခန်းစာမှာ arrow function ထဲမှာ single argument နဲ့ multiple
+        arguments တွေ ဘယ်လိုအလုပ်လုပ်သလဲဆိုတာ လေ့လာသွားပါမယ်။</p>
+    <p>Writing function declaration:</p>
+    <pre>
+        <code class="html hljs xml">
+            const name = "Aung Zin Latt";
+
+            function sayName() {
+                const message = "My name is " + name;
+                console.log(message);
+            }
+            sayName();
+
+            function sayBye() {
+                console.log("Bye " + name);
+            }
+            sayBye();
+        </code>
+    </pre>
+    <p>Writing function expression:</p>
+    <pre>
+        <code class="html hljs xml">
+            const name = "Aung Zin Latt";
+
+            const sayName = function() {
+                const message = "My name is " + name;
+                console.log(message);
+            }
+            sayName();
+
+            const sayBye = function() {
+                console.log("Bye " + name);
+            }
+            sayBye();
+        </code>
+    </pre>
+    <p>Writing arrow function:</p>
+    <pre>
+        <code class="html hljs xml">
+            const name = "Aung Zin Latt";
+
+            const sayName = () => {
+                const message = "My name is " + name;
+                console.log(message);
+            }
+            sayName();
+
+            const sayBye = () => {
+                console.log("Bye " + name);
+            }
+            sayBye();
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Writing Arrow Function with Arguments</h2>
+    <p>အပေါ်က ကျွန်တော်တို့ရေးခဲ့တဲ့ arrow function မှာတော့ arguments တွေမပါပါဘူး။ တစ်ကယ်လို့ arguments တွေပါခဲ့ရင် သူတို့ ဘာတွေအလုပ်လုပ်လဲဆိုတာကို လေ့လာကြည့်ရအောင်။ ပထမဆုံး single argument ပါတဲ့ arrow function နှစ်ခုကိုတည်ဆောက်လိုက်မယ်။ ပြီးရင်တော့ အပေါ်ကရေးခဲ့သလိုပဲ
+        variable တစ်ခုကြေငြာပြီး သူ့ထဲကို (x) => {} ဆိုတဲ့ function ကို assign လုပ်ပေးရမှာဖြစ်ပါတယ်။ အောက်က example ကို တစ်ချက်ကြည့်ရအောင်။ </p>
+    <p>Arrow function with single argument:</p>
+    <pre>
+        <code class="html hljs xml">
+            const square = (x) => {
+                return x * x;
+            }
+            square(3);
+
+            const cube = (x) => {
+                return square(x) * x;
+            }
+            cube(5);
+        </code>
+    </pre>
+    <p>Arrow function with multiple arguments:</p>
+    <pre>
+        <code class="html hljs xml">
+            const multiply = (x, y) => {
+                return x * y;
+            }
+            multiply(4, 5);
+
+            const add = (a, b) => {
+                return a + b;
+            }
+            add(10, 20);
+
+            const subtract = (a, b) => {
+                return a - b;
+            }
+            subtract(50, 20);
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Concise Arrow Function Syntax</h2>
+    <p>Arrow functions တွေဟာ function declarations တွေထက်ပိုပြီး ရေးရတာလွယ်သလို ပိုပြီးလည်း တိုတိုလေးနဲ့ ရိုးရှင်းပါတယ်။ ဒါပေမယ့် arrow functions တွေကတော့ ပိုပြီး ကျစ်လစ်ပါတယ်။ တစ်ကယ်လို့ arrow function က single argument တစ်ခုကိုပဲ ယူမယ်ဆိုရင် parenthesis
+        ထည့်ပေးဖို့ မလိုပါဘူး။ တစ်ကယ်လို့ ကျွန်တော်တို့ရေးတဲ့ function က argument မပါတာ (သို့) multiple arguments တွေနဲ့ဆိုရင်တော့ parenthesis ကို ဖြုတ်ပစ်လို့မရပါဘူး။ Single argument ပဲပါဝင်တဲ့ functions တွေသာလျှင် parenthesis ဖြုတ်ပြီး ရေးလို့ရတာဖြစ်ပါတယ်။
+        တစ်ကယ်လို့ function ထဲမှာ line of code တစ်ကြောင်းတည်းရေးချင်တယ်ဆိုရင် return ဆိုတဲ့ keyword ကိုတောင် ထည့်ပေးဖို့မလိုပါဘူး။ သူဟာ return keyword မပါရင်တောင် statement ရဲ့ value ကို အလိုအလျှောက် return ပြန်ပေးမှာဖြစ်ပါတယ်။ ဒီထက်မကဘဲ arrow function
+        ထဲမှာ single line of code တစ်ကြောင်းတည်းပဲရေးမယ်ဆိုရင် curly braces ကိုပါ ဖြုတ်ပြီး reduce လုပ်ပစ်လို့ရပါတယ်။ ကျွန်တော်တို့ function ထဲမှာ code တစ်ကြောင်းဘဲ return ပြန်ဖို့ရှိတယ်ဆိုရင် ဒီလိုရေးတာဟာ ကျွန်တော်တို့ code ကို ပို clear ဖြစ်ပြီး ပိုမိုကျစ်လစ်စေမှာဖြစ်ပါတယ်။
+        Arrow functions တွေကို မရင်းနှီးသေးရင်တော့ ဒါဟာ ရှုပ်ထွေးတယ်ထင်ရပေမယ့် ဒါကိုနားလည်သွားရင်တော့ ကျွန်တော်တို့ code က တစ်ကယ်ကို standard ကျပြီး ပိုမိုရှင်းလင်းနေမှာဖြစ်ပါတယ်။ Modern browser အားလုံးမှာလည်း Arrow Function Syntax ကို support လုပ်ပေးထားပါတယ်။
+    </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            const name = "Aung Zin Latt";
+
+            const sayName = () => {
+                // you don't concise them anymore because there have two statements
+                const message = "My name is " + name;
+                console.log(message);
+            }
+            sayName();
+
+            // you can remove curly braces( {} ) because there have a single line of code
+            const sayBye = () => console.log("Bye " + name);
+            sayBye();
+        </code>
+    </pre>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            // you can remove parenthesis() because there is only one argument
+            const square = x => x * x;
+            square(12);
+
+            const cube = x => square() * x;
+            cube(8);
+        </code>
+    </pre>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            const multiply = (x, y) => x * y;
+            multiply(4, 5);
+
+            const add = (a, b) => a + b;
+            add(10, 20);
+
+            const subtract = (a, b) => a - b;
+            subtract(50, 20);
+        </code>
+    </pre>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            // Function declaration
+            function divide1(a, b) {
+                return a / b;
+            }
+
+            // Function Expression
+            const divide2 = function(a, b) {
+                return a / b;
+            }
+
+            // Arrow Function Expression
+            const divide3 = (a, b) => {
+                return a / b;
+            }
+
+            // Arrow Function Expression - Concise
+            const divide4 = (a, b) => a / b;
+        </code>
+    </pre>
+    <hr>
+
+
+    <h1>Exploring JavaScript Conditionals</h1>
+
+    <h2>If Else Statement in JavaScript</h2>
+    <p>ဒီတစ်ခါကျွန်တော်တို့က JavaScript မှာ decision making တွေပြုလုပ်တဲ့အခါ လိုအပ်တဲ့ conditions တွေအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ပထမဆုံးတစ်ခုကတော့ if else statement ပါ။ သူ့ကို ဘာကြောင့် conditional လို့ခေါ်လဲဆိုရင် condition တစ်ခုက true ဖြစ်နေပြီး
+        တစ်ခုက false ဖြစ်နေလို့ပဲဖြစ်ပါတယ်။ if, else statement က follow လုပ်တဲ့ paths တွေကိုတော့ branches လို့ခေါ်ပါတယ်။ သူတို့ဟာ directions အမျိုးမျိုးမှာရှိတဲ့ program logic ရဲ့ flow ကို branch အဖြစ် ခွဲထုတ်လိုက်တာဖြစ်ပါတယ်။ ပြောရရင် မှန်ရင်ဒါကိုလုပ်
+        ၊ မှားရင် အခြားဟာကို လုပ်ဆိုတာမျိုးပါ။ အဲ့ဒီ if else statement မှာ two way conditional နဲ့ multi way conditional ဆိုပြီးနှစ်မျိုးရှိပါတယ်။ ပထမတစ်ခုက if ကမှန်ရင် တစ်ခုလုပ်မယ်။ ပြီးမှ if က မှားသွားရင် အခြားတစ်ခုကိုလုပ်မယ်ဆိုပြီး နှစ်ခုတည်းစစ်တာဖြစ်ပါတယ်။
+        ဒုတိယတစ်ခုကတော့ တစ်ခုမှန်လားစစ်တယ်၊ ပြီးရင်နောက်တစ်ခုမှန်လားထပ်စစ်တယ်။ အဲ့လိုနဲ့ ကျွန်တော်တို့ စစ်ချင်တာတွေကို အကုန်လိုက်စစ်လိုက်ပြီးမှ မှန်တဲ့ကောင်ကိုပဲ အလုပ်လုပ်သွားတာဖြစ်ပါတယ်။ ဒါကို ကျွန်တော်တို့က else if condition လို့လည်း ခေါ်ကြပါတယ်။ Example
+        ကိုအောက်မှာကြည့်ရအောင်။ </p>
+    <p>Example of Two way conditional:</p>
+    <pre>
+        <code class="html hljs xml">
+            var isTrue = true;  // false
+
+            if (isTrue) {
+                console.log("Yes");
+            } else {
+                console.log("No");
+            }
+        </code>
+    </pre>
+    <div class="img-size">
+        <img src="images/two-way-condition.png" alt="Two way condition image">
+    </div>
+    <p>Example of Multi way conditional:</p>
+    <pre>
+        <code class="html hljs xml">
+            var day = 8;
+
+            if (day === 0) {
+                console.log('Today is Sunday');
+            } else if (day === 1) {
+                console.log('Today is Monday');
+            } else if (day === 2) {
+                console.log('Today is Tuesday');
+            } else if (day === 3) {
+                console.log('Today is Wednesday');
+            } else if (day === 4) {
+                console.log('Today is Thursday');
+            } else if (day === 5) {
+                console.log('Today is Friday');
+            } else if (day === 6) {
+                console.log('Today is Saturday');
+            } else {
+                console.log('Invalid Day!');
+            }
+        </code>
+    </pre>
+    <div class="img-size">
+        <img src="images/multi-way-condition.png" alt="Multi way condition image">
+    </div>
+    <hr>
+
+
+    <h2>Switch Statement</h2>
+    <p>Switch statement ကို ကျွန်တော်တို့က multiple branching logic တွေအတွက် အသုံးပြုပါတယ်။ Switch statement ဟာ if statement နဲ့လည်း ဆင်တူပါတယ်။ သူ့မှာ parentheses ပါမယ်။ သူ့နောက်မှာ block of code ကို hold လုပ်ပေးတဲ့ curly braces ပါမယ်။ Parentheses တွေကတော့
+        expression တစ်ခုကို hold လုပ်ပါတယ်။ ကျွန်တော်တို့ switch ထဲက parenthesis ထဲမှာ variable ဖြစ်တဲ့ day ကိုထည့်လိုက်မယ်။ ပြီးတော့ if statement နဲ့မတူတာတစ်ခုက cases အားလုံးဟာ only one block of code အတွင်းမှာပဲရှိနေတာဖြစ်ပါတယ်။ condition တစ်ခုချင်းစီကိုတော့
+        case ဆိုတဲ့ keyword နဲ့ mark လုပ်ပါတယ်။ သူ့ရဲ့အလုပ်လုပ်ပုံကတော့ JavaScript interpreter ကို switch ထဲက variable ဟာ case ထဲက value နဲ့ ညီရင် သူ့ထဲက block code ကို execute လုပ်ပေးတာဖြစ်ပါတယ်။ case တစ်ခုပြီးရင်တော့ အမြဲတမ်း break လုပ်ပေးရပါတယ်။ တစ်ကယ်လို့
+        break statement ကိုရောက်သွားပြီးဆိုရင်တော့ block code တစ်ခုလုံးကို jump လုပ်ပြီး နောက် instructions တွေကို ဆက်ပြီးအလုပ်လုပ်ပေးပါတယ်။ ကျွန်တော်တို့စစ်မယ့် condition အားလုံးမမှန်တော့ဘူးဆိုရင်တော့ switch statement က provide လုပ်ပေးထားတဲ့ default
+        ဆိုတဲ့ option ကို အလုပ်လုပ်သွားမှာဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            var day = 1;
+
+            switch (day) {
+                case 0:
+                    console.log('Sunday');
+                    break;
+                case 1:
+                    console.log('Monday');
+                    break;
+                case 2:
+                    console.log('Tuesday');
+                    break;
+                case 3:
+                    console.log('Wednesday');
+                    break;
+                case 4:
+                    console.log('Thursday');
+                    break;
+                case 5:
+                    console.log('Friday');
+                    break;
+                case 6:
+                    console.log('Saturday');
+                    break;
+                default:
+                    console.log('Invalid Day!');
+                    break;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Ternary Operator</h2>
+    <p>Ternary operator ဟာ တစ်ကယ်ကို compact ဖြစ်တဲ့ operator တစ်ခုဖြစ်ပြီး programmer အများစုဟာ တစ်ကယ် concise ဖြစ်တဲ့ code တွေရေးဖို့အတွက် အသုံးပြုတဲ့ two-way branch တစ်ခုလည်းဖြစ်ပါတယ်။ သူ့ရဲ့ problem ကတော့ အလွန် compact ဖြစ်တဲ့အတွက် read လုပ်ဖို့ တစ်ကယ်ကို
+        ခက်ခဲပါတယ်။ သူ့မှာ expression သုံးခုပါတဲ့အတွက်ကြောင့် ternary လို့ခေါ်တာဖြစ်ပါတယ်။ ပထမဆုံး expression က နောက်လာမယ့် expression နှစ်ခုထဲက ဘယ်ဟာကို run ပါမယ်ဆိုတာကို ဆုံးဖြတ်ပေးတဲ့ boolean တစ်ခုဖြစ်ပါတယ်။ Ternary operator ဟာာ colon (:) နဲ့ question
+        mark (?) ဆိုပြီး character နှစ်ခုကို အသုံးပြုပါတယ်။ အဲ့ဒီ character နှစ်ခုဟာ ကျွန်တော်တို့ condition အတွက် markers တွေဖြစ်ပြီး branches နှစ်ခုလည်းဖြစ်ပါတယ်။ For example: &lt;boolean&gt; ? &lt;expression if true&gt; : &lt;expression if false&gt;
+        ။ Ternary operator ရဲ့အလုပ်လုပ်ပုံကတော့ condition က true ဖြစ်ရင် question mark (?) နောက်က code ကို evaluate လုပ်ပေးပြီး၊ false ဖြစ်နေရင်တော့ colon (:) နောက်က code ကို evaluate လုပ်ပေးတာဖြစ်ပါတယ်။ နောက်ထပ် ရေးနည်းတစ်ခုကတော့ expression တစ်ခုအဖြစ်
+        wild မှာ ပေါ်လာမယ့် ternary pop up တစ်ခုဖြစ်ပါတယ်။ JavaScript မှာဆိုရင် expression ဟာ value တစ်ခုကို resolves လုပ်တဲ့အရာဖြစ်ပါတယ်။ Expression တစ်ခုကို variable တစ်ခုထဲမှာ assign လုပ်နိုင်ပြီး အဲ့ဒီ variable ထဲမှာလည်း value ပါဝင်ပါလိမ့်မယ်။ ဥပမာ
+        var x = 2 + 5; ဆိုရင် 2 +5 က expression တစ်ခုဖြစ်ပြီး 7 ဆိုတဲ့ result ရအောင် resolve လုပ်သွားတာဖြစ်ပါတယ်။ x ဟာ 2 + 5 ဆိုတဲ့ expression ကို hold မလုပ်ဘဲ value ဖြစ်တဲ့ 7 ကိုပဲ hold လုပ်ပြီး return ပြန်ပေးတာဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            var isTrue = true;
+
+            // if (isTrue) {
+            //     console.log("Yes");
+            // } else {
+            //     console.log("No");
+            // }
+            
+            //var x = 2 + 5; // resolve the expression and return result 7
+            
+            //isTrue ? console.log("Yes") : console.log("No");
+            
+            var yesOrNo = isTrue ? 'Yes' : 'No';
+            
+            console.log(yesOrNo);   // result => Yes
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Boolean Operators</h2>
+    <p>AND (&&) ၊ OR (||) စတဲ့ boolean operators တွေဟာ multiple conditions တွေကို statement တစ်ကြောင်းတည်းနဲ့ testing လုပ်တဲ့နေရာမှာ တစ်ကယ်ကို အသုံးဝင်တဲ့ operators တွေဖြစ်ပါတယ်။ AND operator လိုပဲ condition တစ်ခုလုံး အလုပ်မလုပ်ခင် သူ့ထဲက condition အားလုံး
+        true ဖြစ်မှသာ အလုပ်လုပ်ပေးတာဖြစ်ပါတယ်။ Programmer အချို့ကတော့ Short Circuit တွေလုပ်ဆောင်ဖို့အတွက် boolean operators တွေကို အသုံးပြုကြပါတယ်။ ဒါဟာ expression တစ်ခု evaluate လုပ်တာကို stop လုပ်လိုက်ခြင်းဖြင့် code ကို optimize လုပ်တဲ့ နည်းလမ်းတစ်ခုဖြစ်ပါတယ်။
+        သူ့ကို value တစ်ခုကို မြန်ဆန်စွာ assign လုပ်တာမျိုး (သို့) code ကို execute လုပ်တဲ့အခါမျိုးမှာ အသုံးပြုပါတယ်။ Boolean operators တွေကို စစ်တဲ့အခါမှာ JavaScript Interpreter က leftmost အဖြစ်ဆုံး expression ကနေစပြီး right ဘက်ကို တစ်ခုချင်း စစ်သွားတာဖြစ်ပါတယ်။
+        တစ်ကယ်လို့ အဲ့ဒီ operands တွေထဲက တစ်ခုဖြစ်ဖြစ် falsey ဖြစ်နေမယ်ဆိုရင်တော့ ပထမဆုံး falsey ဖြစ်တဲ့ operand ကိုပဲ return ပြန်ပေးမှာဖြစ်ပါတယ်။ ECMAScript 2015 မှာ default parameter တွေ function ထဲကို short circuiting သုံးပြီးတော့ ပြုလုပ်တာက အသုံးနည်းခဲ့ပါတယ်။
+        2015 အသစ်မှာတော့ zero ကနေ false value အဖြစ်သတ်မှတ်တာကိုတော့ မတွေ့ရပါဘူး။ Default value တစ်ခုကို assign လုပ်ဖို့ 2015 မှာ value ကို assign လုပ်နိုင်ပါတယ်။</p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            console.log(3 === 3 && 'a' === 'a');
+            // return true
+            console.log(3 === 3 && 'cow');
+            // return cow
+            console.log(3 === 3 && 'cow' && 'chicken');
+            // return chicken because all openrands are truthy
+            console.log(3 === 3 && false && 'chicken');
+            // return false
+            3 === 3 && 'cow' && console.log('chicken');
+            // return chicken
+            console.log(3 === 3 || 'cow' || 'chicken');
+            // return true
+            console.log(3 === 4 || 'cow' || 'chicken');
+            // return cow
+            console.log(3 === 4 || false || 0);
+            // return 0
+        </code>
+    </pre>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            function isAdult(age) {
+                // if (age && age >= 18) {
+                //     return true;
+                // } else {
+                //     return false;
+                // }
+                return age && age >= 18;
+            }
+            console.log(isAdult(15));
+            // return false
+            console.log(isAdult(33));
+            // return true
+            
+            function countToFive(start) {
+                var start = start || 1;
+                for (var i = start; i &lt;= 5; i++) {
+                    console.log(i);
+                }
+            }
+            countToFive(0);
+            // return 1, 2, 3, 4, 5
+            
+            function countToFive(start = 1) {
+                for (var i = start; i &lt;= 5; i++) {
+                    console.log(i);
+                }
+            }
+            countToFive(0);
+            // return 0, 1, 2, 3, 4, 5
+            
+            function greet(name) {
+                name && console.log('Hi, my name is ' + name + '!');
+            }
+            greet('Aung Zin Latt');
+            // return "Hi, my name is Aung Zin Latt!"
+        </code>
+    </pre>
+    <hr>
+
+
+
+</body>
+
+</html>

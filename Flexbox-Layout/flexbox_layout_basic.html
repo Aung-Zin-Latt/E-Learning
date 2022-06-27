@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learning CSS Flexbox Layout</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Introduction to CSS Flexbox</h2>
+    <p>ကျွန်တော်တို့ဟာ ဒီသင်ခန်းစာမှာ webpages တွေကို layout ချဖို့အတွက် advanced methods တွေထဲက တစ်ခုဖြစ်တဲ့ CSS Flexbox layout အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Floats, inline-block နဲ့ absolute positioning တွေကဲ့သို့သော CSS lab methods တွေမှာ အချို့သော
+        limitations တွေရှိပြီး ယနေ့ complex responsive websites တွေရဲ့ layout demands ကို handle မလုပ်နိုင်ပါဘူး။ ကျွန်တော်တို့ CSS Layout Basics မှာလေ့လာခဲ့တဲ့အတိုင်း floats တွေဟာ သူတို့ရဲ့ quirky behavior ကြောင့် problematic ဖြစ်နိုင်ပါတယ်။ သူတို့ဟာ
+        collapsing မှ elements တွေပါဝင်နေတာကို prevent လုပ်ဖို့အတွက် clear fixes တွေလိုအပ်ပါတယ်။ ပြီးတော့ inline-block display နဲ့ဆိုရင် ကျွန်တော်တို့ဟာ browser ကနေ create လိုက်တဲ့ default white space နဲ့ fight လုပ်ရပါမယ်။ ပြီးတော့ positioning ဟာလည်း
+        page layout မှာ သတိထားရပါမယ်။ ဘာလို့လဲဆိုရင်တော့ သူဟာ context ကို position ချဖို့နဲ့ positioned ချထားတဲ့ elements တွေအမှန်တစ်ကယ် မရှိဘူးဆိုရင်တောင် page ပေါ်က အခြား content တွေကို position ချပေးဖို့လိုအပ်လို့ပဲဖြစ်ပါတယ်။ ဒါကြောင့်မို့လို့ Flexbox
+        or Flexible Box Layout ဟာ page content ကို layout ချဖို့အတွက် flexible way တစ်ခုဖြစ်တဲ့ set of CSS properties ပဲဖြစ်ပါတယ်။ သူဟာ remarkable layout feature တစ်ခုဖြစ်ပြီး web designers တွေကို layouts တွေဘယ်လို build လုပ်ရမလဲဆိုတာကို ပြပေးပါတယ်။ ကျွန်တော်တို့ဟာ
+        flexbox ကိုသုံးခြင်းအားဖြင့် stacking elements နဲ့ သူတို့ကိုသုံးပြီး အခြား strange ဖြစ်တဲ့ browser behaviors တွေမရှိဘဲ elements တွေ side by side ဖြစ်အောင် layout ချနိုင်တဲ့ floats, block နဲ့ inline-block တွေရဲ့ benefitsတွေကို ရရှိနိုင်ပါတယ်။ Flexbox
+        ကိုသုံးခြင်းအားဖြင့် ကျွန်တော်တို့ဟာ navigation links, content columns နဲ့ images ကဲ့သို့သော elements တွေရဲ့ direction, size နဲ့ order တွေကို change လုပ်နိုင်ပါတယ်။ ပြီးတော့ flexbox ဟာ container တစ်ခုကနေ top to bottom ၊ left to right, center နဲ့
+        middle တွေမှာ ကျွန်တော်တို့ content ကိုထားဖို့အတွက် intelligent tools တွေကို provide လုပ်ပေးထားပါတယ်။ ကျွန်တော်တို့ရဲ့ source code မှာဘယ်လိုပဲပေါ်နေနေ ကျွန်တော်တို့ဟာ elements တွေကို stretch and shrink လုပ်နိုင်ပြီး space ကိုလည်း distribute လုပ်နိုင်ပါတယ်။
+        Flexbox ဟာ သေးငယ်တဲ့ mobile devices တွေကနေ desktop screen အထိ responsive layout ကို ဖန်တီးနိုင်ပါတယ်။ Flexbox ရဲ့ basic ကို <a href="https://css-tricks.com/snippets/css/a-guide-to-flexbox/" target="_blank"> CSS Tricks </a> မှာ အသေးစိတ်လေ့လာနိုင်ပါတယ်။
+    </p>
+    <hr>
+
+
+    <h2>The Concepts of Flexbox</h2>
+    <p>Flexbox ကိုအသုံးပြုပြီး layout မတည်ဆောက်ခင်မှာ ကျွန်တော်တို့အနေနဲ့ Flexbox ရဲ့ concepts နဲ့ terminology တွေကို နားလည်ထားသင့်ပါတယ်။ Flexbox layout မှာရှိတဲ့ အရေးကြီးတဲ့ elements နှစ်ခုကတော့ Flex containers နဲ့ Flex items တို့ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့
+        layout မှာ ပထမဆုံး flex ကိုသုံးမယ်ဆိုရင် အရင်ဆုံး Flex Container ကိုတည်ဆောက်ရပါတယ်။ Flex container ဟာ Flexbox layout အတွက် context ကို set လုပ်ပေးပြီး ၊ ကျွန်တော်တို့ Flexbox ကိုသုံးပြီး အမှန်တစ်ကယ် layout ချလိုက်တဲ့ elements တွေဖြစ်တဲ့ Flex items
+        တွေပါဝင်ပါတယ်။ Flex container ဟာ div, ul, header နဲ့ apan element တွေလိုမျိုး ဘယ် block-level or inline element မဆို ဖြစ်နိုင်ပါတယ်။ Flex container တစ်ခုရဲ့ ဘယ် direct child ကိုမဆို Flex item လို့ခေါ်ပြီး အဲ့ဒီ flex container ထဲမှာ flex items
+        တွေအများကြီးပါဝင်နိုင်ပါတယ်။ ဥပမာပြောရမယ်ဆိုရင် unordered list တစ်ခုမှာဆိုရင် ul ဟာ flex container ဖြစ်ပြီး li ဟာ flex items တွေပဲဖြစ်ပါတယ်။ Flex container နဲ့ flex items တွေ ဘယ်လိုအလုပ်လုပ်လဲဆိုတာ သိဖို့ဆိုရင် ကျွန်တော်တို့အနေနဲ့ browser တစ်ခုက
+        flex items တွေ place လုပ်နိုင်တဲ့ axis အကြောင်းကို သိထားဖို့လိုအပ်ပါတယ်။ Flexbox ဟာ Flex items တွေရဲ့ layout direction ကို determine လုပ်ပေးတဲ့ axis နှစ်ခုရှိပါတယ်။ Container တစ်ခုမှာရှိတဲ့ items တွေဟာ main axis or cross axis မှာ laid out ဖြစ်နေကြပါတယ်။
+        ဒါကြောင့် Flexbox layout တစ်ခုအတွင်းမှာရှိတဲ့အရာအားလုံးဟာ အဲ့ဒီ axis နှစ်ခုမှာ relative ဖြစ်နေပါတယ်။ Main axis ဟာ flex items တွေ laid out ဖြစ်နေတဲ့ primary axis တစ်လျှောက်ပဲဖြစ်ပါတယ်။ အဲ့ဒီ main axis ဟာ Flex container ထဲက flex items တွေရဲ့ direction
+        ကိုသတ်မှတ်ပေးပါတယ်။ ပြီးတော့ cross axis ဟာ main axis နဲ့ perpendicular (ထောင်လိုက်) ဖြစ်နေပါတယ်။ Axis တစ်ခုချင်းစီဟာ start side နဲ့ end side တစ်ခုစီရှိပါတယ်။ Main axis ရဲ့ default ဖြစ်တဲ့ main start နဲ့ main end ရဲ့ direction ဟာ left to right
+        ဖြစ်ပြီး၊ cross axis ရဲ့ default direction ကတော့ top to bottom ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ Flex direction တွေကို အလွယ်တကူ change လုပ်လို့ရပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Flexbox Display Property</h2>
+    <p>အခု ကျွန်တော်တို့ Flexbox ရဲ့ basic concepts နဲ့ terminology တွေကိုသိရှိပြီးတဲ့နောက် Flex container ကိုသတ်မှတ်ပြီး Flexbox layout တစ်ခု create လုပ်လို့ရပါပြီ။ ဒါကြောင့် ကျွန်တော်တို့ရဲ့ html file ထဲမှာ container ဆိုတဲ့ class တစ်ခုနဲ့ div တစ်ခုတည်ဆောက်ပါမယ်။
+        သူ့ထဲမှာ nested ဖြစ်နေတဲ့ div ခြောက်ခုကို class name ကို item လို့ပေးလိုက်ပါမယ်။ ကျွန်တော်တို့ဟာ flexbox property ကိုမသုံးခင် ကျွန်တော်တို့ layout မှာရှိတဲ့ flex container တစ်ခုကို define လုပ်ဖို့လိုပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့က parent container
+        ဖြစ်တဲ့ div ကို flex container ဖြစ်အောင်လုပ်ပါမယ်။ ဒီလိုလုပ်ဖို့ဆိုရင် ကျွန်တော်တို့ div ထဲက class name container ကို target လုပ်ပြီးတော့ display: flex; လို့ပေးရပါမယ်။ ဒါဆိုရင်တော့ container ဆိုတဲ့ div ထဲမှာရှိတဲ့ item တိုင်းဟာ flex item တွေဖြစ်သွားမှာဖြစ်ပါတယ်။
+        Browser ကို run ကြည့်တဲ့အခါမှာ flexbox ရဲ့ default အတိုင်း flex items တွေဟာ horizontally အရ main axis ပေါ်မှာ left to right ပေါ်နေမှာဖြစ်ပါတယ်။ ပြီးတော့ cross axis မှာဆိုရင် flex container ရဲ့ top ကနေစပြီး bottom မှာ laid out ဖြစ်နေပါတယ်။ Default
+        အားဖြင့်ဆိုရင် display: flex; လို့ပေးလိုက်ခြင်းဟာ flex container ကို block level တစ်ခုအဖြစ် create လိုက်တာဖြစ်ပါတယ်။ ကျွန်တော်တို့ flex container ဟာ full line ယူတယ်ဆိုပေမယ့် ကျွန်တော်တို့ မယူချင်ရင်လည်းရပါတယ်။ Display value ကို inline-flex လို့ပေးလိုက်မယ်ဆိုရင်
+        flex container ဟာ သူ့ထဲက flex item ရှိသလောက်ရဲ့ space ကိုပဲ ယူပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ မှတ်ထားရမှာကတော့ Flexbox မှာဆိုရင် flex container ရဲ့ အပြင်ဘက်က ဘယ် element ကိုမဆို affect မဖြစ်ပါဘူး။ Flex container တစ်ခုရဲ့ children တွေသာလျှင် flex
+        itemတွေဖြစ်သွားတာပါ။ ကျွန်တော်တို့ နောက်သင်ခန်းစာတွေမှာတော့ Layout direction, order, alignment, sizing နဲ့ နောက်ထပ်အရာတွေအတွက် advanced ဖြစ်တဲ့ Flexbox properties တွေကို ဆက်ပြီးလေ့လာသွားမှာ ဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Flexbox Display Properties&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/page.css"&gt;
+                &lt;link rel="stylesheet" href="../css/flexbox_display.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="item-1 item"&gt;Item 1&lt;/div&gt;
+                    &lt;div class="item-2 item"&gt;Item 2&lt;/div&gt;
+                    &lt;div class="item-3 item"&gt;Item 3&lt;/div&gt;
+                    &lt;div class="item-4 item"&gt;Item 4&lt;/div&gt;
+                    &lt;div class="item-5 item"&gt;Item 5&lt;/div&gt;
+                    &lt;div class="item-6 item"&gt;Item 6&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of page.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            Page Styles
+            ************************/
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-size: 1.35em;
+                color: #fff;
+                background: #e8e9e9;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .container {
+                padding: 10px;
+                background: #fff;
+                border-radius: 5px;
+                margin: 45px auto;
+                box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
+            }
+
+            .item {
+                color: #fff;
+                padding: 15px;
+                margin: 5px;
+                background: #3db5da;
+                border-radius: 3px;
+            }
+        </code>
+    </pre>
+    <p>Example of flexbox_display.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .container {
+                display: flex;
+                /* display: inline-flex; */
+                height: 300px;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/flexbox_display.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Flexbox Direction Property</h2>
+    <p>ပြီးခဲ့တဲ့ သင်ခန်းစာမှာ ကျွန်တော်တို့အနေနဲ့ element တစ်ခုကို display value ဖြစ်တဲ့ flex or inline-flex ပေးပြီး flex container တစ်ခုပြုလုပ်ခဲ့ပြီးပါပြီ။ ကျွန်တော်တို့ဟာ flex container တစ်ခုကို direction order, alignment နဲ့ sizing properties တွေသတ်မှတ်လို့ရပါတယ်။
+        အချို့သော flexbox properties တွေဟာ flex container ကိုပဲ apply လုပ်ပြီးတော့ အချို့သော flexbox properties တွေကတော့ flex items တွေကိုပဲ apply လုပ်ပါတယ်။ ဒါကြောင့်မို့လို့ ဘယ် properties တွေက flex containers ကို apply လုပ်ပြီး ဘယ် properties တွေက
+        flex items တွေကို apply လုပ်တယ်ဆိုတာကို သိထားဖို့လိုပါတယ်။ ပထမဆုံးတစ်ခုကတော့ flexbox layout ရဲ့ direction ကို control လုပ်ဖို့အတွက်သုံးတဲ့ flex-direction ဆိုတဲ့ property ဖြစ်ပြီး သူဟာ flex items တွေကို affect ဖြစ်မှာမဟုတ်ဘဲ flex container ကိုပဲ
+        affect ဖြစ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ flex direction ကို reverse လုပ်ချင်တယ်ဆိုရင်တော့ flex-direction: row-reverse; လို့ရေးပေးရပါမယ်။ အဲ့ဒီ row-reverse ဟာ main axis ရဲ့ direction ကိုပြောင်းပြန်လုပ်ပေးတာဖြစ်ပါတယ်။ အခုဆိုရင်တော့ ကျွန်တော်တို့
+        flex container ဟာ right ကနေ left ဘက်ကို reverse လုပ်သွားမှာဖြစ်ပါတယ်။ Flex direction ကို vertical column layout အဖြစ်လိုချင်ရင်တော့ flex-direction ရဲ့ value ကို column လို့ပေးရမှာဖြစ်ပါတယ်။ row-reverse ဆိုတဲ့ value လိုမျိုးပဲ flex direction column
+        ကို reverse လုပ်ချင်တဲ့အခါ flex-direction: column-reverse; လို့သုံးရပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .container {
+                display: flex;
+                flex-direction: row;        /* This is a default value in Flexbox */
+                /*flex-direction: row-reverse;
+                flex-direction: column;
+                flex-direction: column-reverse;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Flex Wrap Property</h2>
+    <p>Flex container ထဲမှာရှိတဲ့ flex items တွေဟာ Flex line လို့ခေါ်တဲ့ single line တစ်ခုပေါ်မှာတည်ရှိပါတယ်။ Flex container ဟာ flex line ပေါ်မှာရှိတဲ့ flex items တွေအားလုံးကို သူ့ရဲ့ contents တွေက overflow ဖြစ်တယ်ဆိုရင်တောင်မှာ fix ဖြစ်ဖို့ခက်ခဲပါတယ်။ ဒါကို
+        ကျွန်တော်တို့ browser ကို resize လုပ်ကြည့်တဲ့အခါ flex container ရဲ့ boundaries ကို overflow ဖြစ်သွားပြီး flex items တွေကို wrap မလုပ်တော့ပါဘူး။ ဒါပေမယ့် Flex container ဟာ flex items တွေကို multiple flex lines တွေအဖြစ် လိုအပ်သလို break လုပ်လို့ရပါတယ်။
+        flex-wrap ဆိုတဲ့ property နဲ့ ကျွန်တော်တို့ flex container ကို single line (သို့) multi-line layout ဖြစ်အောင် control လုပ်လို့ရပါတယ်။ flex-wrap ရဲ့ value ကတော့ wrap ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ flex container ထဲမှာ flex-wrap ရဲ့ value ကို wrap ပေးလိုက်ပြီး
+        ကျွန်တော်တို့ browser ကို resize လုပ်ကြည့်တဲ့အခါ ကျွန်တော်တို့ရဲ့ flex items တွေဟာ flex container အတွင်းမှာပဲ သူ့ရဲ့ space ပြည့်သွားတဲ့အခါ multi-line အဖြစ် အလိုလို အောက်ဆင်းသွားမှာဖြစ်ပါတယ်။ အောက်မှာ flex-direction ကို column ပေးပြီး flex items
+        တွေဘယ်လိုနေရာယူသွားလဲဆိုတာ ပြထားပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Flexbox Wrap Properties&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/page.css"&gt;
+                &lt;link rel="stylesheet" href="../css/flex_wrap_property.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="item-1 item"&gt;Item 1&lt;/div&gt;
+                    &lt;div class="item-2 item"&gt;Item 2&lt;/div&gt;
+                    &lt;div class="item-3 item"&gt;Item 3&lt;/div&gt;
+                    &lt;div class="item-4 item"&gt;Item 4&lt;/div&gt;
+                    &lt;div class="item-5 item"&gt;Item 5&lt;/div&gt;
+                    &lt;div class="item-6 item"&gt;Item 6&lt;/div&gt;
+                    &lt;div class="item-7 item"&gt;Item 7&lt;/div&gt;
+                    &lt;div class="item-8 item"&gt;Item 8&lt;/div&gt;
+                    &lt;div class="item-9 item"&gt;Item 9&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of page.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            Page Styles
+            ************************/
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-size: 1.35em;
+                color: #fff;
+                background: #e8e9e9;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .container {
+                padding: 10px;
+                background: #fff;
+                border-radius: 5px;
+                margin: 45px auto;
+                box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
+            }
+
+            .item {
+                color: #fff;
+                padding: 15px;
+                margin: 5px;
+                background: #3db5da;
+                border-radius: 3px;
+            }
+        </code>
+    </pre>
+    <p>Example of flex_wrap_property.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: column;
+                height: 280px;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/flex_wrap_property.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Justified Content Property</h2>
+    <p>အခုသင်ခန်းစာမှာ ကျွန်တော်တို့ရဲ့ content တွေကို position ကို control လုပ်ဖို့နဲ့ main axis ပေါ်မှာရှိတဲ့ flex items တွေကို alignment ချိန်ဖို့အတွက်သုံးတဲ့ justify-content ဆိုတဲ့ property အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ ပြီးတော့ justify-content
+        ဟာ flex container တစ်ခုမှာရှိတဲ့ space ကို distribute လုပ်နိုင်ပါသေးတယ်။ ကျွန်တော်တို့ရဲ့ justify-content property ကို flex container ထဲမှာပဲ apply လုပ်လို့ရပါတယ်။ justify-content ရဲ့ default value ကတော့ flex-start ပဲဖြစ်ပါတယ်။ သူဟာ flex line
+        တစ်ခုစီရဲ့ အစမှာ items တွေကို place လုပ်ပါတယ်။ ကျွန်တော်တို့ flex container ထဲမှာရှိတဲ့ items တွေကို flex line ရဲ့ အဆုံးမှာထားချင်တယ်ဆိုရင်တော့ justify-content ကို flex-end လို့ပေးရပါမယ်။ နောက်တစ်ခုရှိပါသေးတယ်။ ကျွန်တော်တို့ရဲ့ flex container
+        ထဲမှာရှိတဲ့ items တွေကို အလယ်မှာထားချင်တယ်ဆိုရင်တော့ justify-content: center; လို့ထားပေးရပါတယ်။ value ကို center လို့သာပေးလိုက်ရင် flex items တွေကို contents ရဲ့အလယ်တည့်တည့်မှာပေါ်လာမှာပဲဖြစ်ပါတယ်။ justify-content ရဲ့ အသုံးအများဆုံး values တွေကတော့
+        space-between နဲ့ space-around ပဲဖြစ်ပါတယ်။ အဲ့ဒီ values တွေဟာ flex line တစ်ခုမှာရှိတဲ့ ရနိုင်တဲ့ space တွေကို distribute လုပ်ပေးပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့အနေနဲ့ padding တွေ ၊ margin တွေဘယ်လောက်ထားမယ်ဆိုတာ တွက်စရာမလိုတော့ပါဘူး။ ကျွန်တော်တို့က
+        justified content property value ကို space around လို့ပေးလိုက်ရင် ကျွန်တော်တို့ flex content ထဲမှာရှိတဲ့ flex items ရဲ့ဘေးမှာရှိတဲ့ space တွေကိုရော၊ container ရဲ့ အစွန်းတွေမှာရှိတဲ့ items တိုင်းရဲ့ aligned တွေကိုရော သူကညီတူညီမျှယူပေးပါတယ်။ ကျွန်တော်တို့က
+        space between ကိုသုံးမယ်ဆိုရင်တော့ first and last items တွေကို flex container ရဲ့ အစွန်းနှစ်ဘက်မှာ aligned ချိန်ပီးတော့ ကျန်တဲ့ flex items တွေရဲ့ space ရဲ့တစ်ဝက်ကိုပဲယူပါတယ်၊ ကျန်တဲ့ flex items တွေကိုတော့ညီတူညီမျှ align ချိန်ပါတယ်၊ space အရေအတွက်လဲညီတူညီမျှယူပါတယ်။
+        Justify content property က flex box features တွေထဲက တကယ်ကိုတောင်းတဲ့ feature တစ်ခုပဲဖြစ်ပါတယ်။ Margin property မှာတော့ flex itemတွေအတွက် significant effect တွေရှိပါတယ်၊ ပီးတော့သူ့ကို သီးသန့် value ဖြစ်တဲ့ auto ပေးရပါတယ်။ ဥပမာကျွန်တော်တို့က item
+        one အတွက် သီးသန့် margin သတ်မှတ်ချင်တယ်ဆိုပါဆို့ အဲ့ဒါဆိုကျွန်တော်တို့က item one ကို select မှတ်ပီးတော့ margin-right property ကို auto လို့ပေးလိုက်ရင် သူကကျွန်တော်တို့ select မှတ်လိုက်တဲ့ flex items ရဲ့ဘေးမှာရှိတဲ့ extra space တွေကို auto absorb
+        လုပ်ပါတယ်၊ ပီးတော့ တစ်ခြား items တွေကို different positions ကိုပို့လိုက်ပါတယ်။ ဒါဟာ flex items ရဲ့ ထူးခြားတဲ့ feature တစ်ခုပါ သူ့ကိုသုံးပီးတော့ element တစ်ခုကို left ဘက်မှာကပ်ပီးတော့ ကျန်တဲ့ element တွေကိုတော့ right ဘက်ခြမ်းမှာပေါ်စေတာပဲဖြစ်ပါတယ်။
+    </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Justify Content Properties&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/page.css"&gt;
+                &lt;link rel="stylesheet" href="../css/justify_content_property.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="item-1 item"&gt;Item 1&lt;/div&gt;
+                    &lt;div class="item-2 item"&gt;Item 2&lt;/div&gt;
+                    &lt;div class="item-3 item"&gt;Item 3&lt;/div&gt;
+                    &lt;div class="item-4 item"&gt;Item 4&lt;/div&gt;
+                    &lt;div class="item-5 item"&gt;Item 5&lt;/div&gt;
+                    &lt;div class="item-6 item"&gt;Item 6&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of page.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            Page Styles
+            ************************/
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-size: 1.35em;
+                color: #fff;
+                background: #e8e9e9;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .container {
+                padding: 10px;
+                background: #fff;
+                border-radius: 5px;
+                margin: 45px auto;
+                box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
+            }
+
+            .item {
+                color: #fff;
+                padding: 15px;
+                margin: 5px;
+                background: #3db5da;
+                border-radius: 3px;
+            }
+        </code>
+    </pre>
+    <p>Example of justify_content_property.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;      //flex-start, flex-end, center, space-between
+            }
+
+            .item-2 {
+                margin-right: auto;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/justify_content_property.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Flex Order Property</h2>
+    <p>Default အားဖြင့် Flex items တွေဟာ source code ထဲမှာ သူတို့ပေါ်ပေးနိုင်တဲ့ order ထဲမှာ laid out ဖြစ်နေပါတယ်။ ဒါကို ကျွန်တော်တို့က order ဆိုတဲ့ property နဲ့ ဘယ် flex item ရဲ့ order ကိုမဆို ပြောင်းလဲနိုင်ပါတယ်။ ဥပမာ အောက်မှာပြထားတဲ့ HTML ထဲက div 6 ခုထဲက
+        item 6 ကို ပထမဆုံးထားပြီး item 1 ကိုနောက်ဆုံးမှာ ပြောင်းထားလို့ရပါတယ်။ ကျွန်တော်တို့ဟာ SEO or accessibility အတွက် ပထမဆုံး HTML document တစ်ခုကို structure ချနိုင်ပါတယ်။ ပြီးတော့မှ အဲ့ဒီ content ကို HTML ကို edit မလုပ်ဘဲ rearrange လုပ်နိုင်ပါတယ်။
+        order ဆိုတဲ့ property ဟာ flex items တွေကိုပဲ apply ဖြစ်သွားမှာဖြစ်တာကြောင့် flex container ကိုပေးမယ်ဆိုရင် effect ဖြစ်မှာမဟုတ်ပါဘူး။ Flex items တွေရဲ့ default order value ကတော့ zero ဖြစ်ပါတယ်။ ဥပမာ item 6 ကို ပထမဆုံးမှာထားချင်တယ်ဆိုရင် item 6
+        ရဲ့ order value ကို -1 လို့ပေးလိုက်မယ်ဆိုရင် ရှေ့ဆုံးကိုရောက်သွားပါမယ်။ အဲ့ဒီမှာဆိုရင် item 1 to 5 ရဲ့ order ဟာ default အားဖြင့် zero ဖြစ်သွားတဲ့အတွက် order value -1 ဟာ ရှေ့ဆုံးကိုနေရာယူသွားတာဖြစ်ပါတယ်။ အဲ့ဒီလိုပဲ item 1 ကိုနောက်ဆုံးမှာထားချင်တယ်ဆိုရင်
+        သူ့ရဲ့ value က default zero ဖြစ်သွားတာကြောင့် order ကို zero ထက်ကြီးတာကို ပေးရမှာဖြစ်ပါတယ်။ item 1 ကို target လုပ်ပြီး order: 1; ပေးလိုက်မယ်ဆိုရင် နောက်ဆုံးကိုရောက်သွားမှာဖြစ်ပါတယ်။ အဲ့ဒီအချိန်မှာ item 2 to 6 က default order zero ဖြစ်သွားမှာဖြစ်ပါတယ်။
+        Conclusion အရပြောရမယ်ဆိုရင် flex item တစ်ခုကို အခြား flex item တစ်ခုရဲ့ရှေ့ကို ရောက်ချင်တယ်ဆိုရင် ရောက်ချင်တဲ့ flex item ရဲ့ value ဟာ သူ့ရှေ့က value ထက် ကြီးနေရမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Flex Order Properties&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/page.css"&gt;
+                &lt;link rel="stylesheet" href="../css/flxe_order_property.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="item-1 item"&gt;Item 1&lt;/div&gt;
+                    &lt;div class="item-2 item"&gt;Item 2&lt;/div&gt;
+                    &lt;div class="item-3 item"&gt;Item 3&lt;/div&gt;
+                    &lt;div class="item-4 item"&gt;Item 4&lt;/div&gt;
+                    &lt;div class="item-5 item"&gt;Item 5&lt;/div&gt;
+                    &lt;div class="item-6 item"&gt;Item 6&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of page.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            Page Styles
+            ************************/
+
+            * {
+                box-sizing: border-box;
+            }
+
+            body {
+                font-size: 1.35em;
+                color: #fff;
+                background: #e8e9e9;
+                padding-left: 5%;
+                padding-right: 5%;
+            }
+
+            .container {
+                padding: 10px;
+                background: #fff;
+                border-radius: 5px;
+                margin: 45px auto;
+                box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
+            }
+
+            .item {
+                color: #fff;
+                padding: 15px;
+                margin: 5px;
+                background: #3db5da;
+                border-radius: 3px;
+            }
+        </code>
+    </pre>
+    <p>Example of flex_order_property.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+            
+            
+            /* .item-6 {
+                order: -1;
+            }
+            
+            .item-1 {
+                order: 1;
+            } */
+            
+            .item-5 {
+                order: -1;
+            }
+            
+            .item-1 {
+                order: -2;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/flex_order_property.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Flex Grow Property</h2>
+    <p>ကျွန်တော်တို့ရဲ့ flex container ထဲက flex items တွေကို လိုအပ်သလို grow or shrink လုပ်လို့ရပါတယ်။ ဥပမာ ကျွန်တော်တို့အနေနဲ့ flex container ထဲက flex item တွေကို ရနိုင်သလောက် space နဲ့ expand လုပ်လို့ရပါတယ်။ Flex item 5 ခုရှိတယ်ဆိုပါစို့။ အဲ့ဒီထဲက item
+        1 နဲ့ 2 ကို ဘယ်ကျယ်အောင် expand လုပ်လို့ရပါတယ်။ အဲ့ဒီလိုလုပ်ဖို့ဆိုရင်တော့ flex-grow ဆိုတဲ့ property ကိုသုံးရမှာဖြစ်ပြီး သူဟာ flex-container ထဲက item တစ်ခုကို space ဘယ်လောက်ယူမလဲဆိုတာကို ဆုံးဖြတ်ပေးနိုင်ပါတယ်။ Default အားဖြင့်ဆိုရင် flex container
+        တစ်ခုထဲမှာရှိတဲ့ flex items တွေဟာ line တစ်ခုရဲ့ full space ကိုမယူနိုင်ပါဘူး။ ဒါကြောင့်မို့လို့ ကျွန်တော်တို့က flex-grow property ကိုသုံးပြီး flex item ကို လိုချင်တဲ့ line တစ်ခုလုံးရဲ့ full space ရောက်အောင် expand လုပ်ရမှာဖြစ်ပါတယ်။ Default အားဖြင့်
+        flex-grow ရဲ့ value ဟာ zero ဖြစ်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ရဲ့ flex container က narrow ဖြစ်သွားရင်တောင် flex items တွေရဲ့ width ဟာ အလိုလိုညှိသွားမှာဖြစ်ပါတယ်။ Flex container ရဲ့ space ထက်ကျော်သွားမယ်ဆိုရင် နောက် line တစ်ကြောင်းကို ဆင်းသွားမှာဖြစ်ပါတယ်။
+        flex-grow property ဟာ responsive layout တည်ဆောက်တဲ့အခါမှာ တစ်ကယ်ကို အသုံးဝင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+            <code class="html hljs xml">
+                &lt;!DOCTYPE html&gt;
+                &lt;html lang="en"&gt;
+    
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;title&gt;Flex Grow Properties&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="../css/page.css"&gt;
+                    &lt;link rel="stylesheet" href="../css/flxe_order_property.css"&gt;
+                &lt;/head&gt;
+    
+                &lt;body&gt;
+                    &lt;div class="container"&gt;
+                        &lt;div class="item-1 item"&gt;Item 1&lt;/div&gt;
+                        &lt;div class="item-2 item"&gt;Item 2&lt;/div&gt;
+                        &lt;div class="item-3 item"&gt;Item 3&lt;/div&gt;
+                        &lt;div class="item-4 item"&gt;Item 4&lt;/div&gt;
+                        &lt;div class="item-5 item"&gt;Item 5&lt;/div&gt;
+                        &lt;div class="item-6 item"&gt;Item 6&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/body&gt;
+    
+                &lt;/html&gt;
+            </code>
+        </pre>
+    <p>Example of page.css File:</p>
+    <pre>
+            <code class="html hljs xml">
+                /************************
+                Page Styles
+                ************************/
+    
+                * {
+                    box-sizing: border-box;
+                }
+    
+                body {
+                    font-size: 1.35em;
+                    color: #fff;
+                    background: #e8e9e9;
+                    padding-left: 5%;
+                    padding-right: 5%;
+                }
+    
+                .container {
+                    padding: 10px;
+                    background: #fff;
+                    border-radius: 5px;
+                    margin: 45px auto;
+                    box-shadow: 0 1.5px 0 0 rgba(0, 0, 0, 0.1);
+                }
+    
+                .item {
+                    color: #fff;
+                    padding: 15px;
+                    margin: 5px;
+                    background: #3db5da;
+                    border-radius: 3px;
+                }
+            </code>
+        </pre>
+    <p>Example of flex_grow_property.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-between;
+            }
+
+            .item {
+                flex-grow: 1;
+            }
+
+            /* .item-3 {
+                flex-grow: 3;
+            } */
+        </code>
+    </pre>
+    <p>
+        <a href="directory/flex_grow_property.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Flex Shorthand Property</h2>
+    <p>ကျွန်တော်တို့ရဲ့ flex items တွေကို flex-grow: 1; လို့ပေးလိုက်တာနဲ့ flex container ထဲမှာ flex item တွေက space ကို ရှိသလောက် expand လုပ်သွားပါတယ်။ Flex spaces တွေဟာ width နဲ့ height properties တွေကို same values တွေအနေနဲ့ လက်ခံပေးပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ဟာ
+        pixels, ems, percentages နဲ့ အခြားသော units တွေကို အသုံးပြုလို့ရပါတယ်။ ကျွန်တော်တို့ flex item တွေကို flex-basic: 200px; ပေးလိုက်မယ်ဆိုရင် ပေးလိုက်တဲ့ flex items တွေဟာ 200px ထက်ပိုပြီး narrow ဖြစ်နေပါတယ်။ Browser ဟာ space ကို redistrubute လုပ်လိုက်လို့ပါ။
+        Flex ဆိုတဲ့ property ဟာ flex-grow, flex-basic နဲ့ သိပ်မသုံးတဲ့ flex-shrink properties တွေရဲ့ shorthand ပဲဖြစ်ပါတယ်။ flex-shrink property ဟာ flex-grow ရဲ့ ဆန့်ကျင်ဘက်ဖြစ်ပါတယ်။ ဆိုလိုတာက flex item ကို space ရနိုင်သလောက် growing မဖြစ်စေဘဲ shrink
+        လုပ်လိုက်တာဖြစ်ပါတယ်။ ဥပမာ flex: 1; လို့ပေးလိုက်တာဟာ flex-grow ကို 1 ပေးလိုက်တာနဲ့တူတူပါပဲ။ နောက်ထပ် second နဲ့ third values ကတော့ flex-shrink နဲ့ flex-basics တွေပြီး သူတို့ဟာ flex shorthand မှာ optional ဖြစ်ကြပါတယ်။ flex property မှာ value တစ်ခုတည်း
+        ထည့်ထားမယ်ဆိုရင် flex-basics က default အနေနဲ့ zero ဖြစ်တာကြောင့် browser က narrow ဖြစ်သွားတဲ့အချိန်မှာ new line ကို ဆင်းမသွားပါဘူး။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            .contaner {
+                display: flex;
+                flex-wrap: wrap;
+            }
+            
+            .item {
+                /* flex-grow: 1;
+                flex-basis: 200px; */
+                flex: 1;
+            }
+            
+            .item-2 {
+                flex: 2;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Align items to Cross Axis</h2>
+    <p>အပေါ်က သင်ခန်းစာမှာ ကျွန်တော်တို့အနေနဲ့ justify-content property ကိုသုံးပြီး main axis ပေါ်မှာရှိတဲ့ flex items တွေကို ဘယ်လို align ချရမလဲဆိုတာ လေ့လာခဲ့ပြီးပါပြီ။ အခုသင်ခန်းစာမှာတော့ align-items နဲ့ align-self ဆိုတဲ့ properties တွေကိုသုံးပြီး cross
+        axis မှာ flex items တွေကို ဘယ်လို align လုပ်ရမလဲဆိုတာလေ့လာသွားမှာဖြစ်ပါတယ်။ Cross axis ဟာ main axis နဲ့ perpendicular ကျစွာ run ပါတယ်။ Example ထဲမှာဆိုရင် align-item property ကိုထည့်ထားပါတယ်။ အဲ့ဒီ property ကတော့ flex container တစ်ခုပေါ်မှာပဲ
+        အလုပ်လုပ်ပါတယ်။ နောက်ပီးတော့ container အတွင်းထဲက items တွေအကုန်လုံးကို alignလုပ်ပေးပါတယ်။ align item property ရဲ့default value ကတော့ stretch ဖြစ်ပါတယ်။ flex items stretch တော့ cross axis ကို အစကနေအဆုံးထိ stretch လုပ်ပေးပါတယ်။ flex-start ဆိုရင်တော့
+        height တွေက top to bottom stretch ပေးသွားမှာပါ။ flex-end ဆိုရင်တော့ flex items တွေကို cross axis ရဲ့အဆုံးမှာ stretch လုပ်ပေးသွာမှာပါ။ အသုံးအများဆုံး value တွေကတော့ center ဖြစ်ပါတယ်။ center ကတော့ element တစ်ခုကို container အတွင်းအလယ်မှာပေါ်မှာဖြစ်ပါတယ်။
+    </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            .container {
+                display: flex;
+                flex-wrap: wrap;
+                height: 450px;
+                align-items: stretch;           // Default value
+                
+                /*align-items: flex-start;*/
+                /*align-items: flex-end;*/
+                /*align-items:center;*/
+
+            }
+
+            .item {
+                flex: 1;
+            }
+
+            .item-1 {
+                align-self: flex-end;
+            }
+
+
+            .item-2 {
+                flex: 2;
+            }
+
+            .item-4 {
+                align-self: center;
+            }
+    
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Align Center For Flex Items</h2>
+    <p>Content ကို center ထားခြင်းဟာ CSS Layout မှာဆိုရင် trickiest အဖြစ်ဆုံးတွေထဲကတစ်ခုဖြစ်ပြီး ပိုလည်းခက်ပါတယ်။ Flex containers တွေထဲက centering elements နဲ့ vertical centering တွေကတော့ web designers နဲ့ developers တွေအတွက် layout properties တွေဖြစ်တဲ့
+        float, display နဲ့ position တွေချတဲ့အခါမှာ သုံးပါတယ်။ အခုဆိုရင် ကျွန်တော်တို့ဟာ align-item, align-self နဲ့ justify-content လိုမျိုး flexbox properties တွေသုံးပြီး content တွေကို horizontally or vertically အရ align လုပ်နိုင်ပါတယ်။ Flexbox ကိုသုံးပြီး
+        content တွေကို center ချတဲ့နည်းလမ်း သုံးခုရှိပါတယ်။ ပထမကတော့ အောက်က ဥပမာထဲက container ဆိုတဲ့ div ကို justify-content: center; ပေးပြီး align-items: center; လို့ပေးရပါတယ်။ align-items: center; ကတော့ flex items တွေရဲ့ width နဲ့ height ကိုညှိပေးပါတယ်။
+        Container ထဲမှာ align-items: center; လို့မပေးဘဲ flex item ကို target လုပ်ပြီး align-self: center; လို့ပေးရင်လည်း တူတူပါပဲ။ အဲ့ဒီလိုမှ မဟုတ်ရင် margin ကို auto လို့ပေးလိုက်ရင်လည်း flex item မှာပိုနေတဲ့ width တွေကို auto align လုပ်ပေးသွားမှာဖြစ်ပါတယ်။
+    </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Align Center For Flex Items&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/page.css"&gt;
+                &lt;link rel="stylesheet" href="../css/align_center.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;div class="item-1 item"&gt;Item 1&lt;/div&gt;
+                    &lt;p&gt;Sriracha raw denim fixie.&lt;/p&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of align_center.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .container {
+                display: flex;
+                min-height: 50vh;
+                //justify-content: center;      //equal to margin: auto;
+                //align-items: center;
+            }
+
+            .item {
+                //align-self: center;     //equal to align-items: center;
+                margin: auto;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Building A Layout with Flexbox</h2>
+    <p>Flexbox ရဲ့ direction, order, space distribution နဲ့ automatic sizing features ဟာ responsive layouts တွေတည်ဆောက်တဲ့အခါမှာ တစ်ကယ်ကိုအသုံးဝင်ပါတယ်။ ကျွန်တော်တို့ အခုသင်ခန်းစာမှာ Responsive layout တည်ဆောက်တဲ့အခါ Flexbox မှာရှိတဲ့ real world problems
+        တွေကို လွယ်လွယ်ကူကူ ဖြေရှင်းနိုင်အောင် လေ့လာသွားမှာဖြစ်ပါတယ်။ ဥပမာပြောရရင် navigation တစ်ခုရဲ့ direction ကို small screens မှာ vertical ကနေ ၊ large screens တွေကိုနေ horizontal ဖြစ်အောင် switching လုပ်ခြင်းဖြစ်ပါတယ်။ Heights တွေညီတဲ့ flexible content
+        columns တွေကို display လုပ်ခြင်း (သို့) screen size အပေါ်မူတည်ပြီး content order ကို rearrange လုပ်ခြင်း နဲ့ sticky footer ကို အလွယ်ကူဆုံး solution နဲ့ display လုပ်တဲ့ နည်းလမ်းတွေကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အောက်မှာ Example နဲ့တကွပြထားပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Best City Guide&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/best_city_guide.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;header class="main-header"&gt;
+                    &lt;h1 class="name"&gt;&lt;a href="#"&gt;Best City Guide&lt;/a&gt;&lt;/h1&gt;
+                    &lt;ul class="main-nav"&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;ice cream&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;donuts&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;tea&lt;/a&gt;&lt;/li&gt;
+                        &lt;li&gt;&lt;a href="#"&gt;coffee&lt;/a&gt;&lt;/li&gt;
+                    &lt;/ul&gt;
+                &lt;/header&gt;
+            
+                &lt;div class="banner"&gt;
+                    &lt;img class="logo" src="../images/city-logo.svg" alt="City"&gt;
+                    &lt;h1 class="headline"&gt;The Best City&lt;/h1&gt;
+                    &lt;span class="tagline"&gt;The best drinks and eats in the best city ever.&lt;/span&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                font-family: 'Verla Round', sans-serif;
+                line-height: 1.6;
+                color: #3a3a3a;
+                margin: 0;
+            }
+            
+            ul {
+                margin: 0;
+                padding: 0;
+                list-style: none;
+            }
+            
+            h2,
+            h3,
+            a {
+                color: #093a58;
+            }
+            
+            h2,
+            h3 {
+                margin-top: 0;
+            }
+            
+            a {
+                text-decoration: none;
+            }
+            
+            img {
+                max-width: 100%;
+            }
+            
+            
+            /*header*/
+            
+            .name {
+                font-style: 1.35em;
+                margin: 0;
+            }
+            
+            .main-nav {
+                margin-top: 5px;
+            }
+            
+            .name a,
+            .main-nav a {
+                text-align: center;
+                display: block;
+                padding: 10px 15px;
+            }
+            
+            .main-nav a {
+                font-size: .95em;
+                color: #3acec2;
+                text-transform: uppercase;
+            }
+            
+            .main-nav a:hover {
+                color: #093a58;
+            }
+            
+            .logo {
+                max-width: 190px;
+            }
+            
+            
+            /*Layout container*/
+            
+            .main-header {
+                padding-top: .5em;
+                padding-bottom: .5em;
+            }
+            
+            .banner {
+                text-align: center;
+                color: #fff;
+                background: #3acec2;
+                padding: 3.2em 0;
+                margin-bottom: 48px;
+            }
+            
+            
+            /***********************
+            Media Quries
+            ***********************/
+            
+            @media (min-width: 769px) {
+                .main-header,
+                .main-nav {
+                    display: flex;
+                }
+                .main-header {
+                    flex-direction: column;
+                    align-items: center;
+                }
+            }
+            
+            @media (min-width: 1025px) {
+                .main-header {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/best_city_guide.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Multi Columns and Three Column Layout</h2>
+    <p>Flexbox ကိုသုံးပြီးတော့ ကျွန်တော်တို့ဟာ flexible ဖြစ်ပြီး floats နဲ့ display properties တွေဖြစ်တဲ့ inline-block တွေမပါဘဲ multi-column layouts တွေတည်ဆောက်လို့ရပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+	        &lt;html&gt;
+	        &lt;head&gt;
+	        	&lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+	        	&lt;meta charset="utf-8"&gt;
+	        	&lt;title&gt;Best City Guide&lt;/title&gt;
+	        	&lt;link rel="stylesheet" type="text/css" href="../css/style.css"&gt;
+	        	&lt;link rel="stylesheet" type="text/css" href="../css/flexbox.css"&gt;
+	        &lt;/head&gt;
+	        &lt;body&gt;
+	        	&lt;div class="main-header"&gt;
+	        		&lt;h1 class="logo"&gt;Best City Guide&lt;/h1&gt;
+	        		&lt;ul class="nav"&gt;
+	        			&lt;li&gt;&lt;a href="#"&gt;ICE CREAM&lt;/a&gt;&lt;/li&gt;
+	        			&lt;li&gt;&lt;a href="#"&gt;DONUT&lt;/a&gt;&lt;/li&gt;
+	        			&lt;li&gt;&lt;a href="#"&gt;TEA&lt;/a&gt;&lt;/li&gt;
+	        			&lt;li&gt;&lt;a href="#"&gt;COFFEE&lt;/a&gt;&lt;/li&gt;
+	        		&lt;/ul&gt;
+	        	&lt;/div&gt;
+	        	&lt;div class="banner"&gt;
+	        		&lt;img src="img/city-logo.svg" class="image"&gt;
+	        		&lt;h1&gt;Best City Guide&lt;/h1&gt;
+	        		&lt;span&gt;The best dirnks and eats in the best city ever. &lt;/span&gt;
+	        	&lt;/div&gt;
+	        	&lt;div class="main-section"&gt;
+	        		&lt;div class="primary col"&gt;
+	        			&lt;h2&gt;Welcome&lt;/h2&gt;
+	        			&lt;p&gt;Everyting in this city is worth waition in line for&lt;/p&gt;
+	        			&lt;p&gt;
+	        				Cupcake ipsum  dolor sit. Amet chocolate cake gummies jelly beans. candy bonbon brownie candy. Gingerbread powder muffin. Icing cotton candy.Croissant icing pie  ice cream brownie I love cheesecake cookie. Pastry chocolate pastry jelly croissant.
+	        			&lt;/p&gt;
+	        			&lt;p&gt;
+	        				Cake sesame snap sweet tart candy canes tiramisu I Love oat cake chocolate bar. Jelly beans  pastry brownie sugar plumn pastry bear claw tiramisu tootsie rool.Tootsie roll wafer I love chocolate donuts.
+	        			&lt;/p&gt;
+	        		&lt;/div&gt;
+	        		&lt;div class="secondary col"&gt;
+	        			&lt;h2&gt;Great Food&lt;/h2&gt;
+	        			&lt;img src="img/treats.svg"&gt;
+	        			&lt;p&gt;
+	        				Cake sesame snap sweet tart candy canes tiramisu I Love oat cake chocolate bar. Jelly beans  pastry brownie sugar plumn pastry bear claw tiramisu tootsie rool.Tootsie roll wafer I love chocolate donuts.
+	        			&lt;/p&gt;
+	        		&lt;/div&gt;
+	        		&lt;div class="terminal col"&gt;
+	        			&lt;h2&gt;Welcome&lt;/h2&gt;
+	        			&lt;p&gt;Everyting in this city is worth waition in line for&lt;/p&gt;
+	        			&lt;p&gt;
+	        				Cupcake ipsum  dolor sit. Amet chocolate cake gummies jelly beans. candy bonbon brownie candy. Gingerbread powder muffin. Icing cotton candy.Croissant icing pie  ice cream brownie I love cheesecake cookie. Pastry chocolate pastry jelly croissant.
+	        			&lt;/p&gt;
+	        			&lt;p&gt;
+	        				Cake sesame snap sweet tart candy canes tiramisu I Love oat cake chocolate bar. Jelly beans  pastry brownie sugar plumn pastry bear claw tiramisu tootsie rool.Tootsie roll wafer I love chocolate donuts.
+	        			&lt;/p&gt;
+	        		&lt;/div&gt;
+	        	&lt;/div&gt;
+	        	&lt;div class="main-footer"&gt;
+	        		&lt;p&gt;© 2019 Yangon City&lt;/p&gt;
+	        	&lt;/div&gt;
+	        &lt;/body&gt;
+	        &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of style.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            * {
+                margin: 0;
+                box-sizing: border-box;
+            }
+            
+            .main-header,
+            .banner,
+            .main-footer {
+                text-align: center;
+            }
+            
+            .main-header {
+                background-color: #fff;
+            }
+            
+            .logo {
+                margin-left: 25px;
+                padding: 20px;
+                color: #140244;
+            }
+            
+            h2 {
+                color: #140244;
+            }
+            
+            p {
+                margin: 20px 0;
+            }
+            
+            .nav {
+                display: flex;
+                flex-direction: row;
+                margin-right: 25px;
+            }
+            
+            ul li {
+                display: block;
+                padding: 20px;
+                list-style-type: none;
+            }
+            
+            ul li a {
+                color: #3acec2;
+                text-decoration: none;
+            }
+            
+            .banner {
+                height: 300px;
+                background-color: #3acec2;
+                color: white;
+                padding-top: 25px;
+            }
+            
+            .image {
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+            }
+            
+            .main-section {
+                width: 70%;
+                margin: 0 auto;
+            }
+            
+            .col {
+                padding: 20px;
+            }
+            
+            .main-footer {
+                margin-top: 20px;
+                height: 100px;
+                background-color: #d3d3d3;
+                padding-top: 30px;
+            }
+        </code>
+    </pre>
+    <p>Example of flexbox.css</p>
+    <pre>
+        <code class="html hljs xml">
+            @media (min-width: 769px) {
+                .main-header,
+                .main-nav,
+                .main-section,
+                .row {
+                    display: flex;
+                }
+                .main-header {
+                    flex-direction: column;
+                    align-items: center;
+                }
+                .col {
+                    flex: 1 50%;
+                }
+                .row {
+                    flex-wrap: wrap;
+                }
+                .secondary {
+                    order: -1;
+                }
+            }
+            
+            @media (min-width: 1025px) {
+                .main-header {
+                    flex-direction: row;
+                    justify-content: space-between;
+                }
+
+                .main-header nav {
+                    display: flex;
+                    flex-direction: row;
+                }
+                .col {
+                    flex-basis: 0;
+                }
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/two_column_layout.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Align Element bottom-edge of a Container</h2>
+    <p>Web designerတွေနဲ့Developerတွအများဆုံးတွေ့ရတဲ့ problemကတော့layoutတွေလုပ်တဲ့အခါcontainerတစ်ခုထဲကbottom-edgeကelementကိုဘယ်လိုalignလုပ်ရမယ်ဆိုတာဖြစ်ပါတယ်။flex box နဲ့အသုံးပြုသွားတာကိုexampleမှာလေ့လာနိုင်ပါတယ်။ Web designer တွေနဲ့ Developer တွေမှာ အများဆုံးတွေ့ရတဲ့
+        problem ကတော့ layouts တွေ ပြုလုပ်တဲ့အခါ container တစ်ခုထဲက bottom-edge က element ကို ဘယ်လို align ချရမလဲဆိုတာပါ။ Flexbox ကိုအသုံးပြုပြီးတော့ bottom-edge ကို align ချတာကို အောက်မှာ example နဲ့အတူ ပြထားပါတယ်။</p>
+    <p>Example of flexbox.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            @media (min-width: 769px) {
+				.main-header,
+				.main-nav,
+				.col,
+				.row {
+					display: flex;
+				}
+
+				.main-header {
+					flex-direction:column;
+					align-items:center;
+				}
+				.col {
+					flex:1;
+					flex-direction: column;
+				}
+				.button {
+					margin-top: auto;
+					align-self: flex-end;
+				}
+			}
+
+			@media (min-width: 1025px) {
+				.main-header {
+					flex-direction:row;
+					justify-content: space-between;
+				}
+
+				.col {
+					flex-basis: 0;
+				}
+			} 
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Creating Sticky Footer</h2>
+    <p>Sticker footer ဆိုတာကတော့ page ရဲ့ content က မည်သို့ပင် ရှိနေပါစေ page ရဲ့အောက်ခြေမှာပဲ stick ဖြစ်နေတာဖြစ်ပါတယ်။ တစ်ကယ်လို့ page ရဲ့ content က browser ရဲ့ height ထက် ပိုတိုနေမယ်ဆိုရင် footer ဟာ bottom နားကို ကပ်မနေဘဲ page ရဲ့ အလယ် content နားမှာပဲ
+        ကပ်နေပါလိမ့်မယ်။ အဲ့ဒီလိုဖြစ်တာကြောင့်ပဲ ကျွန်တော်တို့အနေနဲ့ တစ်ခါတစ်ရံမှာ footer ထဲက view port ရဲ့ bottom ကြားက design လုပ်မထားတဲ့ ကွာဟာမှုတစ်ခုရှိနိုင်ပါတယ်။ ဒါဟာ web design မှာ ဖြစ်လေ့ရှိတဲ့ problem တစ်ခုဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ CSS ကိုသုံးပြီး
+        sticky footers တွေ create လုပ်တဲ့အခါမှာ နည်းလမ်းတွေအများကြီးရှိပါတယ်။ CSS layout basic မှာကျွန်တော်တို့က popular method တစ်ခုဖြစ်တဲ့ CSS calc function အသုံးပြုပုံကို လေ့လာခဲ့ပီးဖြစ်ပါတယ်။ ဒါပေမယ့် Flexbox flexibility ကတော့ ဒီလို problems တွေကို
+        ဖြေရှင်းဖို့အတွက် အကောင်းဆုံးနည်းလမ်းတစ်ခုဖြစ်ပါတယ်။ အခြား sticky footer methods တွေမှာဆိုရင် browser ရဲ့ total height ထဲကနေ footer ရဲ့ height ကို တွက်ပြီးတော့ နှုတ်နေရပါသေးတယ်။ ဒါမှမဟုတ် ကျွန်တော်တို့ footer ကို page ရဲ့ bottom မှာပေါ်ဖို့အတွက်
+        div တွေနဲ့ အုပ်နေရပါသေးတယ်။ Flexbox နဲ့ဆိုရင်တော့ calculations တွေ ၊ extra elements တွေထည့်စရာမလိုဘဲ ပြုလုပ်နိုင်ပါတယ်။min-height: 100vh; ဆိုတာ 100% နဲ့ ညီမျှပါတယ်။ အောက်က example မှာ လေ့လာကြည့်ရအောင်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+
+        </code>
+    </pre>
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,1196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS Grid Layouts</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+    <h2>Inroducing Grid Layout</h2>
+    <p>Grids ဆိုတာ rows နဲ့ columns တွေရဲ့ structure ကိုအစီအစဉ်တကျ order လုပ်ပေးတဲ့ layout design တွေရဲ့ အခြေခံကျတဲ့ design တစ်ခုဖြစ်ပါတယ်။ Grids တွေဟာ ကျွန်တော်တို့ရဲ့ content ကို organize လုပ်ပေးတယ်၊ content တွေဘယ်နေရမှာထားရမလဲဆိုတာ ဆုံးဖြတ်ပေးနိုင်တယ်။
+        ပြီးတော့ layout မှာ positioning နဲ့ balance ဖြစ်ဖို့အတွက် အထောက်အကူပြုပေးနိုင်ပါတယ်။ အရင်သင်ခန်းစာတွေမှာ CSS frameworks နဲ့ legacy methods တွေဖြစ်တဲ့ tables, inline blocks နဲ့ CSS layout ရဲ့ limitations တစ်ခုအတွင်းမှာ floats တွေချပြီးတော့ grid
+        based designs တွေကို မှီခိုပြီး အသုံးပြုခဲ့ပါတယ်။ CSS ရဲ့ Grid layout model ဟာတွေ webpage grid layouts တွေအတွက် အထူး create လုပ်ထားတဲ့ properties တွေနဲ့အသုံးပြုပြီးတော့ CSS frameworks နဲ့ lagacy methods တွေကို skip လုပ်နိုင်ပါတယ်။ ဒီသင်ခန်းစာမှာတော့
+        ကျွန်တော်တို့ဟာ CSS မှာရှိတဲ့ powerful layout system ကိုလေ့လာသွားမှာဖြစ်ပါတယ်။ Grid ဟာ set of propertiesတွေ၊ functions တွေနဲ့ ကျွန်တော်တို့ရဲ့ sizing တွေ၊ positioning တွေ ၊ content ရဲ့ spacing တွေကို control လုပ်ပေးနိုင်တဲ့ flexible units တွေကို
+        ပေးနိုင်ပါတယ်။ ပြီးတော့ grid ဟာ layout တည်ဆောက်ရတာ ပိုမြန်ပြီးတော့ ကျွန်တော်တို့ အရင်က မှီခိုအသုံးပြုခဲ့တဲ့ any tools တွေထက်ပိုပြီးတော့ လွယ်ကူပါတယ်။ သင်ဟာ webpage တွေတည်ဆောက်ခဲ့ဖူးတယ်ဆိုရင် CSS framework or Grid ကိုသုံးပြီးတော့ တည်ဆောက်ခဲ့ဖူးမှာပါ။
+        ပြီးရင် grid ထဲမှာရှိတဲ့ component တစ်ခုချင်းစီရဲ့ size, position နဲ့ spacing တွေကို CSS နဲ့ပြင်ပြီးရေးရပါတယ်။ Grid layout ကတော့ အထူးသဖြင့် grid တစ်ခုတည်ဆောက်ဖို့ လိုအပ်တဲ့ markups တွေနဲ့ create လုပ်ခြင်းကို skip လုပ်ပေးပါတယ်။ အဲ့ဒါတွေအစား grid
+        ကိုသုံးပြီးတော့ CSS မှာ flexible columns တွေနဲ့ flexible rows တွေကိုသုံးလို့ရပါတယ်။ Grid ဆိုတာ layout system တစ်ခုပါပဲ။ အခြား layout feature ဖြစ်တဲ့ flexbox ကိုအသုံးပြုဖူးတယ်ဆိုရင် flexbox ဟာ ကောင်းတဲ့ tool တစ်ခုအဖြစ်ရှိနေတုန်းဆိုပေမယ့် grid layout
+        ထက် သူဟာ မတူညီတဲ့ purpose တစ်ခုရှိပါတယ်။ ဘာလဲဆိုရင်တော့ flexbox ဟာ one-dimensional layout tool ဖြစ်တယ်၊ ဆိုလိုတာက သူဟာ content ကို row or column ရဲ့ single axis ကိုပဲ spaceတွေကို ဖြန့်ပေးပြီးတော့ content တွေကို align ချပေးပါတယ်။ Grid layout ကတော့
+        flexbox လိုမဟုတ်ပဲ two-dimensional layout ဖြစ်ပါတယ်။ Two-dimensional layout ဟာ ကျွန်တော်တို့ရဲ့ sizing, positioning နဲ့ spacing တွေကို rows ရော column ရော တစ်ပြိုင်တည်း control လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ grid တစ်ခုကြေငြာပြီး တည်ဆောက်လိုက်မယ်ဆိုရင်
+        ကျွန်တော်တို့ရဲ့ content ဟာ သတ်မှတ်လိုက်တဲ့ rows နဲ့ columns တွေရဲ့ size နဲ့ အလိုက်သင့်စွာ fit ဖြစ်နေမှာဖြစ်ပါတယ်။ CSS Grid နဲ့ Flexbox တွေမှာ သူတို့ရဲ့ ထူးခြားချက်နဲ့သူ ရှိကြပြီး သူတို့နှစ်ခုကို အတူတကွသုံးပြီးတော့ ပိုပြီး powerful ဖြစ်ပြီး flexible
+        ဖြစ်တဲ့ layout ကို တည်ဆောက်နိုင်ပါတယ်။ Designers တွေနဲ့ developers အများစုဟာ CSS Grid ကိုသုံးပြီးတော့ content တွေရဲ့ အဓိကကျတဲ့ sections တွေကို layout ချဖို့နဲ့ responsive forms နဲ့ media objectsတွေလိုမျိုး သေးငယ်တဲ့ screen တွေမှာ အဆင်ပြေစွာမြင်ရဖို့အတွက်
+        သေးငယ်တဲ့ user-interface elements တွေတည်ဆောက်တဲ့အခါမှာ ဒီ CSS grid တွေအသုံးပြုပြီးတော့ တည်ဆောက်ကြပါတယ်။ တစ်ချို့ site တွေမှာဆိုရင် site တစ်ခုလုံးကို grid ကိုပဲသုံးပြီး design ချထားတာတွေတောင်ရှိပါတယ်။ လာမယ့်သင်ခန်းစာမှာတော့ CSS grid နဲ့ layout
+        မချခင် layout building ချတဲ့နေရမှာ အရေးကြီးတဲ့ Grid concepts တွေကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Grid Concepts</h2>
+    <p>ကျွန်တော်တို့ဟာ CSS Grid နဲ့ layout မတည်ဆောက်ခင်မှာ CSS Grid ရဲ့concepts အချို့နဲ့ သူ့နောက်မှာအလုပ်လုပ်ပေးတဲ့ terminology တို့ကို နားလည်ထားသင့်ပါတယ်။ ဒီသင်ခန်းစာမှာ အဲ့ဒီနှစ်ခုကို အဓိကထားပြီးပြောပြသွားပါမယ်။ CSS Grid Layout မှာရှိတဲ့ အရေးအကြီးဆုံး
+        elements နှစ်ခုကတော့ grid containers နဲ့ grid items ပဲဖြစ်တယ်။ Grid ကိုသုံးမယ်ဆိုရင် ပထမဆုံး သတ်မှတ်ပေးရမှာကတော့ grid container ဖြစ်ပါတယ်။ Grid container ဟာ grid formatting context ကို တည်ဆောက်ပေးပြီး သူ့ရဲ့ direct child elements တွေ ဘယ်လို spaced,
+        sized နဲ့ aligned လုပ်မယ်ဆိုတာကို manage လုပ်ပေးပါတယ်။ ကျွန်တော်တို့ element တစ်ခုကို grid container တစ်ခု create လိုက်မယ်ဆိုရင် အဲ့ဒီ element ရဲ့ direct children တွေအားလုံးဟာ grid items တွေဖြစ်သွားပါတယ်။ ပြီးတော့ grid container ထဲမှာ grid items
+        အရေအတွက်ဟာ အများကြီးရှိနိုင်ပါတယ်။ အောက်မှာပြထားတဲ့ ဥပမာမှာဆိုရင် main element ဟာ grid container ဖြစ်မယ်။ ပြီးတော့ သူရဲ့ တိုက်ရိုက် children ဖြစ်တဲ့ article elements တွေက grid items တွေဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ main element အတွင်းမှာရှိတဲ့ headings,
+        paragraphs နဲ့ images တွေလိုမျိုး အခြား elements တွေကို nested လုပ်ချင်တယ်ဆိုရင်လည်း သူတို့ဟာ grid items တွေဖြစ်သွားမှာဖြစ်ပါတယ်။ ဒါကြောင့် grid formatting context ကိုဆောက်ပြီးသွားပြီဆိုရင် သူ့ရဲ့ content ကို grid အဖြစ် positioning နဲ့ aligning
+        လုပ်နိုင်ပါတယ်။ အဲ့ဒီနောက်မှာတော့ အဲ့ဒီ grid ဟာ grid lines လို့ခေါ်တဲ့ horizontal နဲ့ vertical lines တွေလိုပုံစံဖြစ်သွားမှာဖြစ်ပါတယ်။ Grid lines တွေဟာ ကျွန်တော်တို့ grid container ရဲ့ space တွေကို rows နဲ့ columns တွေအတိုင်း (သို့မဟုတ်) grid items
+        တွေကို aligned, sized နဲ့ placed တွေလုပ်ဖို့အတွက် areas တွေကို divide လုပ်ပေးလိုက်ပါတယ်။ Horizontal grid lines တွေဟာ rows တွေအဖြစ် နေရယူသွားပြီး ၊ vertical grid lines တွေဟာ columns တွေအဖြစ်နဲ့ နေရာယူသွားမှာဖြစ်ပါတယ်။ Grid line ဟာ column or row
+        တစ်ခုရဲ့ side တစ်ဖက်ဖက်မှာ တည်ရှိပါတယ်။ တစ်နည်းအားဖြင့်ဆိုရမယ်ဆိုရင် ကပ်လျက်ရှိနေတဲ့ grid lines နှစ်ခုကြားက space ဟာ column or row အနေနဲ့ ပုံစံချပေးတာဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* grid container */
+            &lt;main&gt;
+
+                /* grid items */
+                &lt;article&gt;...&lt;/article&gt;
+                &lt;article&gt;...&lt;/article&gt;
+                &lt;article&gt;...&lt;/article&gt;
+
+                &lt;h1&gt;...&lt;/h1&gt;
+                &lt;p&gt;...&lt;/p&gt;
+                &lt;img src="#" alt="Image"&gt;
+            &lt;/main&gt;
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Grid Container</h2>
+    <p>CSS grid ရဲ့ concepts နဲ့ သူ့နောက်မှာအလုပ်လုပ်ပေးတဲ့ terminology ကိုသိပြီးတဲ့နောက်မှာ ကျွန်တော်တို့ဟာ grid တစ်ခုဖြစ်တဲ့ grid containerကို columns နဲ့ rows တွေသတ်မှတ်ပြီး တည်ဆောက်လို့ရပါပြီ။ အခုသင်ခန်းစာမှာတော့ container ကိုတည်ဆောက်ဖို့ grid display
+        value တွေဖြစ်တဲ့ grid ရဲ့ related properties တွေဖြစ်တဲ့ columns ကိုသတ်မှတ်တဲ့ grid-template-columns နဲ့ rows ကိုသတ်မှတ်တဲ့ grid-template-rows တွေအကြောင်းကို ပြောပြပေးသွားမှာဖြစ်ပါတယ်။ အောက်မှာပြထားတဲ့ example အတိုင်း class grid တစ်ခုဖြစ်တဲ့ div
+        ထဲမှာ nested ဖြစ်နေတဲ့ div သုံးခုကို class name အနေနဲ့ item ဆိုပြီး ထည့်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ CSS folder ထဲမှာ page.css နဲ့ grid.css နှစ်ခုတည်ဆောက်ထားမယ်။ page.css ထဲမှာ page ရဲ့ basic style တွေပါဝင်ပြီးတော့ grid.css ထဲမှာတော့ grid layout
+        ကိုရေးမှာဖြစ်ပါတယ်။ CSS grid layout တစ်ခုမှာ grid container တစ်ခုနဲ့စပါတယ်။ Grid container ကိုတော့ element ရဲ့ grid property ကို display: grid; လို့ setting ချရမှာဖြစ်ပါတယ်။ ဒါကြောင့် div ထဲက class name ပေးထားတဲ့ grid ဟာ grid container ပဲဖြစ်ပါတယ်။
+        grid class ကိုမှမဟုတ်ဘဲ ကြိုက်တဲ့ CSS selector ကို grid container အဖြစ်သတ်မှတ်နိုင်ပါတယ်။ ဒီတော့ ကျွန်တော်တို့ရဲ့ grid.css file ထဲမှာ grid ကို target လုပ်တဲ့ .grid ကိုခေါ်ပြီး သူ့ထဲမှာ display: grid; နဲ့ max-width: 800px; လို့ပေးလိုက်မယ်။ ဒါဆိုရင်တော့
+        grid လို့ပေးထားတဲ့ div ထဲက children တွေဟာ သူ့အလိုလို grid items တွေဖြစ်သွားမှာပါ။ အခု browser ကိုကြည့်လိုက်မယ်ဆိုရင် ဘာမှ changes မဖြစ်သေးတာကိုတွေ့ရမှာဖြစ်ပြီး ဒါဟာ ဘာလို့လဲဆိုရင် browser က default အနေနဲ့ grid container ထဲက gird items တွေကို single
+        column တစ်ခုတည်းမှာထားလိုက်လို့ဖြစ်ပါတယ်။ အခု အဲ့ဒီ grid items တွေကို multiple columns တွေဖြစ်အောင်ပါမယ်။ CSS grid layout မှာဆိုရင် columns နဲ့ rows (သို့) ကပ်လျှက်ရှိနေတဲ့ grid lines နှစ်ခုကြားက space ကို grid tracks လို့ခေါ်ပါတယ်။ ဒါကြောင့်
+        ကျွန်တော်တို့ဟာ column tracks တွေကိုထည့်ဖို့အတွက် grid-template-columns ဆိုတဲ့ property ကိုသုံးပြီး ၊ rows tracks တွေထည့်ဖို့အတွက် grid-template-rows ဆိုတဲ့ property ကိုသုံးရပါတယ်။ အဲ့ဒီ properties တွေဟာ grid track တစ်ခုစီရဲ့ size ကိုသတ်မှတ်တာဖြစ်ပြီး
+        သတ်မှတ်မယ်ဆိုရင်တော့ grid container ထဲမှာ အဲ့ဒီ propertiesတွေကို သတ်မှတ်ရမှာဖြစ်ပါတယ်။ Grid container CSS rule ဟာ rule တစ်ခုတည်းနဲ့ grid မှာဖြစ်နေတဲ့အရာတော်တော်များများကို manage လုပ်နိုင်တဲ့အတွက် grid layout configuration rule လို့ပြောလို့ရပါတယ်။
+        ဒါကြောင့် .grid ဆိုတဲ့ grid container ထဲမှာ grid-template-columns ကို track-list လို့ခေါ်တဲ့ space-separated list of value ကို ထည့်လိုက်ပါမယ်။ Track-list ထဲမှာရှိတဲ့ value တစ်ခုချင်းစီဟာ column ရဲ့ size ကိုသတ်မှတ်ပေးပြီး နောက်ထပ် define လုပ်လို့ရတဲ့
+        track values တွေအများကြီးရှိပါတယ်။ ဒါပေမယ့် pixels ကဲ့သို့သော CSS length units ကိုပဲ အသုံးများကြပါတယ်။ အခြား advanced methods တွေဖြစ်တဲ့ flexible length units နဲ့ sizing functions တွေသုံးလို့ရပေမယ့် ဒါတွေကို နောက်မှာ ပြောပြသွားပါမယ်။ ဒါဆို ကျွန်တော်တို့
+        grid container ဖြစ်တဲ့ div ထဲက items သုံးခုကို columns သုံးခုဖြစ်အောင်လုပ်မယ်ဆိုရင် three column tracks ကို defineလုပ်ပြီး တစ်ခုချင်းစီရဲ့ value ကို 200px လို့ထားလိုက်မယ်။ ဒါဆိုရင်တော့ အဲ့ဒီ items သုံးခုဟာ 200px အကျယ်နဲ့ side by side ပေါ်နေမှာဖြစ်ပါတယ်။
+        Grid container ရဲ့ width နဲ့ relative ဖြစ်ဖို့အတွက် items သုံးခုကို လိုသလို width သတ်မှတ်လို့ရပါတယ်။ ကျွန်တော်တို့ဟာ အခြား em နဲ့ rem values တွေကို track list ထဲမှာ CSS calculation function တွေရှိနေရင်တောင် သုံးနိုင်ပါသေးတယ်။ columns tracks တွေရဲ့
+        width ကို grid container မှာအပြည့်ပေါ်ချင်ရင်တော့ auto ဆိုတဲ့ value ကိုသုံးပေးရမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Grid Container&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/page.css"&gt;
+                &lt;link rel="stylesheet" href="../grid.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="grid"&gt;
+                    &lt;div class="item"&gt;Item 1&lt;/div&gt;
+                    &lt;div class="item"&gt;Item 2&lt;/div&gt;
+                    &lt;div class="item"&gt;Item 3&lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of page.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /*************************
+            Page Layout
+            *************************/
+            
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                padding: 0;
+                margin: 10px;
+                font-size: 1.4em;
+                font-family: 'Varela', sans-serif;
+                font-weight: bold;
+                color: #6e859c;
+                background: lightgray;
+            }
+            
+            .grid {
+                background: #fff;
+                border-radius: 0.285em;
+                box-shadow: 0 0.1em 0 0 rgba(0, 0, 0, 0.1);
+                margin: auto;
+            }
+            
+            .item:nth-child(even) {
+                background-color: #48acb5;
+            }
+            
+            .item {
+                background-color: #2a425a;
+                border-radius: 5px;
+                color: white;
+            }
+        </code>
+    </pre>
+    <p>Example of grid.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            Grid Container
+            ************************/
+
+            .grid {
+                max-width: 800px;
+                display: grid;
+                grid-template-columns: 200px 200px 200px;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/grid_container.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+
+    <h2>Adding Grid Columns and Rows</h2>
+    <p>ဒီသင်ခန်းစာမှာ grid columns နဲ့ grid rows တွေထပ်ထည့်ဖို့အတွက် အပေါ်သင်ခန်းစာထဲက HTML file မှာ နောက်ထပ် item သုံးခုကို 4, 5, 6 ဆိုပြီးပေးလိုက်မယ်။ ထည့်လိုက်ပြီးတဲ့နောက် အသစ် item သုံးခုဟာ row အသစ်တစ်ခုစပြီး အောက်မှာယူသွားမှာဖြစ်ပြီး အပေါ်က ပထမ row
+        နဲ့ကပ်ပြီးပေါ်နေမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ နောက်ထပ် items တွေထပ်ထည့်ရင်လည်း grid ဟာ content အတွက် လိုအပ်သလောက် rows တည်ဆောက်သွားမှာဖြစ်ပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့အခု grid ထဲမှာ row ဘယ်နှစ်ခုရှိမယ်ဆိုတာ အတိအကျ မသတ်မှတ်ရသေးပါဘူး။ ဒါကြောင့် default
+        အနေနဲ့ rows တွေဟာ သူတို့ hold လုပ်ထားတဲ့ content အတိုင်း tallဖြစ်နေမှာဖြစ်ပါတယ်။ ဒါပေမယ့် row tacks နဲ့ define လုပ်ပြီး vertical space ဘယ်လောက်များများကို row အဖြစ်ယူမယ်ဆိုတာကို control လုပ်လို့ရပါတယ်။ ဒါကိုသတ်မှတ်မယ်ဆိုရင် grid-template-rows
+        ဆိုတဲ့ property ကိုသုံးပြီး သူဟာ ကျွန်တော်တို့ grid ထဲမှာ row ကို create လုပ်တာဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ .grid rule ထဲမှာ grid-template-rows ကို သူ့ထဲက value ကို 100px လို့ထည့်လိုက်မယ်။ ပထမ value ဟာ ပထမ row ရဲ့ track-sizing ဖြစ်ပြီး၊
+        ဒုတိယ value ဟာ ဒုတိယ row ရဲ့ track-sizing ပဲဖြစ်ပါတယ်။ အခုအတိုင်းဆိုရင် အပေါ် row က 100px ရှည်ပြီးတော့ ဒုတိယ row ဟာ ဘာမှမပေးရသေးတဲ့အတွက် content ရဲ့ အရှည်အတိုင်း default ပေါ်နေမှာဖြစ်ပါတယ်။ ဒါကြောင့် ဒုတိယ value ကို 200px ပေးလိုက်မယ်ဆိုရင် ပထမ
+        row က 100px ရှည်ပြီး၊ ဒုတိယ row ဟာ 200px ရှည်နေမှာဖြစ်ပါတယ်။ အခု grid ကို set up လုပ်ပြီးပြီဆိုတော့ container ရဲ့ direct children တွေဟာ grid ထဲမှာရှိနေမှာဖြစ်ပါတယ်။ ဒါကြောင့် example အနေနဲ့ grid container ထဲမှာ h2 နဲ့ paragraph တွေထည့်မယ်ဆိုရင်
+        သူတို့တစ်ခုချင်းစီဟာလည်း grid item တွေဖြစ်သွားပြီး column tracks ပုံစံနဲ့ align ချပေးသွားမှာဖြစ်ပါတယ်။ သတိထားရမှာက third column မှာ space ဖြစ်နေတာဟာ item မထည့်ရသေးတာကြောင့်ဖြစ်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ grid container ထဲမှာ text အချို့ကို tag
+        မထည့်ပဲ တိုက်ရိုက်ထည့်မယ်ဆိုရင်တောင် အဲ့ဒီ text ဟာ ကိုယ်ပိုင် grid item အနေနဲ့ ပေါ်လာမှာဖြစ်ပါတယ်။ ဒါကို anonymous grid item လို့ခေါ်ပါတယ်။ မှတ်ထားရမှာက grid container တစ်ခုရဲ့ direct children တွေသာလျှင် grid items ဖြစ်မှာဖြစ်ပါတယ်။ ဒါဟာဘာကိုဆိုလိုသလဲဆိုရင်
+        grid layout ဟာ grid items ထဲမှာရှိတဲ့ content တစ်ခုကို affect မဖြစ်လို့ပဲဖြစ်ပါတယ်။ ဒါပေမယ့် grid item တစ်ခုကတော့ grid container တစ်ခုဖြစ်နိုင်ပါတယ်။ CSS grid နဲ့ grid item ရဲ့ content ကို layout ချမယ်ဆိုရင် ကျွန်တော်တို့အနေနဲ့ သူ့ရဲ့ grid tracks
+        ကို display: grid; လို့ပေးလိုက်ရင်ရပါပြီ။ ဒါဆိုရင်တော့ ကျွန်တော်တို့ပြုလုပ်လိုက်တာဟာ grid ထဲမှာ နောက်ထပ် grid တစ်ခု nested ဖြစ်နေတယ်ဆိုတာ မြင်တွေ့ရမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Grid Container&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/page.css"&gt;
+                &lt;link rel="stylesheet" href="../grid.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="grid"&gt;
+                    &lt;div class="item"&gt;Item 1&lt;/div&gt;
+                    &lt;div class="item"&gt;Item 2&lt;/div&gt;
+                    &lt;div class="item"&gt;Item 3&lt;/div&gt;
+                    &lt;div class="item"&gt;Item 4&lt;/div&gt;
+                    &lt;div class="item"&gt;Item 5&lt;/div&gt;
+                    &lt;div class="item"&gt;Item 6&lt;/div&gt;
+                    &lt;h2&gt;CSS Grid Layout&lt;/h2&gt;
+                    &lt;p&gt;This is a two dimensional layout system.&lt;/p&gt;
+                    Some text here.......
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of page.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /*************************
+            Page Layout
+            *************************/
+
+            
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                padding: 0;
+                margin: 10px;
+                font-size: 1.4em;
+                font-family: 'Varela', sans-serif;
+                font-weight: bold;
+                color: #6e859c;
+                background: lightgray;
+            }
+            
+            .grid {
+                background: #fff;
+                border-radius: 0.285em;
+                box-shadow: 0 0.1em 0 0 rgba(0, 0, 0, 0.1);
+                margin: auto;
+            }
+            
+            .item:nth-child(even) {
+                background-color: #48acb5;
+            }
+            
+            .item {
+                background-color: #2a425a;
+                border-radius: 5px;
+                color: white;
+            }
+        </code>
+    </pre>
+    <p>Example of grid.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            Grid Layout
+            ************************/
+
+            .grid {
+                max-width: 800px;
+                display: grid;
+                grid-template-columns: 200px auto 200px;
+                grid-template-rows: 100px 200px;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/adding_grid.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Separate Columns and Rows</h2>
+    <p>CSS grid နဲ့ ကျွန်တော်တို့ဟာ columns နဲ့ rows တွေကြားက spaces (သို့) gutters ကို control လုပ်နိုင်ပါတယ်။ Grid tracks တွေကို ပိုင်းခြားဖို့အတွက် grid-row-gap နဲ့ grid-column-gap ဆိုတဲ့ properties တွေကို အသုံးပြုနိုင်ပါတယ်။ ကျွန်တော်တို့ column tracks
+        တွေကြားကို grid-column-gap ကိုသုံးပြီး separate လုပ်ပါမယ်။ Grid-column-gap နဲ့ grid-row-gap properties တွေရဲ့ value ကို ကြိုက်တဲ့ CSS length unit (သို့) parent container ရဲ့ width အပေါ်မူတည်ပြီး percentage တစ်ခုနဲ့ပေးလို့ရပါတယ်။ ကျွန်တော်တို့
+        သတိထားရမှာက gutters တွေဟာ ပထမ row နဲ့ column track (သို့) နောက်ဆုံး tracks တွေမှာ ကွာခြားမှုမရှိတာကြောင့် grid ရဲ့ အပြင်ဘက်အစွန်းမှာ ကွာဟမှုရှိမှာမဟုတ်ပါဘူး။ Gaps တွေကို ကပ်လျက်ရှိနေတဲ့ columns နဲ့ rows တွေမှာသာလျှင် ဖန်တီးပေးတာဖြစ်ပါတယ်။ Row
+        gaps နဲ့ column gaps တွေကို တစ်ကြိမ်တည်းနဲ့ sorting လုပ်ဖို့ grid-gap ဆိုတဲ့ shorthand property ကိုသုံးပါတယ်။ ဒီ shorthand property ကိုရေးတဲ့အခါမှာ ပထမ value က grid row gap အတွက်ဖြစ်ပြီး ၊ ဒုတိယ value ကတော့ grid column gap အတွက်ဖြစ်ပါတယ်။ Rows
+        နဲ့ columns တွေရဲ့အကွာဟာ value အတူတူဖြစ်နေတယ်ဆိုရင် grid-gap: 15px; ဆိုပြီး value တစ်ခုတည်းနဲ့ရေးနိုင်ပါတယ်။ ဒါတွေဟာ grid ကိုတည်ဆောက်တဲ့ အခြေခံသဘောတရားတွေပဲဖြစ်ပါတယ်။ နောက်သင်ခန်းစာမှာတော့ grid items တွေကို line numbers တွေသုံးပြီးတော့ ထားမှာဖြစ်ပါတယ်။
+    </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            .grid {
+                max-width: 800px;
+                display: grid;
+                grid-template-columns: 200px auto 200px;
+                grid-template-rows: 100px 200px;
+
+                /* grid-column-gap: 15px;
+                grid-row-gap: 20px; */
+
+                //grid-gap: 15px 20px;  /* shorthand property for grid gap */
+
+                grid-gap: 15px;         /* shorthand property for grid gap with same value */
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/separate_rows_columns.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Flexible Grid Layout</h2>
+    <p>CSS Grid Layout ဟာ grid container တစ်ခုအတွင်းမှာရှိတဲ့ items တွေရဲ့ size တွေ ၊ position တွေနဲ့ space တွေကို content နဲ့ လိုက်လျောညီထွေမှုရှိစေမယ့် features အသစ်တွေကို မိတ်ဆက်ပေးခဲ့ပါတယ်။ အဲ့ဒီ features တွေဟာ browser sizes အမျိုးမျိုးမှာ အလုပ်လုပ်ပေးနိုင်တဲ့
+        layout ကို တည်ဆောက်ဖို့ ပိုမိုလွယ်ကူပြီးတော့ responsive design ကိုလည်း support ပေးနိုင်ပါတယ်။ ကျွန်တော်တို့ အသုံးများဆုံး grid length values တွေထဲက တစ်ခုကတော့ fr or fraction unit ပဲဖြစ်ပါတယ်။ Flexible length unit ကို grid ထဲက free space အပေါ်အခြေခံပြီး
+        grid tracks တွေကို ကျုံ့ (သို့) ချဲ့ လုပ်နိုင်ဖို့အတွက် design လုပ်ထားတာဖြစ်ပါတယ်။ Default အနေနဲ့ ကျွန်တော်တို့ grid ကြီးဟာ flexible ဖြစ်မနေပါဘူး။ ကျွန်တော်တို့ extra space ကို ဖြည့်ဖို့အတွက် column တစ်ခုကို auto ပေးရတာကိုလေ့လာထားပြီးဖြစ်ပြီး
+        auto ဟာ content ကိုအခြေခံပြီးတော့ size ကို အလိုလိုညှိပေးတာဖြစ်ပါတယ်။ ဒါကြောင့် item တစ်ခုဟာ space ဘယ်လောက်များများ ယူတယ်ဆိုတာကို သတ်မှတ်နိုင်တဲ့ total control ကိုမပေးပါဘူး။ ဥပမာ အနေနဲ့ column တစ်ခုကို သေးငယ်တဲ့ free space အဖြစ်ထားပြီး ၊ နောက်တစ်ခုကို
+        larger amount နဲ့ ထားချင်တယ်ဆိုရင် CSS grid ဟာ ကျွန်တော်တို့ layout ရဲ့ fluidity or responsiveness ကို အပြည့်အ၀ control လုပ်နိုင်ပါတယ်။ ဒါဟာ ဘာကိုဆိုလိုသလဲဆိုရင် ကျွန်တော်တို့ဟာ grid items တွေကို သူတို့ကို ခြုံထားတဲ့ container width မှာ fit ဖြစ်ဖို့
+        auto wrap လုပ်သွားပြီးတော့ adjust လုပ်ပေးနိုင်မှာဖြစ်ပါတယ်။ ဒါဟာ media queries တွေမပါဘဲ flexible grid layouts ကို create လုပ်လိုက်တာနဲ့တူတူပါပဲ။ ဒါဆို fr unit ကိုသုံးပြီး flexible grid တစ်ခု ပြုလုပ်ကြည့်ရအောင်။ fr ဆိုတဲ့ unit ဟာ grid container
+        ထဲမှာရှိတဲ့ ရနိုင်တဲ့ space ရဲ့ fraction တစ်ခုကို ကိုယ်စားပြုပေးပါတယ်။ ကြိုက်တဲ့ column track တစ်ခုခုရဲ့ values ကို 1 fr လို့ပေးလိုက်မယ်ဆိုရင် သူဟာ extra space ကို ဖြည့်ပေးမှာဖြစ်ပါတယ်။ fr က ယူလိုက်တဲ့ free space ဟာ non flexible tracks တွေပြီးမှ
+        သူ့ကိုတွက်ပေးတာဖြစ်ပါတယ်။ ဆိုလိုတာက 1 fr ကရနိုင်တဲ့ free space ရဲ့ total amount ဟာ gutter အားလုံးမှာ assign လုပ်ထားတဲ့ space အပါအဝင် column tracks တစ်ခုချင်းစီက နေရာယူထားတဲ့ space တွေမပါဝင်ပါဘူး။ ဒါကြောင့် နောက်ထပ်တစ်ခုကို track size ကို track
+        size 1 fr ပေးလိုက်ခြင်းဟာ flexible values တွေကို gap values တွေနဲ့ non flexible ဖြစ်တဲ့ values တွေကိုယူပြီးတဲ့နောက် ကျန်တဲ့ space တွေရဲ့ကြားကို သတ်မှတ်လိုက်တာဖြစ်ပါတယ်။ ဒါကြောင့် fr ဟာ math လုပ်ဖို့မလိုအပ်ပါဘူး။ ကျွန်တော်တို့အနေနဲ့ fluid columns
+        တွေ create လုပ်ဖို့ percentage calculations တွေမလိုပဲ flexible grids တွေကို ဖန်တီးနိုင်ပါတယ်။ ဥပမာ three-column layout တစ်ခုကို percentages တွေနဲ့ create လုပ်မယ်ဆိုရင် အဲ့ဒီ column သုံးခုလုံးဟာ 100% ဖြစ်နေဖို့လိုပါတယ်။ ဒါဆို တစ်ခုချင်းစီကို 33.33%
+        ဆိုပြီးတွက်နေရမှာဖြစ်ပါတယ်။ ပြီးတော့ gaps တွေကိုပါလိုချင်ရင် သူတို့ရဲ့ gutter sizes တွေပါ ထည့်တွက်ပြီး 100% ကိုက်အောင်လုပ်နေရမှာဖြစ်ပါတယ်။ ဒါကြောင့် Grid နဲ့ဆိုရင် column tracks သုံးခုဟာ flexible ဖြစ်နေပြီး သူတို့တစ်ခုချင်းစီဟာလည်း free space
+        ကို ရိုးရှင်းစွာပဲ auto ယူသွားမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ columns သုံးခုစလုံးကို 1fr လို့ပေးလိုက်မယ်ဆိုရင် သူတို့ဟာ width တူညီစွာယူသွားမှာဖြစ်ပြီး column တစ်ခုချင်းစီဟာ grid container width ရဲ့ သုံးပုံတစ်ပုံ (1/3) အနေနဲ့ set လုပ်သွားမှာဖြစ်ပါတယ်။
+        သူတို့ထဲက ကြိုက်တဲ့ column ကို space ကြီးချင်တယ်ဆိုရင်တော့ fr value ကိုကြီးပြီးပေးလို့ရပါတယ်။ gutter ကယူတဲ့ ဘယ် space ကိုမဆို flexible ဖြစ်အောင်ယူထားတဲ့ fr tracks တွေမှာ space ကို assign မလုပ်ခင် တွက်ပေးတာဖြစ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့ gap အကွာကို
+        40px ထိယူလိုက်မယ်ဆိုရင် gutters တွေဟာ ပိုကျယ်သွားပြီးတော့ columns တွေဟာ narrow ဖြစ်သွားပါတယ်။ ဒါပေမယ့် သူတို့ဟာ flexible တော့ ဖြစ်နေတုန်းပါပဲ။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            /***********************
+            Grid Container
+            ***********************/
+
+
+            .grid {
+                max-width: 1000px;
+                display: grid;
+                grid-template-columns: 1fr 2fr 1fr;     /* This is a flexible grid layout */
+                grid-template-rows: 100px 200px;
+                grid-gap: 15px;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/flexible_grid_layout.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Repeat Function</h2>
+    <p>CSS Grid ဟာ အချိန်ကုန်သက်သာပြီးတော့ ကျွန်တော်တို့ CSS တွေကို maintainable လုပ်နိုင်တဲ့ repeat function ကို မိတ်ဆက်လိုက်ပါတယ်။ Repeat ဟာ တူနေတဲ့ values တွေကို ထပ်ခါထပ်ခါ မရေးရအောင် tracks တွေရဲ့ repeating ဖြစ်နေတဲ့ patterns တွေအတွက် shortcut တစ်ခု
+        offer လုပ်ခဲ့ပါတယ်။ ဒီ function ကို grid properties တွေဖြစ်တဲ့ grid-template-rows နဲ့ grid-template-columns တွေမှာ အသုံးပြုနိုင်ပါတယ်။ ဥပမာ ကျွန်တော်တို့မှာ 1fr 1fr 1fr ဆိုတဲ့ repeating values တွေပါဝင်တဲ့ column track listing တစ်ခုရှိမယ်ဆိုရင်
+        သူ့ကို shortcut အနေနဲ့ repeat function ကိုသုံးလို့ရပါတယ်။ Repeat function ထဲမှာတော့ ပထမ value ကို ကျွန်တော်တို့ repeat လုပ်ချင်တဲ့အရေအတွက်ကို ထည့်ပြီး ၊ ဒုတိယ valueကိုတော့ repeat လုပ်မယ့် value ကိုထည့်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ repeat function
+        ကို track listing ရဲ့ အစိတ်အပိုင်းတစ်ခုအနေနဲ့လည်း အသုံးပြုနိုင်ပါတယ်။ ဥပမာအနေနဲ့ ပထမ value ကို repeat မထားဘဲ နောက်က value ကိုပဲ repeat ထားချင်တယ်ဆိုရင် ပထမဆုံး value ကို ပုံမှန်အတိုင်းရေးပြီးတော့ နောက်က တူနေတဲ့ value သုံးခုကိုတော့ repeat function
+        ထဲမှာ ထည့်ရေးနိုင်ပါတယ်။ Repeat notation ဟာ ထပ်ခါထပ်ခါ ပြန်ပါနေတဲ့ repeat ဖြစ်နေတဲ့ pattern တွေပါတဲ့ columns (သို့) rows တွေအများကြီးနဲ့ အလုပ်လုပ်တဲ့အခါမှာ တစ်ကယ်ကိုအသုံးဝင်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            /*****************************
+            Grid Container
+            *****************************/
+
+            .grid {
+                max-width: 800px;
+                display: grid;
+                /* grid-template-columns: 1fr 1fr 1fr; */
+                //grid-template-columns: repeat(3, 1fr);      /* This is a repeat function */
+
+                /* grid-template-columns: 2fr 1fr 1fr 1fr; */
+                grid-template-columns: 2fr repeat(3, 1fr);      /* This is a repeat function */
+                
+                grid-template-rows: 100px 200px;
+                grid-gap: 15px;
+
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/repeat_function.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Min-Max Funtions</h2>
+    <p>Grid Layout မှာရှိတဲ့ features တွေအများကြီးထဲက အသုံးအများဆုံး တစ်ခုကတော့ minmax( ) function ပဲဖြစ်ပါတယ်။ Minmax ဟာ grid track တစ်ခုရဲ့ minimum နဲ့ maximum size တွေကို သတ်မှတ်ပေးတာဖြစ်ပါတယ်။ ဥပမာအနေနဲ့ ကျွန်တော်တို့ရဲ့ content ကို မကျဉ်း (သို့) မတိုသွားအောင်
+        ကျွန်တော်တို့ track ကို minimum size ထားပေးရပြီး ၊ content ကို အလွန် မကျယ် (သို့) မရှည်သွားအောင်ဆိုရင် ကျွန်တော်တို့ track ကို maximum size ပေးရပါတယ်။ ဒါမှမဟုတ် နောက်ထပ် ထပ်ထည့်မယ့် content ကို fit ဖြစ်ဖို့အတွက် expand လုပ်ရပါမယ်။ Grid track တစ်ခုကို
+        ဘယ်လောက်သေးရမယ် ၊ ဘယ်လောက်ကြီးရမယ်လို့ သတ်မှတ်လိုက်ခြင်းဟာ viewport sizes တွေရဲ့ ကျယ်ပြန့်တဲ့ content တွေနဲ့ လိုက်လျောညီထွေဖြစ်တဲ့ complex layouts တွေတည်ဆောက်တဲ့အခါ အကူအညီပေးနိုင်ပါလိမ့်မယ်။ ပြီးတော့ media queries တွေမသုံးဘဲနဲ့လည်း responsive
+        grid layouts တွေကို ဖန်တီးနိုင်ပါလိမ့်မယ်။ minmax () function မှာ value နှစ်ခုလက်ခံပါတယ်။ ပထမ value ကတော့ minimum value ဖြစ်ပြီး ၊ ဒုတိယတစ်ခုကတော့ maximum value ဖြစ်ပြီး ကြားထဲမှာ comma ခံပေးရပါတယ်။ သိထားရမှာတစ်ခုကတော့ minimum value ဟာ maximum
+        value ထက်အမြဲတမ်းငယ်နေရမယ်ဆိုတာပါ။ ဒီလိုမှ မဟုတ်ရင်တော့ browser ဟာ maximum value ကို ignore လုပ်သွားမှာဖြစ်ပြီး function ကလည်း အလုပ်လုပ်မှာမဟုတ်တော့ပါဘူး။ ကျွန်တော်တို့ဟာ fr unit ကို minmax နဲ့သုံးနိုင်ပါတယ်။ ဒါပေမယ့် maximum value ကိုသာလျှင်
+        အသုံးပြုလို့ရတာပါ။ ဒါဟာ သတ်မှတ်ထားတဲ့ minimum size ထက် ပိုကျဉ်းမသွားတဲ့အချိန်မှာ ရနိုင်တဲ့ space ကိုဖြည့်ဖို့ expand လုပ်ပေးတဲ့ fluid tracks တွေကို ဖန်တီးနိုင်ပါတယ်။ ဒါကြောင့် max value ကို 1fr လို့ထားလိုက်ခြင်းဟာ column က minimum value(200px)
+        ထက်ပိုပြီး မကျဉ်းတော့ဘူးလို့ ဆိုလိုတာပါ။ ပြီးတော့ တစ်ကယ်လို့ space တွေရှိသေးရင်လည်း အခြား tracks တွေနဲ့ free space တွေကိုယူပြီး expand လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ နောက်ဆုံးမှာတော့ size တူညီပြီး flexible ဖြစ်တဲ့ 200px မကျဉ်းတော့တဲ့ column tracks သုံးခုကို
+        လိုချင်တယ်ဆိုရင်တော့ ကျွန်တော်တို့အနေနဲ့ အဲ့ဒီ column ခုလုံးကို minmax() function သုံးပေးရမှာဖြစ်ပါတယ်။ သုံးခုလုံးရေးလိုက်မယ်ဆိုရင် code ဟာအနည်းငယ်ရှုပ်ထွေးနေမှာပါ။ ဒါကို repeat function ကိုသုံးပြီး column သုံးခုလုံးကို တစ်ခါတည်းရေးနိုင်ပါတယ်။
+        Eg. (grid-template-columns: repeat(3, minmax(200px, 1fr)); ) ။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            /**********************
+            Grid Container
+            **********************/
+
+            .grid {
+                max-width: 800px;
+                display: grid;
+
+                /* grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr); */       /* This is a minmax function */
+                grid-template-columns: repeat(3, minmax(200px, 1fr));       /* This is a repeat function with minmax function */
+
+                grid-template-rows: repeat(2, 200px);
+                grid-gap: 15px;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/minmax_function.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Repeat Notation (auto-fill and auto-fit)</h2>
+    <p>Grid Layout ဟာ ကျွန်တော်တို့ ထည့်လိုက်တဲ့ grid items တွေကို အလိုအလျောက် wrap လုပ်ပေးပြီးတော့ သူတို့ရဲ့ container width နဲ့ fit ဖြစ်အောင် adjust လုပ်ပေးပါတယ်။ ဒါဟာ မတူညီတဲ့ browser widths တွေမှာ responsive ဖြစ်တဲ့ design တွေကို create လုပ်နိုင်ပါတယ်။
+        Grid Layout မှာရှိတဲ့ repeat notation ဟာ auto-fill နဲ့ auto-fit ဆိုပြီး keyword နှစ်ခုရှိပါတယ်။ Container ရဲ့ space ဟာ minumum column sizes နဲ့ gap sizes ကို combine လုပ်ထားတာထက် ပိုပြီးငယ်နေတယ်ဆိုရင် columns တွေဟာ grid container ကို overflow
+        ဖြစ်သွားပါတယ်။ ကျွန်တော်တို့ ဥပမာထဲက repeat value ကို 3 ပေးလိုက်တာဟာ grid container ရဲ့ width ဟာ ဘယ်လောက်ပဲဖြစ်နေဖြစ်နေ browser က column tracks သုံးခုကို အမြဲတမ်း generate လုပ်ပေးမယ်လို့ပြောလိုက်တာပါ။ ကျွန်တော်တို့သိတဲ့အတိုင်းပဲ လိုချင်တဲ့ break
+        point ရောက်ရင် layout ကို adjust လုပ်သွားဖို့အတွက် CSS ရဲ့ media queries ကိုသုံးရပါတယ်။ Repeat notation မှာ auto-fill နဲ့ auto-fit ဆိုတဲ့ keywords တွေဟာ gird ကို overflow မဖြစ်စေဘဲ ရရှိနိုင်တဲ့ space တွေကို fit ဖြစ်ဖို့အတွက် လိုအပ်သလောက် columns
+        တွေအများကြီးကို generate လုပ်ပေးဖို့ browser ကို ညွှန်ကြားပေးလိုက်တာပါ။ ဒါကြောင့် တိကျတဲ့ track အရေအတွက်ကို pass လုပ်မယ့်အစား auto-fill or auto-fit ကိုသုံးမယ်ဆိုရင် browser ဟာ grid container ရဲ့ width ကိုအပြည့်ယူပေးမယ့် tracks တွေကို အလိုအလျောက်
+        generate လုပ်ပေးပါလိမ့်မယ်။ ထို့အပြင် container ရဲ့ အပေါ်မူတည်ပြီးတော့ wrap and adjust လုပ်သွားမှာဖြစ်ပါတယ်။ Auto-fit နဲ့ auto-fill တွေဟာ responsive grid layout မှာဆိုရင် magic ingredient လိုပါပဲ။ Number value နဲ့ auto-fill ရဲ့ခြားနားချက်ကတော့
+        auto-fill ဟာ container ကို overflow မဖြစ်စေဘဲ ဥပမာထဲကလို 200px အကျယ်ရှိတဲ့ column တွေ container ထဲမှာ fit ဖြစ်နိုင်သလောက် columns တွေ fit ဖြစ်နေရမယ်လို့ browser ကို ညွှန်ကြားလိုက်ခြင်းဖြစ်ပါတယ်။ Auto-fill ဟာ grid gaps ကိုလည်း တွက်သွားပါသေးတယ်။
+        ဥပမာ ကျွန်တော်တို့ရဲ့ grid container ကို max-width: 1000px; ပေးလိုက်မယ်ဆိုရင် 200px ရှိတဲ့ grid items လေးခုဟာ container ရဲ့ width အတွင်းမှာ fit ဖြစ်နေတာကိုတွေ့ရမှာပါ။ ကျန်နေတဲ့ grid items တွေကတော့ နောက် row တစ်ခုမှာ wrap ဖြစ်သွားမှာပါ။ ကျွန်တော်တို့ဟာ
+        browser ကို shrink လုပ်လိုက်တာနဲ့ grid ဟာ 200px ကျယ်တဲ့ four columns ကနေ 3 columns, 2 column နဲ့ 1 column ဆိုပြီးတော့ အလိုအလျောက် နေရယူသွားမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့က track size ကို 60px ပေးလိုက်မယ်ဆိုရင် grid ဟာ container width နဲ့
+        fit ဖြစ်တဲ့ 60px ကျယ်တဲ့ columns တွေကို အလိုအလျောက် create လုပ်သွားမှာဖြစ်ပါတယ်။ Auto-fill ဟာကျန်ရှိနေတဲ့ space တွေကို empty column tracks နဲ့ fill လုပ်သွားမှာဖြစ်ပါတယ်။ auto-fill or auto-fit ကို pixel values တွေနဲ့သုံးခြင်းဟာ flexible column
+        ကို lose ဖြစ်စေပါတယ်။ ဥပမာ အနေနဲ့ grid tracks တွေရဲ့ ညာဘက်မှာ space တွေကျန်နေတာကို ပြောတာပါ။ ဒါဆို အဲ့ဒီ ကျန်နေတဲ့ space တွေကို 60px ရှိတဲ့ columns တွေကြားမှာ fill ဖြစ်သွားအောင် auto-fill နဲ့ minmax ကိုပေါင်းပြီး သုံးနိုင်ပါတယ်။ Eg.(grid-template-columns:
+        repeat(auto-fill, minmax(60px, 1fr)); ) ။ Auto-fill နဲ့ auto-fit keywords တွေမှာ တူညီတဲ့ behavior ရှိပါတယ်။ သူတို့ဟာ columns အများကြီးကို generate လုပ်ပေးပြီး gird ကို overflow ဖြစ်မသွားစေဘဲ ရနိုင်တဲ့ space တွေကို fit လုပ်သွားပါလိမ့်မယ်။ သူတို့နှစ်ခုရဲ့
+        ခြားနားချက်ကတော့ flexible column sizes တွေအတွက် minmax ကိုသုံးတဲ့အခါမှာ သူတို့ပေါ်လာပုံက မတူတာပါပဲ။ သူတို့နှစ်ခုရဲ့ အဓိက မတူတဲ့အချက်ကတော့ empty repeated tracks တွေကို ဘယ်လို handle လုပ်လဲဆိုတာပါပဲ။ auto-fill ကတော့ container ရဲ့ width အတိုင်း column
+        tracks တွေကို ဖြည့်သွားပြီး container ရဲ့ full width ကို မဖြည့်ပေးဘဲ empty tracks တွေကျန်နေပါတယ်။ auto-fit နဲ့ဆိုရင်တော့ empty columns တွေ display လုပ်တာကို ကာကွယ်နိုင်ပြီး grid items တွေဟာ ကျန်နေတဲ့ empty space တွေကို expand လုပ်နိုင်ပါတယ်။ auto-fit
+        ဟာ ကျန်နေတဲ့ empty tracks အားလုံးကို collapse လုပ်သွားမှာဖြစ်ပါတယ်။ အကောင်းဆုံးအပိုင်းကတော့ ဒါတွေအားလုံးဟာ media queries ကိုမသုံးဘဲနဲ့ flexible ဖြစ်အောင် လုပ်နိုင်တာပါပဲ။</p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            Grid Container
+            ************************/
+
+            .grid {
+                max-width: 1000px;
+                display: grid;
+                /*  grid-template-columns: minmax(200px, 1fr) minmax(200px, 1fr) minmax(200px, 1fr) ;       this is minmax function */
+                /*  grid-template-columns: repeat(auto-fill, 200px);         this is repeat function with auto-fill function */
+                /* grid-template-columns: repeat(auto-fill, 60px);            this cause empty repeated tracks          */
+                /* grid-template-columns: repeat(auto-fill, minmax(60px, 1fr));    this can also cause empty track  */
+                grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));    /* this cannot cause empty track    */
+                grid-template-rows: 150px 100px;
+                grid-gap: 15px;   
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/auto_fit.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Explicit and Implicit Grid</h2>
+    <p>ကျွန်တော်တို့ grid layout တစ်ခု create လုပ်တဲ့အခါ explicit grid လို့ခေါ်တဲ့အရာကို သတ်မှတ်ပေးရပါတယ်။ သူ့ရဲ့ grid ဟာ grid-template-rows နဲ့ grid-template-columns properties တွေနဲ့ define လုပ်ထားတာဖြစ်ပါတယ်။ ဥပမာ grid တစ်ခုကို three column tracks နဲ့
+        two row tracks ဆိုပြီး တည်ဆောက်မယ်ဆိုရင် explicit grid ဟာ item ခြောက်ခုကိုပဲ fit ဖြစ်နိုင်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ grid container မှာ nine items or အများကြီးရှိနေမယ်ဆိုရင် ပိုနေတဲ့ items တွေက ဘာဖြစ်သွားမလဲ။ ကျွန်တော်တို့ရဲ့ page content ကို
+        dynamically တည်ဆောက်ပြီးတော့ page ပေါ်မှာလည်း grid items တွေဘယ်လောက်များများရှိနေမယ်ဆိုတာကို မသိနိုင်တဲ့ အခြေအနေမျိုးမှာ ဒီ solution ကိုသုံးရပါတယ်။ ဥပမာ photo thumbnails site လိုမျိုး photo တွေကို length တွေနဲ့ဖော်ပြတဲ့ အပေါ်မူတည်ပြီး ပြောင်းလဲနေတာဖြစ်တဲ့အတွက်
+        သူ့ကို handle လုပ်ဖို့ဆိုရင် implicit grid ကိုသုံးလို့ရပါတယ်။ Grid Layout ဟာ implicit grid ကို provide လုပ်နိုင်ပါတယ်။ Implicit grid ဟာ explicit grid ရဲ့ အပြင်ဘက်မှာရှိတဲ့ ဘယ် extra items တွေမဆို position ချဖို့အတွက် grid container ကနေ အလိုအလျောက်
+        generate လုပ်ပေးပါတယ်။ ဒါဟာ grid ကိုတည်ဆောက်တဲ့အခါမှာ အရေးကြီးတဲ့ concept တစ်ခုဖြစ်ပါတယ်။ ဘာကြောင့်လဲဆိုရင်တော့ သူဟာ grid items တွေရဲ့ placement နဲ့ size တွေသာမကပဲ ကြိုပြီးတွက်ချက်မထားတဲ့ items တွေကိုတောင် determine လုပ်ပေးနိုင်ဖို့ ကူညီပေးလို့ပဲဖြစ်ပါတယ်။
+        ပြီးတော့ ပိုကောင်းမွန်တဲ့ Grid Layout ကိုလည်း ဖန်တီးပေးနိုင်မှာဖြစ်တယ်။ ကျွန်တော်တို့အနေနဲ့ implicit tracks တွေသုံးပြီး အလုပ်လုပ်ခဲ့ပြီးပါပြီ။ မှတ်ထားရမှာကတော့ ကျွန်တော်တို့ column tracks တွေကို စပြီးတော့ define လုပ်တဲ့အခါ container ကို new grid
+        items တွေ add လုပ်တာဖြစ်တဲ့ row tracks တွေမရှိဘူးဆိုရင်တောင် grid implicit ဟာ grid items တွေကို rows တေအဖြစ်နဲ့ placed လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ row tracks ကို နှစ်ခုပဲသတ်မှတ်ထားတာတောင် flexible grid တည်ဆောက်တုန်းက three columns ,
+        two columns နဲ့ one column အသီးသီးကို row အသစ်တစ်ခုဆင်းပြီးတော့ adjust လုပ်သွားနိုင်ပါတယ်။ ဥပမာအနေနဲ့ အပေါ်က သင်ခန်းစာမှာ two rows ကို create လုပ်ခဲ့ပြီး ကျွန်တော်တို့ grid items တွေထပ်ထည့်တဲ့အခါမှာ ထပ်ထည့်လိုက်တဲ့ grid items တွေက row အသစ်အနေနဲ့
+        ပေါ်ပေးမှာဖြစ်ပါတယ်။ ဒါပေမယ့် ကျွန်တော်တော်တို့ထပ်ထည့်လိုက်တဲ့ grid items တွေဟာ အပေါ်ကသတ်မှတ်ထားတဲ့ 200px လောက်ရှည်မှာမဟုတ်ပါဘူး။ Implicit tracks တွေဟာ default အားဖြင့် auto sized လုပ်ပေးနိုင်ပါတယ်။ ဒါကြောင့် သူတို့ရဲ့ size တွေဟာ content အပေါ်မှာပဲ
+        မူတည်ပါတယ်။ သူတို့ရဲ့ height ကို သတ်မှတ်ချင်တယ်ဆိုရင်တော့ grid-template-rows ထဲမှာ သတ်မှတ်ပေးရမှာဖြစ်ပါတယ်။ ဒါဆိုရင်တော့ extra items တွေဟာ explicit grid ထဲမှာ placed လုပ်သွားမှာဖြစ်ပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့ဟာ implicit tracks တွေထဲမှာ items
+        အရေအတွက်ကို အမြဲ control လုပ်လို့မရပါဘူး။ ဥပမာ နောက်ထပ် item တွေကို ထပ်ထည့်တယ်အခါ နောက်ထပ် implicit row ကို create လုပ်မှာ ဖြစ်ပီး အဲ့ row အတွက် သီးသန့် implicit track ကို သတ်မှတ်ဖို့ လိုလာနိုင်ပါတယ်။ New items တွေကို အသစ်ထပ်ထည့်တဲ့အခါတိုင်း ကျွန်တော်တို့
+        CSS ထဲမှာ grid-template-rows tracklist ကို update လုပ်နေရမှာဖြစ်ပါတယ်။ ဒါကြောင့် grid ဟာ implicit grid tracks တွေရဲ့ size နဲ့ placement ကို control လုပ်ဖို့အတွက် တစ်ကယ်ကို အသုံးဝင်ပြီးတော့ smarter လည်းဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            /*******************
+            Grid Container
+            *******************/
+
+            .grid {
+                grid-template-columns: 1fr 1fr 1fr;
+                grid-template-rows: 100px 150px;       /* if the grid has three rows, the last row will be implicit row */
+            } 
+        </code>
+    </pre>
+    <p>
+        <a href="directory/implicit&explicit.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Solution of Implicit Grid</h2>
+    <p>Implicit grid tracks တွေကို ဘယ်လိုတည်ဆောက်ရမလဲဆိုတာ သိထားခြင်းဟာ Grid Layout တည်ဆောက်တဲ့အခါမှာ အရေးပါပါတယ်။ အပေါ်မှာပြောပြခဲ့တဲ့ သင်ခန်းစာလိုပဲ ကျွန်တော်တို့ဟာ item တိုင်းကို manually နေရာချလို့မရပါဘူး။ ပြီးတော့ ကျွန်တော်တို့ build လုပ်လိုက်တဲ့ site
+        အပေါ်မူတည်ပြီးတော့ grid container ထဲမှာ item တွေဘယ်လောက်ရှိမလဲဆိုတာ မသိနိုင်ပါဘူး။ ဒါကြောင့် grid layout ဟာ explicit grid ရဲ့ ဘယ် item ကိုမဆို position ချဖို့ implicit grid tracks တွေကို generate လုပ်လိုက်ပါတယ်။ ဒါပေမယ့် ဒီ implicit tracks တွေကို
+        ဘယ်လို size လုပ်ပြီးတော့ position ချမလဲ။ Implicit tracks တွေရဲ့ အရေအတွက်ဟာ ကြိုက်သလောက်ရှိနိုင်တဲ့အတွက် သူ့ကို တိကျတဲ့ size ပေးတဲ့အခါ သတိထားဖို့လိုပါတယ်။ ကျွန်တော်တို့ layout မှာ explicit row tracks နှစ်ခုကို 100px နဲ့ 200px ဆိုပြီး ကြေငြာထားပါတယ်။
+        ပြီးတော့ ကျွန်တော်တို့ grid container မှာ grid items ဆယ်ခုရှိမယ်။ ကျွန်တဲ့ extra four items ကတော့ implicit row tracks တွေအဖြစ် placed လုပ်သွားပြီး content ထဲက item ရှိသလောက်ပဲ tall ဖြစ်နေပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့က extra rows အားလုံးကို specific
+        size ဖြစ်ချင်တဲ့အတွက် 250px ပေးလိုက်တယ်။ grid-template-rows ထဲမှာရှိတဲ့ extra track တစ်ခုစီအတွက် ကျွန်တော်တို့ဟာ 250px စီလိုက်ပေးမနေချင်တော့ပါဘူး။ Number ဟာ ပြောင်းနေမှာဖြစ်တဲ့အတွက် repeat notation နဲ့လည်းအဆင်မပြေပါဘူး။ ဒါကြောင့် CSS grid ဟာ implicit
+        tracks တွေနဲ့ size နဲ့ position ကို control လုပ်ဖို့ ရိုးရှင်းတဲ့ automated way ကို provide လုပ်လိုက်ပါတယ်။ ဒီနည်းလမ်းနဲ့ပဲ ကျွန်တော်တို့ဟာ single property နဲ့ value တွေကနေ 250px ရှည်တဲ့ implicit tracks တွေရဲ့ အရေအတွက်ကို ကြိုက်သလောက်ပြုလုပ်နိုင်ပါတယ်။
+        grid-auto-rows property ဟာ implicit row tracks တွေရဲ့ size ကို control လုပ်နိုင်ပြီးတော့ ၊ grid-auto-columns property က implicit column tracks တွေကို control လုပ်နိုင်ပါတယ်။ Minimum size ဖြစ်တဲ့ implicit rows ကို create လုပ်ပြီး သူ့ရဲ့ content
+        နဲ့ ပိုပြီး fit ဖြစ်ဖို့ဆိုရင် ကျွန်တော်တို့အနေနဲ့ minmax() function ကိုသုံးနိုင်ပါတယ်။ ဥပမာ grid-auto-rows ကို minmax 150 pixel နဲ့ auto ကို သုံးလိုက်ပါမယ်။ ဒါဆိုရင် rows ဟာ 150 ထက် မတိုတော့ ပါဘူး။ ပီးတော့ more content ကို နေရာ ယူဖို့ ကြီးနိုင်ပါတယ်။
+        ခုဆိုရင် ပိုနေတယ့် grid items ကို နေရာယူဖို့ grid ဟာ rows တွေကို ဘယ်လို တည်ဆောက်တယ်ဆိုတာကို သိပြီး ပါပြီ။ ဒါပေမယ့် grid ဟာ implicit columns ထဲကို ပိုနေတယ့် items တွေကို လည်း ထားနိုင်ပါတယ်။ ဒါကို တော့ grid-auto-flow property ကို သုံးပီး လုပ်ရမှာ
+        ဖြစ်ပါတယ်။ grid-auto-flow နဲ့ ဆိုရင် ပိုနေတယ့် items တွေကို implicit rows ဒါမှ မဟုတ် columns ထဲကို သတ်မှတ်နိုင်ပါတယ်။ နောက်တစ်နည်း ပြောရရင် ဒီ items တွေကို rows ထဲကို auto ထားမယ့် အစား columns ဘေးမှာ နေ့ရာ ချမှာ ဖြစ်ပါတယ်။ grid-auto-flow ရဲ့ default
+        value ဟာ row ဖြစ်ပီး ဘာလို့လဲဆိုရင် default အားဖြင့် extra rows တွေကို ရတာ ဖြစ်ပါတယ်။ သူတို့ကို columns ကို ပြောင်းချင်ရင် value ကို column ကို ပြောင်းရမှာ ဖြစ်ပါတယ်။ ဒါဟာ rows တွေ အစား implicit columns ထဲက extra items တွေကို နေရာ ချပေးပါတယ်။
+        grid-auto-flow ကို column ထားတာဟာ grid ဟာ လိုအပ်သလောက် columns အသစ်တွေကို ပေါင်းထည့် သွားတာ ဖြစ်ပါတယ်။ ဒါကြောင့် grid-auto-columns property နဲ့ impicit column tracks ရဲ့ size ကို control လုပ်နိုင်ပါတယ်။ မှတ်ထားရမှာ ကတော့ grid-auto-flow ကို column
+        ကို သုံးလိုက်တယ့် အခါ grid items ရဲ့ ပုံမှန် flow ကို ပြောင်းသွားတာပဲ ဖြစ်ပါတယ်။ 1 ကနေ 5 ကို row တစ်ခု နဲ့ 6 ကနေ 10 ထိက row တစ်ခု ဖြစ်ရမယ့် အစား number order က column ရဲ့ အထက်အောက် ဖြစ်နေပါတယ်။
+    </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+                &lt;head&gt;
+                    &lt;meta charset="UTF-8"&gt;
+                    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                    &lt;meta http-equiv="X-UA-Compatible" content="ie=edge"&gt;
+                    &lt;title&gt;Implicit Grid&lt;/title&gt;
+                    &lt;link rel="stylesheet" href="../css/grid/grid-page.css"&gt;
+                    &lt;link rel="stylesheet" href="../css/grid/implicit.css"&gt;
+                &lt;/head&gt;
+                &lt;body&gt;
+                    &lt;div class="grid"&gt;
+                        &lt;div class="item"&gt;1&lt;/div&gt;
+                        &lt;div class="item"&gt;2&lt;/div&gt;
+                        &lt;div class="item"&gt;3&lt;/div&gt;
+                        &lt;div class="item"&gt;4&lt;/div&gt;
+                        &lt;div class="item"&gt;5&lt;/div&gt;
+                        &lt;div class="item"&gt;6&lt;/div&gt;
+                        &lt;div class="item"&gt;7&lt;/div&gt;
+                        &lt;div class="item"&gt;8&lt;/div&gt;
+                        &lt;div class="item"&gt;9&lt;/div&gt;
+                        &lt;div class="item"&gt;10&lt;/div&gt;
+                    &lt;/div&gt;
+                &lt;/body&gt;
+                &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /************************
+            Grid Container
+            ************************/
+
+            .grid {
+                max-width: 1000px;
+                display: grid;
+                grid-template-columns: 1fr 1fr 1fr;
+                /* grid-template-rows: 100px 200px; */
+                grid-template-rows: 100px 100px;
+                grid-gap: 15px;   
+                /*  grid-auto-rows: 250px;         this is for implicit rows   */
+                /* grid-auto-rows: minmax(150px, auto);      this is for minmax function for above grid-auto-rows  */
+                grid-auto-flow: column;       /* cause number order to up amd down  */
+                grid-auto-columns: 1fr;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/implicit_solution.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Going Further with CSS Grid</h2>
+    <p>CSS Grid Layout ဟာ challenging တစ်ခုပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ grid layout ကို ဘယ်လိုပဲ skill ချပြီးတည်ဆောက်တည်ဆောက် ဘာကြောင့် ထင်သလိုအလုပ်မလုပ်ရတာလဲဆိုတာ နားလည်ထားရပါမယ်။ ဒါကြောင့် tools တွေနဲ့ features တွေနဲ့ grid layout တည်ဆောက်တာကို နားလည်သွားရင်
+        သင်ဟာ grid layouts တွေနဲ့ပတ်သတ်ရင် stronger developer တစ်ယောက်ဖြစ်လာမှာပါ။ Firefox web browser ဟာ browser ထဲမှာပဲ grid layout ကို visualizedလုပ်နိုင် ၊ inspect လုပ်နိုင် ၊ debug လုပ်နိုင်တဲ့ tool တစ်ခုကို provide လုပ်ပေးပါတယ်။ Grid inspector tool
+        ဟာ ကျွန်တော်တို့ grid container ရဲ့ top မှာရှိတဲ့ grid ကို ကိုယ်စားပြုပါတယ်။ ဒီနည်းနဲ့ပဲ ကျွန်တော်တို့ grid tracks, grid lines, gutters နဲ့အခြားအရာတွေကို inspect ထောက်ပြီး ကြည့်နိုင်မှာဖြစ်ပါတယ်။ Firefox Grid Inspector ဟာ Firefox version 52 မှာရခဲ့ပြီး
+        အသုံးပြုချင်ရင်တော့ ကျွန်တော်တို့ webpage ကို Firefox နဲ့ဖွင့်ရမှာဖြစ်ပါတယ်။ ထို့နောက် page ရဲ့တစ်နေရာရာကို right-click ထောက်ပြီး Inspect Element ကို select လုပ်ပေးရပါမယ်။ Grid container ဖြစ်တဲ့ ဘယ် element ကိုမဆို select လုပ်နိုင်ပါတယ်။ တစ်နည်းပြောရရင်
+        display property နဲ့ element တစ်ခုဟာ grid ကို set လုပ်ပါတယ်။ Rules pane ထဲမာ grid ဆိုတဲ့စကားလုံးရဲ့ left ဘက်မှာ small grid or waffle icon ကိုမြင်ရမှာဖြစ်ပါတယ်။ အဲ့ဒီ icon လေးကိုနှိပ်ပြီး page ရဲ့ grid overlay ကို toggle လုပ်နိုင်မှာဖြစ်ပါတယ်။
+        ပြီးခဲ့တဲ့ သင်ခန်းစာမှာ items တွေကို position ချဖို့အတွက် grid lines လို့ခေါ်တဲ့ number lines တွေကို grid က provide လုပ်ပေးတဲ့ grid tracks တွေကို လေ့လာခဲ့ပြီးပါပြီ။ ကျွန်တော်တို့ Firefox browser ရဲ့ overlay ထဲမှာ grid lines တွေကို dashed line
+        (-) တွေနဲ့ ကိုယ်စားပြုပြီး ၊ gutters တွေကိုတော့ grid tracks တွေကြားမှာ diagonal dashed lines တွေနဲ့ကိုယ်စားပြုပါတယ်။ Grid inspector tool ဟာ ကျွန်တော်တို့ grid တွေဘယ်လိုအလုပ်လုပ်လဲဆိုတာကို inspect ထောက်ပြိးကြည့်ရုံနဲ့သိနိုင်ပါတယ်။ ဒါတင်မက အခြား
+        developers တွေ create လုပ်ထားတဲ့ layout တွေကိုလည်း လွယ်ကူစွာ inspect ထောက်ကြည့်လို့ရနိုင်ပါတယ်။ Firefox ဟာ grid တွေနဲ့ဘယ်လိုအလုပ်လုပ်လဲဆိုတာ သိစေဖို့ Grid Inspector ကို နောက်ထပ် features တွေ ထပ်ထည့်ပေးလိုက်ပါတယ်။ ကျွန်တော်ကတော့ Firefox Nightly
+        နဲ့ Developer Edition ကို အကြံပေးချင်ပါတယ်။ Panel labelled Grid ပါတဲ့ layout tab မှာဆိုရင် grid panels ဟာ ဘယ် elements တွေက grid containers တွေဖြစ်တယ်ဆိုတာ တိတိကျကျပြပေးပါတယ်။ Firefox ရဲ့ inspector tool မှာ အကောင်းဆုံးအပိုင်းကတော့ Grid Display
+        Settings အောက်က Display line numbers ကို check လိုက်တာနဲ့ grid ရဲ့ line နံပါတ်တွေကိုမြင်ရတာပါပဲ။ ဒါဟာ grid ပေါ်မှာ items တွေကို position ချတဲ့အခါ ပိုပြီးနားလည်လွယ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <img src="images/firefox.jpg" alt="Firefox Dev Tool Image">
+    <hr>
+
+
+    <h2>Placing Grid Items</h2>
+    <p>Grid items တွေကို layout ချဖို့အတွက် grid tracks တွေကို ကျွန်တော်တို့ create လုပ်နိုင်သော်လည်း CSS Grid ဟာ အမှန်တစ်ကယ် grid items တွေရဲ့ placement တွေကို သတ်မှတ်ခြင်းဖြင့် control လုပ်ဖို့ ခွင့်ပြုပေးပါတယ်။ ကျွန်တော်တို့ဟာ grid item တစ်ခုကို properties
+        တွေတိုက်ရိုက်ထည့်ခြင်းဖြင့် items တွေဘယ်လို placed လုပ်ရမလဲဆိုတာ control လုပ်ဖို့ grid line numbers တွေကိုသုံးနိုင်ပါတယ်။ ဒါဟာ grid item က ဘယ်ကစပြီး ဘယ်မှာဆုံးသွားတယ်ဆိုတာနဲ့ grid tracks တွေဘယ်လောက်များများ expand လုပ်သလဲဆိုတာကို specify လုပ်နိုင်တဲ့အတွက်
+        grid item ရဲ့ placement, size နဲ့ order တွေကို control လုပ်နိုင်ပါတယ်။ ဥပမာအနေနဲ့ အခု line based placement ကိုသုံးပြီး page layout ရဲ့ header, main, aside နဲ့ footer တို့ကို create လုပ်ပြသွားမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့ index.html ထဲမှာ container
+        ဆိုတဲ့ class တစ်ခုပါတဲ့ div တစ်ခုရှိမယ်။ သူ့ထဲမှာ nested လုပ်ထားတဲ့ header, main, aside နဲ့ footer elements တွေပါမယ်။ grid-column-start ဆိုတဲ့ property ဟာ element စမယ့် grid column line ကိုပြပေးတာဖြစ်ပြီး grid-column-end ဆိုတဲ့ property ကတော့
+        element ဆုံးမယ့် grid column line ကိုပြတာဖြစ်ပါတယ်။ vh ဆိုတာ လက်ရှိ viewport height ရဲ့ 100% ကိုဆိုလို့တာဖြစ်ပါတယ်။ Summary အနေနဲ့ line-based placement properties တွေဖြစ်တဲ့ grid-column-start နဲ့ grid-row-start ဟာ item စမယ့် line ကို specify လုပ်ပေးတာဖြစ်ပြီး
+        ၊ grid-column-end နဲ့ grid-row-end ကတော့ item ရဲ့ ဆုံးမယ့် line ကို specify လုပ်တာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Placing Grid Items&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/place_grid_item.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header&gt;Header&lt;/header&gt;
+                    &lt;main&gt;Main&lt;/main&gt;
+                    &lt;aside&gt;Aside&lt;/aside&gt;
+                    &lt;footer&gt;Footer&lt;/footer&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /**********************
+            Page Layout
+            **********************/
+
+            body {
+                color: white;
+            }
+
+            header {
+                background: rgb(79, 81, 199);
+            }
+
+            main {
+                background: lightblue;
+            }
+
+            aside {
+                background: rgb(108, 185, 108);
+            }
+
+            footer {
+                background: rgb(55, 90, 124);
+            }
+
+
+            /**********************
+            Grid Layout
+            **********************/
+
+            .container {
+                height: 100vh;
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 100px minmax(200px, 1fr) 100px;
+                grid-gap: 10px;
+            }
+
+            header {
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+
+            aside {
+                grid-row-start: 1;
+                grid-row-end: 4;
+            }
+
+            main {
+                grid-row-start: 2;
+                grid-row-end: 3;
+            }
+
+            footer {
+                grid-column-start: 1;
+                grid-column-end: 2;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/place_grid_item.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Negative Line Numbers</h2>
+    <p>ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့ဟာ line placement tips တွေရယ် ၊ line number နဲ့ items တွေကို position ချတဲ့ shorthand syntax ကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Grid lines တွေမှာ negative indexes တွေလည်းရှိပါတယ်။ Grid lines တွေကို negative line numbers တွေသုံးပြီးတော့
+        grid ရဲ့ right (သို့) bottom edges ကနေစပြီးတော့ reference လုပ်နိုင်ပါတယ်။ Column lines တွေဟာ grid ရဲ့ ညာဘက်ဆုံး line မှာ -1 ကနေစပြီးတော့ Row lines တွေဟာ အောက်ခြေ bottom မှာ -1 နဲ့စပြီးတော့ indexed ထောက်နေကြပါတယ်။ Grid ကို across လုပ်ပြီး item
+        တစ်ခုကို stretch လုပ်ဖို့လိုလာတဲ့အချိန်မှာ start grid lines နဲ့ end grid lines တွေကို reference လုပ်တာဟာ တစ်ကယ်ကို handy ဖြစ်လာပါတယ်။ ကျွန်တော်တို့ Negative value ကိုသုံးတယ်ဆိုတာ positive value နေရာမှာ တန်ဖိုးပြောင်းလဲမသွားတဲ့ negative value တွေထည့်လိုက်တာနဲ့အတူတူပါပဲ။
+        grid-column-start နဲ့ grid-column-end ကို grid-column ဆိုပြီးတစ်ခုတည်းနဲ့ shorthand ရေးနိုင်ပါတယ်။ အဲ့ဒီ grid-column property မှာ value နှစ်ခုလက်ခံပါတယ်။ ပထမ value ကတော့ start line ဖြစ်ပြီး သူ့နောက်မှာ forward slash ခံပြီး end line ကိုနောက်ကရေးပေးရပါတယ်။
+        အဲ့ဒီလိုပဲ grid-row-start နဲ့ grid-row-end ကိုလည်း (grid-row: 2 / 3;) ဆိုပြီးရေးနိုင်ပါတယ်။ ဒါတွေဟာ start line နဲ့ end line numbers တွေကိုသတ်မှတ်ဖို့ grid ပေါ်မှာ items ကို place လုပ်တဲ့နည်းလမ်းတွေဖြစ်တယ်။ ဥပမာ ကျွန်တော်တို့ဟာ span ဆိုတဲ့ keyword
+        ကိုသုံးပြီး grid lines ကိုနာမည်ပေးထားမယ်ဆိုရင် အဲ့ဒါကို numbers အစား name ကိုပဲ reference လုပ်နိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Negative Line Numbers&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/negative_lineNo.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header&gt;Header&lt;/header&gt;
+                    &lt;main&gt;Main&lt;/main&gt;
+                    &lt;aside&gt;Aside&lt;/aside&gt;
+                    &lt;footer&gt;Footer&lt;/footer&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /**********************
+            Page Layout
+            **********************/
+
+            body {
+                color: white;
+            }
+
+            header {
+                background: rgb(79, 81, 199);
+            }
+
+            main {
+                background: lightblue;
+            }
+
+            aside {
+                background: rgb(108, 185, 108);
+            }
+
+            footer {
+                background: rgb(55, 90, 124);
+            }
+
+
+            /**********************
+            Grid Layout
+            **********************/
+
+            .container {
+                display: grid;
+                height: 100vh;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 100px minmax(200px, 1fr) 50px 100px;
+                grid-gap: 10px;
+            }
+
+            header {
+                /* grid-column-start: 1;
+                grid-column-end: -1; */
+                grid-column: 1 / -1;
+            }
+
+            main {
+                /* grid-row-start: 2;
+                grid-row-end: 3; */
+                grid-row: 2 / 3;
+            }
+
+            aside {
+                grid-row-start: 2;
+                grid-row-end: -1;
+            }
+
+            footer {
+                grid-row-start: -3;
+                grid-row-end: -1;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/negative_lineNo.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Grid Area</h2>
+    <p></p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Grid Area&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/negative_lineNo.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header&gt;Header&lt;/header&gt;
+                    &lt;main&gt;Main&lt;/main&gt;
+                    &lt;aside&gt;Aside&lt;/aside&gt;
+                    &lt;footer&gt;Footer&lt;/footer&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /**********************
+            Page Layout
+            **********************/
+
+            body {
+                color: white;
+            }
+
+            header {
+                background: rgb(79, 81, 199);
+            }
+
+            main {
+                background: lightblue;
+            }
+
+            aside {
+                background: rgb(108, 185, 108);
+            }
+
+            footer {
+                background: rgb(55, 90, 124);
+            }
+
+
+            /**********************
+            Grid Layout
+            **********************/
+
+            .container {
+                height: 100vh;
+                display: grid;
+                grid-template-columns: 2fr 1fr;
+                grid-template-rows: 100px minmax(200px, 1fr) 100px;
+                grid-gap: 10px;
+                grid-template-areas: 
+                    "header header"
+                    "main aside"
+                    "footer aside"
+            
+                    /* "header ..."
+                    "main aside"
+                    "footer ." */           /* dot (.) assign for empty grid cell */
+                ;
+            }
+
+            header {
+                grid-area: header;
+            }
+
+            main {
+                grid-area: main;
+            }
+
+            aside {
+                grid-area: aside;
+            }
+
+            footer {
+                grid-area: footer;
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/grid_area.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Adding Grid Items and Responsive Grid Layout</h2>
+    <p>ကျွန်တော်တို့ အပေါ်ကသင်ခန်းစာမှာ Nav element တစ်ခုကို grid container ထဲမှာ column tracks တွေကို column နှစ်ခုကနေ သုံးခုဖြစ်အောင် ပြောင်းထည့်ခဲ့ပြီးပါပြီ။ Suggested လုပ်ခဲ့တာကတော့ grid-template-areas ကိုသုံးပြီး grid container ထဲကို nav item ကိုထားတာပါပဲ။
+        grid items တွေကို different sizes တွေမှာ position ကို adjust လုပ်ဖို့အတွက် media queries ကိုဘယ်လိုသုံးရမလဲဆိုတာပြောပြသွားမှာပါ။ ပထမဆုံး grid-area property ကို nav လို့ပေးလိုက်မယ်။ Empty grid cell အဖြစ်ထားချင်တယ်ဆိုရင်တော့ dot (.) ဆိုတာကိုသုံးရမှာဖြစ်ပြီး
+        အောက်က example မှာ လေ့လာနိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Adding Grid Items and Responsive Grid Layout&lt;/title&gt;
+                &lt;link rel="stylesheet" href="../css/add_grid_item.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header&gt;Header&lt;/header&gt;
+                    &lt;Nav&gt;Nav&lt;/Nav&gt;
+                    &lt;main&gt;Main&lt;/main&gt;
+                    &lt;aside&gt;Aside&lt;/aside&gt;
+                    &lt;footer&gt;Footer&lt;/footer&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /**********************
+            Page Layout
+            **********************/
+
+            body {
+                color: white;
+            }
+
+            header {
+                background: rgb(79, 81, 199);
+            }
+
+            nav {
+                background: palevioletred;
+            }
+
+            main {
+                background: lightblue;
+            }
+
+            aside {
+                background: rgb(108, 185, 108);
+            }
+
+            footer {
+                background: rgb(55, 90, 124);
+            }
+
+
+            /**********************
+            Grid Layout
+            **********************/
+
+            .container {
+                height: 100vh;
+                display: grid;
+                grid-template-columns: 1fr;
+                /* grid-template-rows: 100px minmax(200px, 1fr) 100px; */
+                grid-auto-rows: minmax(150px, auto);
+                grid-gap: 10px;
+                grid-template-areas: "header" "nav" "main" "aside" "footer"
+                /* "header ..."
+                    "main aside"
+                    "footer ." */
+                /* dot (.) assign for empty grid cell */
+                ;
+            }
+
+            header {
+                grid-area: header;
+            }
+
+            nav {
+                grid-area: nav;
+            }
+
+            main {
+                grid-area: main;
+            }
+
+            aside {
+                grid-area: aside;
+            }
+
+            footer {
+                grid-area: footer;
+            }
+
+
+            /**********************
+            Responsive Layout
+            **********************/
+
+            @media(min-width: 768px) {
+                .container {
+                    grid-template-columns: 1fr 2fr 1fr;
+                    grid-template-rows: 100px minmax(150px, auto) 100px;
+                    grid-template-areas: "header header header" "nav main aside" "footer footer footer";
+                }
+            }
+
+            @media (min-width: 992px) {
+                .container {
+                    grid-template-areas: "header header header" "nav main aside" "nav footer footer";
+                }
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/add_grid_item.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Grid and Flexbox</h2>
+    <p>CSS Grid ကို Flexbox နဲ့ replace လုပ်မယ်လို့ ဆိုလိုတာမဟုတ်ပါဘူး။ Flexbox နဲ့ Grid ဟာ အမှတ်တကယ် ကောင်းမွန်တဲ့ Layout tools တွေဖြစ်ပြီးတော့ သူတို့တစ်ခုစီမှာ ကိုယ်ပိုင်အားသာချက် specialties တွေရှိပါတယ်။ သူတို့နှစ်ခုရဲ့ အကြီးဆုံးခြားနားချက်ကတော့ Flexbox
+        ဟာ items တွေကို row (သို့) column တစ်ခုနဲ့ single dimensions ကိုပဲ layout ချပေးပြီး ၊ Grid ကတော့ row နဲ့ column ကို တစ်ပြိုင်တည်းမှာ items တွေရဲ့ rows နဲ့ column တွေကို layout ချပေးပါတယ်။ Flexbox နဲ့ Grid ဟာ တစ်ကယ်ကို powerful ဖြစ်တဲ့ combination
+        ဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;
+                &lt;title&gt;CSS Grid Layout & Flexbox&lt;/title&gt;
+                &lt;link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet"&gt;
+                &lt;link href="https://fonts.googleapis.com/css?family=Bree+Serif|Raleway" rel="stylesheet"&gt;
+                &lt;link href="../css/flexbox_grid_page.css" rel="stylesheet"&gt;
+                &lt;link href="../css/flexbox_layout.css" rel="stylesheet"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="main-content"&gt;
+                    &lt;div class="card"&gt;
+                        &lt;i class="material-icons icn-ent"&gt;videocam&lt;/i&gt;
+                        &lt;h1&gt;Entertainment&lt;/h1&gt;
+                        &lt;p&gt;Hundreds of VR games and films have been released already. &lt;a href="#"&gt;Oculus Story Studio&lt;/a&gt; is one example of a company producing VR films.&lt;/p&gt;
+                        &lt;a class="btn" href="#"&gt;Learn more&lt;/a&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="card"&gt;
+                        &lt;i class="material-icons icn-arch"&gt;account_balance&lt;/i&gt;
+                        &lt;h1&gt;Architectural Visualization&lt;/h1&gt;
+                        &lt;p&gt;These experiences allow you to explore and interact with buildings and products in virtual reality. &lt;a href="#"&gt;IKEA VR&lt;/a&gt; is a popular example.&lt;/p&gt;
+                        &lt;a class="btn" href="#"&gt;Learn more&lt;/a&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="card"&gt;
+                        &lt;i class="material-icons icn-edu"&gt;school&lt;/i&gt;
+                        &lt;h1&gt;Education&lt;/h1&gt;
+                        &lt;p&gt;VR allows students to visit other places and other times. For instance, the BBC produced a &lt;a href="#"&gt;360° video&lt;/a&gt; that allows users to see the scale of dinosaurs in stereoscopic 3D.&lt;/p&gt;
+                        &lt;a class="btn" href="#"&gt;Learn more&lt;/a&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="card"&gt;
+                        &lt;i class="material-icons icn-sim"&gt;flight_takeoff&lt;/i&gt;
+                        &lt;h1&gt;Simulation & Training &lt;/h1&gt;
+                        &lt;p&gt;In simulation and training, you can safely train for dangerous situations or hazardous environments.&lt;/p&gt;
+                        &lt;a class="btn" href="#"&gt;Learn more&lt;/a&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="card"&gt;
+                        &lt;i class="material-icons icn-soc"&gt;people&lt;/i&gt;
+                        &lt;h1&gt;Social Networking&lt;/h1&gt;
+                        &lt;p&gt;VR is finding its way into teleconferencing and social media. At the &lt;a href="#"&gt;ethic conference in 2016&lt;/a&gt;, Facebook demonstrated what it might look like in VR.&lt;/p&gt;
+                        &lt;a class="btn" href="#"&gt;Learn more&lt;/a&gt;
+                    &lt;/div&gt;
+                
+                    &lt;div class="card"&gt;
+                        &lt;i class="material-icons icn-games"&gt;videogame_asset&lt;/i&gt;
+                        &lt;h1&gt;Games&lt;/h1&gt;
+                        &lt;p&gt;VR games let users experience a 3D environment, creating suspension of disbelief, which makes users experience the environment as real.&lt;/p&gt;
+                        &lt;a class="btn" href="#"&gt;Learn more&lt;/a&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of flex_grid_page.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /**********************************************
+            Grid Layout
+            **********************************************/
+
+
+            .container {
+                height: 100vh;
+                display: grid;
+                grid-template-columns: 1fr;
+                grid-auto-rows: minmax(150px, atuo);
+                grid-gap: 10px;
+                grid-template-areas: 
+                "header"
+                "nav"
+                "main"
+                "aside"
+                "footer"
+            }
+
+
+            header {
+                grid-area: header;
+            }
+
+            nav {
+                grid-area: nav;
+            }
+            aside {
+            grid-area: aside;
+            }
+
+            main {
+                grid-area: main;
+            }
+
+            footer {
+                grid-area: footer;
+            }
+
+
+            /**********************************************
+            Responsive Layout
+            **********************************************/
+
+            @media (min-width: 768px) {
+                .container {
+                    grid-template-columns: 1fr 2fr 1fr;
+                    grid-template-rows: 100px minmax(150px, auto) 100px;
+                    grid-template-areas: 
+                    "header header header"
+                    "nav main aside"
+                    "footer footer footer"
+                }
+
+            }
+
+            @media (min-width: 992px) {
+                .container {
+                    grid-template-areas: 
+                    "header header header"
+                    "nav main aside"
+                    "nav footer footer";
+                }
+            }
+
+
+
+
+
+            /**********************************************
+            Page Layout
+            **********************************************/
+            body{
+                color: white;
+            }
+
+            header {
+                background: rgb(79, 81, 199);
+            }
+
+            nav {
+                background: palevioletred;
+            }
+            main {
+                background: lightblue;
+            }
+
+            aside {
+                background: rgb(108, 185, 108);
+            }
+
+            footer {
+                background: rgb(55, 90, 124);
+            }
+        </code>
+    </pre>
+    <p>Example of flex_layout.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .main-content {
+                display: grid;
+                grid-gap: 20px;
+                grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+                max-width: 1000px;
+                width: 95%;
+            }
+            
+            .card {
+                display: flex;
+                flex-direction: column;
+                flex-wrap: wrap;
+            }
+            
+            .btn {
+                margin-top: auto;
+            }
+        
+        </code>
+    </pre>
+    <p>
+        <a href="directory/flexbox_grid.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+
+
+</body>
+
+</html>

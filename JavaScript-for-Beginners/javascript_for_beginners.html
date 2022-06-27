@@ -1,0 +1,504 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript for Beginners</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+    <h2>Introduction to JavaScript</h2>
+    <p>JavaScript ဟာ popular အဖြစ်ဆုံးနဲ့ ဘက်စုံသုံးလို့ရတဲ့ programming language တစ်ခုဖြစ်ပါတယ်။ သူ့ကို browser မှာ built လုပ်ရတာဖြစ်တဲ့အတွက် quick & easy ဖြစ်ပါတယ်။ သူမှာ simple straight forward syntax တစ်ခုရှိပါတယ်။ JavaScript မှာ growing vibrant support
+        community တစ်ခုရှိပြီး အဲ့ဒီ community ကပဲ ကျွန်တော်တို့ကို အလုပ်မြန်မြန်ပြီးမြောက်စေဖို့ lots of tools တွေကို built လုပ်ပေးနေပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့အနေနဲ့ အခြား language တစ်ခုကနေ JavaScript ကိုပြောင်းပြီးလေ့လာမယ်ဆိုရင်လည်း JavaScript
+        ဟာ အခြား programming languages တွေရဲ့ core concepts တွေနဲ့ capabilities တွေကို share လုပ်ပေးပါတယ်။ ဒါကြောင့် JavaScript ဟာဆိုရင် 2018 ခုနှစ်နောက်ပိုင်းမှာ ဝင်ငွေအကောင်းဆုံး programming language တစ်ခုဖြစ်ခဲ့ပါတယ်။</p>
+    <hr>
+
+
+    <h2>Simple Command in JavaScript</h2>
+    <p>JavaScript ကို စပြီးလေ့လာတော့မယ်ဆိုရင် ကျွန်တော်တို့အရင်ဆုံးသိထားရမှာကတော့ JavaScript development မှာရှိတဲ့ common data types, variables, arrays, objects, loops, function, နဲ့ အချို့သောအရာတွေပဲဖြစ်ပါတယ်။ JavaScript programming မှာ JavaScript ကို encounter
+        လုပ်ဖို့ အလွယ်ကူဆုံးနေရာတစ်ခုကတော့ web browser တစ်ခုပဲဖြစ်ပါတယ်။ Browsers တွေဟာ JavaScript program တစ်ခုအတွင်းမှာရှိတဲ့ instruction တွေကို read, understand နဲ့ run လုပ်ဖို့အတွက် built-in JavaScript interpreter တစ်ခုရှိပါတယ်။ JavaScript ကိုစရေးမယ်ဆိုရင်
+        အရင်ဆုံး browser တစ်ခုနဲ့ သူ့ထဲက built-in ပါတဲ့ console တစ်ခုရယ် လိုအပ်ပါတယ်။ အဲ့ဒီ console tab အတွင်းမှာ JavaScript code တွေကို run နိုင်ပါတယ်။ JavaScript ကိုသုံးရခြင်းအကြောင်းက information data လို့ခေါ်တဲ့ ပေးထားတဲ့ information တွေနဲ့အလုပ်လုပ်ဖို့ပဲဖြစ်ပါတယ်။
+        JavaScript ဟာ data types အမျိုးမျိုးကို support လုပ်ပေးပါတယ်။ ဥပမာ 20 ဆိုတဲ့ number ဟာ numeric data type တစ်ခုဖြစ်ပြီး အဲ့ဒီ numbers တွေကို JavaScript မှာ adding, subtracting, computing total costs, game score စတဲ့ calculations တွေတွက်ထုတ်ဖို့အတွက်
+        အသုံးပြုပါတယ်။ Numbers တွေကလည်း whole numbers (သို့) numbers with decimal points တွေနဲ့ ဖြစ်နိုင်ပါတယ်။ JavaScript ဟာ addition (+), subtraction (-), multiplication (*) နဲ့ division (/) ဆိုတဲ့ arithmetic operators တွေကိုလည်း provide လုပ်ပေးထားပါတယ်။
+        နောက်ထပ် JavaScript မှာ comm ဖြစ်တဲ့ data type တစ်ခုကတော့ string ပဲဖြစ်ပါတယ်။ Strings တွေကို ကျွန်တော်တို့ရဲ့ program မှာ words, sentences နဲ့ အခြား text တွေထည့်ဖို့အတွက် သုံးပါတယ်။ ကျွန်တော်တို့ဟာ string တစ်ခုကို series of letters, numbers နဲ့
+        other characters တွေကို single or double quotation marks အတွင်းမှာ ရေးလေ့ရှိပါတယ်။ Alert() ဆိုတာ browser မှာ pop up & dialog box တစ်ခုပြပေးဖို့အတွက် အသုံးပြုတဲ့ browser specific function တစ်ခုဖြစ်ပါတယ်။ Console ထဲမှာ ရေးတဲ့ code ဟာ JavaScript
+        ရဲ့ statement ဖြစ်ပြီး JavaScript မှာ statement တစ်ခုပြီးတိုင်း semi-comma ထည့်ပေးရပါမယ်။ Alert ဟာ message တစ်ခုကို display ပြတဲ့ dialog box တစ်ခုသာဖြစ်ပြီး browsers တွေဟာ site visitors တွေဆီက input ကို လှမ်းဖမ်းဖို့အတွက် prompt ဆိုတဲ့ simple
+        command တစ်ခုကို ပေးထားပါတယ်။ Prompt() ဟာ user ဆီကို question တစ်ခုတောင်းပြီး user ဆီက response တစ်ခုယူလိုက်တာဖြစ်ပါတယ်။ Browser က promt ကနေ response လုပ်လိုက်တာကို capture လုပ်ပြီး value ကို return ပြန်ပေးလိုက်တာဖြစ်ပါတယ်။</p>
+    <p>For Example:</p>
+    <div class="img-size">
+        <img src="images/simple-command.png" alt="Simple command image">
+    </div>
+    <hr>
+
+
+    <h2>Variables in JavaScript</h2>
+    <p>JavaScript ဟာ program တစ်ခုအတွင်းမှာရှိတဲ့ information တွေကို Variables တွေနဲ့ store & track လုပ်ပေးပါတယ်။ Variables တွေဟာ JavaScript မှာ မရှိမဖြစ်အရေးပါတဲ့ concepts တွေထဲက တစ်ခုဖြစ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့က message တစ်ခုကို dialogue box နဲ့ prompt
+        လုပ်ပြချင်တယ်ဆိုရင် အဲ့ဒီ message ကို variable တစ်ခုထဲမှာ အရင်ထည့်ပြီးတော့မှ အသုံးပြုပါတယ်။ Variable တစ်ခုကို ကြေငြာမယ်ဆိုရင် var ဆိုတဲ့ keyword နဲ့ သူ့နောက်မှာ ကျွန်တော်တို့ပေးချင်တဲ့ variable name ကို ရေးပေးရပါတယ်။ နောက်ပြီးရင်တော့ အဲ့ဒီ variable
+        ထဲကို value ထည့်ဖို့အတွက် assign လုပ်တာလို့ခေါ်တဲ့ equal (=) ရေးပေးရပါတယ်။ Equal ရဲ့နောက်မှာတော့ ကျွန်တော်တို့ variable ထဲကို assign လုပ်မယ့် value ထည့်ပေးရတာဖြစ်ပါတယ်။ ကျွန်တော်တို့ ကြေငြာထားတဲ့ variable တွေကို program ရဲ့ကြိုက်တဲ့နေရာကနေ ခေါ်သုံးနိုင်ပါတယ်။
+        အခုဆိုရင် JavaScript မှာ variable တွေကို let or const ဆိုတဲ့ keywords တွေနဲ့လည်း ကြေငြာလို့ရနေပါပြီ။ ဒါပေမယ့် ကျွန်တော်တို့သုံးတဲ့ declaring rules တွေအပေါ်မူတည်ပြီးတော့ သူတို့ရဲ့ values တွေက ပြောင်းလဲသွားပါလိမ့်မယ်။ JavaScript မှာ strings တွေတစ်ခုနဲ့တစ်ခု
+        combining လုပ်ခြင်းကို concatenation လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့ရဲ့ string နှစ်ခုကို concatenate လုပ်မယ်ဆိုရင်တော့ plus sign (+) ကို string နှစ်ခုကြားမှာ ထည့်ရေးပေးရပါတယ်။</p>
+    <p>For Example:</p>
+    <div class="img-size">
+        <img src="images/variable.png" alt="Variable image">
+    </div>
+    <hr>
+
+
+    <h2>Functions in JavaScript</h2>
+    <p>Text editor တစ်ခုအတွင်းမှာ project တစ်ခုကို တည်ဆောက်မယ်ဆိုရင် ကျွန်တော်တို့ JavaScript code တွေကို HTML file ထဲမှာ မထားဘဲ များသောအားဖြင့် separate file တစ်ခုနဲ့ ထားကြပါတယ်။ အဲ့ဒီလို separate လုပ်ထားတဲ့ JS file ကို HTML document ကိုထည့်မယ်ဆိုရင် &lt;script&gt;
+        tag ကို အသုံးပြုရပြီး CSS file တွေချိန်သလိုမျိုး သူ့ထဲမှာတော့ src ဆိုတဲ့ attribute နဲ့ JS file ကို ချိတ်ပေးရပါမယ်။ ချိတ်လိုက်တဲ့ script ကို head ထဲမှာ (သို့) body tag အပိတ်ရဲ့ အထက်မှာ ပုံမှန်အားဖြင့် ထည့်လေ့ရှိပါတယ်။ ကျွန်တော်တို့ရဲ့ script tag
+        ကို body အပိတ်ရဲ့အထက်မှာထားခြင်းဟာ browser ကို JavaScript running မလုပ်ခင် HTML ကို load & display လုပ်ပါလို့ ပြောလိုက်တာပါပဲ။ JavaScript မှာ Functions တွေက အသက်ပဲဖြစ်ပါတယ်။ Function ဆိုတာ သူ့ကိုနေရာတိုင်းမှာ ပြန်ခေါ်သုံးလို့ရတဲ့ collection of
+        code တွေပဲစုရေးထားတာပဲဖြစ်ပါတယ်။ JavaScript ဟာ own functions တွေတည်ဆောက်ဖို့လည်း ခွင့်ပြုပေးထားပါတယ်။ Function တစ်ခုကို create လုပ်မယ်ဆိုရင်တော့ function ဆိုတဲ့ keyword နဲ့ သူ့နောက်မှာ function name လိုက်ပေးရမှာဖြစ်ပြီး အဲ့ဒီနောက်မှာ parenthesis
+        တစ်စုံနဲ့ code block ရေးဖို့အတွက် curly braces နဲ့ wrap လုပ်ပေးရပါမယ်။ ကျွန်တော်တို့က function ကို လှမ်းခေါ်လိုက်တာနဲ့ curly braces ထဲမှာရှိတဲ့ code တွေကို run ပေးမှာဖြစ်ပါတယ်။ အဲ့ဒီ function ကို ခေါ်မယ်ဆိုရင်တော့ function name ကိုရေးလိုက်ပြီး
+        သူ့နောက်မှာ function တစ်ခုခေါ်တယ်ဆိုတာသိအောင် parenthesis() ထည့်ပေးရမှာဖြစ်ပါတယ်။ Function statement အဆုံးမှာတော့ semi-colon ထည့်ပေးရပါမယ်။ Function ကိုခေါ်လိုက်ခြင်းဟာ JavaScript interpreter ကို function အတွင်းမှာရှိတဲ့ code တွေကို run ပေးဖို့
+        ညွှန်ကြားလိုက်တာဖြစ်ပါတယ်။
+    </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&lt;
+            &lt;html lang="en"&lt;
+            
+            &lt;head&lt;
+                &lt;meta charset="UTF-8"&lt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&lt;
+                &lt;title&lt;Functions in JavaScript&lt;/title&lt;
+            &lt;/head&lt;
+            
+            &lt;body&lt;
+            
+                &lt;h1&lt;My Web Page&lt;/h1&lt;
+            
+                &lt;script src="../js/js_function.js"&lt;&lt;/script&lt;
+            &lt;/body&lt;
+            
+            &lt;/html&lt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            function sayHello() {
+                var response = prompt("What is your name?");
+                alert("Hello, My name is " + response + "!");
+            }
+            
+            sayHello();
+        </code>
+    </pre>
+    <p>
+        <a href="directory/js_function.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Parameter in JavaScript</h2>
+    <p>ကျွန်တော်တို့ဟာ message ကဲ့သို့သော information တွေကို prompt & alert ထဲကို pass လုပ်သလိုပဲ function တစ်ခုထဲကို information တွေ pass လုပ်ဖို့ဆိုရင် ကျွန်တော်တို့ function ရဲ့ parenthesis အတွင်းမှာမှာ parameter တစ်ခုကို ထည့်ပေးရမှာဖြစ်ပါတယ်။ ကျွန်တော်တို့
+        function ထဲက parameter တစ်ခုဟာ variable တစ်ခုလိုပဲ အလုပ်လုပ်ပေးပါတယ်။ အဲ့ဒီ parameter အလုပ်လုပ်ဖို့ဆိုရင်တော့ function call ခေါ်တဲ့အချိန်မှာ parameter value ကို parenthesis ထဲမှာ ထည့်ပေးရမှာဖြစ်ပါတယ်။ Function call ထဲကို information တွေ pass လုပ်ခြင်းဟာ
+        function တစ်ခုထဲကို argument တစ်ခု pass လုပ်လိုက်တာဖြစ်ပါတယ်။ ဒါကြောင့် functions တွေထဲမှာ parameter တွေကို အသုံးပြုခြင်းဟာ ပိုပြီးတော့ flexible ဖြစ်စေပြီး values အမျိုးမျိုးကို pass လုပ်နိုင်သလို results အမျိုးမျိုးလည်း ထုတ်နိုင်မှာဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Parameters in JavaScript&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1&gt;My Web Page&lt;/h1&gt;
+            
+                &lt;script src="../js/js_parameter.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            function sayGreeting(greeting) {
+                var response = prompt("What is your name?");
+                alert(greeting + ", " + response + "!");
+            }
+            
+            sayGreeting("Have a good day");
+        </code>
+    </pre>
+    <p>
+        <a href="directory/js_parameter.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Multiple Parameters in JavaScript</h2>
+    <p>ကျွန်တော်တို့ဟာ function တစ်ခုထဲကို information တွေ pass လုပ်ပေးနိုင်သလို function တစ်ခုအတွင်းမှာရှိတဲ့ curly braces ထဲက code တွေ run လို့ပြီးတဲ့အချိန်မှာ ထွက်လာမယ့် information တွေကိုလည်း ရယူနိုင်ပါတယ်။ Functions တွေဟာ parameter တစ်ခုထက်မက multiple
+        parameters တွေကို လက်ခံပေးနိုင်ပါတယ်။ Function တစ်ခုကနေ value တစ်ခုကို return ပြန်ချင်တယ်ဆိုရင်တော့ return ဆိုတဲ့ keyword ကို အသုံးပြုရပါတယ်။ ဒါဟာ return ပြန်မယ့် value ကို specify လုပ်ပေးတဲ့ return statement တစ်ခုကို create လုပ်လိုက်တာပဲဖြစ်ပါတယ်။
+        Return value တစ်ခုပါတဲ့ function တစ်ခုကို create လုပ်ခြင်းဟာ situations အမျိုးမျိုးမှာအသုံးပြုနိုင်တဲ့အတွက်ကြောင့် function ကို ပိုပြီးတော့ flexible ဖြစ်စေပါတယ်။ ဒါကြောင့် JavaScript functions တွေဟာ ကျွန်တော်တို့ရဲ့ programming toolkit မှာ valuable
+        tool တစ်ခုဖြစ်ပြီးတော့ ကျွန်တော်တို့ကို dozen or hundreds မကတဲ့ line တွေကို function ထဲမှာရေးပြီး ပြန်ခေါ်တဲ့အခါ single line of code တစ်ခုသာ ပြန်ခေါ်ပေးရတာဖြစ်တဲ့အတွက် တစ်ကယ်ကို flexible ဖြစ်ပါတယ်။ ဒါဟာ ကျွန်တော်တို့ program ကို ပိုပြီး modular
+        ဖြစ်စေပြီးတော့ update လုပ်ရတာလည်း လွယ်ကူစေမှာဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <div class="img-size">
+        <img src="images/multiple-parameter.png" alt="Multi-parameter image">
+    </div>
+    <hr>
+
+
+    <h2>Array</h2>
+    <p>Variables တွေဟာ JavaScript မှာ အရေးအကြီးဆုံး features တွေထဲက တစ်ခုဖြစ်ပြီး variables တွေတစ်ခုချင်းစီကလည်း value တစ်ခုကိုပဲ hold လုပ်နိုင်ပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့က multiple values တွေကို သိမ်းထားချင်တဲ့အခါ ဘယ်လိုလုပ်မလဲ၊ ကျွန်တော်တို့ဟာ value
+        တစ်ခုချင်းစီတိုင်းကို variable တစ်ခုစီနဲ့ hold လုပ်ဖို့ဆိုရင် program မှာ variable တွေနဲ့တင် တော်တော်များနေမှာပါ။ အဲ့ဒီလို multiple values တွေ keep လုပ်ဖို့ဆိုရင်တော့ arrays တွေနဲ့က ပိုပြီးအဆင်ပြေပါတယ်။ array ဟာ multiple values တွေကို keep လုပ်ပေးနိုင်ပါတယ်။
+        Array တစ်ခုကို create လုပ်မယ်ဆိုရင်တော့ variable ကို create လုပ်သလို var ဆိုတဲ့ keyword နဲ့ သူ့နောက်မှာ array name လိုက်ပါတယ်။ ပြီးရင်တော့ equal sign(=) နဲ့ အဲ့ဒီ variable ဟာ array တစ်ခုဖြစ်တယ်ဆိုတာသိဖို့ square brackets ([]) ထည့်ပေးရမှာဖြစ်ပါတယ်။
+        အဲ့ဒီ square bracket ထဲမှာတော့ values တွေကို comma ခြားပြီးထည့်ပေးရပါမယ်။ သူ့ထဲမှာ strings နဲ့ numbers တွေဖြစ်နိုင်သလို type အမျိုးမျိုးတဲ့ values အတွဲတွေလည်း ဖြစ်နိုင်ပါတယ်။ Array တစ်ခုအတွင်းမှာ single value တစ်ခုကို access လုပ်ဖို့ဆိုရင် index
+        value ကို အသုံးပြုရပါမယ်။ Index ဆိုတာကတော့ array ထဲက values တွေရဲ့ position ကိုညွှန်ပြတာပဲဖြစ်ပါတယ်။ သူတို့ကို လှမ်းပြီးထောက်ချင်တယ်ဆိုရင်တော့ array name ရယ်၊ သူ့နောက်က square brackets ([]) နဲ့ ရေးရပြီး square brackets ထဲမှာတော့ ထောက်ချင်တဲ့ array
+        index number ကို ထည့်ပေးရပါတယ်။ နောက်တစ်ခုကတော့ array ထဲမှာ values တွေထပ်ထည့်လို့ရသလို ရှိပြီးသား array values တွေကိုလည်း ဖျက်လို့ရပါတယ်။ ထည့်ချင်ရင်တော့ array_name.push() ကိုသုံးရပြီး သူကတော့ နောက်ဆုံး index ကနေ add လုပ်သွားပါတယ်။ ရှိပြီးသား
+        array values တွေကို ဖျက်ချင်ရင်တော့ array_name.pop() ကိုသုံးရပြီး သူကလည်း နောက်ဆုံး index ကနေ ဖျက်သွားမှာဖြစ်ပါတယ်။ Array ရဲ့ ပထမဆုံးအခန်းကနေ value စထည့်ချင်ရင်တော့ unshift() ကိုသုံးပြီး ရှေ့ဆုံးအခန်းကနေ စထည့်ချင်ရင် shift() ကို အသုံးပြုရပါတယ်။
+    </p>
+    <p>For Example:</p>
+    <div class="img-size">
+        <img src="images/array.png" alt="Array image">
+    </div>
+    <hr>
+
+
+    <h2>Foreach Loop</h2>
+    <p>JavaScript မှာ arrays တွေနဲ့ နောက်ထပ် ယှဉ်တွဲပြီး အသုံးများတာတစ်ခုကတော့ loops တွေပဲဖြစ်ပါတယ်။ Looping ဟာ programming မှာ တစ်ကယ်ကို powerful ဖြစ်တဲ့ tool တစ်ခုဖြစ်ပါတယ်။ တူညီတဲ့ actions တွေကိုပဲ ထပ်ခါထပ်ခါ အလုပ်လုပ်စေချင်တဲ့အတွက် loops တွေကိုသုံးတာဖြစ်ပါတယ်။
+        JavaScript မှာလည်း loop အမျိုးမျိုးရှိပါတယ်။ အခုကျွန်တော်တို့ဟာ JavaScript မှာ အသုံးများတဲ့ loop နှစ်မျိုးကို လေ့လာသွားပါမယ်။ ပထမတစ်ခုကတော့ foreach() loop ဖြစ်ပြီး foreach loop ဟာ array တစ်ခုထဲက item တစ်ခုချင်းစီကို access လုပ်ပေးတာပဲဖြစ်ပါတယ်။
+        Foreach loop ကိုရေးမယ်ဆိုရင်တော့ forEach ဆိုတဲ့ key နဲ့စရေးရပြီး သူ့နောက်က parenthesis ထဲမှာတော့ array ထဲက item တစ်ခုချင်းစီကို ထုတ်ဖို့အတွက် callback function တစ်ခုရေးရမှာဖြစ်ပါတယ်။ အောက်က ဥပမာမှာဆိုရင် function ထဲမှာ movie ဆိုတဲ့ parameter တစ်ခုလက်ခံထားပြီး
+        အဲ့ဒီ movie ဟာ current element or array ထဲမှာ process လုပ်မယ့် movie title ပဲဖြစ်ပါတယ်။ အဲ့ဒီမှာဆိုရင် function ရဲ့နောက်မှာ name လိုက်ပြီးမရေးထားပါဘူး။ သူ့ကို anonymous function လို့ခေါ်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ anonymous functions တွေကနေ အခြား
+        function ကို parameters အဖြစ်လှမ်းပို့ချင်တဲ့အခါမှာ anonymous function ကို အသုံးပြုလေ့ရှိပါတယ်။ Foreach ရဲ့သဘောတရားကတော့ သူ့ထဲကို pass လုပ်မယ့် function ကို ခေါ်ပေးတာဖြစ်ပါတယ်။ အဲ့ဒီမှာ function ကိုခေါ်လိုက်ပြီဆိုတာနဲ့ လက်ရှိပထမဆုံး movie title
+        က movie ဆိုတဲ့ argument ထဲကို pass လုပ်သွားပြီး နောက်တစ်ခု ၊ နောက်တစ်ခု နဲ့ array ထဲက movie title တွေကုန်တဲ့အထိ loop ပတ်သွားတာဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Foreach Loop in JavaScript&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1&gt;My Web Page&lt;/h1&gt;
+            
+                &lt;script src="../js/js_foreach.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var movies = ['Avengers', 'Wonder Woman', 'Black Panther', 'The Last Jedi'];
+
+            movies.forEach(function(movie) {
+                alert(movie);
+            });
+
+            console.log(movies);
+        </code>
+    </pre>
+    <p>
+        <a href="directory/js_foreach.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>For Loop</h2>
+    <p>နောက်ထပ် JavaScript မှာတွေ့ရလေ့ရှိတဲ့ အသုံးများတဲ့ loop တစ်ခုကတော့ for loop ပဲဖြစ်ပါတယ်။ သူကလည်း ပေးထားတဲ့ အကြိမ်အရေအတွက်ရှိသလောက်ကို looping ပတ်ပေးတာဖြစ်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ for loop ကို create လုပ်မယ်ဆိုရင် for ဆိုတဲ့ keyword နဲ့စရေးရပြီး
+        သူ့နောက်မှာတော့ parenthesis လိုက်ပါတယ်။ Parenthesis ထဲမှာတော့ ပထမဆုံး loop ထဲမှာ process လုပ်မယ့် current item ကို represent လုပ်တဲ့ variable တစခုကို provide လုပ်ပေးရပါမယ်။ အဲ့ဒီ variable ကို ကြေငြာတဲ့အခါမှာလည်း var, let နဲ့ const ကြိုက်တာနဲ့
+        declare လုပ်လို့ရပါတယ်။ သူ့နောက်မှာတော့ of ဆိုတဲ့ keyword နဲ့ looping ပတ်မယ့် array တစ်ခုကို ရေးပေးရပါမယ်။ for loop ရဲ့ curly braces အတွင်းမှာတော့ ကျွန်တော်တို့ loop ထဲမှာ အလုပ်လုပ်ချင်တဲ့ statements တွေကို ရေးနိုင်ပါတယ်။ ဒါဆိုရင်တော့ အောက်မှာပြထားတဲ့အတိုင်း
+        movies array ထဲက movie title တွေကို ရလာမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;For Loop in JavaScript&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1&gt;My Web Page&lt;/h1&gt;
+            
+                &lt;script src="../js/js_for_loop.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var movies = ['Avengers', 'Wonder Woman', 'Black Panther', 'The Last Jedi'];
+
+            for (var movie of movies) {
+                document.write(movie + "&lt;br&gt;");
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/js_for_loop.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+
+    <h2>Arrow Function in JavaScript</h2>
+    <p>ကျွန်တော်တို့အနေနဲ့ JavaScript မှာ callback function (သို့) function ကို forEach နဲ့ pass လုပ်တာ (သို့) new fat arrow syntax ကိုသုံးပြီး arrow function တစ်ခုရေးတာတို့ကို မကြာခဏမြင်ရလေ့ရှိပါတယ်။ ဒါဟာ JavaScript မှာ functions တွေရေးတဲ့ shorthand syntax
+        အသစ်တစ်ခုပဲဖြစ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့က function တစ်ခုရေးမယ်ဆိုရင် function keyword ကိုမသုံးတော့ဘဲ fat arrow လို့ခေါ်တဲ့ eqaul + right angle bracket (>) ဆိုပြီး shorthand အသုံးပြုလိုက်တာဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            var movies = ['Avengers', 'Wonder Woman', 'Black Panther', 'Peaky Blinders'];
+
+            movies.forEach( movie => alert(movie) );
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Objects in JavaScript</h2>
+    <p>JavaScript မှာ variable တစ်ခုအတွင်းမှာ single value ကို store လုပ်တာနဲ့ array တစ်ခုအတွင်းမှာ list of values တွေကို store လုပ်တာဆိုပြီး data ကို store လုပ်တဲ့နည်းနှစ်ခုကို လေ့လာခဲ့ပါတယ်။ အခု JavaScript objects တွေအကြောင်းကို လေ့လာသွားပါမယ်။ Objects
+        တွေဟာ JavaScript ထဲက တစ်ကယ်ကို ကြီးမားတဲ့ subject တစ်ခုဖြစ်ပါတယ်။ တစ်ကယ်တော့ JavaScript ဟာ တစ်ခါတစ်ရံ object-oriented or object-based programming language တစ်ခုကိုရည်ညွှန်းပါတယ်။ Object တစ်ခုဆိုတာ အရိုးရှင်းဆုံးပြောရရင် properties နဲ့ methods
+        တွေရှိတဲ့အရာပဲဖြစ်ပါတယ်။ Property တစ်ခုက object နဲ့သက်ဆိုင်တဲ့ variable တစ်ခုဖြစ်ပြီး၊ method တစ်ခုဆိုတာကတော့ object က ပြုလုပ်နိုင်တဲ့ တစ်ခုခု (သို့) object ကိုပြုလုပ်နိုင်တဲ့ တစ်ခုခုပဲဖြစ်ပါတယ်။ ဒီသင်ခန်းစာမှာတော့ data တွေကို store & access လုပ်ဖို့
+        objects တွေအတွက် one specific use ကို ဘယ်လိုအသုံးပြုလဲဆိုတာ လေ့လာသွားပါမယ်။ Object တစ်ခုကိုတည်ဆောက်မယ်ဆိုရင် var ဆိုတဲ့ keyword နဲ့ variable တစ်ခုတည်ဆောက်ပြီး equal sign နဲ့ သူ့နောက်မှာ curly braces ရေးပေးရပါတယ်။ Curly braces ကတော့ object တစ်ခုဖြစ်ပါတယ်လို့
+        ကိုယ်စားပြုတာပါ။ JavaScript ဟာ data တွေကို key value pairs or property value pairs တွေအဖြစ် store လုပ်ပေးထားပါတယ်။ Key or property name ဟာ variable name တစ်ခုလိုပါပဲ။ ပြီးတော့ value တစ်ခုဟာလည်း အဲ့ဒီ variable ရဲ့ value ပါပဲ။ တစ်နည်းအားဖြင့်ပြောရမယ်ဆိုရင်
+        multiple variables ကို single item တစ်ခုအဖြစ် store လုပ်ထားတာကို object လို့ခေါ်ပါတယ်။ Example ထဲမှာဆိုရင် curly braces ထဲမှာ key ဖြစ်တဲ့ title ရေး၊ ပြီးရင် colon (:) လိုက်ပြီး သူ့နောက်မှာမှ value ဖြစ်တဲ့ 'Wonder Woman' ကို property value pairs
+        အဖြစ် ရေးထားတာဖြစ်ပါတယ်။ Property value pair တစ်ခုချင်းစီကိုတော့ comma နဲ့ခံပြီးရေးနိုင်ပါတယ်။ Objects တွေဟာ data containers တွေကဲ့သို့ လုပ်ဆောင်ပါတယ်။ သူတို့ဟာ related ဖြစ်နေတဲ့ data တွေကို group လုပ်ပေးထားပါတယ်။ ဥပမာ ကျွန်တော်တို့က object တစ်ခုနဲ့
+        သူ့ထဲက properties အားလုံးကို function တစ်ခုဆီ argument တစ်ခုအနေနဲ့ pass လုပ်ပေးလို့ရပါတယ်။ Object တစ်ခုထဲက properties တွေကို access လုပ်ဖို့ အသုံးများတဲ့နည်းလမ်းကတော့ dot (.) notation ပဲဖြစ်ပါတယ်။ အောက်က example မှာဆိုရင် movie ဆိုတဲ့ object ထဲက
+        property ဖြစ်တဲ့ title ကိုခေါ်ချင်ရင် alert(movie.title); ဆိုပြီးခေါ်ပေးလိုက်ရုံပါပဲ။ န၈ိုရှိပြီးသား property value ကို ပြောင်းချင်တယ်ဆိုရင်တော့ object.property = "value" ဆိုပြီး update လုပ်ပေးလို့ရပါတယ်။ Equal ကို object တစ်ခုထဲမှာ property အသစ်တစ်ခုထပ်ထည့်ချင်တဲ့အခါမှာလည်း
+        အသုံးပြုပါတယ်။ Objects တွေပါဝင်တဲ့ array တစ်ခုဖြစ်ဖို့ objects တွေနဲ့ arrays တွေကို combine လုပ်တာဟာလည်း common way တစ်ခုဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Objects in JavaScript&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1&gt;My Web Page&lt;/h1&gt;
+            
+                &lt;script src="../js/js_object.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var movie = {
+                title: 'Wonder Woman',
+                time: '2pm'
+            };
+            
+            //updating property value
+            alert(movie.title = 'Avengers');
+            
+            //adding a property to an object
+            movie.status = 'Unavailable';
+            console.log(movie);
+            
+            //combining objects with arrays by making an array of objects
+            var movies = [{
+                    title: 'Peaky Blinders',
+                    time: '12pm',
+                    status: 'Available'
+                },
+                {
+                    title: 'Rampage',
+                    time: '6pm',
+                    status: 'Unavailable'
+                }
+            ];
+        </code>
+    </pre>
+    <div class="img-size">
+        <img src="images/object.png" alt="Object Image">
+    </div>
+    <p>
+        <a href="directory/js_object.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Shorthand Program using For Loop</h2>
+    <p>ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့က movie object ထဲက status property ရဲ့ value အပေါ်မူတည်ပြီးတော့ message တစ်ခုကို display ပြပေးမယ့် shorthand program တစ်ခုကို ရေးသွားမှာဖြစ်ပါတယ်။ တစ်ကယ်လို့ status က Available နဲ့ ညီရင် movie title နဲ့ showtime ကို console
+        မှာ display လုပ်သွားပါမယ်။ တစ်ကယ်လို့ status က Unavailable နဲ့ညီနေရင်တော့ movie က sold out ဖြစ်သွားပြီဆိုတဲ့ message ကိုပြပေးမှာဖြစ်ပါတယ်။ အဲ့ဒီအတွက် ကျွန်တော်တို့မှာ movies array ထဲက object တစ်ခုချင်းစီကို လိုက်စစ်ဖို့အတွက် loop တစ်ခုလိုအပ်ပါတယ်။
+        ကျွန်တော်တို့ဟာ same actions တွေကိုပဲ repeat လုပ်နေမှာဖြစ်တဲ့အတွက် for loop ကိုအသုံးပြုပါမယ်။ အဲ့ဒီမှာဆိုရင် plus sign(+) ကို strings တွေ combine လုပ်ဖို့အတွက် သုံးထားတာဖြစ်ပါတယ်။ နောက်ပြီးတော့ strict equality operator (===) လို့ခေါ်တဲ့ triple
+        equal sign ဟာ values နှစ်ခုအတိအကျ ညီရမယ်လို့ စစ်တာဖြစ်ပါတယ်။ အောက်က example ကိုကြည့်ရအောင်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Simple Movie Shorthand Program&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1&gt;My Web Page&lt;/h1&gt;
+            
+                &lt;script src="../js/movie_program.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var movies = [{
+                title: 'Peaky Blinders',
+                time: '12pm',
+                status: 'Available'
+            },
+            {
+                title: 'Avengers',
+                time: '3pm',
+                status: 'Unavailable'
+            },
+            {
+                title: 'The Last Jedi',
+                time: '6pm',
+                status: 'Available'
+            },
+            {
+                title: 'Lady Bird',
+                time: '8pm',
+                status: 'Available'
+            }
+        ];
+        
+        for (var movie of movies) {
+            if (movie.status === 'Available') {
+                console.log("The movie " + movie.title + " plays at " + movie.time + ".");
+            }
+        }
+        </code>
+    </pre>
+    <div class="img-size">
+        <img src="images/program.png" alt="Shorthand Program image">
+    </div>
+    <p>
+        <a href="directory/movie_program.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Using Backtick Character</h2>
+    <p>ဒီတစ်ခါမှာတော့ ကျွန်တော်တို့က string တွေကို combine လုပ်ပေးတဲ့ quotes တွေနဲ့ plus sign (+) တွေကိုမသုံးဘဲ template literal တစ်ခုကို အသုံးပြုပါမယ်။Template literal တစ်ခု complete ဖြစ်ဖို့ Single or double quotes အစား backtick ဆိုတဲ့ character ကိုအသုံးပြုရပါမယ်။
+        Value တစ်ခုကို insert လုပ်ဖို့ plus sign ကိုအသုံးပြုမယ့်အစား string ထဲကို value ထည့်ဖို့အတွက် ${} ဆိုတဲ့ syntax ကိုအသုံးပြုပါမယ်။ ဒီလိုအသုံးပြုခြင်းဟာ code ကို ရေးရလွယ်ကူသလို ဖတ်ရလို့လည်း လွယ်ကူပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+            
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Using Backtick Character&lt;/title&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+            
+                &lt;h1&gt;My Web Page&lt;/h1&gt;
+            
+                &lt;script src="../js/backtick_char.js"&gt;&lt;/script&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of JS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            var movies = [{
+                title: 'Peaky Blinders',
+                time: '12pm',
+                status: 'Available'
+            },
+            {
+                title: 'Avengers',
+                time: '3pm',
+                status: 'Unavailable'
+            },
+            {
+                title: 'The Last Jedi',
+                time: '6pm',
+                status: 'Available'
+            },
+            {
+                title: 'Lady Bird',
+                time: '8pm',
+                status: 'Unavailable'
+            }
+        ];
+        
+        for (var movie of movies) {
+            if (movie.status === 'Available') {
+                //using backtick character
+                console.log(`The movie ${movie.title} plays at ${movie.time}.`);
+            } else {
+                console.log(`The movie ${movie.title} is sold out.`);
+            }
+        }
+        </code>
+    </pre>
+    <div class="img-size">
+        <img src="images/backtick.png" alt="Backtick image">
+    </div>
+    <p>
+        <a href="directory/backtick_char.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+
+
+</body>
+
+</html>

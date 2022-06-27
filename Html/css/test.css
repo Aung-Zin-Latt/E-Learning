@@ -1,0 +1,6 @@
+@media screen and (max-width: 500px) {
+    #gallery {
+        /* max-width: 500px; */
+        background-color: brown;
+    }
+}

@@ -1,0 +1,2516 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Transitions and Transforms</title>
+    <link rel="stylesheet" href="../Html/css/html.css">
+    <link rel="stylesheet" href='https://mmwebfonts.comquas.com/fonts/?font=myanmar3' />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Changa+One|Open+Sans">
+    <link rel="stylesheet" href="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/styles/default.min.css">
+    <script src="http://cdn.jsdelivr.net/gh/highlightjs/cdn-release@9.17.1/build/highlight.min.js"></script>
+    <script src="/path/to/highlight.pack.js"></script>
+    <script>
+        hljs.initHighlightingOnLoad();
+    </script>
+    <style>
+        body {
+            font-family: Myanmar3, Yunghkio;
+        }
+        
+        h2 {
+            font-family: 'Changa One', sans-sefif;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <h2>Getting Started with CSS Transitions</h2>
+    <p>ကျွန်တော်တို့ဟာ ဒီသင်ခန်းစာမှာတော့ developer တွေအနေနဲ့ simple animations တွေနဲ့ websites and apps တွေရဲ့ interactive တွေကို create လုပ်တဲ့အခါမှာ အသုံးများကြတဲ့ features နှစ်ခုကို လေ့လာသွားမှာဖြစ်ပါတယ်။ CSS transitions and transforms တွေနဲ့ ကျွန်တော်တို့ရဲ့
+        content တွေကို animations တွေ ပုံစံတစ်ခုကနေ တစ်ခုပြောင်းသွားအောင် ပြုလုပ်နိုင်ပါတယ်။ CSS transitions feature ဟာဆိုရင် ပေးထားတဲ့အချိန် (eg. 2s) အတွင်းမှာ value တစ်ခုကနေ အခြားတစ်ခုကိုပြောင်းအောင် one or several CSS properties တွေနဲ့ ပြောင်းလဲပေးနိုင်ပါတယ်။
+        ဥပမာ CSS transition နဲ့ button တစ်ခုကို hover လုပ်လိုက်တာနဲ့ သူ့ရဲ့ background ကို ရိုးရိုး blue ကနေ dark blue အဖြစ် 1 second အတွင်းပြောင်းသွားတာမျိုးပါ။ CSS transforms နဲ့ဆိုရင် ကျွန်တော်တို့ element တစ်ခုရဲ့ position ကိုပြောင်းလဲနိုင်ပြီး သူ့ရဲ့
+        shape ဟာလည်း normal document flow ကို မပျက်စေဘဲ ပြောင်းလဲပေးပါတယ်။ ကျွန်တော်တို့ရဲ့ page ပေါ်က content တွေကို အချို့သော transform functions တွေနဲ့ move, rotate, scale နဲ့ skew လုပ်နိုင်ပါတယ်။ Transitions နဲ့ transforms တွေဟာ CSS features တွေနဲ့
+        related ဖြစ်မနေဘဲ သီးခြားရပ်တည်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့က transform မလုပ်ဘဲ transition တစ်ခု create လုပ်နိုင်သလို transition မလုပ်ဘဲလည်း element တစ်ခုကို transform လုပ်နိုင်ပါတယ်။ ဒါပေမယ့် အကောင်းဆုံးကတော့ CSS transforms နဲ့ CSS transitions
+        တွေကို အတူပေါင်းပြီးရေးခြင်းဟာ webpage ပေါ်က element တွေကို position, rotation or scale လုပ်တဲ့နေရာမှာ ပိုကောင်းတဲ့ animation effects တွေရလာမှာဖြစ်ပါတယ်။ CSS transitions နဲ့ transforms တွေကိုသုံးပြီး ကျွန်တော်တို့ website ကို လှပအောင် create လုပ်နိုင်တဲ့နည်းလမ်းတွေ
+        အများကြီးရှိပါတယ်။ ဥပမာ images or icons တွေရဲ့size နဲ့ position ကို animate လုပ်နိုင်သလို button နဲ့ form fields တွေကိုလည်း လှပတဲ့ UI interactions တွေဖြစ်အောင် create လုပ်နိုင်ပါတယ်။ CSS transitions နဲ့ transforms တွေဘယ်လိုအလုပ်လုပ်လဲဆိုတာ လေ့လာဖို့အတွက်
+        ပထမဆုံး interactive image gallery တစ်ခုဆောက်ရပါမယ်။ Basic transition properties တွေအနေနဲ့ durations, delay effects, easing functions တွေကို လေ့လာသွားမှာဖြစ်ပြီး ထို့နောက် elements တွေကို 2D နဲ့ 3D space အတွင်းမှာ ဘယ်လို rotate, scale နဲ့ move
+        လုပ်ရမလဲဆိုတာသိဖို့အတွက် transform functions တွေကို အသုံးပြုသွားမှာဖြစ်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>CSS Transition Properties</h2>
+    <p>CSS transitions ဟာ ကျွန်တော်တို့ရဲ့ interface ရဲ့ အစိတ်အပိုင်းတွေကို အချိန်တစ်ခု (period of time) အတွင်းမှာ value တစ်ခုကနေတစ်ခုကို set of properties တွေကို change လုပ်ခြင်းဖြင့် animate လုပ်ပေးနိုင်ပါတယ်။ ပုံမှန်အရ ကျွန်တော်တို့ button တစ်ခုကို hover
+        လုပ်တဲ့အခါ အရောင်ပြောင်းဖို့အတွက် CSS property တစ်ခုရဲ့ value ကိုပြောင်းပေးရပါတယ်။ ဒါပေမယ့် CSS transition နဲ့ဆိုရင် အဲ့ဒီ button ရဲ့ animation ကို ဖြည်းဖြည်းနဲ့ ငြင်သာစွာ ပြောင်းလဲသွားအောင် လုပ်နိုင်ပါတယ်။ Value တစ်ခုကနေ တစ်ခုကို CSS properties
+        တွေနဲ့ transition လုပ်ဖို့အတွက်ဆိုရင် ကျွန်တော်တို့က browser ကို ဘယ် propeties တွေက transition လုပ်ဖို့နဲ့ အဲ့ဒီ transition effect က ဘယ်လောက်ကြာမလဲဆိုတာ ပြောပေးရပါမယ်။ ဒါဆိုရင်တော့ CSS အနည်းငယ်နဲ့ browser က delay ဖြစ်မယ့် transition ကို control
+        လုပ်နိုင်ပါပြီ။ Transitions တွေဟာ ပုံမှန်အားဖြင့် user action တစ်ခုပါပဲ။ ဆိုလိုတာက user က mouse click or hover, focus နဲ့ active တွေကို နှိပ်ပေးမှသာ ပြောင်းလဲသွားတာမျိုးဖြစ်ပါတယ်။ ဒါကြောင့် ပထမဆုံးအနေနဲ့ ကျွန်တော်တို့က transition duration property
+        နဲ့ transition တစ်ခုရဲ့ length ကိုပဲ သတ်မှတ်ပြီးတော့ transition တစ်ခုကို ရိုးရိုးရှင်းရှင်းလေး ပြုလုပ်သွားမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Transition Properties&lt;/title&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/transition_properties.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg" alt=""&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Spave Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of main.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            * {
+                box-sizing: border-box;
+            }
+            
+            body {
+                font: 1em/1.5 'Open Sans', sans-serif;
+                color: #373737;
+                background: #eaeaea;
+                margin: 0;
+            }
+            
+            a {
+                text-decoration: none;
+            }
+            
+            h1,
+            h2,
+            h3 {
+                text-transform: uppercase;
+            }
+            
+            h2 {
+                font-size: 1.125em;
+                color: #4a89ca;
+                font-weight: 600;
+                margin: 0;
+            }
+            
+            h3 {
+                font-size: 1.3em;
+                line-height: 1.25em;
+                margin-top: 0;
+                margin-bottom: .5em;
+            }
+            
+            p {
+                font-size: .875em;
+                line-height: 1.4;
+                margin: 0 0 1em;
+            }
+            
+            
+            /* ================================= 
+              Base Layout Styles
+            ==================================== */
+            
+            
+            /* ---- Layout Containers ---- */
+            
+            .container {
+                width: 94.02985075%;
+                max-width: 1260px;
+                background: #fff;
+                margin: auto;
+            }
+            
+            .main-header {
+                text-align: center;
+                padding: 2.8em 0;
+            }
+            
+            .photo-container {
+                text-align: center;
+                margin-bottom: 2.5em;
+            }
+            
+            
+            /* ---- Page Elements ---- */
+            
+            .name {
+                font-size: 1.65em;
+                font-weight: 800;
+                margin: 0 0 1.5em;
+                line-height: 1;
+            }
+            
+            .name span {
+                font-weight: 300;
+                margin-left: -7px;
+            }
+            
+            .logo {
+                width: 45px;
+                margin-bottom: .4em;
+                cursor: pointer;
+            }
+            
+            .photo-container img {
+                max-width: 100%;
+                position: relative;
+                z-index: 100;
+            }
+            
+            .button {
+                color: #fff;
+                width: 75%;
+                font-weight: 700;
+                display: block;
+                text-decoration: none;
+                text-transform: uppercase;
+                padding: 20px 0;
+                border-radius: .5em;
+                background: rgba(74, 137, 202, .8);
+                margin: .3em 0 0;
+            }
+            
+            .photo {
+                position: relative;
+                line-height: 0;
+            }
+            
+            
+            /* ---- Photo Overlay ---- */
+            
+            .photo-desc {
+                color: #fff;
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                padding-left: 20px;
+                display: flex;
+                /* For centering text inside .photo-overlay */
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background: #345d88;
+                line-height: 0;
+            }
+            
+            
+            /* -------- Float Clearfix --------- */
+            
+            .clearfix::after {
+                content: "";
+                display: table;
+                clear: both;
+            }
+            
+            
+            /* ================================= 
+              Media Queries
+            ==================================== */
+            
+            @media (min-width: 0) and (max-width: 768px) {
+                .container {
+                    padding: 1 1.225em 2.5em;
+                }
+            }
+            
+            @media (min-width: 769px) {
+                .container {
+                    padding: 0 2.25em 3em;
+                }
+                .photo-container {
+                    width: 48%;
+                    float: left;
+                    margin-left: 4%;
+                }
+            }
+            
+            @media (min-width: 769px) and (max-width: 1024px) {
+                .photo-container:nth-child(2n+1) {
+                    margin-left: 0;
+                    clear: left;
+                }
+            }
+            
+            @media (min-width: 1025px) {
+                .photo-container {
+                    width: 30.63973064%;
+                }
+                .photo-container:nth-child(3n+1) {
+                    margin-left: 0;
+                    clear: left;
+                }
+            }
+        </code>
+    </pre>
+    <p>Example of transition_properties.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* =====================================
+                Button Transitions
+            ====================================== */
+
+            .button {
+                color: #fff;
+                background: #4a89ca;
+                transition-duration: .4s;
+            }
+
+            .button:hover {
+                background: #d36a62;
+            }
+
+            .button:active {
+                background: #a33830;
+            }
+
+
+            /* ===================================
+                Photo Overlay Transitions
+            ==================================== */
+        </code>
+    </pre>
+    <p>
+        <a href="directory/transition_properties.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Defining transition-property</h2>
+    <p>CSS transitions တွေဟာ ဘယ် properties တွေကို transition လုပ်မလဲဆိုတာကို တိတိကျကျ ဆုံးဖြတ်ပေးနိုင်ပါတယ်။ ကျွန်တော်တို့အနေနဲ့ ဘယ် properties တွေကို transition လုပ်ဖို့အတွက် browser ကိုမညွန်ကြားဘူးဆိုရင် သူဟာ rule အတွင်းမှာပဲ properties အားလုံးကို transition
+        လုပ်သွားမှာဖြစ်ပါတယ်။ ဥပမာ button တစ်ခုကို hover လုပ်တဲ့အချိန်မှာ border-radius တစ်ခု add လိုက်မယ်ဆိုရင် အဲ့ဒီ border-radius value ဟာ ကျွန်တော်တို့ အပေါ်မှာပေးခဲ့တဲ့ .4 seconds အတွင်းမှာ transition ဖြစ်သွားတာကို သတိထားမိမှာပါ။ ဒါပေမယ့် CSS rule
+        ထဲမှာ property တိုင်းကို transition လုပ်ချင်မှာလုပ်မှာပါ။ ဒါကြောင့် ကျွန်တော်တို့က transition-property ကိုသုံးပြီးတော့ ကျွန်တော်တို့ ပြုလုပ်ချင်တဲ့ element တစ်ခုရဲ့ one or several CSS properties တွေကို transition လုပ်နိုင်ပါတယ်။ Transition-property
+        ရဲ့ value ဟာ transition လုပ်ချင်တဲ့ CSS property or set of properties တွေကို browser ကိုပြောပေးမှာဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့က transition-property: ; လို့ value မထည့်ပဲရေးရင်တောင် transition ဖြစ်သွားမှာဖြစ်တယ်။ ဘာလို့လဲဆိုရင်တော့ transition-property
+        ရဲ့ default value ဟာ all ဖြစ်လို့ပါပဲ။ ဒါကြောင့် transition-duration ကိုသတ်မှတ်ခြင်းဟာ transition-property ကို all လို့ပေးလိုက်တာနဲ့တူတူပါပဲ။ ဒါကြောင့် value ဖြစ်တဲ့ all ကိုကြေငြာလိုက်ခြင်းဟာ rule ထဲမှာ declared လုပ်ထားတဲ့ animatable properties
+        အားလုံးကို transition ဖြစ်သွားမှာဖြစ်ပါတယ်။ တစ်နည်းပြောရရင် naimate လုပ်နိုင်တဲ့ ဘယ် property ကိုမဆို animate လုပ်သွားမှာဖြစ်ပါတယ်။ ကျွန်တော်ကတော့ one, two, three or few properties တွေကို transition လုပ်မယ်ဆိုရင် all ဆိုတဲ့ value ကိုသုံးဖို့ အကြံမပေးပါဘူး။
+        transition-property: all; လို့ပေးခြင်းဟာ သတိမထားမိသလိုပဲ ထင်ရပေမယ့် ကျွန်တော်တို့ရဲ့ site performance ကို ကျစေပါတယ်။ Browser က transition ကို render လုပ်ဖို့ extra work တွေကိုလုပ်နေရပါတယ်။ ဘာလို့လဲဆိုရင် သူဟာ နောက်ထပ် property changes တွေကို လိုအပ်တာထက်ပိုပြီး
+        check လုပ်နေလို့ပဲဖြစ်ပါတယ်။ ဥပမာ main.css ထဲက .button rule ထဲမှာရှိတဲ့ width, font-weight, text-decoration, text-transform, padding နဲ့ margin values တွေကိုပါ check လုပ်သွားတာပါ။ value ဖြစ်တဲ့ all ကိုပေးခြင်းဟာ တခါတရံမှာ ကျွန်တော်တို့မပြုလုပ်ချင်တဲ့
+        properties တွေကိုပါ transition လုပ်သွားစေပါတယ်။ ကျွန်တော်တို့က ဒါကိုတိတိကျကျ သတ်မှတ်မယ်ဆိုရင် transition-property: background; လို့ သတ်မှတ်ပေးရပါမယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Defining transition-properties&lt;/title&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/transition_properties.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg" alt=""&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Spave Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;          
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ============================
+                Button Transitions
+            ============================= */
+
+            .button {
+                color: #fff;
+                background: #4a89ca;
+                transition-duration: .4s;
+                transition-property: background;
+            }
+
+            .button:hover {
+                background: #d36a62;
+            }
+
+            .button:active {
+                background: #a33830;
+            }
+
+
+            /* ===================================
+                Photo Overlay Transitions
+            ==================================== */
+        </code>
+    </pre>
+    <p>
+        <a href="directory/defining_transition_property.html" target="_blank" class="output">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Animatable CSS Properties</h2>
+    <p>အစောက ဖော်ပြခဲ့သလိုပဲ animate လုပ်လို့ရတဲ့ properties တွေသာလျှင် CSS နဲ့ transition လုပ်လို့ရတာပါ။ ဒါဆိုရင် transition လုပ်လို့ရတဲ့ animatable property တွေက ဘာတွေလဲ။ Browser က CSS property တိုင်းကို animate မလုပ်နိုင်ပါဘူး။ ပြီးတော့ နောက်လေ့လာသွားမယ့်
+        property တိုင်းဟာလည်း transitions တွေကို accept လုပ်မပေးပါဘူး။ ဒါကြောင့် W3Cက CSS transitions တွေအတွက် animate လုပ်လို့ရတဲ့ property အားလုံးကို <a href="https://www.w3.org/TR/css-transitions-1/#animatable-properties" target="_blank">w3.org</a>        မှာ list တစ်ခုနဲ့ဖော်ပြလိုက်ပါတယ်။ အဲ့ဒီ list ထဲက ဘယ် properties တွေမဆို CSS နဲ့ transition လုပ်လို့ရပါတယ်။ တစ်ကယ်လို့ property တစ်ခုက သတ်မှတ်လို့ရတဲ့ (identifiable) halfway point တစ်ခုရှိမယ်ဆိုရင် သူဟာ transition ကို accept လုပ်နိုင်ပါတယ်။ ဥပမာပြောရရင်
+        display ဆိုတဲ့ property ဟာ animatable property တစ်ခုဖြစ်ပါတယ်။ ဘာလို့လဲဆိုရင် values တွေဖြစ်တဲ့ block and non or inline and none တို့ရဲ့ကြားမှာ midway point မရှိလို့ပဲဖြစ်ပါတယ်။ ဥပမာ ကျွန်တော်တို့က image ကို hover လုပ်တဲ့အချိန် dispaly: none;
+        နဲ့ transition-duration: .4s; ပေးလိုက်မယ်ဆိုရင် browser က အဲ့ဒီ transition ကို ဘယ်လို handle လုပ်ရမလဲဆိုတာ မသိပါဘူး။ ဒါကြောင့် image ကို hover လုပ်တဲ့အခါ ပေါ်လိုက်ပျောက်လိုက် ဖြစ်နေမှာပါ။ အခါအားလျော်စွာပဲ CSS properties အများစုဟာ animatable ဖြစ်ပါတယ်။
+        Colors, widths, height နဲ့ borders တွေလိုမျိုး value တစ်ခုကနေ အခြားတစ်ခုကို transition လုပ်နိုင်ပါတယ်။ CSS animatable properties တွေကိုလေ့လာဖို့အတွက် Lea Verou က create လုပ်ခဲ့တဲ့ animatable properties demo ကို <a href="http://leaverou.github.io/animatable/"
+            target="_blank">Animatable properties</a> မှာလေ့လာနိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Defining transition-properties&lt;/title&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/transition_properties.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg" alt=""&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Spave Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ============================
+                Button Transitions
+            ============================= */
+
+            .button {
+                color: #fff;
+                background: #4a89ca;
+                transition-duration: .4s;
+                transition-property: background;
+            }
+
+            .button:hover {
+                background: #d36a62;
+            }
+
+            .button:active {
+                background: #a33830;
+            }
+
+            img:hover {
+                opacity: 0;
+                transition-duration: .4s;
+            }
+
+
+            /* ===================================
+                Photo Overlay Transitions
+            ==================================== */            
+        </code>
+    </pre>
+    <p>
+        <a href="directory/animatable_properties.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Photo Overlay Transitions</h2>
+    <p>အခုသင်ခန်းစာမှာ ကျွန်တော်က image title နဲ့ description ပါတဲ့ photo overlay အတွက် transition ကို create လုပ်တဲ့နည်း ပြောပြပေးသွားမှာပါ။ ဒါကြောင့် အပေါ်သင်ခန်းစာက ရေးခဲ့တဲ့ img:hover rule ကို ဖျက်လိုက်ပြီး အောက်မှာ class name ဖြစ်တဲ့ photo-overlay ကို
+        select လုပ်ပြီး သူ့ကို opacity: 0; ပေးလိုက်ပါမယ်။ ပြီးတော့ .photo-overlay ကို rule အသစ်တစ်ခုအနေနဲ့ယူပြီး hover state ထည့်ကာ opacity: 1; လို့ပေးလိုက်ပါမယ်။ အဲ့ဒီ hover interaction ကိုမှ ကျွန်တော်က transition အနည်းငယ်ထပ်ထည့်ပါမယ်။ ကျွန်တော်က hover
+        လုပ်လိုက်တဲ့အချိန်မှာ transition ကို on off လုပ်ချင်တာဖြစ်တဲ့အတွက် opacity: 0; ရှိတဲ့ .photo-overlay rule ထဲမှာ transiton-property: opacity; နဲ့ transition-duration: .5s; လို့ထည့်လိုက်ပါမယ်။ ဒါပေမယ့် ကျွန်တော်တို့က transition ဖြစ်တာကို long duration
+        အနေနဲ့ မမြင်ချင်ပါဘူး။ ပြောချင်တာက duration value ကို 2 seconds or longer ပေးခြင်းဟာ ကျွန်တော်တို့ image title နဲ့ description ကို fade in & fade out ဖြစ်ဖို့အတွက် တစ်ကယ်ကိုကြာလို့ပါ။ ဒါပေမယ့် duration value နည်းလွန်းရင်လည်း transition ဖြစ်သွားတာကို
+        user က မြင်တောင်မြင်လိုက်ရမှာ မဟုတ်ပါဘူး။ ဒါကြောင့် transition ပြောင်းလဲသွားတာကို သေချာမြင်ရဖို့အတွက် duration ကို သေချာပေးသင့်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Photo Overlay Transitions&lt;/title&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/photo_overlay_transition.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg" alt=""&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Spave Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ============================
+            Button Transitions
+            ============================= */
+            
+             .button {
+                 color: #fff;
+                 background: #4a89ca;
+                 transition-duration: .4s;
+                 transition-property: background;
+             }
+
+             .button:hover {
+                 background: #d36a62;
+             }
+
+             .button:active {
+                 background: #a33830;
+             }
+             /* ===================================
+               Photo Overlay Transitions
+            ==================================== */
+
+             .photo {
+                 opacity: 0;
+             }
+
+             .photo:hover {
+                 opacity: 1;
+                 transition-property: opacity;
+                 transition-duration: .5s;
+             }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/photo_overlay_transition.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Multiple Transitions using Shorthand Property</h2>
+    <p>CSS transitions တွေဟာ multiple transitions တွေကို သတ်မှတ်ပေးနိုင်ဖို့ ခွင့်ပြုပေးပါတယ်။ ကျွန်တော်တို့ဟာ specific properties တွေအတွက် transitions အမျိုးမျိုးကို create လုပ်နိုင်ပါတယ်။ အခုကျွန်တော်တို့မှာ transition-property: background; နဲ့ button
+        တစ်ခုရှိပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့က text color နဲ့ border radius ကို transition ထပ်လုပ်ချင်တာပါ။ ဒါကြောင့် ပထမဆုံး .button rule မှာ button ရဲ့ ပုံစံကို အနည်းငယ် ပြောင်းလိုက်ပါမယ်။ ပြီးရင် .button ရဲ့ hover rule ထဲမှာ text color ကို white ပြောင်းလိုက်မယ်။
+        background ကိုလည်း blue ပြောင်းလိုက်ပါမယ်။ ပြီးနောက် border-radius: 1em; လို့ထားလိုက်မယ်။ ကျွန်တော်တို့ဟာ multiple properties တွေကို transition လုပ်ဖို့ဆိုရင် ကျွန်တော်တို့က transition-property ထဲမှာ properties တွေကို comma ခြားပြီးတော့ ထည့်ပေးရပါမယ်။
+        ဒါကြောင့် ကျွန်တော်တို့က transition-property ထဲမှာ transition-property: background, border-radius, color; ဆိုပြီးထည့်လိုက်မယ်။ ဒါဆိုရင်တော့ button ကို hover လုပ်လိုက်တဲ့အခါ properties သုံးခုက transition ဖြစ်သွားမှာပါ။ ကျွန်တော်တို့က အဲ့ဒီ properties
+        သုံးခုကို same duration မှာ transition လုပ်ချင်တယ်ဆိုရင် transition-duration: .4s; ဆိုပြီး value တစ်ခုတည်းပေးလိုက်ရုံပါပဲ။ ဒီလိုမဟုတ်ဘဲ မတူညီတဲ့ transition duration နဲ့ရေးချင်တယ်ဆိုရင်တော့ transition-duration ဆိုတဲ့ property မှာ value ကို comma
+        ခံပြီးရေးပေးရပါမယ်။ transition-property: background, border-radius, color; ဆိုပြီးသုံးခုရှိတယ်ဆိုရင် ပထမ background value က transition-duration ထဲက ပထမဆုံး value နဲ့ match လုပ်ပြီး transition လုပ်ပေးမှာဖြစ်ပါတယ်။ ဒါပေမယ့် အဲ့ဒီ transition-property
+        သုံးခုကိုမှာ transition-duration value နှစ်ခုပဲပေးထားမယ်ဆိုရင် default အနေနဲ့ third value ဟာ .4s အဖြစ် ပထမဆုံး value ကိုယူသွားမှာဖြစ်ပါတယ်။ သူတို့ကို ရေးမယ်ဆိုရင် transition-property ကအရင်ရေးပြီး transition-duration ကိုနောက်မှရေးတာဟာ maintain
+        လုပ်လို့ ပိုလွယ်ပြီး match ဖြစ်ဖို့လည်းလွယ်ပါတယ်။ ဒါတွေဟာ transition ရဲ့အခြေခံတွေပါပဲ။ နောက်သင်ခန်းစာမှာ ကျွန်တော်တို့က transition တစ်ခုရဲ့ start time နဲ့ သူ့ရဲ့ speed အကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ သူတို့ကို ပိုပြီးရိုးရှင်းအောင်ရေးလို့ရတဲ့
+        short-hand property တွေကိုလည်း လေ့လာသွားမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html lang="en"&gt;
+
+            &lt;head&gt;
+                &lt;meta charset="UTF-8"&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;title&gt;Multiple Transitions using Shorthand Property&lt;/title&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/transition_shorthand.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg" alt=""&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Spave Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ============================
+            Button Transitions
+            ============================= */
+            
+             .button {
+                 color: #4a89ca;
+                 border: 2px solid;
+                 background: #4a89ca;
+                 transition-duration: .4s, 8s;  /* the third value "color" will be .4s by default */
+                 transition-property: background, border-radius, color;
+             }
+             
+             .button:hover {
+                 color: #fff;
+                 background: #4a89ca;
+                 border-radius: 1em;
+             }
+             
+             .button:active {
+                 background: #a33830;
+             }
+             /* ===================================
+               Photo Overlay Transitions
+            ==================================== */
+             
+             .photo {
+                 opacity: 0;
+             }
+             
+             .photo:hover {
+                 opacity: 1;
+                 transition-property: opacity;
+                 transition-duration: .5s;
+             }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/transition_shorthand.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Transition Timing Functions and Delays</h2>
+    <p>ပြီးခဲ့တဲ့သင်ခန်းစာမှာ ကျွန်တော်တို့က set of values တစ်ခုကနေ အခြားတစ်ခုကို CSS properties တွေနဲ့ trasition လုပ်ဖို့အတွက် ဘယ် properties တွေကို animate လုပ်ဖို့ transition-property ကိုသုံးပြီး specify လုပ်ခဲ့ပါတယ်။ ပြီးတော့ အဲ့ဒီ transition က ဘယ်လောက်ကြာမလဲဆိုတာကို
+        transition-duration နဲ့ သတ်မှတ်ခဲ့ပါတယ်။ Transitions တွေရဲ့ basic ကို နားလည်ပြီဆိုတာနဲ့ transition တစ်ခု start လုပ်လိုက်တာရယ် ၊ transition တစ်ခုရဲ့ speed ဟာ ပိုပြီး exciting and realistic ဖြစ်ဖို့အတွက် control လုပ်ပေးနိုင်တဲ့ optional effects
+        တွေကို apply လုပ်နိုင်ပါပြီ။ ဒါကြောင့် ပထမဆုံးအနေနဲ့ transition တစ်ခုရဲ့ အစကို ဘယ်လောက် delay ဖြစ်ပါမယ်လို့ပြောဖို့အတွက် transition-delay ဆိုတဲ့ propety ကို လေ့လာသွားပါမယ်။ Transition-delay property ဟာလည်း transition-duration property လိုပဲ time
+        value ကို လက်ခံပေးပါတယ်။ အဲ့ဒီ value ကိုကျွန်တော်တို့က second (s) or millisecond (ms) နဲ့သတ်မှတ်လို့ရပါတယ်။ 1000 milliseconds (ms) ဟာ 1 second (s) နဲ့ညီမျှပါတယ်။ Transition-property နဲ့ transition-duration property တွေလိုပဲ transition-delay property
+        ဟာ delay values တွေကို comma ခြားပြီးတော့ accept လုပ်ပေးနိုင်ပါတယ်။ ဒါဟာ ကျွန်တော်တို့ element တစ်ခုရဲ့ transition properties တွေကို ဖြည်းဖြည်းချင်းနဲ့ delay ဖြစ်စေပါတယ်။ ဒါကြောင့် ဥပမာအနေနဲ့ကျွန်တော်တို့က .button:hover rule ကိုတည်ဆောက်ပြီး သူ့ထဲမှာ
+        background: rgba(74, 137, 202, 1); နဲ့ box-shadow: 0 0 0 3px rgba(255, 255, 255, .7); ကိုထည့်လိုက်ပါမယ်။ ပြီးရင် .photo-overlay:hover .button rule ထဲမှာ opacity ကို 1 ပေးလိုက်ပါမယ်။ ပြီးရင်တော့ အပေါ်က .button rule ထဲက transition-property ထဲမှာ
+        opacity, background, box-shadow ကို comma ခံပြီးထည့်လိုက်ပါမယ်။ နောက်ဆုံးတစ်ခုကတော့ transition-delay ကိုသတ်မှတ်ပေးရမှာဖြစ်ပြီး ပထမဆုံး delay value ဟာ transition-property ထဲက opacity ရဲ့ delay ဖြစ်တဲ့ကြာချိန်ပဲဖြစ်ပါတယ်။ နောက်ဆုံး delay value ကိုဘာမှထည့်မထားရင်တော့
+        default အနေနဲ့ ပထမဆုံး delay value ကိုယူသွားမှာပဲဖြစ်ပါတယ်။ </p>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ============================
+            Photo Overlay Transitions
+        ============================= */
+        
+         .photo-overlay {
+             opacity: 0;
+             transition-property: opacity;
+             transition-duration: .5s;
+         }
+         
+         .photo-overlay:hover {
+             opacity: 1;
+         }
+         /* ===================================
+           Buttton Transitions
+        ==================================== */
+         
+         .button {
+             opacity: 0;
+             transition-property: opacity, background,box-shadow;
+             transition-duration: .5s;
+             transition-delay: .2s, .3s;
+         }
+         
+         .button:hover {
+             background: rgba(74, 137, 202, 1);
+             box-shadow: 0 0 0 3px rgba(255, 255, 255, .7);
+         }
+        
+         .photo-overlay:hover .button {
+             opacity: 1;
+         }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Transition Timing Function</h2>
+    <p>Transition တစ်ခုရဲ့ speed ဟာဆိုရင် သူရဲ့ duration အပေါ်မူတည်ပြီးတော့ ပြောင်းလဲနိုင်ပါတယ်။ အဲ့ဒီ speed ဟာ ကျွန်တော်တို့ set လုပ်လိုက်တဲ့ timing function တစ်ခုအပေါ်ကို အခြေခံပြီးတော့ rapidly or slowly နဲ့ accelerate & declerate လုပ်နိုင်ပါတယ်။ Timing
+        functions တွေကို easing functions တွေလို့လည်းခေါ်ပါတယ်။ ဘာလို့လဲဆိုရင် သူတို့ဟာ ပိုပြီးတော့ realistic ဖြစ်တဲ့ transition effect တစ်ခုကို produce လုပ်ဖို့အတွက် transition တစ်ခုကို ဖြည်းဖြည်းချင်း ပြောင်းလဲအောင် လုပ်ပေးနိုင်လို့ပါ။ ဒါကြောင့် CSS
+        timing functions တွေနဲ့ဆိုရင် browser က real life motion တွေကို ပြုလုပ်နိုင်မှာဖြစ်ပါတယ်။ Timing function တစ်ခုဟာ transition ရဲ့ feels ကို လုံး၀ change လုပ်ပေးနိုင်ပါတယ်။ CSS transition တစ်ခု create လုပ်တဲ့အခါ transition ဟာ time intervals တစ်ခုရှိတဲ့
+        acceleration curve တစ်ခုကို follow လုပ်ပါတယ်။ အဲ့ဒီ set of intervals တွေဟာ transition တစ်ခုကို speed up or slow down လုပ်နိုင်ပါတယ်။ ဒါကြောင့် timing function တစ်ခုဟာ transition တစ်ခုကို speed up or slow down လုပ်နိုင်တဲ့ intervals တွေကို သတ်မှတ်နိုင်ပြီး
+        acceleration curve ကိုလည်း ပြုလုပ်ပေးနိုင်ပါတယ်။ transition-timing-function ဆိုတဲ့ property ကိုသုံးပြီး သတ်မှတ်ထားတဲ့ timing function keyword values တွေကိုသုံးပြီး (သို့) custom time intervals တွေကိုသတ်မှတ်ပြီး easing effects တွေကို create လုပ်နိုင်ပါတယ်။
+        အသုံးအများဆုံး values တွေကတော့ ease, linear, ease-in, ease-out နဲ့ ease-in-out တို့ပဲဖြစ်ပြီး အဲ့ဒီ keyword values တွေဟာ transition တစ်ခုရဲ့ beginning နဲ့ end ကြားထဲမှာ ဘယ်လိုဖြစ်မလဲဆိုတာကို determine လုပ်ပေးပါတယ်။ ဒါကို <a href="https://webplatform.github.io/docs/css/properties/">Web platform</a>        မှာလေ့လာနိုင်ပါတယ်။ CSS transition တစ်ခု create လုပ်တဲ့အခါ timing function ရဲ့ default ကတော့ ease ပဲဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့က timing function မထည့်ဘူးဆိုရင်တောင် browser က transition ကို ဖြည်းဖြည်းချင်း start and stop လုပ်ပေးသွားမှာပါ။
+        linear timing function ကတော့ linear motion တစ်ခုကို maintain လုပ်ပေးပါတယ်။ ဒါကြောင့် constant speed မှာဆိုရင် easing မရှိတာပဲဖြစ်ပါတယ်။ ease-in ဆိုတဲ့ value ကတော့ ဖြည်းဖြည်းချင်း start လုပ်ပြီး မြန်မြန် stop လုပ်သွားတာဖြစ်ပါတယ်။ ပြီးတော့ ease-out
+        ကတော့ ease-in ရဲ့ ပြောင်းပြန်ဖြစ်ပြီး သူဟာ မြန်မြန် start လိုက်ပြီး ဖြည်းဖြည်းချင်း stop လုပ်သွားတာဖြစ်ပါတယ်။ နောက်ဆုံးတစ်ခုဖြစ်တဲ့ ease-in-out ကတော့ slow နဲ့ speed up ကို စလုပ်ပြီးမှာ slow down ဖြစ်သွားတာဖြစ်ပါတယ်။ <a href="https://codepen.io/Guilh/full/vLpOGp/">vLpOGp</a>မှာ
+        transition timing function တွေအကြောင်းကို ကြည့်နိုင်ပါတယ်။ Transition timing function မှာလည်း transition properties နဲ့ comma ခြားပီးတော့သတ်မှတ်နိုင်ပါတယ်။ </p>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .btn-icon {
+                transition-property: opacity, left;
+                transition-duration: .5s;
+                transition-delay: .3s;
+                transition-timing-function: ease-in-out, ease-out;
+                /*transition-timing-function: ease-out;
+				transition-timing-function: ease-in;*/ 
+            }
+
+            .button:hover .btn-icon {
+                opacity: 1;
+                left: 80%;
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Transition Shorthand Property</h2>
+    <p>Transition property နဲ့ value တစ်ခုချင်းစီကိုရေးခြင်းဟာ တစ်ကယ်ကို ရှည်ပါတယ်။ ဒါကို ကျွန်တော်တို့က transition shorthand property နဲ့ individual transition properties နဲ့ values အားလုံးကို declaration တစ်ခုထဲနဲ့ သတ်မှတ်နိုင်ပါတယ်။ ဥပမာပြောရရင် ကျွန်တော်တို့
+        HTML ထဲက class name ဖြစ်တဲ့ photo-overlay class ကို transition ဆိုတဲ့ keyword တစ်ခုတည်းနဲ့ သူ့နောက်မှာ transition-property value ဖြစ်တဲ့ opacity နဲ့ transition-duration value ဖြစ်တဲ့ .5s လို့ရေးလိုက်တာဟာ shorthand property နဲ့ရေးလိုက်တာပဲ ဖြစ်ပါတယ်။
+        တစ်ကယ်လို့ ကျွန်တော်တို့က two or more properties တွေကို shorthand နဲ့ရေးမယ်ဆိုရင် transition တစ်ခုချင်းစီကို comma ခံပြီး ရေးပေးဖို့လိုပါတယ်။ ကျွန်တော်တို့ transition ဆိုတဲ့ shorthand property မှာ ပထမ value က transition-duration အနေနဲ့ယူပြီး ဒုတိယ
+        value ကို transition-delay အနေနဲ့ယူပါတယ်။ ပြီးတော့ ဒီလိုသတ်မှတ်ခြင်းဟာ duration နဲ့ delay values တွေကြားက transition timing function ကို define လုပ်ဖို့ အကောင်းဆုံး practice ပဲဖြစ်ပါတယ်။ ပြောချင်တာက transition-timing-function ရဲ့ value ကို transition-duration
+        နဲ့ transition-delay values တွေရဲ့ကြားမှာ ထည့်ပေးရမှာဖြစ်ပါတယ်။ ဒီလိုနည်းနဲ့ပဲ same value တွေကို နေရာတိုင်းလိုက်ထည့်စရာမလိုပဲ declaration တစ်ခုတည်းနဲ့ shorthand ရေးလိုက်တာဖြစ်ပါတယ်။ Bare minimum မှာ shorthand ကိုသုံးခြင်းဟာ transition property
+        ကို transition: all .5s; လို့ကြေငြာသလိုမျိုး simple transition ကို declare လုပ်နိုင်ပါတယ်။ ကျွန်တော်တို့ဒါကို review ပြန်ပြောရမယ်ဆိုရင် transition-delay နဲ့ transition-timing-function values တွေဟာ optional တွေဖြစ်ကြတယ်။ Browser က properties တွေကို
+        transition လုပ်ဖို့ သူတို့ကို မလိုအပ်ပါဘူး။ transition-delay နဲ့ transition တစ်ခု start လုပ်မယ်ဆိုတာကို control လုပ်နိုင်ပါတယ်။ ပြီးတော့ transition-timing-function property နဲ့ transition တစ်ခုရဲ့ beginning နဲ့ end ကြားမှာရှိတဲ့ ဘာဖြစ်မလဲဆိုတဲ့အရာကို
+        control လုပ်နိုင်ပါသေးတယ်။ </p>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .button {
+                opacity: 0;
+                /*transition-property:opacity,background,box-shadow;
+                transition-duration: .5s;
+                transition-delay:.2s, .3s,0s;*/
+                transition:opacity .3s ease-out .2s,background .4s ease-out .3s,box-shadow .5s ease-out 0s;
+            }
+            .photo-overlay {
+                opacity: 0;
+                /*transition-property: opacity;
+                transition-duration: .5s;*/
+                transition: .5s;
+            }
+    
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Getting Started with CSS Transforms</h2>
+    <p>CSS transforms တွေဟာ HTML elements တွေရဲ့ appearance ကို size, position နဲ့ change လုပ်တဲ့ နည်းလမ်းတွေအမျိုးမျိုးကို ပေးနိုင်ပါတယ်။ Transforms နဲ့ပဲ two-dimensional or three-dimensioanl space ထဲက elements တွေကို rotating, scaling, skewing နဲ့ moving
+        လုပ်ခြင်းဖြင့် content တွေကို manipulate လုပ်လို့ရပါတယ်။ CSS transformations အားလုံးဟာ sigle property ဖြစ်တဲ့ transform property ကနေဖြစ်လာတာဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ page မှာလိုအပ်တဲ့ ဘယ် transform မဆို one or several transform functions
+        တွေကိုသုံးပြီး transform property ရဲ့ value တစ်ခုအဖြစ် ရေးနိုင်ပါတယ်။ <a href="https://docs.webplatform.org/wiki/css/properties/transform" target="_blank">Docs Transform </a> မှာ transform ဆိုတဲ့ property ကလက်ခံပေးတဲ့ transformation functions
+        တွေကို list နဲ့တကွ ပြပေးထားတာကို လေ့လာနိုင်ပါတယ်။ သူတို့ထဲက transform တစ်ခုချင်းစီမှာ မတူညီတဲ့ visual effect တစ်ခုစီရှိပါတယ်။ အခုသင်ခန်းစာမှာတော့ rotate, scale, skew နဲ့ translate ကဲ့သို့သော X နဲ့ Y axis ပေါ်က transform elements တွေကို access
+        လုပ်ပေးနိုင်တဲ့ 2-D transform fucntions တွေအကြောင်းကို လေ့လာသွားမှာဖြစ်ပါတယ်။ အဲ့ဒီ transform functions တွေနဲ့ပဲ ကျွန်တော်တို့က photo gallery page ကို လှပသေသပ်တဲ့ visual enhancements တွေကို ထည့်မှာဖြစ်ပါတယ်။ ဒါကြောင့် ပထမဆုံးအနေနဲ့ ကျွန်တော်တို့
+        image gallery ထဲက images တွေကို small rotation တစ်ခုထည့်မှာဖြစ်ပါတယ်။ img ကို target လုပ်ပြီးတော့ transform: rotate(); လို့ရေးလိုက်ပါမယ်။ Rotate ဟာ element တစ်ခုကို zero to 360 degrees အတွင်း clockwise or counter-clockwise အဖြစ် rotate လုပ်ဖို့အတွက်
+        အသုံးပြုနိုင်တဲ့ 2-D function တစ်ခုဖြစ်ပါတယ်။ Parenthesis ထဲမှာတော့ rotate function ဟာ angle units တွေရဲ့ types အမျိုးမျိုးထဲက arguments တွေကို လက်ခံပေးပါတယ်။ Angle units ဆိုတာကတော့ degrees, gradients, radians တွေဖြစ်ပြီး developers အများစုကတော့
+        degree unit ကိုပဲ အသုံးများပါတယ်။ Degree unit ကတော့ element တစ်ခုကို circular တစ်ခုထဲက 360 degree အထိ move လုပ်ပေးပါတယ်။ Image တွေကို counterclockwise or opposite direction လုပ်ဖို့negative value တစ်ခုကို အသုံးပြုနိုင်ပါတယ်။ Element တစ်ခုကို transformation
+        တစ်ခု apply လုပ်ရင် element ရဲ့ space ကိုမူလအတိုင်းပဲ browser ကဆောင်ရွက်ပေးပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;3D Transform Gallery&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/transform_rotate.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of main.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+              Base Element Styles
+            ==================================== */
+
+            * {
+            	box-sizing: border-box;
+            }
+            body {
+            	font: 1em/1.5 'Open Sans', sans-serif;
+            	color: #373737;
+            	background: #eaeaea;
+            	margin: 0;
+            }
+            a {
+            	text-decoration: none;
+            }
+            h1,
+            h2,
+            h3 {
+            	text-transform: uppercase;
+            }
+            h2 {
+            	font-size: 1.125em;
+            	color: #4a89ca;
+            	font-weight: 600;
+            	margin: 0;
+            }
+            h3 {
+            	font-size: 1.3em;
+            	line-height: 1.25em;
+            	margin-top: 0;
+            	margin-bottom: .5em;
+            }
+            p {
+            	font-size: .875em;
+            	line-height: 1.4;
+            	margin: 0 0 1em;
+            }
+
+            /* ================================= 
+              Base Layout Styles
+            ==================================== */
+
+            /* ---- Layout Containers ---- */
+
+            .container {
+            	width: 94.02985075%;
+            	max-width: 1260px;
+            	background: #fff;
+            	margin: auto;
+            }
+            .main-header {
+            	text-align: center;
+            	padding: 2.8em 0;
+            }
+            .photo-container {
+            	text-align: center;
+            	margin-bottom: 2.5em;
+            }
+            /* ---- Page Elements ---- */
+
+            .name {
+            	font-size: 1.65em;
+            	font-weight: 800;
+            	margin: 0 0 1.5em;
+            	line-height: 1;
+            }
+            .name span {
+            	font-weight: 300;
+            	margin-left: -7px;
+            }
+            .logo {
+            	width: 45px;
+            	margin-bottom: .4em;
+            	cursor: pointer;
+            }
+            .photo-container img {
+             	max-width: 100%;
+             	position: relative;
+            	z-index: 100;
+            }
+            .button {
+            	color: #fff;
+            	width: 75%;
+            	font-weight: 700;
+            	display: block;
+            	text-decoration: none;
+            	text-transform: uppercase;
+            	padding: 20px 0;
+            	border-radius: .5em;
+            	background: rgba(74,137,202, .8);
+            	margin: .3em 0 0;
+            }
+            .photo {
+            	position: relative;
+            	line-height: 0;
+            }
+            /* ---- Photo Overlay ---- */
+
+            .photo-desc {
+            	color: #fff;
+            	position: absolute;
+            	top: 0;
+            	right: 0;
+            	bottom: 0; 
+            	left: 0;
+            	padding-left: 20px;
+            	padding-right: 20px;
+            	display: flex; /* For centering text inside .photo-overlay */
+            	flex-direction: column;
+            	justify-content: center;
+            	align-items: center;
+            	background: #345d88;
+            	line-height: 0;
+            }
+            /* ---- Float clearfix ---- */
+
+            .clearfix::after {
+            	content: " ";
+            	display: table;
+            	clear: both;
+            }
+
+            /* ================================= 
+              Media Queries
+            ==================================== */
+
+            @media (min-width: 0) and (max-width: 768px) {
+            	.container {
+            		padding: 0 1.225em 2.5em;
+            	}
+            }
+            @media (min-width: 769px) {
+            	.container {
+            		padding: 0 2.25em 3em;
+            	}
+            	.photo-container {
+            		width: 48%;
+            		float: left;
+            		margin-left: 4%;
+            	}
+            }
+            @media (min-width: 769px) and (max-width: 1024px) { 
+            	.photo-container:nth-child(2n+1) {
+            		margin-left: 0;
+            		clear: left;
+            	}
+            
+            }
+            @media (min-width: 1025px) { 
+            	.photo-container {
+            		width: 30.63973064%;
+            	}
+            	.photo-container:nth-child(3n+1) {
+            		margin-left: 0;
+            		clear: left;
+            	}
+            }
+        </code>
+    </pre>
+    <p>Example of transform_rotate.css File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+              Button Transitions
+            ==================================== */
+
+            .button {
+            	transition: background .3s;
+            }
+            .button:hover {
+            	background: rgba(74,137,202, 1);
+            }
+
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+
+            .content {
+            	perspective: 700px;
+            }
+
+            .photo {
+            	transform: rotate(-45deg);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/transform_rotate.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Transform with Transition</h2>
+    <p>Transforms တွေဟာ default အနေနဲ့ animate လုပ်မပေးပါဘူး။ ပြီးတော့ transition ကဲ့သို့လည်း action တစ်ခုကို triggered လုပ်ဖို့မလိုပါဘူး။ ကျွန်တော်တို့က hover လိုမျိုး state change တစ်ခုထဲမှာ သူတို့ကို define မလုပ်ဘဲနဲ့ကို apply လုပ်ပေးပါတယ်။ CSS tramsform
+        တစ်ခုကို animate လုပ်ခြင်းဖြင့် CSS property နဲ့သုံးလို့ရပါတယ်။ Transform နဲ့ transition ကို combine လုပ်ခြင်းဖြင့် visual effect တွေကို create လုပ်နိုင်ပါတယ်။ Image တွေကို full rotation rotate လုပ်ချင်ရင် turn ကိုအသုံးပြုရမှာဖြစ်ပါတယ်။ One turn
+        က one full rotation နဲ့ညီပါတယ်။ Two turn လို့ပေးလိုက်ရင် image ကtwice အဖြစ် နှစ်ကြိမ် rotate လုပ်ပေးသွားမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML file:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;3D Transform Gallery&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/transform_with_transition.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS file:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+              Button Transitions
+            ==================================== */
+
+            .button {
+                transition: background .3s;
+            }
+
+            .button:hover {
+                background: rgba(74, 137, 202, 1);
+            }
+
+
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+
+            .content {
+                perspective: 700px;
+            }
+
+
+            .photo:hover {
+                transform: rotate(-5deg);
+                /* transform: rotate(1turn);    */
+             }
+            
+             /*  -- Logo --  */
+            
+             .logo:hover {
+                 transform: rotate(-20deg);
+             }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/transform_with_transition.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Skew Function</h2>
+    <p>ဒီသင်ခန်းစာမှာ ကျွန်တော်တို့က skew function ကိုသုံးပြီး elements တွေကို horizontal ဖြစ်တဲ့ left to right နဲ့ vertical ဖြစ်တဲ့ up to down axis တွေပေါ်မှာ distort(တွန့်လိမ်) ဖြစ်အောင် ပြုလုပ်မှာဖြစ်ပါတယ်။ ဒါကြောင့် element တစ်ခုကို skew လုပ်တဲ့အချိန်မှာ
+        အဲ့ဒီ skew က slanted or twisted appearance ဖြစ်အောင် element ကို transform လုပ်ပေးပါတယ်။ ကျွန်တော်တို့က ဘယ် element ကိုမဆို horizontal skew တစ်ခုအဖြစ် apply လုပ်ချင်တယ်ဆိုရင် skewX ဆိုတဲ့ transform function တစ်ခုနဲ့သတ်မှတ်ပေးရပါတယ်။ Eg. transform:
+        skewX(); ။ skewX function ဟာ image တစ်ခုကို X-axis ပေါ်မှာရှိတဲ့ သူ့ရဲ့ မူလ position ရဲ့ center ကနေ ကျွန်တော်တို့ပေးလိုက်တဲ့ value တန်ဖို့ 10 degree ရောက်အောင် စောင်းပေးပါတယ်။ အဲ့ဒီ image ကို hover လုပ်လိုက်တဲ့အခါ top side က left ဘက်ကို 10 degree
+        စောင်းသွားပြီး ၊ bottom side ကနေ right ဘက်ကို 10 degree စောင်းသွားမှာဖြစ်ပါတယ်။ Negative value ကတော့ content တွေကို opposite direction အဖြစ် skew လုပ်ပေးတာဖြစ်ပါတယ်။ ပြောချင်တာက image ရဲ့ top side ဟာ right ဘက်ကိုစောင်းသွားပြီး ၊ bottom side ဟာ
+        left ဘက်ကိုစောင်းသွားတာဖြစ်ပါတယ်။ အခြား transform functions တွေလိုပဲ skew function ဟာ element တစ်ခုရဲ့ children အားလုံးကို transform လုပ်သွားမှာဖြစ်ပါတယ်။ နောက်သင်ခန်းစာမှာတော့ scale transform function ကိုသုံးပြီး content ရဲ့ size ကို ဘယ်လို scale
+        လုပ်ရမလဲဆိုတာ လေ့လာသွားမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;Skew Function&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/skew_function.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+              Button Transitions
+            ==================================== */
+ 
+             .button {
+                 transition: background .3s;
+             }
+
+             .button:hover {
+                 background: rgba(74, 137, 202, 1);
+             }
+             /* ================================= 
+                        Photo 3D Transforms & Transitions
+                      ==================================== */
+
+             .content {
+                 perspective: 700px;
+             }
+
+             .photo {
+                 transition: transform .5s;
+             }
+
+             .photo:hover {
+                 transform: skewX(10deg);
+                 /* transform: skewX(-10deg); 
+                 transform: skewY(10deg);
+                 transform: skewY(-10deg);*/
+             }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/skew_function.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Scale Function</h2>
+    <p>CSS transformations တွေမှာဆိုရင် အသုံးအများဆုံးက scale ပဲဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ scaleX နဲ့ scaleY လိုမျိုး scale functions တွေကိုသုံးပြီး X or Y axis ပေါ်က elements တွေရဲ့ size ကို increase or decrease လုပ်နိုင်ပါတယ်။ ဒါပေမယ့် အများစုကတော့ elements
+        တွေကို horizontally နဲ့ vertically အရ scale ချဖို့ဆိုရင် scale ဆိုတဲ့ shorthand function ကိုပဲ အသုံးများကြပါတယ်။ ဥပမာ div တစ်ခုကို hover လုပ်လိုက်မယ်ဆိုရင် သူ့ရဲ့ size က နှစ်ဆကြီးသွားတာမျိုးပေါ့။ သူ့ကိုရေးမယ်ဆိုရင်တော့ transform: scale(); ဆိုပြီး
+        parenthesis အတွင်းမှာတော့ ကျွန်တော်တို့ content ကိုဘယ်လောက်ကြီးချင်လဲဆိုတာ မူတည်ပြီး value သတ်မှတ်ပေးရပါတယ်။ Default value ကတော့ 1 ပဲဖြစ်ပြီး သူ့ကိုကြည့်မယ်ဆိုရင် no scaling ဖြစ်နေမှာပါ။ Scale function ထဲက parenthesis ထဲမှာ second number value
+        တစ်ခုကိုလည်း လက်ခံပေးပါတယ်။ အခု အဲ့ဒီ value နှစ်ခုဟာ horizontal နဲ့ vertical dimensions တွေကို ဖြည်းဖြည်းချင်း scale လုပ်ပေးပါတယ်။ Scaling value X ကို ပထမအရင်ရေးပြီး scaling value Y ကို comma ခြားပြီး ဒုတိယနေရာမှာ ရေးရပါမယ်။ အခုကျွန်တော်တို့ image
+        တစ်ခုကို scale ချမယ်ဆိုရင် အဲ့ဒီ images တွေရဲ့ original dimensions ဟာ ကျွန်တော်တို့ scale ချတဲ့ dimension ထက် size ကပိုကြီးနေရပါမယ်။ ကျွန်တော်တို့ မြင်တွေ့ရသလိုပဲ element တစ်ခု scale and rotate လုပ်တဲ့ spot ဟာ default အနေနဲ့ element ရဲ့ တိကျတဲ့
+        same center ပဲဖြစ်ပါတယ်။ နောက်သင်ခန်းစာမှာ အဲ့ဒီ spot ကို top-left or bottom-right corners ကဲ့သို့သော အခြား areas တွေကနေ elements တွေကို ဘယ်လို scale or rotate လုပ်ရမလဲဆိုတာ လေ့လာသွားမှာဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;Scale Function&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/scale_function.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+               Button Transitions
+             ==================================== */
+
+            .button {
+                transition: background .3s;
+            }
+
+            .button:hover {
+                background: rgba(74, 137, 202, 1);
+            }
+
+
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+
+            .content {
+                perspective: 700px;
+            }
+
+            .photo {
+                transition: transform .5s;
+            }
+
+            .photo:hover {
+                transform: scale(1.1);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/scale_function.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Transform Origin Property</h2>
+    <p>HTML element တစ်ခုရဲ့ default transform origin ဟာ သူ့ရဲ့ center ပဲဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ apply လုပ်လိုက်တဲ့ transform functions တွေဟာ center point အတိုင်း elements တွေကို move လုပ်သွားပါတယ်။ ဥပမာ ကျွန်တော်တို့က rotation image တစ်ခု apply
+        လုပ်မယ်ဆိုရင် အဲ့ဒီ image ဟာ default အနေနဲ့ သူ့ရဲ့ center ကနေ rotate လုပ်သွားမှာဖြစ်ပြီး သူ့ကို scale ချမယ်ဆိုရင်လည်း သူ့ရဲ့ center ကနေပဲ scale ချပေးမှာဖြစ်ပါတယ်။ ဒါပေမယ့် ကျွန်တော်တို့က transformation ရဲ့ default origin ကို setting လုပ်ခြင်းဖြင့်
+        element ကို spot ထားပြီးတော့ scaled or rotated လုပ်ပေးနိုင်ပါတယ်။ ဒါကိုလုပ်မယ်ဆိုရင်တော့ transform-origin ဆိုတဲ့ property ကိုသုံးပေးရမှာဖြစ်ပါတယ်။ transform-origin ဆိုတဲ့ property ဟာ သီးခြား CSS property တစ်ခုဖြစ်တာကြောင့် ကျွန်တော်တို့အနေနဲ့
+        transforming လုပ်ချင်တဲ့ element ထဲကို အဲ့ဒီ property ကို add လုပ်လို့ရပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့ images တွေကို transform-origin ရဲ့ default value ဖြစ်တဲ့ 50% လို့ထည့်လိုက်မယ်။ 50% ဟာ origin ကနေ horizontally ရော vertically ရောကို set လုပ်သွားတာဖြစ်ပါတယ်။
+        ကျွန်တော်တို့ရဲ့ transform-origin ကို length unit, percentage or position keyword တွေကိုသုံးပြီး အလွယ်တကူ change လုပ်နိုင်ပါတယ်။ transform-origin ရဲ့ value ကို 0 0 ပေးလိုက်မယ်ဆိုရင် element ရဲ့ origin ကနေ top left corner သို့ move ဖြစ်သွားမှာဖြစ်ပါတယ်။
+        သူ့ကို bottom right လို့သတ်မှတ်လို့လည်းရပါတယ်။ သူကတော့ 100% 100% နဲ့တူတူပါပဲ။ transform-origin value ကို pixel values တွေနဲ့လည်း သတ်မှတ်ပေးလို့ရပါတယ်။ အောက်က example မှာ ဆက်လက်ကြည့်နိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;Transform Origin Property&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/transform_origin.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;span class="original-pos"&gt;
+                                    &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;/span&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;span class="original-pos"&gt;
+                                    &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;/span&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;span class="original-pos"&gt;
+                                    &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;/span&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+               Button Transitions
+             ==================================== */
+
+            .button {
+                transition: background .3s;
+            }
+
+            .button:hover {
+                background: rgba(74, 137, 202, 1);
+            }
+
+
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+
+            .content {
+                perspective: 700px;
+            }
+
+            .photo img {
+                transition: transform .5s;
+                transform-origin: 0 0;
+            }
+
+            .photo:hover img {
+                transform: scale(1.2);
+                /* transform: rotate(-5deg); */
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/transform_origin.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>translateX and translateY Function</h2>
+    <p>အခုဆိုရင် transforms တွေမှာ elements တွေကို relatively အရ position ချဖို့အတွက် တူညီတဲ့ behavior ရှိတယ်ဆိုတာ သိရပါပြီ။ ကျွန်တော်တို့ဟာ elements တွေကို document ရဲ့ normal flow ကိုသွေဖယ်ခြင်းမရှိဘဲ directions အမျိုးမျိုးမှာ rotate, scale နဲ့ skew တွေလုပ်နိုင်ပါတယ်။
+        ဒီသင်ခန်းစာမှာတော့ CSS transforms မှာရှိတဲ့ translations တွေဟာ CSS layout မှာရှိတဲ့ relative positioning တွေနဲ့ ဘယ်လိုတူနေလဲဆိုတာ လေ့လာသွားမှာဖြစ်ပါတယ်။ Translation ဆိုတာ တစ်စုံတစ်ခုကို one place ကနေ another place ကို moving လုပ်တဲ့ process ပဲဖြစ်ပါတယ်။
+        translateX, translateY နဲ့ translate ဆိုတဲ့ functions တွေနဲ့ ကျွန်တော်တို့ elements တွေကို x-axis (left and right) နဲ့ y-axis (up and down) ဆိုပြီးတော့ အခြား elements တွေရဲ့ positions တွေကို affect မဖြစ်ဘဲ sidesways တွေကို move လုပ်နိုင်ပါတယ်။
+        ဥပမာ translatX function ဟာ element တစ်ခုရဲ့ position ကို horizontl axis မှာ change ဖြစ်သွားစေပါတယ်။ ဒါဟာ CSS မှာတုန်းကလို relative နဲ့ absolute positioning မှာ elements တွေကို top, left, bottom နဲ့ right ကိုသုံးတာနဲ့တူပါတယ်။ Positive translateX
+        value ဟာ element တစ်ခုကို သူ့ရဲ့ default position ကနေ right ဘက်ကို push လုပ်သွားပြီး negative value ကနေ left ဘက် ကို push လုပ်သွားတာဖြစ်ပါတယ်။ translateY function ကလည်း vertical axis ပေါ်မှာဖြစ်သွားတာကလွဲလို့ translateX နဲ့ same effect ရှိပါတယ်။
+        Translate functions တွေဟာ ဘယ် length unit or percentage ကိုမဆို သူ့ရဲ့ value အဖြစ် accept လုပ်ပေးနိုင်ပါတယ်။ သူဟာလည်း skew နဲ့ scale functions တွေလိုမျိုး a-axis နဲ့ y-axis ကိုတစ်ကြိမ်တည်းနဲ့ short hand ရေးလို့ရပါတယ်။ သူတို့ကိုရေးမယ်ဆိုရင်တော့
+        transform: translate(x-axis value, y-axis value); ဆိုပြီးရေးနိုင်ပါတယ်။ တစ်ခုသိထားရမှာက translate function ထဲက parenthesis ထဲမှာ value တစ်ခုပဲရှိတယ်ဆိုရင် အဲ့ဒီ value ဟာ a-axis အတွက်ဖြစ်ပြီး y-axis value မရှိတဲ့အတွက် default value 0 အနေနဲ့ဝင်သွားမှာဖြစ်ပြီး
+        y-axis မှာ translation မရှိတော့ပါဘူး။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+
+            &lt;head&gt;
+                &lt;title&gt;TranslateX and TranslateY Functions&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/translateXY.css"&gt;
+            &lt;/head&gt;
+
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+               Button Transitions
+             ==================================== */
+
+            .button {
+                transition: background .3s;
+            }
+
+            .button:hover {
+                background: rgba(74, 137, 202, 1);
+            }
+
+
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+
+            .content {
+                perspective: 700px;
+            }
+
+            .photo img {
+                transition: transform .5s;
+                transform-origin: 0 0;
+            }
+
+            .photo:hover img {
+                /* transform: translateX(150px);
+                transform: translateX(-150px);
+                transform: translateY(100%);
+                transform: translateY(-100%); */
+                transform: translate(100px, 50px);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/translateXY.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Combining Transform Functions</h2>
+    <p>Transform property ဟာဆိုရင် functions တွေအများကြီးကို လိုအပ်သလောက် accept လုပ်ပေးနိုင်ပါတယ်။ ဒါကြောင့် သူတို့ကို တစ်နည်းနည်းနဲ့ လိုအပ်သလို combine လုပ်လို့ရပါတယ်။ ဒါဟာ multiple transforms တွေကို တစ်ကြိမ်တည်းနဲ့ ပြုလုပ်ချင်တဲ့အခါမှာ အသုံးပြုတာများပါတယ်။
+        ဥပမာအားဖြင့် ကျွန်တော်တို့ရဲ့ element တစ်ခုရဲ့ size ကို scale ချဖို့နဲ့ rotate လုပ်ဖို့ တစ်ကြိမ်တည်းနဲ့လုပ်ချင်တာမျိုးပါ။ သူ့ကိုရေးမယ်ဆိုရင်တော့ transform ဆိုတဲ့ propety ရဲ့နောက်က value ထဲမှာ rotate ( ) ဆိုတဲ့ function နဲ့ scale ( ) ဆိုတဲ့ function
+        ကို space ခြားပြီးရေးပေးရမှာဖြစ်ပါတယ်။ တစ်ခုမှတ်ထားရမှာကတော့ rule တစ်ခုအတွင်းမှာ transform declaration ကို တစ်ကြိမ်သာလျှင် define လုပ်လို့ရတာဖြစ်ပါတယ်။ ဒီလိုမှာမဟုတ်ရင်တော့ most bottom (အောက်ဆုံး) အဖြစ်ဆုံး declaration က သူ့အပေါ်က transform declaration
+        အားလုံးကို override လုပ်သွားမှာဖြစ်ပါတယ်။ ဒါဟာ developers အများစု မှားလေ့ရှိတဲ့အရာတစ်ခုဖြစ်ပါတယ်။ ဒါဟာ သေးငယ်တဲ့အမှားတစ်ခုဆိုပေမယ့် တစ်ခါတစ်ရံ same element ကိုမှ နောက်ထပ် transform တွေထပ်ထည့်ထားမယ်ဆိုရင် trace လိုက်တဲ့အခါမှာ ပြသနာတက်နိုင်ပါတယ်။
+    </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+                    
+            &lt;head&gt;
+                &lt;title&gt;Combining Transform Functions&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/combining_transform.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+                
+                    &lt;div class="content clearfix"&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+               Button Transitions
+             ==================================== */
+
+            .button {
+                transition: background .3s;
+            }
+
+            .button:hover {
+                background: rgba(74, 137, 202, 1);
+            }
+
+
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+
+            .content {
+                perspective: 700px;
+            }
+
+            .photo img {
+                transition: transform .5s;
+                /* transform-origin: 0 0; */
+            }
+
+            .photo:hover img {
+                transform: scale(1.2);
+            }
+
+
+            /* ================================= 
+              Combining Transform Functions
+            ==================================== */
+
+            .photo:hover img {
+                transform: rotate(-5deg) scale(1.1) translateY(-30px);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/combining_transform.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Cubic-Bezier Timing Function</h2>
+    <p>ကျွန်တော်တို့ ပြီးခဲ့တဲ့ သင်ခန်းစာက CSS transforms တွေနဲ့ custom timing functions တွေကိုရောပြီး ပြုလုပ်ခဲ့တဲ့ timing functions တွေအကြောင်းကို လေ့လာခဲ့ပြီးပါပြီ။ အခု ကျွန်တော်တို့က cubic-bezier function ကိုသုံးပြီး complex ပိုဖြစ်တဲ့ timing functions
+        တွေကို ဘယ်လို create လုပ်လို့ရလဲဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ Cubic-bezier နဲ့ ကျွန်တော်တို့က ဘယ် interesting easing effects တွေကိုမဆို create လုပ်နိုင်ပါတယ်။ ပြီးခဲ့တဲ့သင်ခန်းစာမှာ pre-defined လုပ်ထားတဲ့ timing function keywords တွေဟာ cubic-bezier
+        curve လို့ခေါ်တဲ့ ပိုပြီး complex ဖြစ်တဲ့ timing function အတွက် shorthand တစ်ခုသာဖြစ်ပါတယ်။ သူ့ရဲ့ description ကို <a href="https://codepen.io/Guilh/full/ZQxoOX/" target="_blank">cubic-beizer function</a> ရဲ့ demo မှာ ကြည့်ရှုနိုင်ပါတယ်။ ကျွန်တော်တို့က
+        vector program ဖြစ်တဲ့ Illustrator or Sketch ကိုအသုံးပြုရင် bezier-curves နဲ့ familiar ဖြစ်ပါလိမ့်မယ်။Cubic-bezier CSS function မှာ bezier curve ကို four value နဲ့သတ်မှတ်နိုင်ပါတယ်။ ဒီ value တွေက start နဲ့end point ကို create လုပ်နိုင်ပါတယ်။ ပြီးတော့
+        acceleration curve ရဲ့point တွေကို control လုပ်ပါတယ်။ ကျွန်တော်တို့အတွက် awesome easing effects တွေကို produce လုပ်ဖို့great tools တွေအများကြီးရှိပါတယ်။ For example- <a href="http://cubic-bezier.com/#.88,.14,.23,.83">cubic-bezier.com</a> က bezier-curves
+        နဲ့ easing function aတွနဲ့ comparing ,testing and creating အတွက် simple app ဖြစ်ပါတယ်။ အဲ့ဒါကတော့ Illustrator or sketch ဆွဲတာနဲ့တူတူဖြစ်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html>
+            &lt;html>
+
+            &lt;head>
+                &lt;title>Cubic-Bezier Function&lt;/title>
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0">
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'>
+                &lt;link rel="stylesheet" href="../css/main.css">
+                &lt;link rel="stylesheet" href="../css/cubic_bezier_function.css">
+            &lt;/head>
+
+            &lt;body>
+                &lt;div class="container">
+                    &lt;header class="main-header clearfix">
+                        &lt;img class="logo" src="../images/camera.svg">
+                        &lt;h1 class="name">3DTransform &lt;span>Gallery&lt;/span>&lt;/h1>
+                    &lt;/header>
+                
+                    &lt;div class="content clearfix">
+                    
+                        &lt;div class="photo-container">
+                            &lt;div class="photo">
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth">
+                                &lt;div class="photo-desc side-b">
+                                    &lt;h3>Dazzling Auroras&lt;/h3>
+                                    &lt;p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p>
+                                    &lt;a href="#" class="button">download&lt;/a>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    
+                        &lt;div class="photo-container">
+                            &lt;div class="photo">
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station">
+                                &lt;div class="photo-desc side-b">
+                                    &lt;h3>The Space Station&lt;/h3>
+                                    &lt;p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p>
+                                    &lt;a href="#" class="button">download&lt;/a>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    
+                        &lt;div class="photo-container">
+                            &lt;div class="photo">
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth">
+                                &lt;div class="photo-desc side-b">
+                                    &lt;h3>Planet Earth&lt;/h3>
+                                    &lt;p>Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p>
+                                    &lt;a href="#" class="button">download&lt;/a>
+                                &lt;/div>
+                            &lt;/div>
+                        &lt;/div>
+                    
+                    &lt;/div>
+                &lt;/div>
+            &lt;/body>
+
+            &lt;/html>
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+               Button Transitions
+             ==================================== */
+
+            .button {
+                transition: background .3s;
+            }
+
+            .button:hover {
+                background: rgba(74, 137, 202, 1);
+            }
+
+
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+
+            .content {
+                perspective: 700px;
+            }
+
+            .photo img {
+                transition: transform .5s cubic-bezier(.7, -0.39, .31, 1.38);
+                /* transform-origin: 0 0; */
+            }
+
+            .photo:hover img {
+                transform: scale(1.2);
+            }
+
+
+            /* ================================= 
+              Combining Transform Functions
+            ==================================== */
+
+            .photo:hover img {
+                transform: rotate(-5deg) scale(1.1) translateY(-30px);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/cubic_bezier_function.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Adding 3D Effects with CSS</h2>
+    <p>ကျွန်တော်တို့အနေနဲ့ movie တစ်ပုဒ်ကို 3D နဲ့ကြည့်တဲ့အချိန် screen ပေါ်မှာရှိတဲ့ elements တွေဟာ ကျွန်တော်တို့ရဲ့အဝေးကနေ jump out or move away ဖြစ်ပြီးတော့ ပေါ်နေမှာပါ။ အဲ့ဒီ effect ဟာ depth perception ရဲ့ illusion ကို enhancing လုပ်ခြင်းဖြင့် create
+        လုပ်ထားတာပါ။ အဲ့ဒီ effects တွေဟာ third dimension တစ်ခုကို အခြား flat two-dimensional move screen ဆီကို add လုပ်သွားတာဖြစ်ပါတယ်။ Computer, tablet နဲ့ mobile screens တွေဟာလည်း flat ဖြစ်ပြီးတော့ two-dimensional တွေဖြစ်ကြပါတယ်။ ဒါပေမယ့် CSS 3D transforms
+        တွေနဲ့ဆိုရင် webpage ပေါ်က elements တွေကို depth တွေ add လုပ်နိုင်ပါတယ်။ ပြီးတော့ 3D movie တစ်ခုလိုပဲ viewer ကနေ away ကိုနဲ့ viewer ဆီသွားတဲ့ movement တွေကို create လုပ်လို့ရပါတယ်။ ကျွန်တော်တို့ အပေါ်မှာလေ့လာခဲ့တဲ့ rotate, scale, skew နဲ့ translate
+        elements ဆိုတဲ့ transforms တွေဟာ two-dimensional space ထဲမှာပဲရှိပါတယ်။ အဲ့ဒါဟာ x နဲ့ y-axis ပေါ်က horizontall နဲ့ vertically တွေပဲဖြစ်ပါတယ်။ 3D transforms တွေဟာ 2D transforms တွေရဲ့ extension တစ်ခုပဲဖြစ်ပါတယ်။ သူတို့ဟာ Z-axis လို့ခေါ်တဲ့ 3rd
+        axis တစ်ခုကို introduce လုပ်ခြင်းဖြင့် screen တစ်ခုပေါ်က 3D space ကို simulate လုပ်ဖို့ ခွင့်ပြုပေးပါတယ်။ Z-axis ဟာဆိုရင် two-dimensional screen ပေါ်မှာ illusion of depth ကို create လုပ်ပေးပါတယ်။ Z-axis ပေါ်မှာ ကျွန်တော်တို့က elements တွေကို towards
+        or away from the viewer ဆီ move လုပ်ပေးနိုင်ရုံသာမက 3D perspective တစ်ခုအတွင်းမှာ rotate နဲ့ scale လုပ်လို့ပါ ရပါသေးတယ်။ ဥပမာ book show တစ်ခုထဲက book တစ်ခုကို hover လုပ်လိုက်မယ်ဆိုရင် သူ့ရဲ့ မျက်နှာစာနဲ့ နောက်ကျောဘက်တွေကို တစ်ကယ့် real world မှာလို
+        3D effect နဲ့ပေါ်ပေးတာမျိုးဖြစ်ပါတယ်။ ကျွန်တော်တို့ဟာ transform properties တွေကိုသုံးပြီး အံ့သြစရာဖြစ်လောက်တဲ့ 3D effects တွေကို create လုပ်နိုင်မှာဖြစ်ပါတယ်။ နောက်သင်ခန်းစာမှာ webpage ပေါ်မှာရှိတဲ့ 3D space ကို 3D transforms တွေသုံးပြီး ဘယ်လို
+        active လုပ်ရမလဲဆိုတာကို လေ့လာသွားမှာဖြစ်ပါတယ်။ </p>
+    <hr>
+
+
+    <h2>Making 3D Effects with Perspective Property</h2>
+    <p></p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            &lt;head&gt;
+                &lt;title&gt;3D Transform Gallery&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="css/main.css"&gt;
+                &lt;link rel="stylesheet" href="css/interactions.css"&gt;
+            &lt;/head&gt;
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+            
+                    &lt;div class="content clearfix"&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                              &lt;img class="side-a" src="../images1.jpg" alt="Dazzling Auroras over Earth"&gt;	
+                              &lt;div class="photo-desc side-b"&gt;
+                                  &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                  &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;	
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                              &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;	
+                              &lt;div class="photo-desc side-b"&gt;
+                                  &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                  &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;	
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                              &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;	
+                              &lt;div class="photo-desc side-b"&gt;
+                                  &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                  &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;	
+            
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+            Button Transitions
+            ==================================== */
+            
+            .button {
+                transition: background .3s;
+            }
+
+            .button:hover {
+                background: rgba(74, 137, 202, 1);
+            }
+
+
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+
+            .content {
+                perspective: 700px;
+                /* perspective: 2000px;
+                perspective: 3000px; */
+            }
+
+            .photo {
+                transform: rotateX(-35deg);
+                /* transform: rotateY(-35deg); */
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/perspective_property.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>3D Transform with Some Properties</h2>
+    <p>ဒီသင်ခန်းစာမှာတော့ ကျွန်တော်က CSS transitions နဲ့ 3D transforms တွေကိုသုံးပြီး image gallery ကို 3D ပုံစံဖြစ်အောင် ပြုလုပ်မှာဖြစ်ပါတယ်။ ကျွန်တော်တို့က image တစ်ခုကို hover လုပ်လိုက်ရင် သူ့နောက်ကျောမှာလို့ထင်ရတဲ့ text တွေကို flip လုပ်ပြမှာဖြစ်ပါတယ်။
+        t=Transform styleရဲ့default value ကတော့ flat ဖြစ်ပါတယ်။ Element တွေက 3D space ထဲမှာရှိနေတဲ့အခါ ကျွန်တော်တို့က backface-visibility property ကိုအသုံးပြုနိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            
+            &lt;head&gt;
+                &lt;title&gt;3D Transform with Some Properties&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/3d_transform.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+            
+                    &lt;div class="content clearfix"&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+            Button Transitions
+          ==================================== */
+          
+          .button {
+              transition: background .3s;
+          }
+          
+          .button:hover {
+              background: rgba(74, 137, 202, 1);
+          }
+          
+          
+          /* ================================= 
+            Photo 3D Transforms & Transitions
+          ==================================== */
+          
+          .content {
+              perspective: 700px;
+          }
+          
+          .photo {
+              transition: transform 1s cubic-bezier(.55, -.62, .27, 1.2);
+              transform-style: preserve-3d;
+          }
+          
+          .photo:hover {
+              transform: rotateX(-180deg);
+          }
+          
+          .side-a,
+          .side-b {
+              backface-visibility: hidden;
+          }
+          
+          .side-b {
+              transform: rotateY(180deg);
+          }            
+        </code>
+    </pre>
+    <p>
+        <a href="directory/3d_transform.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <p>ကျွန်တော်တို့က 3D transform ကို Z-axis လို့ခေါ်တဲ့ third axis ကို အသုံးပြုတာကို လေ့လာခဲ့ပြီးဖြစ်ပါတယ်။ ဒါကြောင့် ကျွန်တော်တို့က Z-axis ကိုလည်း rotateလုပ်နိုင်ပါတယ်။ တစ်ကယ်တော့ ကျွန်တော်တို့က x,y,z axis တွေကို တချိန်တည်းမှာပဲ rotateလုပ်နိုင်ပါတယ်။
+        ဒါကတော့ 3D space ထဲက transforming ရဲ့cooler partတစ်ခုဖြစ်ပါတယ်။ 3D space ထဲမှာ ကျွန်တော်တို့က element တွေကို multiple direction မှာ တစ်ကြိမ်တည်း rotateလုပ်နိုင်ပါတယ်။ ဒါကြောင့် CSS မှာ rotate 3D function တစ်ခုရှိပါတယ်။ သူ့ကိုX,Y,Z axis ပေါ်မှာ
+        3D rotation တစ်ခုဆောင်ရွက်ဖို့ အသုံးပြုနိုင်ပါတယ်။ rotate 3D function ကတော့ value aလးခုကို comma နဲ့ခြားပီးတော့ accept လုပ်နိုင်ပါတယ်။ ပထမ value သုံးခုကတော့ x,y,z axis ပေါ်က rotation ရဲ့direction ကို set လုပ်ပါတယ်။ fourth value ကတော့ rotation
+        angle ကိုset လုပ်ပါတယ်။ x,y,z တွေရဲ့number value တွေကတော့ zero or one တစ်ခုခုဖြစ်ပါတယ်။ fourth value ကိုတော့ ကျွန်တော်တို့ turn လုပ်ချင်သလောက် degree unit နဲ့အသုံးပြုနိုင်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            
+            &lt;head&gt;
+                &lt;title&gt;Rotate 3D Function&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/rotate_3d.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+            
+                    &lt;div class="content clearfix"&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .content {
+                perspective: 700px;
+            }
+
+            .photo {
+                transition: transform 1s cubic-bezier(.55,-.62,.27,1.2);
+                transform-style: preserve-3d;
+            }
+            .photo:hover {
+                /*transform: rotate3d(1,1,1,65deg);*/
+                transform: rotate3d(1,0,0,180deg);
+            }
+
+            .side-a,
+            .side-b{
+                backface-visibility: hidden;
+            }
+
+            .side-b{
+                transform: rotateX(180deg);
+            }
+    
+        </code>
+    </pre>
+    <p>
+        <a href="directory/rotate_3d.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+    <h2>Perspective-origin Property</h2>
+    <p>အစောပိုင်းက ကျွန်တော်တို့ content rule ထဲမှာ content div ကို 3D space တစ်ခုရဖို့အတွက် perspective value ကို 700px ပေးခဲ့ပါတယ်။ Default အနေနဲ့ viewer မြင်ရမယ့် 3D space ရဲ့ position ကတော့ screen ရဲ့ center ပဲဖြစ်ပါတယ်။ အခုဆိုရင်တော့ rotations တွေကို
+        ကျွန်တော်တို့မြင်နေရပါတယ်။ ဒါပေမယ့် အဲ့ဒီ viewing position ကို perspective-origin property နဲ့ change လုပ်နိုင်ပါတယ်။ တစ်ကယ်လို့ ကျွန်တော်တို့ image ရဲ့ scene ကို real life မှာမြင်ချင်တယ်ဆိုရင် ဒီလိုမျိုး direct centered ကျနေတဲ့ angle ကနေတော့
+        မြင်ရမှာမဟုတ်ပါဘူး။ perspective-origin က value နှစ်ခုကို accept လုပ်ပါတယ်။ Horizontal နဲ့ vertical position ဆိုပီးတော့ accept ဖြစ်တာပါ။ သူဟာ length units, percentages or position keyword, top, right, bottom နဲ့ left တွေကိုလည်း accept လုပ်ပေးနိုင်ပါတယ်။
+        Viewing position ရဲ့ default က screen ရဲ့center မှာဖြစ်သောကြောင့် perspective-origin က 50%,50% ဖြစ်ပါတယ်။ ကျန်တဲ့ value တွေကိုတော့ example မှာနိုင်ပါတယ်။ </p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+            &lt;!DOCTYPE html&gt;
+            &lt;html&gt;
+            
+            &lt;head&gt;
+                &lt;title&gt;Perspective Origin Property&lt;/title&gt;
+                &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+                &lt;link href='https://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700,800' rel='stylesheet' type='text/css'&gt;
+                &lt;link rel="stylesheet" href="../css/main.css"&gt;
+                &lt;link rel="stylesheet" href="../css/perspective_origin.css"&gt;
+            &lt;/head&gt;
+            
+            &lt;body&gt;
+                &lt;div class="container"&gt;
+                    &lt;header class="main-header clearfix"&gt;
+                        &lt;img class="logo" src="../images/camera.svg"&gt;
+                        &lt;h1 class="name"&gt;3DTransform &lt;span&gt;Gallery&lt;/span&gt;&lt;/h1&gt;
+                    &lt;/header&gt;
+            
+                    &lt;div class="content clearfix"&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/1.jpg" alt="Dazzling Auroras over Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Dazzling Auroras&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/2.jpg" alt="International Space Station"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;The Space Station&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                        &lt;div class="photo-container"&gt;
+                            &lt;div class="photo"&gt;
+                                &lt;img class="side-a" src="../images/3.jpg" alt="Planet Earth"&gt;
+                                &lt;div class="photo-desc side-b"&gt;
+                                    &lt;h3&gt;Planet Earth&lt;/h3&gt;
+                                    &lt;p&gt;Aenean lacinia bibendum nulla sed consectetur. Fusce dapibus, tellus ac cursus commodo.&lt;/p&gt;
+                                    &lt;a href="#" class="button"&gt;download&lt;/a&gt;
+                                &lt;/div&gt;
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+            
+                    &lt;/div&gt;
+                &lt;/div&gt;
+            &lt;/body&gt;
+            
+            &lt;/html&gt;
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+            Button Transitions
+          ==================================== */
+          
+          .button {
+              transition: background .3s;
+          }
+          
+          .button:hover {
+              background: rgba(74, 137, 202, 1);
+          }
+          
+          
+          /* ================================= 
+            Photo 3D Transforms & Transitions
+          ==================================== */
+          
+          .content {
+              perspective: 700px;
+              /* perspective-origin: bottom left; */
+              perspective-origin: 50% 100%;
+          }
+          
+          .photo {
+              transition: transform 2s cubic-bezier(.55, -.62, .27, 1.2);
+              transform-style: preserve-3d;
+          }
+          
+          .photo:hover {
+              transform: rotate3d(1, 0, 0, 180deg);
+          }
+          
+          .side-a,
+          .side-b {
+              backface-visibility: visible;
+          }
+          
+          .side-b {
+              transform: rotateY(180deg);
+          }            
+        </code>
+    </pre>
+    <p>
+        <a href="directory/perspective_origin.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <p>Default အရ 3D transformed elements တွေဟာ parent container ထဲမှာ define လုပ်ထားတဲ့ same perspective ကို share လုပ်ပေးပါတယ်။ ဆိုလိုတာကတော့ 3D scene အတွင်းမှာ same vanishing point အားလုံးရှိပါတယ်။ Left ဘက်မှာရှိတဲ့ photo ဟာ top left ဘက်ကို stretch out
+        ဖြစ်နေပြီးတော့ right ဘက်မှာရှိတဲ့ photo ကတော့ top right ကို stretch out ဖြစ်နေတာကို သတိထားမိမှာပါ။ ဒါပေမယ့် center မှာရှိတဲ့ photo ကတော့ flatter တစ်ခုရှိနေပြီး rotation ကို center မှာကျစေပါတယ်။ ကျွန်တော်တို့က photo gallery ကို တူညီစွာ perspective
+        ဖြစ်ချင်တာပါ။ ကျွန်တော်တို့က photo တိုင်းကို middle မှာပဲ အတိအကျ rotate ဖြစ်ချင်တာပါ။ ဒီလိုဖြစ်ဖို့ဆိုရင် content ဆိုတဲ့ rule ထဲက perspective-origin ကို ဖြုတ်ပြီးတော့ content နေရာမှာ photo-container လို့ပြောင်းပေးရမှာဖြစ်ပါတယ်။ </p>
+    <p>For Example:</p>
+    <pre>
+        <code class="html hljs xml">
+            /* ================================= 
+              Button Transitions
+            ==================================== */
+                    
+            .button {
+                transition: background .3s;
+            }
+            
+            .button:hover {
+                background: rgba(74, 137, 202, 1);
+            }
+            
+            
+            /* ================================= 
+              Photo 3D Transforms & Transitions
+            ==================================== */
+            
+            .photo-container {
+                perspective: 700px;
+                /* perspective-origin: bottom left; */
+                /* perspective-origin: 50% 100%; */
+            }
+            
+            .photo {
+                transition: transform 2s cubic-bezier(.55, -.62, .27, 1.2);
+                transform-style: preserve-3d;
+            }
+            
+            .photo:hover {
+                transform: rotate3d(1, 0, 0, 180deg);
+            }
+            
+            .side-a,
+            .side-b {
+                backface-visibility: visible;
+            }
+            
+            .side-b {
+                transform: rotateY(180deg);
+            }
+        </code>
+    </pre>
+    <hr>
+
+
+    <h2>Creating 3D Cube Gallery</h2>
+    <p>Side လေးခုပါတဲ့ cube တစ်ခုကို create လုပ်ပါမယ်။ Index file မှာလည်း ကျွန်တော်တို့က div နဲ့ image တွေထပ်ထည့်ရပါမယ်။ ရေးသားပုံကိုတော့ example မှာလေ့လာနိုင်ပါတယ်။ rotate element တွေကို ရနိုင်ဖို့ rotate 3D function နဲ့ multiple direction ထဲမှာလုပ်ဆောင်နိုင်ပါတယ်။
+        Translate3d နဲ့ကျွန်တော်တို့က x,y နဲ့ z axis ပေါ်က translation တွေကို function တစ်ခုတည်းနဲ့သတ်မှတ်နိုင်ပါတယ်။ Translate3d ဆိုတာ translatex, translatey နဲ့ translatez အတွက် shorthand function တစ်ခုဖြစ်ပါတယ်။ ဒါကြောင့် function က value ကို comma
+        နဲ့ခြားပီးတော့ element တွေကို x,y,z axis ပေါ်အသီးသီးရွေ့ဖို့ accept ဖြစ်ပါတယ်။</p>
+    <p>Example of HTML File:</p>
+    <pre>
+        <code class="html hljs xml">
+
+        </code>
+    </pre>
+    <p>Example of CSS File:</p>
+    <pre>
+        <code class="html hljs xml">
+            .cube-container {
+                box-shadow: 0 18px 40px 5px rgba(0,0,0,.4);
+                perspective: 800px;
+            }
+
+            .photo-cube {
+                transition: transform 2s ease-in-out;
+                width: 220px;
+                height: 200px;
+                transform-style: preserve-3d;
+            }
+
+            .photo-cube:hover {
+                transform: rotateY(-270deg);
+            }
+
+            .front,
+            .back,
+            .left,
+            .right {
+                width: 100%;
+                height: 100%;
+                display: block;
+                position: absolute;
+            }
+
+            .front {
+                transform: translateZ(110px);
+            }
+
+            .back {
+                transform: translateZ(-110px) rotateY(270deg);
+                transform-origin: center left;
+            }
+
+            .left {
+                transform: rotateY(-270deg) translateX(110px);
+                transform-origin: top right;
+            }
+
+            .right {
+                transform: translateZ(-110px) rotateY(180deg);
+            }
+        </code>
+    </pre>
+    <p>
+        <a href="directory/cube_photo.html" class="output" target="_blank">The result of above code:</a>
+    </p>
+    <hr>
+
+
+
+</body>
+
+</html>

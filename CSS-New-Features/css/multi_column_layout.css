@@ -1,0 +1,15 @@
+body {
+    font: 100%/1.5em sans-serif;
+    padding: 8% 5%;
+}
+
+div {
+    -webkit-column-count: 4;
+    -webkit-column-gap: 3em;
+    -webkit-column-rule: 1px dotted;
+    -webkit-column-width: 250px;
+}
+
+h2 {
+    -webkit-column-span: all;
+}

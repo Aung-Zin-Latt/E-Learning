@@ -1,0 +1,74 @@
+body {
+    margin: 0;
+    color: #878787;
+}
+
+h1 {
+    font-size: 90px;
+    color: white;
+}
+
+h2 {
+    font-size: 53px;
+}
+
+h3 {
+    font-size: 20px;
+    color: #48525c;
+}
+
+
+/****************** 
+Pseudo-class
+******************/
+
+a:link {
+    color: orange;
+}
+
+a:visited {
+    color: lightblue;
+}
+
+a:hover {
+    color: forestgreen;
+}
+
+a:active {
+    color: red;
+}
+
+a:focus {
+    color: white;
+    background-color: orange;
+}
+
+
+/* End Pseufo Class */
+
+.main-header {
+    background-color: orange;
+}
+
+header span {
+    color: white;
+}
+
+.primary-content {
+    text-align: center;
+}
+
+.t-border {
+    border-top: 3px solid lightgray;
+}
+
+
+/****************** 
+ID Selectors 
+******************/
+
+#main-footer {
+    padding-top: 60px;
+    padding-bottom: 60px;
+    border-bottom: solid 10px orange;
+}

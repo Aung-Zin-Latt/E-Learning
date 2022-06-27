@@ -1,0 +1,11 @@
+.container {
+    display: flex;
+    min-height: 50vh;
+    /* justify-content: center;     //equal to margin: auto; 
+    align-items: center; */
+}
+
+.item {
+    /* align-self: center;            //equal to align-items: center; */
+    margin: auto;
+}

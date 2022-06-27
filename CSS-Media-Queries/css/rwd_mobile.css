@@ -1,0 +1,152 @@
+/************************
+1700px
+************************/
+
+@media (max-width: 1700px) {
+    body {
+        background: yellow;
+    }
+    #header p {
+        font-size: 1.1em;
+    }
+    #misc #call_to_action {
+        font-size: 1.3em;
+    }
+    #features .feature .info p {
+        font-size: 1em;
+    }
+    #features .feature {
+        min-height: 150px;
+    }
+}
+
+
+/************************
+1400px
+************************/
+
+@media (max-midth: 1400px) {
+    body {
+        background: green;
+    }
+    #header p {
+        font-size: 1em;
+    }
+    #header h2 {
+        font-size: 1em;
+    }
+    #misc #call_to_action {
+        font-size: 1.2em;
+    }
+    #misc blockquote {
+        font-size: 1.2em;
+    }
+    #features .feature .info p {
+        font-size: 0.9em;
+    }
+    #features .feature {
+        min-height: 130px;
+    }
+}
+
+
+/************************
+1200px
+************************/
+
+@media (max-width: 1200px) {
+    body {
+        background: red;
+    }
+    #header {
+        float: left;
+        width: 50%;
+        margin-top: 10%;
+    }
+    #misc {
+        float: left;
+        clear: left;
+        width: 55%;
+    }
+    #phone {
+        float: right;
+    }
+    #misc #call_to_action,
+    #logo {
+        margin-top: 0;
+    }
+    #misc blockquote {
+        display: none;
+    }
+    #wrapper {
+        width: 90%;
+    }
+}
+
+
+/************************
+MOBILE SIZE
+************************/
+
+@media (max-width: 720px) {
+    body {
+        background: #C5C5C5;
+    }
+    #phone #video_container video {
+        display: none;
+    }
+    #phone #video_container #app_screenshot {
+        display: block;
+    }
+    #header,
+    #phone,
+    #misc {
+        float: left;
+        width: 100%;
+        margin: 0 auto;
+    }
+    #header p {
+        -webkit-text-size-adjust: none;
+    }
+    #phone {
+        margin-bottom: 50px;
+        background: transparent;
+        float: none;
+    }
+    #phone #video_container {
+        width: 100%;
+        margin: 0px auto 10%;
+    }
+    #misc #call_to_action {
+        background: #1DA051;
+    }
+    #misc #call_to_action:hover {
+        background: #46FF6C;
+    }
+    #features .feature:nth-child(1n) {
+        float: left;
+        width: 100%;
+        margin: 0 auto 3px auto;
+    }
+    #features .feature .info p {
+        font-size: 1em;
+        -webkit-text-size-adjust: none;
+    }
+}
+
+
+/************************
+iPad
+************************/
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: protrait) {
+    #phone #video_container video {
+        height: 282px;
+    }
+}
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024) and (orientation: landscape) {
+    #phone #video_container video {
+        height: 376px;
+    }
+}

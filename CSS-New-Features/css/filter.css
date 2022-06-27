@@ -1,0 +1,17 @@
+body {
+    background: #262626;
+    text-align: center;
+    padding-top: 20px;
+}
+
+img {
+    width: 60%;
+    /* border: 5px solid #FFF; */
+    /* -webkit-filter: sepia(100%); */
+    /* -webkit-filter: drop-shadow(20px 20px 10px #000); */
+    /* -webkit-filter: blur(5px); */
+    /* -webkit-filter: grayscale(100%); */
+    /* -webkit-filter: hue-rotate(100deg); */
+    /* -webkit-filter: opacity(50%); */
+    -webkit-filter: drop-shadow(20px 20px 10px #000);
+}

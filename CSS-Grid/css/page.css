@@ -1,0 +1,35 @@
+ /*************************
+ Page Layout
+ *************************/
+ 
+ * {
+     box-sizing: border-box;
+ }
+ 
+ body {
+     padding: 0;
+     margin: 10px;
+     font-size: 1.4em;
+     font-family: 'Varela', sans-serif;
+     font-weight: bold;
+     color: #6e859c;
+     background: lightgray;
+ }
+ 
+ .grid {
+     background: #fff;
+     border-radius: 0.285em;
+     box-shadow: 0 0.1em 0 0 rgba(0, 0, 0, 0.1);
+     margin: auto;
+ }
+ 
+ .item:nth-child(even) {
+     background-color: #48acb5;
+ }
+ 
+ .item {
+     background-color: #2a425a;
+     border-radius: 5px;
+     color: white;
+     text-align: center;
+ }

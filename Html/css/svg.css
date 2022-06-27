@@ -1,0 +1,20 @@
+.wrapper {
+    text-align: center;
+}
+
+.graphic,
+.graphic_with_test {
+    margin: 1em auto;
+    width: 20%;
+}
+
+h1 {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.graphic_with_test {
+    color: #fff;
+    background: url(../images/svg_img.svg) center center no-repeat;
+    height: 300px;
+}
